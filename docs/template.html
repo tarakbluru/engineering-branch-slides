@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[BRANCH_NAME] - Complete Career & Curriculum Guide">
+    <title>[BRANCH_NAME] | Career Guide</title>
+
+    <!--
+    ========================================
+    TEMPLATE INSTRUCTIONS
+    ========================================
+
+    This is the HTML template for creating engineering branch slide decks.
+
+    PLACEHOLDERS TO REPLACE:
+    - [BRANCH_NAME] = Full branch name (e.g., "Computer Science & Engineering")
+    - [BRANCH_ABBREVIATION] = Short form (e.g., CSE, EE, IS)
+    - [BRANCH_TAGLINE] = Engaging one-liner
+    - [PRIMARY_COLOR] = Main color hex code
+    - [SECONDARY_COLOR] = Lighter shade of primary
+    - [ACCENT] = Darker shade of primary
+    - [IMAGE_URL_X] = Unsplash image URLs (test with curl first!)
+    - [IMAGE_ALT_X] = Descriptive alt text for accessibility
+    - [IMAGE_CREDIT_X] = Photo credit (Photographer name)
+    - [CONTENT] = Replace with actual slide content
+    - [SPEAKER_NOTES] = Replace with 200-500 word narration scripts
+
+    BRANCH COLOR REFERENCE:
+    - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
+    - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
+    - EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
+    - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
+    - CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
+    - CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
+    - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
+
+    STEPS TO USE THIS TEMPLATE:
+    1. Copy this file to slides/[BRANCH_ABBREVIATION].html
+    2. Replace all [PLACEHOLDERS] with actual content
+    3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
+    4. Test image URLs: curl -I "URL" should return HTTP 200
+    5. Fill all 20 slides with content and speaker notes
+    6. Test locally by opening in browser
+    7. Test navigation (arrow keys, buttons, 'N' for notes)
+    8. Commit and push to GitHub
+    9. Verify on GitHub Pages
+
+    IMAGE GUIDELINES:
+    - Use format: https://images.unsplash.com/photo-[ID]?w=800&q=80
+    - Test URL works before adding
+    - Add descriptive alt text
+    - Include photographer credit: "Photo by [Name] on Unsplash"
+
+    ========================================
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* REPLACE THESE COLOR VALUES WITH BRANCH-SPECIFIC COLORS */
+            --primary-color: [PRIMARY_COLOR];       /* e.g., #FF6600 */
+            --secondary-color: [SECONDARY_COLOR];   /* e.g., #FF8833 */
+            --accent: [ACCENT];                     /* e.g., #CC5200 */
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .speaker-notes {
+            display: none;
+            background: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        body.show-notes .speaker-notes {
+            display: block;
+        }
+
+        .slide-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 2rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .slide { padding: 3rem 3rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .speaker-notes { display: block; }
+            .slide { page-break-after: always; }
+            .nav-buttons, .slide-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="slide-nav" role="navigation" aria-label="Slide navigation">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
+    </nav>
+
+    <main class="slides-container" role="main">
+
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide active" id="slide-1" data-slide-number="1" data-slide-type="title">
+            <div class="content">
+                <h1>[BRANCH_NAME]</h1>
+                <p class="tagline">[BRANCH_TAGLINE]</p>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: 200-500 words introducing the branch, why it's exciting, what the presentation will cover. See template.md Slide 1 for guidance.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 2: Overview -->
+        <section class="slide" id="slide-2" data-slide-number="2">
+            <h2>What is [BRANCH_NAME]?</h2>
+            <div class="two-column">
+                <div>
+                    <p><strong>Core Definition:</strong> [1-2 sentence definition of what this branch is fundamentally about]</p>
+
+                    <h3>Fundamental Areas</h3>
+                    <ul>
+                        <li><strong>[Area 1]:</strong> [Brief description]</li>
+                        <li><strong>[Area 2]:</strong> [Brief description]</li>
+                        <li><strong>[Area 3]:</strong> [Brief description]</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Key Insight:</strong> [Compelling fact or statistic demonstrating relevance and scale]
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="[IMAGE_URL_1]" alt="[IMAGE_ALT_1]">
+                    <p class="image-caption">Photo by [IMAGE_CREDIT_1] on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain what this branch is about, historical context, main goals of professionals, compelling facts. See template.md Slide 2 for guidance.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 3: First & Second Year Curriculum -->
+        <section class="slide" id="slide-3" data-slide-number="3">
+            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="two-column">
+                <div>
+                    <h3>First Year (Common Engineering Foundation)</h3>
+                    <ul>
+                        <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
+                        <li><strong>Engineering Physics</strong> - [Branch-specific physics topics]</li>
+                        <li><strong>Engineering Chemistry</strong> - Material Science, Electrochemistry</li>
+                        <li><strong>Programming Fundamentals</strong> - [Language: C/C++/Python]</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing</li>
+                        <li><strong>[Branch-specific Foundation]</strong></li>
+                    </ul>
+
+                    <h3>Second Year - [BRANCH_ABBREVIATION] Begins</h3>
+                    <ul>
+                        <li><strong>[Core Subject 1]</strong> - [Key topics]</li>
+                        <li><strong>[Core Subject 2]</strong> - [Key topics]</li>
+                        <li><strong>[Core Subject 3]</strong> - [Key topics]</li>
+                        <li><strong>[Core Subject 4]</strong> - [Key topics]</li>
+                        <li><strong>Lab Work:</strong> [Specific labs]</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="[IMAGE_URL_2]" alt="[IMAGE_ALT_2]">
+                    <p class="image-caption">Photo by [IMAGE_CREDIT_2] on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Walk through first year foundation explaining importance of math/physics/programming for this branch. Describe second year core subjects and hands-on lab work. See template.md Slide 3.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 4: Third Year Curriculum -->
+        <section class="slide" id="slide-4" data-slide-number="4">
+            <h2>Third Year - Core Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Major Subjects</h3>
+                    <ul>
+                        <li><strong>[Subject 1]</strong> - [Topics]</li>
+                        <li><strong>[Subject 2]</strong> - [Topics]</li>
+                        <li><strong>[Subject 3]</strong> - [Topics]</li>
+                        <li><strong>[Subject 4]</strong> - [Topics]</li>
+                        <li><strong>[Subject 5]</strong> - [Topics]</li>
+                        <li><strong>[Subject 6]</strong> - [Topics]</li>
+                    </ul>
+
+                    <h3>Lab Courses</h3>
+                    <ul>
+                        <li>[Lab 1] ([Technologies])</li>
+                        <li>[Lab 2]</li>
+                        <li>[Lab 3]</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Mini Project:</strong> [Example project types for this branch]
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="[IMAGE_URL_3]" alt="[IMAGE_ALT_3]">
+                    <p class="image-caption">Photo by [IMAGE_CREDIT_3] on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Deep dive into core third year subjects, explain practical applications, describe lab work, discuss mini projects. See template.md Slide 4.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 5: Fourth Year Curriculum -->
+        <section class="slide" id="slide-5" data-slide-number="5">
+            <h2>Fourth Year - Advanced & Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Advanced Courses</h3>
+                    <ul>
+                        <li><strong>[Advanced Course 1]</strong> - [Topics/Tech]</li>
+                        <li><strong>[Advanced Course 2]</strong> - [Topics/Tech]</li>
+                        <li><strong>[Advanced Course 3]</strong> - [Topics/Tech]</li>
+                        <li><strong>[Advanced Course 4]</strong> - [Topics/Tech]</li>
+                    </ul>
+
+                    <h3>Electives (Choose 3-4)</h3>
+                    <ul>
+                        <li>[Elective 1]</li>
+                        <li>[Elective 2]</li>
+                        <li>[Elective 3]</li>
+                        <li>[Elective 4]</li>
+                        <li>[Elective 5]</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card">
+                        <h4>Major Project (6-8 months)</h4>
+                        <p>Capstone project involving design, implementation, and testing. Often in collaboration with industry or research labs.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Emerging Trends</h4>
+                        <ul>
+                            <li>[Trend 1]</li>
+                            <li>[Trend 2]</li>
+                            <li>[Trend 3]</li>
+                            <li>[Trend 4]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Discuss advanced courses and cutting-edge technologies, explain elective specializations and career paths, describe major project opportunities. See template.md Slide 5.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 6: Skills Development -->
+        <section class="slide" id="slide-6" data-slide-number="6">
+            <h2>Skills You'll Develop</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Skill Category 1]</h4>
+                    <p>[Description and application]</p>
+                </div>
+                <div class="card">
+                    <h4>[Skill Category 2]</h4>
+                    <p>[Description and application]</p>
+                </div>
+                <div class="card">
+                    <h4>[Skill Category 3]</h4>
+                    <p>[Description and application]</p>
+                </div>
+                <div class="card">
+                    <h4>[Skill Category 4]</h4>
+                    <p>[Description and application]</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tools & Technologies:</strong> [List 8-12 key software tools, hardware, platforms]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain each technical skill in detail, describe tools students will master, discuss professional skills. See template.md Slide 6.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 7: Entry-Level Careers -->
+        <section class="slide" id="slide-7" data-slide-number="7">
+            <h2>Career Opportunities - Entry Level</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Job Title 1]</h4>
+                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>[Job Title 2]</h4>
+                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>[Job Title 3]</h4>
+                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>[Job Title 4]</h4>
+                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Detailed explanation of each entry-level role, day-to-day work, technologies used, salary tiers, job market. See template.md Slide 7.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 8: Mid-Career & Senior Roles -->
+        <section class="slide" id="slide-8" data-slide-number="8">
+            <h2>Career Growth - Mid to Senior Level</h2>
+
+            <h3>Mid-Level Roles (3-7 years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Mid-Level Title 1]</h4>
+                    <p>[Lead responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+                </div>
+                <div class="card">
+                    <h4>[Mid-Level Title 2]</h4>
+                    <p>[Lead responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+                </div>
+            </div>
+
+            <h3>Senior-Level Roles (8+ years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Senior Title 1]</h4>
+                    <p>[Senior responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                </div>
+                <div class="card">
+                    <h4>[Senior Title 2]</h4>
+                    <p>[Senior responsibilities]</p>
+                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Career progression timeline, increased responsibilities at each level, alternative paths (entrepreneurship, research, consulting). See template.md Slide 8.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 9: Industry Sectors -->
+        <section class="slide" id="slide-9" data-slide-number="9">
+            <h2>Industry Sectors & Companies</h2>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Industry 1]</h4>
+                    <p>[What they do, typical roles]</p>
+                </div>
+                <div class="card">
+                    <h4>[Industry 2]</h4>
+                    <p>[What they do, typical roles]</p>
+                </div>
+                <div class="card">
+                    <h4>[Industry 3]</h4>
+                    <p>[What they do, typical roles]</p>
+                </div>
+                <div class="card">
+                    <h4>[Industry 4]</h4>
+                    <p>[What they do, typical roles]</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> [Company 1], [Company 2], [Company 3], [Company 4], [Company 5], [Company 6], [Company 7], [Company 8]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain each industry sector, why they hire this branch, product vs service companies, startup ecosystem. See template.md Slide 9.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 10: Higher Education -->
+        <section class="slide" id="slide-10" data-slide-number="10">
+            <h2>Higher Education Pathways</h2>
+
+            <h3>Master's Specializations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Specialization 1]</h4>
+                    <p><strong>Focus:</strong> [Research/technical focus]</p>
+                    <p><strong>Career Path:</strong> [Outcomes]</p>
+                </div>
+                <div class="card">
+                    <h4>[Specialization 2]</h4>
+                    <p><strong>Focus:</strong> [Research/technical focus]</p>
+                    <p><strong>Career Path:</strong> [Outcomes]</p>
+                </div>
+                <div class="card">
+                    <h4>[Specialization 3]</h4>
+                    <p><strong>Focus:</strong> [Research/technical focus]</p>
+                    <p><strong>Career Path:</strong> [Outcomes]</p>
+                </div>
+                <div class="card">
+                    <h4>[Specialization 4]</h4>
+                    <p><strong>Focus:</strong> [Research/technical focus]</p>
+                    <p><strong>Career Path:</strong> [Outcomes]</p>
+                </div>
+            </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>[Area 1] • [Area 2] • [Area 3] • [Area 4] • [Area 5]</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, Stanford, [Univ 3], [Univ 4] (USA) | [Univ 1], [Univ 2] (Europe) | IITs, IISc (India)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain each specialization, PhD path, top universities, timing considerations for higher education. See template.md Slide 10.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 11: Day-to-Day Work -->
+        <section class="slide" id="slide-11" data-slide-number="11">
+            <h2>A Day in the Life - [JOB_ROLE] at [COMPANY_TYPE]</h2>
+
+            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <ul>
+                <li><strong>9:00-9:30:</strong> [Activity and description]</li>
+                <li><strong>9:30-11:00:</strong> [Activity and description]</li>
+                <li><strong>11:00-12:30:</strong> [Activity and description]</li>
+            </ul>
+
+            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>1:30-3:00:</strong> [Activity and description]</li>
+                <li><strong>3:00-5:00:</strong> [Activity and description]</li>
+            </ul>
+
+            <h3>Evening & Beyond</h3>
+            <ul>
+                <li><strong>5:00-6:00:</strong> [Activity and description]</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> [Challenge 1] • [Challenge 2] • [Challenge 3]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Realistic walkthrough of a typical day with specific details, tools used, challenges faced, what makes work satisfying. See template.md Slide 11.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 12: Salary & Growth -->
+        <section class="slide" id="slide-12" data-slide-number="12">
+            <h2>Compensation & Job Market Outlook</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Salary Progression (India)</h3>
+                    <ul>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1), ₹[X-Y] LPA (Top)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
+                        <li><strong>Lead (12+ yr):</strong> ₹[X-Y] LPA to ₹[X] Cr+</li>
+                    </ul>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $[X-Y]K, Mid $[X-Y]K, Senior $[X-Y]K</li>
+                        <li><strong>Europe:</strong> [X-Y]% lower than US</li>
+                        <li><strong>Singapore:</strong> [X-Y]% of US</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Job Market (2025-2030)</h3>
+                    <p><strong>Demand:</strong> [Growing/Stable/Declining]</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>[Factor 1]</li>
+                        <li>[Factor 2]</li>
+                        <li>[Factor 3]</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>[Skill 1]</li>
+                        <li>[Skill 2]</li>
+                        <li>[Skill 3]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Honest salary discussion across tiers, job market outlook with data, skills commanding premium, international opportunities. See template.md Slide 12.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 13: Current Trends -->
+        <section class="slide" id="slide-13" data-slide-number="13">
+            <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2025-2030)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Trend 1]</h4>
+                    <p>[What it is, why growing, impact]</p>
+                </div>
+                <div class="card">
+                    <h4>[Trend 2]</h4>
+                    <p>[What it is, why growing, impact]</p>
+                </div>
+                <div class="card">
+                    <h4>[Trend 3]</h4>
+                    <p>[What it is, why growing, impact]</p>
+                </div>
+                <div class="card">
+                    <h4>[Trend 4]</h4>
+                    <p>[What it is, why growing, impact]</p>
+                </div>
+            </div>
+
+            <h3>Research Frontiers</h3>
+            <p>[Research 1] • [Research 2] • [Research 3] • [Research 4]</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Detailed explanation of each trend, how they're transforming industries, research frontiers, advice for students. See template.md Slide 13.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 14: Impact of AI - Part 1 -->
+        <section class="slide" id="slide-14" data-slide-number="14">
+            <h2>How AI is Transforming [BRANCH_NAME]</h2>
+
+            <h3>AI Applications</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Application 1]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 2]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 3]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 4]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Tasks Being Automated</h3>
+                    <ul>
+                        <li>[Task 1] - [Level/timeline]</li>
+                        <li>[Task 2] - [Level/timeline]</li>
+                        <li>[Task 3] - [Level/timeline]</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>[Task 1] - [Why valuable]</li>
+                        <li>[Task 2] - [Why valuable]</li>
+                        <li>[Task 3] - [Why valuable]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain AI applications in detail, honest discussion of automation, which tasks become more valuable, balanced perspective. See template.md Slide 14.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 15: Impact of AI - Part 2 -->
+        <section class="slide" id="slide-15" data-slide-number="15">
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li>[Skill 1] - [Why AI-resistant]</li>
+                        <li>[Skill 2] - [Why AI-resistant]</li>
+                        <li>[Skill 3] - [Why AI-resistant]</li>
+                    </ul>
+
+                    <h4>Human Skills</h4>
+                    <ul>
+                        <li>[Skill 1] - [Why humans better]</li>
+                        <li>[Skill 2] - [Why humans better]</li>
+                        <li>[Skill 3] - [Why humans better]</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>[Action 1]</li>
+                        <li>[Action 2]</li>
+                        <li>[Action 3]</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>[Action 1]</li>
+                        <li>[Action 2]</li>
+                        <li>[Action 3]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities AI Creates:</strong> [Opp 1] • [Opp 2] • [Opp 3]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Strategy for staying relevant, future-proof skills, concrete advice for college and early career, opportunities created by AI. See template.md Slide 15.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 16: Educational Resources -->
+        <section class="slide" id="slide-16" data-slide-number="16">
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Channel 1]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 2]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 3]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 4]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+            </div>
+
+            <h3>Online Courses</h3>
+            <ul>
+                <li><strong>[Course 1]:</strong> [Platform], [Level], [What you learn]</li>
+                <li><strong>[Course 2]:</strong> [Platform], [Level], [What you learn]</li>
+                <li><strong>[Course 3]:</strong> [Platform], [Level], [What you learn]</li>
+            </ul>
+
+            <h3>Books & Communities</h3>
+            <p><strong>Books:</strong> "[Title 1]", "[Title 2]", "[Title 3]"</p>
+            <p><strong>Communities:</strong> [Website/Forum 1], [Website/Forum 2], [Website/Forum 3]</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Explain each resource in detail, why selected, concrete learning path recommendations. See template.md Slide 16.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 17: Real-World Projects -->
+        <section class="slide" id="slide-17" data-slide-number="17">
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Project 1]</h4>
+                    <p><strong>What:</strong> [Description]</p>
+                    <p><strong>Tech:</strong> [Stack]</p>
+                    <p><strong>Impact:</strong> [Why special]</p>
+                </div>
+                <div class="card">
+                    <h4>[Project 2]</h4>
+                    <p><strong>What:</strong> [Description]</p>
+                    <p><strong>Tech:</strong> [Stack]</p>
+                    <p><strong>Impact:</strong> [Why special]</p>
+                </div>
+            </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Company/Project 1]</h4>
+                    <p>[Breakthrough innovation, problem solved]</p>
+                </div>
+                <div class="card">
+                    <h4>[Company/Project 2]</h4>
+                    <p>[Breakthrough innovation, problem solved]</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> [Comp 1] • [Comp 2] • [Comp 3]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Inspiring project stories, industry innovations explained, competitions and their value, social impact projects. See template.md Slide 17.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 18: Pros & Cons -->
+        <section class="slide" id="slide-18" data-slide-number="18">
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>[Pro 1]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Pro 2]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Pro 3]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>[Challenge 1]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Challenge 2]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Challenge 3]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+                <p><strong>Might struggle if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Honest pros and cons with examples, who thrives and who struggles, balanced perspective on choosing this branch. See template.md Slide 18.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 19: Decision Checklist -->
+        <section class="slide" id="slide-19" data-slide-number="19">
+            <h2>Is [BRANCH_ABBREVIATION] Right for You?</h2>
+
+            <h3>✓ Choose [BRANCH_ABBREVIATION] If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+                <li><strong>Skills:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+                <li><strong>Goals:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>[Preference that suggests different branch 1]</li>
+                <li>[Preference that suggests different branch 2]</li>
+                <li>[Preference that suggests different branch 3]</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>[Question about interest]</li>
+                <li>[Question about skills]</li>
+                <li>[Question about work preferences]</li>
+                <li>[Question about career expectations]</li>
+                <li>[Question about learning style]</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> [Action 1] • [Action 2] • [Action 3]
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Help students make informed decision, explain alignment indicators, walk through self-assessment, reassure those undecided. See template.md Slide 19.]</p>
+            </aside>
+        </section>
+
+        <!-- Slide 20: Closing -->
+        <section class="slide" id="slide-20" data-slide-number="20">
+            <h2>Thank You!</h2>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About [BRANCH_NAME]:</strong> [One sentence summary]</li>
+                <li><strong>Career Potential:</strong> [One sentence about opportunities]</li>
+                <li><strong>Right For You If:</strong> [One sentence criteria]</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>[2-3 sentences of encouragement about informed choice]</p>
+            </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li>YouTube Channels (Slide 16)</li>
+                <li>Online Courses (Slide 16)</li>
+                <li>Project Ideas (Slide 17)</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Learning!</h3>
+            <p>[Final motivational message]</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>[SPEAKER_NOTES: Recap key points, perspective on decision-making, encourage exploration, final motivational message. See template.md Slide 20.]</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            prevBtn.disabled = (currentSlide === 1);
+            nextBtn.disabled = (currentSlide === totalSlides);
+
+            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key === 'n' || event.key === 'N') {
+                document.body.classList.toggle('show-notes');
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
