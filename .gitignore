@@ -16,3 +16,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.bak
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Video files (hosted on YouTube)
+*.mp4

@@ -20,6 +20,22 @@ Interactive HTML-based slide deck presentations for different engineering branch
 | **CSE - AI & ML (CSE-AIML)** | Coming Soon | - |
 | **CSE - Cyber Security (CSE-CS)** | Coming Soon | - |
 
+### Video Presentations
+
+Watch narrated video versions of each branch guide on YouTube:
+
+| Branch | Video Guide | Duration |
+|--------|-------------|----------|
+| **Electronics & Communication (EC)** | [Watch on YouTube](YOUTUBE_LINK_EC) | ~XX min |
+| **Computer Science & Engineering (CSE)** | [Watch on YouTube](YOUTUBE_LINK_CSE) | ~XX min |
+| **Electrical Engineering (EE)** | Coming Soon | - |
+| **Information Science (IS)** | Coming Soon | - |
+| **CSE - Data Science** | Coming Soon | - |
+| **CSE - AI & ML** | Coming Soon | - |
+| **CSE - Cyber Security** | Coming Soon | - |
+
+*Note: Videos can be set to "Unlisted" on YouTube - accessible via link but not searchable publicly.*
+
 ---
 
 ## Features
