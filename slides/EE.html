@@ -844,30 +844,30 @@
                         <p>Receive briefing from night shift – plant status, issues, equipment maintenance, generation schedule</p>
                     </div>
                     <div class="card">
-                        <h4>9:30 - 11:00: Feature Development</h4>
-                        <p>Writing code for new feature. Check design specs, write implementation, write tests, commit to version control</p>
+                        <h4>8:30 - 10:00: Control Room Monitoring</h4>
+                        <p>Monitor generator output, grid frequency, voltage levels, auxiliary systems. Respond to alarms, coordinate load changes</p>
                     </div>
                     <div class="card">
-                        <h4>11:00 - 12:30: Code Review</h4>
-                        <p>Review teammates' code for correctness and best practices. Provide feedback, discuss architectural decisions</p>
+                        <h4>10:00 - 12:00: Inspection & Maintenance</h4>
+                        <p>Field visit to generators, excitation systems, switchyard, transformers. Coordinate preventive maintenance activities</p>
                     </div>
                 </div>
 
                 <div>
-                    <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+                    <h3>Afternoon (1:00 PM - 4:00 PM)</h3>
                     <div class="card">
-                        <h4>1:30 - 3:00: Debugging & Fixing Issues</h4>
-                        <p>Investigate production bug. Reproduce issue, use logs and debugging tools to identify root cause, implement fix</p>
+                        <h4>1:00 - 2:30: Troubleshooting Equipment</h4>
+                        <p>Investigate 6.6 kV transformer trip. Review protection relay logs, inspect equipment, identify fault, coordinate repair</p>
                     </div>
                     <div class="card">
-                        <h4>3:00 - 5:00: Architectural Discussion</h4>
-                        <p>Meeting with team to discuss technical approach for upcoming feature. Database schema, API design, scalability</p>
+                        <h4>2:30 - 4:00: Documentation & Meetings</h4>
+                        <p>Update maintenance logs, prepare generation report, attend safety meeting on arc flash procedures</p>
                     </div>
 
                     <h3>Evening & Beyond</h3>
                     <div class="card">
-                        <h4>5:00 - 6:00: Learning & Documentation</h4>
-                        <p>Reading articles, watching tutorials, updating documentation, learning from senior engineers</p>
+                        <h4>4:00 - 5:00: Coordination & Planning</h4>
+                        <p>Coordinate next day's schedule, plan generator outage for maintenance, review switching operations</p>
                     </div>
                 </div>
             </div>
@@ -875,17 +875,17 @@
             <div class="highlight">
                 <h4>Real Work Challenges</h4>
                 <ul>
-                    <li><strong>Debugging Complex Issues:</strong> Hours tracking down subtle bugs in race conditions or edge cases</li>
-                    <li><strong>Balancing Speed and Quality:</strong> Pressure to ship quickly while maintaining code quality</li>
-                    <li><strong>Cross-team Dependencies:</strong> Waiting for another team's API, requiring coordination</li>
+                    <li><strong>Emergency Outages:</strong> Generator/transformer faults requiring immediate diagnosis under time pressure</li>
+                    <li><strong>Safety-Critical Environment:</strong> Working with 22 kV systems where mistakes can be fatal</li>
+                    <li><strong>Shift Work & Remote Locations:</strong> 24/7 plant operation requiring shift rotations, plants often in remote areas</li>
                 </ul>
                 <h4>What Makes This Job Satisfying</h4>
-                <p>Seeing your code deployed and used by thousands/millions. Creative problem-solving aspect. Continuous learning – always new technologies to master.</p>
+                <p>Producing electricity powering millions of homes and industries. Operating massive equipment (500 MW generators, 315 MVA transformers). Job security in PSU with excellent benefits. Deep learning about electromechanical systems at scale.</p>
             </div>
 
             <div class="speaker-notes">
                 <h4>Speaker Notes</h4>
-                <p>Let me paint a realistic picture of what your day might look like as a software engineer at a product company. The day starts around 9-9:30 AM (tech companies have flexible hours). You begin with a stand-up meeting where your team quickly syncs up. Everyone shares what they worked on yesterday, what they're doing today, and blockers. It's usually 10-15 minutes. Then you dive into actual coding – maybe implementing a new "share with friends" feature. You open the design document, plan your approach, and start writing code in VS Code, referring to existing codebase and Stack Overflow. You write unit tests, run the app locally to test, and fix bugs. Around mid-morning, you participate in code reviews – checking pull requests from teammates for correctness and efficiency. You leave comments and suggestions. Similarly, others review your code. This peer review ensures high quality and is a great learning opportunity. After lunch, you might debug a production issue – users can't upload photos. You investigate error logs, reproduce the issue, use debugging tools, and identify the problem. You fix it and write a test to catch this in the future. In the afternoon, you have a technical planning meeting discussing the best approach for an upcoming feature – should we use SQL or NoSQL? How should we structure the API? Real challenges include debugging complex issues that take hours, pressure to deliver quickly, and waiting for dependencies on other teams. What makes it satisfying is seeing your work deployed and used by real people, the creative problem-solving aspect, and continuous learning. Work-life balance varies – product companies generally respect personal time, though there might be occasional crunch periods. Many companies offer remote work or flexible hours.</p>
+                <p>Let me paint a realistic picture of a day as an electrical engineer at a 400 MW coal-fired thermal power plant. The day starts with shift handover around 8 AM. Power plants operate continuously, so there's always an engineer on duty. The outgoing engineer briefs you: generator currently at 380 MW, one auxiliary pump under maintenance running on backup, grid scheduled generation reduction to 320 MW at 11 AM. You head to the control room – rows of screens showing generator output, stator/rotor current, power factor, grid frequency (ideally 50.00 Hz), voltage levels (400 kV transmission, 22 kV generator, 6.6 kV auxiliary), bearing temperatures, vibrations. Your job: monitor parameters, respond to alarms (high bearing temperature = lubrication issue needing immediate attention), execute load changes as per grid instructions. Around 10 AM, field inspection – walking through massive generator hall, checking excitation system, visiting switchyard where 400 kV lines connect, inspecting 315 MVA transformers, checking auxiliary systems and protection panels. You coordinate with maintenance on scheduled preventive maintenance requiring safe isolation (breaker opening, voltage verification, safety locks) and work permits. After lunch, alarm sounds: 6.6 kV transformer tripped on differential protection (internal fault). Check backup transformer status (automatically picked up load – redundancy built in). Review protection relay logs showing current imbalance indicating internal short circuit. Coordinate maintenance for detailed inspection – oil sampling for dissolved gas analysis, insulation testing. Turns out insulation degradation caused turn-to-turn fault. Transformer needs repair. This troubleshooting using protection data, electrical tests, and logic is daily reality. Afternoon includes documentation – updating maintenance system, daily generation report, safety meetings. Safety paramount with lethal voltages (22 kV instantly fatal). Arc flash incidents rare but catastrophic. Strict procedures and PPE keep you safe. Evening coordination for next day – generator scheduled for annual maintenance outage requiring extensive planning: switching sequences, replacement power arrangement, contractor coordination, spare parts ordering. Real challenges: emergency outages under pressure (grid needs power), troubleshooting in loud hot environments (45°C boiler halls), safety-critical work requiring constant vigilance, shift work affecting work-life balance, remote locations. What's satisfying: producing hundreds of megawatts powering millions, operating massive equipment (generators weighing hundreds of tons spinning at 3000 RPM, transformers with thousands of liters of oil), deep electromechanical understanding, excellent PSU job security and benefits, good work-life balance after junior years.</p>
             </div>
         </div>
 
@@ -968,27 +968,27 @@
         <div class="slide">
             <h2>Current Trends & Future Outlook</h2>
 
-            <h3>Hot Topics & Technologies (2025-2030)</h3>
+            <h3>Hot Topics & Technologies (2026-2032)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>Generative AI & Large Language Models</h4>
-                    <p>ChatGPT, GPT-4, Claude transforming how software is built. Every company adding AI features; demand for LLM engineers skyrocketing.</p>
+                    <h4>Renewable Energy Integration & Smart Grids</h4>
+                    <p>Solar and wind dominating new capacity. Smart grids using IoT, AI for optimization. India targeting 500 GW renewable by 2030. Massive job creation.</p>
                 </div>
                 <div class="card">
-                    <h4>Edge AI & TinyML</h4>
-                    <p>Running AI on devices (phones, IoT) rather than cloud. Enables real-time processing, privacy, offline functionality.</p>
+                    <h4>Electric Vehicles & Charging Infrastructure</h4>
+                    <p>EV adoption accelerating. Requires charging networks, battery management systems, V2G integration. Creating new career paths in EV powertrains.</p>
                 </div>
                 <div class="card">
-                    <h4>Cloud-Native Development</h4>
-                    <p>Microservices, containers (Docker), Kubernetes, serverless. Almost all modern apps are cloud-native; essential skill.</p>
+                    <h4>Energy Storage & Battery Systems</h4>
+                    <p>Grid-scale battery storage essential for renewable balancing. Lithium-ion, flow batteries. Demand for BMS specialists, storage engineers.</p>
                 </div>
                 <div class="card">
-                    <h4>Quantum Computing</h4>
-                    <p>Google, IBM building quantum computers that could revolutionize cryptography, optimization. Still early but creating new career paths.</p>
+                    <h4>Power Electronics Revolution</h4>
+                    <p>Wide-bandgap semiconductors (SiC, GaN) enabling higher efficiency. Used in EV inverters, solar converters. Premium salaries for these skills.</p>
                 </div>
                 <div class="card">
-                    <h4>Web3 & Blockchain</h4>
-                    <p>Decentralized applications, cryptocurrencies, NFTs, DAOs. Growing niche with high salaries but more risk and volatility.</p>
+                    <h4>Hydrogen & Green Fuels</h4>
+                    <p>Green hydrogen from renewable electricity. Electrolyzers for heavy transport, industry. Emerging field requiring EE for electrolyzer design.</p>
                 </div>
             </div>
 
@@ -996,20 +996,21 @@
                 <div>
                     <h3>Industries Being Transformed</h3>
                     <ul>
-                        <li><strong>Healthcare:</strong> AI diagnosis, telemedicine, health records digitization, drug discovery using ML</li>
-                        <li><strong>Finance:</strong> Digital payments, algorithmic trading, fraud detection, robo-advisors, DeFi</li>
-                        <li><strong>Transportation:</strong> Autonomous vehicles, ride-sharing platforms, drone delivery systems</li>
-                        <li><strong>Education:</strong> Online learning platforms, adaptive learning AI, virtual classrooms</li>
+                        <li><strong>Power Sector:</strong> Transitioning coal to renewable, grid modernization, flexibility, storage</li>
+                        <li><strong>Transportation:</strong> Electric buses, trucks, railways – electrification of entire transport sector</li>
+                        <li><strong>Manufacturing:</strong> Industrial electrification, replacing fossil fuel processes with electric alternatives</li>
+                        <li><strong>Buildings:</strong> Electrification of heating/cooling, smart buildings with energy management</li>
                     </ul>
                 </div>
 
                 <div>
                     <h3>Research Frontiers</h3>
                     <ul>
-                        <li>Artificial General Intelligence (AGI)</li>
-                        <li>Neuromorphic Computing</li>
-                        <li>Privacy-Preserving ML</li>
-                        <li>Human-AI Collaboration</li>
+                        <li>High-penetration renewable grids (stability, frequency control)</li>
+                        <li>Wireless power transmission for EV charging</li>
+                        <li>Superconducting power transmission (lossless)</li>
+                        <li>AI/ML for grid operation and optimization</li>
+                        <li>Microgrids for remote areas and resilience</li>
                     </ul>
 
                     <div class="highlight">
