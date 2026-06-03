@@ -14,7 +14,7 @@ Interactive HTML-based slide deck presentations for different engineering branch
 |--------|-----------|---------------|
 | **Electronics & Communication (EC)** | [View Slides](https://tarakbluru.github.io/engineering-branch-slides/slides/EC.html) | [EC.md](docs/EC.md) |
 | **Computer Science & Engineering (CSE)** | [View Slides](https://tarakbluru.github.io/engineering-branch-slides/slides/CSE.html) | [CSE.md](docs/CSE.md) |
-| **Electrical Engineering (EE)** | Coming Soon | [EE.md](docs/EE.md) |
+| **Electrical Engineering (EE)** | [View Slides](https://tarakbluru.github.io/engineering-branch-slides/slides/EE.html) | [EE.md](docs/EE.md) |
 | **Information Science (IS)** | Coming Soon | - |
 | **CSE - Data Science (CSE-DS)** | Coming Soon | - |
 | **CSE - AI & ML (CSE-AIML)** | Coming Soon | - |
