@@ -6,55 +6,6 @@
     <meta name="description" content="Electrical Engineering - Complete Career & Curriculum Guide">
     <title>Electrical Engineering | Career Guide</title>
 
-    <!--
-    ========================================
-    TEMPLATE INSTRUCTIONS
-    ========================================
-
-    This is the HTML template for creating engineering branch slide decks.
-
-    PLACEHOLDERS TO REPLACE:
-    - Electrical Engineering = Full branch name (e.g., "Computer Science & Engineering")
-    - EE = Short form (e.g., CSE, EE, IS)
-    - Powering the World - From Generation to Smart Grids = Engaging one-liner
-    - #FFB800 = Main color hex code
-    - #FFCA33 = Lighter shade of primary
-    - #CC9400 = Darker shade of primary
-    - [IMAGE_URL_X] = Unsplash image URLs (test with curl first!)
-    - [IMAGE_ALT_X] = Descriptive alt text for accessibility
-    - [IMAGE_CREDIT_X] = Photo credit (Photographer name)
-    - [CONTENT] = Replace with actual slide content
-    - [SPEAKER_NOTES] = Replace with 200-500 word narration scripts
-
-    BRANCH COLOR REFERENCE:
-    - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
-    - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
-    - EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
-    - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
-    - CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
-    - CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
-    - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
-
-    STEPS TO USE THIS TEMPLATE:
-    1. Copy this file to slides/EE.html
-    2. Replace all [PLACEHOLDERS] with actual content
-    3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
-    4. Test image URLs: curl -I "URL" should return HTTP 200
-    5. Fill all 20 slides with content and speaker notes
-    6. Test locally by opening in browser
-    7. Test navigation (arrow keys, buttons, 'N' for notes)
-    8. Commit and push to GitHub
-    9. Verify on GitHub Pages
-
-    IMAGE GUIDELINES:
-    - Use format: https://images.unsplash.com/photo-[ID]?w=800&q=80
-    - Test URL works before adding
-    - Add descriptive alt text
-    - Include photographer credit: "Photo by [Name] on Unsplash"
-
-    ========================================
-    -->
-
     <style>
         * {
             margin: 0;
@@ -63,10 +14,9 @@
         }
 
         :root {
-            /* REPLACE THESE COLOR VALUES WITH BRANCH-SPECIFIC COLORS */
-            --primary-color: #FFB800;       /* e.g., #FF6600 */
-            --secondary-color: #FFCA33;   /* e.g., #FF8833 */
-            --accent: #CC9400;                     /* e.g., #CC5200 */
+            --primary-color: #FFB800;
+            --secondary-color: #FFCA33;
+            --accent: #CC9400;
             --text-dark: #222222;
             --text-light: #666666;
             --background: #FFFFFF;
@@ -199,8 +149,8 @@
             margin-top: 1rem;
         }
 
-        .highlight-box {
-            background: #fff8f0;
+        .highlight {
+            background: #fff9e6;
             border-left: 4px solid var(--accent);
             padding: 1.5rem;
             margin: 1.5rem 0;
@@ -208,592 +158,875 @@
         }
 
         .image-container {
-            text-align: center;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
 
         .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .image-caption {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-        }
-
-        .speaker-notes {
-            display: none;
-            background: #f9f9f9;
-            border-left: 4px solid var(--accent);
-            padding: 1rem;
-            margin-top: 2rem;
+        .image-credit {
             font-size: 0.9rem;
             color: var(--text-light);
-            max-height: 200px;
-            overflow-y: auto;
+            font-style: italic;
+            text-align: center;
         }
 
-        body.show-notes .speaker-notes {
-            display: block;
-        }
-
-        .slide-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 0.5rem 2rem;
-        }
-
-        .progress-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .slide-counter {
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .nav-buttons {
+        .controls {
             position: fixed;
             bottom: 2rem;
-            left: 0;
-            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
+            gap: 1rem;
             z-index: 1000;
         }
 
-        button.nav-btn {
+        .controls button {
             background: var(--primary-color);
             color: white;
             border: none;
             padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s;
         }
 
-        button.nav-btn:hover {
-            background: var(--secondary-color);
+        .controls button:hover {
+            background: var(--accent);
         }
 
-        button.nav-btn:disabled {
+        .controls button:disabled {
             background: #cccccc;
             cursor: not-allowed;
         }
 
-        @media screen and (max-width: 1024px) {
-            .slide { padding: 3rem 3rem; }
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .two-column { grid-template-columns: 1fr; }
-            .card-grid { grid-template-columns: 1fr; }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            transition: width 0.3s;
+            z-index: 1000;
         }
 
-        @media print {
-            .speaker-notes { display: block; }
-            .slide { page-break-after: always; }
-            .nav-buttons, .slide-nav { display: none; }
+        .slide-number {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .speaker-notes {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .speaker-notes.active {
+            display: block;
+        }
+
+        .speaker-notes h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 3rem 2rem 2rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide.title-slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .two-column,
+            .three-column,
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .controls {
+                bottom: 1rem;
+                gap: 0.5rem;
+            }
+
+            .controls button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .slide-number {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .speaker-notes {
+                width: 90%;
+                padding: 1.5rem;
+                bottom: 80px;
+                max-height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="slide-nav" role="navigation" aria-label="Slide navigation">
-        <div class="progress-bar" id="progressBar"></div>
-        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
-    </nav>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-number" id="slideNumber">1 / 20</div>
 
-    <main class="slides-container" role="main">
-
+    <div class="slides-container">
         <!-- Slide 1: Title -->
-        <section class="slide title-slide active" id="slide-1" data-slide-number="1" data-slide-type="title">
-            <div class="content">
-                <h1>Electrical Engineering</h1>
-                <p class="tagline">Powering the World - From Generation to Smart Grids</p>
+        <div class="slide active title-slide">
+            <h1>Electrical Engineering</h1>
+            <p class="tagline">Powering the World - From Generation to Smart Grids</p>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Welcome to this comprehensive overview of Computer Science and Engineering, one of the most versatile and impactful branches of engineering. This field is the backbone of technology – from the apps on your phone to artificial intelligence systems, from cloud computing to cybersecurity, from social media platforms to autonomous vehicles. Computer Science and Engineering is the study of computational systems, algorithms, software development, and problem-solving using computers. If you've ever wondered how Google search returns results in milliseconds, how Netflix recommends shows you'll love, or how self-driving cars navigate roads, this is the branch that makes it possible. CSE is unique because it's both a science and an art – you learn the theoretical foundations of computation while also building practical systems that solve real-world problems. This presentation will take you through what you'll study, where you can work, and how this branch is evolving in the age of artificial intelligence. Whether you're considering this as your career path or just exploring your options, this guide will give you a complete picture of what Computer Science and Engineering really involves. With technology touching every industry from healthcare to finance, entertainment to agriculture, CSE graduates have opportunities that are virtually limitless.</p>
             </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: 200-500 words introducing the branch, why it's exciting, what the presentation will cover. See template.md Slide 1 for guidance.]</p>
-            </aside>
-        </section>
+        </div>
 
-        <!-- Slide 2: Overview -->
-        <section class="slide" id="slide-2" data-slide-number="2">
+        <!-- Slide 2: What is CSE? -->
+        <div class="slide">
             <h2>What is Electrical Engineering?</h2>
+
+            <div class="highlight">
+                <h3>Core Definition</h3>
+                <p>CSE is the branch that studies computation, algorithms, data structures, and the design and development of software and hardware systems that process information.</p>
+            </div>
+
             <div class="two-column">
                 <div>
-                    <p><strong>Core Definition:</strong> [1-2 sentence definition of what this branch is fundamentally about]</p>
-
                     <h3>Fundamental Areas</h3>
-                    <ul>
-                        <li><strong>[Area 1]:</strong> [Brief description]</li>
-                        <li><strong>[Area 2]:</strong> [Brief description]</li>
-                        <li><strong>[Area 3]:</strong> [Brief description]</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <strong>Key Insight:</strong> [Compelling fact or statistic demonstrating relevance and scale]
+                    <div class="card">
+                        <h4>Theoretical Computer Science</h4>
+                        <p>Algorithms, complexity theory, computability</p>
+                    </div>
+                    <div class="card">
+                        <h4>Software Engineering</h4>
+                        <p>Application development, system design, software architecture</p>
+                    </div>
+                    <div class="card">
+                        <h4>Systems & Infrastructure</h4>
+                        <p>Operating systems, networks, databases, cloud computing</p>
                     </div>
                 </div>
-                <div class="image-container">
-                    <img src="[IMAGE_URL_1]" alt="[IMAGE_ALT_1]">
-                    <p class="image-caption">Photo by [IMAGE_CREDIT_1] on Unsplash</p>
+
+                <div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" alt="Programming code on computer screen">
+                    </div>
+                    <p class="image-credit">Photo by Ilya Pavlov on Unsplash</p>
                 </div>
             </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain what this branch is about, historical context, main goals of professionals, compelling facts. See template.md Slide 2 for guidance.]</p>
-            </aside>
-        </section>
 
-        <!-- Slide 3: First & Second Year Curriculum -->
-        <section class="slide" id="slide-3" data-slide-number="3">
-            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="highlight">
+                <strong>Key Insight:</strong> Software developers will be among the fastest-growing occupations globally through 2032, with demand surging 35% due to AI, cloud computing, and digital transformation across all industries.
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's start with the basics. Computer Science and Engineering is fundamentally about understanding how computers work and using them to solve problems efficiently. The software side focuses on writing programs, building applications, and creating algorithms – the step-by-step instructions that tell computers what to do. The engineering side deals with designing systems, managing complexity, and building robust, scalable solutions that work in the real world. Historically, computer science emerged in the mid-20th century with pioneers like Alan Turing, who laid the theoretical foundations, and the creation of the first programmable computers in the 1940s. The field exploded with the invention of transistors, integrated circuits, and microprocessors, leading to personal computers in the 1980s, the internet in the 1990s, and the smartphone revolution in the 2000s. Today, CSE is more relevant than ever because software is literally eating the world – every company is becoming a tech company. Here's something interesting: by 2026, there are over 5 billion internet users globally, and every digital service they use was built by computer science engineers. The main goal of professionals in this field is to design and build software systems that are fast, reliable, secure, and solve meaningful problems. They work on challenges like: How do we process billions of search queries per day? How do we keep user data secure? How do we build AI systems that learn from data? Computer Science and Engineering combines mathematics, logic, creativity, and problem-solving to tackle these challenges. It's a field where you can see the direct impact of your work – the code you write can be used by millions of people worldwide.</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Curriculum - Foundation Years -->
+        <div class="slide">
+            <h2>Curriculum - Foundation Years (1st & 2nd Year)</h2>
+
             <div class="two-column">
                 <div>
                     <h3>First Year (Common Engineering Foundation)</h3>
                     <ul>
                         <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
-                        <li><strong>Engineering Physics</strong> - [Branch-specific physics topics]</li>
+                        <li><strong>Engineering Physics</strong> - Mechanics, Electromagnetism, Quantum Physics</li>
                         <li><strong>Engineering Chemistry</strong> - Material Science, Electrochemistry</li>
-                        <li><strong>Programming Fundamentals</strong> - [Language: C/C++/Python]</li>
-                        <li><strong>Engineering Graphics</strong> - Technical Drawing</li>
-                        <li><strong>[Branch-specific Foundation]</strong></li>
-                    </ul>
-
-                    <h3>Second Year - EE Begins</h3>
-                    <ul>
-                        <li><strong>[Core Subject 1]</strong> - [Key topics]</li>
-                        <li><strong>[Core Subject 2]</strong> - [Key topics]</li>
-                        <li><strong>[Core Subject 3]</strong> - [Key topics]</li>
-                        <li><strong>[Core Subject 4]</strong> - [Key topics]</li>
-                        <li><strong>Lab Work:</strong> [Specific labs]</li>
+                        <li><strong>Programming Fundamentals</strong> - C Programming, Problem Solving</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing, CAD basics</li>
+                        <li><strong>Introduction to Computing</strong> - Computer organization, digital logic</li>
                     </ul>
                 </div>
-                <div class="image-container">
-                    <img src="[IMAGE_URL_2]" alt="[IMAGE_ALT_2]">
-                    <p class="image-caption">Photo by [IMAGE_CREDIT_2] on Unsplash</p>
+
+                <div>
+                    <h3>Second Year - CSE Specialization Begins</h3>
+                    <ul>
+                        <li><strong>Data Structures</strong> - Arrays, linked lists, trees, graphs, hashing</li>
+                        <li><strong>Object-Oriented Programming</strong> - C++/Java, OOP concepts, design patterns</li>
+                        <li><strong>Discrete Mathematics</strong> - Logic, set theory, graph theory, combinatorics</li>
+                        <li><strong>Computer Organization</strong> - CPU architecture, memory hierarchy, instruction sets</li>
+                        <li><strong>Database Management Systems</strong> - SQL, relational databases, normalization</li>
+                        <li><strong>Lab Work:</strong> Programming Labs (C, C++, Java), Database Labs</li>
+                    </ul>
                 </div>
             </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Walk through first year foundation explaining importance of math/physics/programming for this branch. Describe second year core subjects and hands-on lab work. See template.md Slide 3.]</p>
-            </aside>
-        </section>
 
-        <!-- Slide 4: Third Year Curriculum -->
-        <section class="slide" id="slide-4" data-slide-number="4">
-            <h2>Third Year - Core Specialization</h2>
+            <div class="image-container" style="height: 200px;">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" alt="Student programming on laptop">
+            </div>
+            <p class="image-credit">Photo by Christopher Gower on Unsplash</p>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's walk through what you'll actually study in Computer Science and Engineering over four years, starting with the foundation. First Year is common across most engineering branches and builds your fundamental knowledge. Engineering Mathematics is crucial for CSE – calculus helps you understand rates of change and optimization, linear algebra is essential for machine learning and graphics, and discrete math forms the backbone of algorithms and data structures. Physics gives you an understanding of how computers work at the hardware level, including semiconductor physics that explains transistors and memory. Programming Fundamentals in C is where you learn to think like a programmer – breaking problems into steps, understanding variables, loops, conditions, and functions. This is often the most exciting course for students because you're actually making the computer do things you tell it to. Second Year is where CSE really begins, and these courses form the core of computer science. Data Structures teaches you how to organize and store data efficiently – should you use an array, a tree, or a hash table? This course is fundamental because every program you write uses data structures, and choosing the right one can make your program 100 times faster. Object-Oriented Programming introduces concepts like classes, objects, inheritance, and polymorphism, which are essential for building large, maintainable software systems. Discrete Mathematics is the mathematical foundation of computer science – you'll learn logic (how computers make decisions), graph theory (used in networks and social media), and combinatorics (counting and probability). Database Management Systems teaches you how to store and retrieve data efficiently using SQL – every app that saves user data uses databases. Lab work in second year is hands-on and practical – you'll write hundreds of programs, debug errors, and build small projects. This combination of theory and practice prepares you for advanced courses where you'll build complex systems.</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Curriculum - Core Specialization (3rd Year) -->
+        <div class="slide">
+            <h2>Curriculum - Core Specialization (3rd Year)</h2>
+
+            <h3>Third Year - Deep Dive into CSE</h3>
             <div class="two-column">
                 <div>
-                    <h3>Major Subjects</h3>
                     <ul>
-                        <li><strong>[Subject 1]</strong> - [Topics]</li>
-                        <li><strong>[Subject 2]</strong> - [Topics]</li>
-                        <li><strong>[Subject 3]</strong> - [Topics]</li>
-                        <li><strong>[Subject 4]</strong> - [Topics]</li>
-                        <li><strong>[Subject 5]</strong> - [Topics]</li>
-                        <li><strong>[Subject 6]</strong> - [Topics]</li>
+                        <li><strong>Algorithms & Analysis</strong> - Sorting, searching, dynamic programming, complexity analysis</li>
+                        <li><strong>Operating Systems</strong> - Process management, memory management, file systems</li>
+                        <li><strong>Computer Networks</strong> - TCP/IP, routing, protocols, socket programming</li>
+                        <li><strong>Theory of Computation</strong> - Automata, formal languages, Turing machines</li>
                     </ul>
-
-                    <h3>Lab Courses</h3>
-                    <ul>
-                        <li>[Lab 1] ([Technologies])</li>
-                        <li>[Lab 2]</li>
-                        <li>[Lab 3]</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <strong>Mini Project:</strong> [Example project types for this branch]
-                    </div>
                 </div>
-                <div class="image-container">
-                    <img src="[IMAGE_URL_3]" alt="[IMAGE_ALT_3]">
-                    <p class="image-caption">Photo by [IMAGE_CREDIT_3] on Unsplash</p>
+                <div>
+                    <ul>
+                        <li><strong>Software Engineering</strong> - SDLC, design patterns, testing, Git</li>
+                        <li><strong>Web Technologies</strong> - HTML, CSS, JavaScript, REST APIs</li>
+                        <li><strong>Machine Learning</strong> - Supervised learning, neural networks</li>
+                        <li><strong>Compiler Design</strong> - Lexical analysis, parsing, code generation</li>
+                    </ul>
                 </div>
             </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Deep dive into core third year subjects, explain practical applications, describe lab work, discuss mini projects. See template.md Slide 4.]</p>
-            </aside>
-        </section>
 
-        <!-- Slide 5: Fourth Year Curriculum -->
-        <section class="slide" id="slide-5" data-slide-number="5">
-            <h2>Fourth Year - Advanced & Specialization</h2>
+            <h3>Lab Courses</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Operating Systems Lab</h4>
+                    <p>Linux, shell scripting, system calls</p>
+                </div>
+                <div class="card">
+                    <h4>Networks Lab</h4>
+                    <p>Wireshark, socket programming, protocols</p>
+                </div>
+                <div class="card">
+                    <h4>Web Development Lab</h4>
+                    <p>Full-stack projects with databases</p>
+                </div>
+                <div class="card">
+                    <h4>Mini Project</h4>
+                    <p>Build complete application (web app, ML model, network simulator)</p>
+                </div>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Third year is where you dive deep into core CSE concepts and really start feeling like a software engineer. Algorithms and Analysis is one of the most important courses in all of computer science – you'll learn how to solve problems efficiently, analyze how fast your algorithms run (Big-O notation), and master techniques like divide-and-conquer and dynamic programming. Companies like Google and Microsoft heavily test algorithms in interviews, so this course is crucial for placements. Operating Systems teaches you how Windows, Linux, and macOS actually work – how they manage multiple programs running simultaneously, allocate memory, and handle input/output. Understanding OS concepts makes you a much better programmer because you understand what's happening under the hood. Computer Networks explains how data travels across the internet – when you send a message on WhatsApp, how does it reach your friend's phone? You'll learn about TCP/IP, routers, switches, and network security. Theory of Computation is more theoretical but deeply fascinating – it explores what problems computers can and cannot solve, and why some problems take exponentially longer than others. Software Engineering teaches you how real companies build software – planning, design, testing, deployment, and teamwork. You'll learn Git for version control, which every professional developer uses daily. Web Technologies is practical and immediately useful – you'll build websites and web applications using HTML, CSS, JavaScript, and frameworks like React or Node.js. The lab courses are where theory meets practice. You'll write shell scripts in Linux, capture and analyze network packets, build full-stack web applications with frontend and backend, and deploy them live. Your mini project becomes a key talking point in interviews.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Curriculum - Advanced & Specialization (4th Year) -->
+        <div class="slide">
+            <h2>Curriculum - Advanced & Specialization (4th Year)</h2>
+
             <div class="two-column">
                 <div>
-                    <h3>Advanced Courses</h3>
+                    <h3>Core Advanced Courses</h3>
                     <ul>
-                        <li><strong>[Advanced Course 1]</strong> - [Topics/Tech]</li>
-                        <li><strong>[Advanced Course 2]</strong> - [Topics/Tech]</li>
-                        <li><strong>[Advanced Course 3]</strong> - [Topics/Tech]</li>
-                        <li><strong>[Advanced Course 4]</strong> - [Topics/Tech]</li>
+                        <li><strong>Artificial Intelligence</strong> - Search algorithms, knowledge representation, expert systems</li>
+                        <li><strong>Deep Learning</strong> - CNNs, RNNs, transformers, LLMs, computer vision, NLP</li>
+                        <li><strong>Cloud Computing</strong> - AWS/Azure/GCP, distributed systems, Kubernetes</li>
+                        <li><strong>Information Security</strong> - Cryptography, ethical hacking, secure coding</li>
                     </ul>
 
-                    <h3>Electives (Choose 3-4)</h3>
-                    <ul>
-                        <li>[Elective 1]</li>
-                        <li>[Elective 2]</li>
-                        <li>[Elective 3]</li>
-                        <li>[Elective 4]</li>
-                        <li>[Elective 5]</li>
-                    </ul>
+                    <h3>Major Project (6-8 months)</h3>
+                    <p>Capstone project involving design, implementation, and testing of a significant software system. Often done in collaboration with industry or research labs.</p>
+                    <p><strong>Industry Internship:</strong> 2-6 months, typically in summer before final year</p>
                 </div>
-                <div>
-                    <div class="card">
-                        <h4>Major Project (6-8 months)</h4>
-                        <p>Capstone project involving design, implementation, and testing. Often in collaboration with industry or research labs.</p>
-                    </div>
 
-                    <div class="card">
-                        <h4>Emerging Trends</h4>
-                        <ul>
-                            <li>[Trend 1]</li>
-                            <li>[Trend 2]</li>
-                            <li>[Trend 3]</li>
-                            <li>[Trend 4]</li>
-                        </ul>
-                    </div>
+                <div>
+                    <h3>Elective Specializations (Choose 3-4)</h3>
+                    <ul>
+                        <li>Data Science & Big Data</li>
+                        <li>Mobile App Development</li>
+                        <li>Blockchain Technology</li>
+                        <li>Internet of Things (IoT)</li>
+                        <li>Game Development</li>
+                        <li>Computer Graphics & Visualization</li>
+                        <li>Natural Language Processing</li>
+                        <li>DevOps & Site Reliability Engineering</li>
+                    </ul>
+
+                    <h3>Emerging Trends in Curriculum</h3>
+                    <ul>
+                        <li>Large Language Models (LLMs) and Generative AI</li>
+                        <li>Edge AI and TinyML</li>
+                        <li>Quantum Computing Fundamentals</li>
+                        <li>Responsible AI and AI Ethics</li>
+                        <li>Full-Stack Development with Modern Frameworks</li>
+                    </ul>
                 </div>
             </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Discuss advanced courses and cutting-edge technologies, explain elective specializations and career paths, describe major project opportunities. See template.md Slide 5.]</p>
-            </aside>
-        </section>
 
-        <!-- Slide 6: Skills Development -->
-        <section class="slide" id="slide-6" data-slide-number="6">
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Fourth year is where you specialize and apply everything you've learned to advanced, cutting-edge technologies. Deep Learning is incredibly hot right now – you'll learn about neural network architectures like CNNs (used in image recognition), RNNs (for sequential data), and transformers (the technology behind ChatGPT). This is one of the most in-demand skills in the job market. Cloud Computing teaches you how modern applications are built and deployed at scale using platforms like AWS, Azure, or Google Cloud. You'll learn about containerization with Docker and orchestration with Kubernetes. Information Security covers cryptography, penetration testing, and secure coding practices. With cyber threats growing, security skills command premium salaries. The electives let you choose your specialization based on your interests. Data Science and Big Data teach you to extract insights from massive datasets – ideal if you like statistics and analysis. Mobile App Development covers iOS and Android development. Blockchain teaches you cryptocurrency and decentralized applications. IoT connects physical devices to the internet. The beauty of CSE is this flexibility – you can specialize in AI, web development, mobile apps, security, cloud, or any other area that interests you. Your major project is the crown jewel. This 6-8 month endeavor could be building a full-fledged e-commerce platform, creating an AI-powered chatbot, developing a mobile app with backend APIs, implementing a blockchain-based system, or training a computer vision model. Many students collaborate with companies, giving them real-world experience and often leading to job offers.</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Skills You'll Develop -->
+        <div class="slide">
             <h2>Skills You'll Develop</h2>
 
-            <h3>Technical Skills</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Skill Category 1]</h4>
-                    <p>[Description and application]</p>
+            <div class="two-column">
+                <div>
+                    <h3>Technical Skills</h3>
+                    <div class="card">
+                        <h4>Programming & Software Development</h4>
+                        <p>Master multiple languages (Python, Java, C++, JavaScript). Write clean, efficient, maintainable code.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Problem Solving & Algorithms</h4>
+                        <p>Systematic approaches to breaking down complex problems and designing efficient solutions.</p>
+                    </div>
+                    <div class="card">
+                        <h4>System Design & Architecture</h4>
+                        <p>Design scalable, robust systems that handle millions of users. Understand trade-offs.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Database & Data Management</h4>
+                        <p>Work with SQL and NoSQL databases, optimize queries, design schemas.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Web & Mobile Development</h4>
+                        <p>Build responsive applications using modern frameworks and best practices.</p>
+                    </div>
+                    <div class="card">
+                        <h4>AI & Machine Learning</h4>
+                        <p>Train models, work with datasets, deploy AI systems in production.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>[Skill Category 2]</h4>
-                    <p>[Description and application]</p>
-                </div>
-                <div class="card">
-                    <h4>[Skill Category 3]</h4>
-                    <p>[Description and application]</p>
-                </div>
-                <div class="card">
-                    <h4>[Skill Category 4]</h4>
-                    <p>[Description and application]</p>
+
+                <div>
+                    <h3>Tools & Technologies</h3>
+                    <div class="card">
+                        <h4>Software</h4>
+                        <p>VS Code, PyCharm, Git, Docker, Kubernetes, Jupyter Notebook, Jenkins</p>
+                    </div>
+                    <div class="card">
+                        <h4>Platforms</h4>
+                        <p>AWS, Azure, Google Cloud, GitHub, GitLab, Firebase</p>
+                    </div>
+                    <div class="card">
+                        <h4>Languages</h4>
+                        <p>Python, Java, JavaScript/TypeScript, C++, C, SQL, HTML/CSS, Go, Rust</p>
+                    </div>
+
+                    <h3>Professional Skills</h3>
+                    <ul>
+                        <li>Systematic problem-solving and debugging</li>
+                        <li>Project management and documentation</li>
+                        <li>Cross-functional collaboration</li>
+                        <li>Technical communication and presentation</li>
+                        <li>Continuous learning (fast-evolving technology)</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <strong>Tools & Technologies:</strong> [List 8-12 key software tools, hardware, platforms]
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Beyond just book knowledge, Computer Science and Engineering develops crucial practical skills that employers highly value. Programming and software development is your core skill – you'll become fluent in multiple programming languages. Python is popular for AI and data science, Java for enterprise applications, JavaScript for web development, and C++ for systems programming. Problem-solving and algorithmic thinking is what separates great programmers from average ones. System design and architecture becomes crucial as you advance – designing systems that handle millions of users, are reliable, secure, and maintainable requires deep expertise. Database and data management is essential because almost every application needs to store and retrieve data. Web and mobile development skills make you immediately employable. AI and machine learning skills are incredibly hot in 2026 – companies are paying premium salaries for engineers who can build and deploy AI systems. The software tools are what professionals use daily: VS Code for writing code, Git for version control, Docker for containerization, and cloud platforms for deployment. Professional skills are equally important. You'll develop systematic debugging skills, technical communication, and the ability to learn new technologies quickly. In the fast-paced CSE field, the ability to learn continuously is perhaps the most valuable skill – frameworks and tools change rapidly, but the fundamentals remain constant.</p>
             </div>
+        </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain each technical skill in detail, describe tools students will master, discuss professional skills. See template.md Slide 6.]</p>
-            </aside>
-        </section>
-
-        <!-- Slide 7: Entry-Level Careers -->
-        <section class="slide" id="slide-7" data-slide-number="7">
+        <!-- Slide 7: Career Opportunities - Entry Level -->
+        <div class="slide">
             <h2>Career Opportunities - Entry Level</h2>
 
+            <h3>Entry-Level Roles</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Job Title 1]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Software Developer/Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Writing code, implementing features, fixing bugs, code reviews, testing</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹12-20 LPA (Product companies), ₹20-40 LPA (FAANG)</p>
                 </div>
+
                 <div class="card">
-                    <h4>[Job Title 2]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Frontend Developer</h4>
+                    <p><strong>Responsibilities:</strong> Building user interfaces, responsive design, integrating APIs, performance optimization</p>
+                    <p><strong>Salary:</strong> ₹4-7 LPA (Tier 2), ₹7-12 LPA (Tier 1), ₹12-18 LPA (Top companies)</p>
                 </div>
+
                 <div class="card">
-                    <h4>[Job Title 3]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Backend Developer</h4>
+                    <p><strong>Responsibilities:</strong> Server-side logic, database design, API development, scalability optimization</p>
+                    <p><strong>Salary:</strong> ₹5-8 LPA (Tier 2), ₹8-14 LPA (Tier 1), ₹14-22 LPA (Top companies)</p>
                 </div>
+
                 <div class="card">
-                    <h4>[Job Title 4]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Full-Stack Developer</h4>
+                    <p><strong>Responsibilities:</strong> Both frontend and backend, database management, deployment, end-to-end features</p>
+                    <p><strong>Salary:</strong> ₹6-9 LPA (Tier 2), ₹9-15 LPA (Tier 1), ₹15-25 LPA (Top companies)</p>
+                </div>
+
+                <div class="card">
+                    <h4>Data Analyst</h4>
+                    <p><strong>Responsibilities:</strong> Data collection, analysis, visualizations, generating insights, SQL and Python</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹10-16 LPA (Top companies)</p>
+                </div>
+
+                <div class="card">
+                    <h4>QA/Test Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Test cases, automated testing, finding bugs, ensuring software quality</p>
+                    <p><strong>Salary:</strong> ₹3-5 LPA (Tier 2), ₹5-8 LPA (Tier 1), ₹8-12 LPA (Top companies)</p>
                 </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Detailed explanation of each entry-level role, day-to-day work, technologies used, salary tiers, job market. See template.md Slide 7.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's talk about where you can actually work after graduating with a Computer Science degree. Software Developer or Software Engineer is the most common role – you'll write code to build applications, implement new features, fix bugs, and work in teams using agile methodologies. Companies hiring for this role include Google, Microsoft, Amazon, startups, and every company building software. Frontend Developers specialize in what users see and interact with – you'll work with HTML, CSS, JavaScript, and frameworks like React. Backend Developers work on the server side – databases, APIs, business logic. Full-Stack Developers do both, making them highly versatile. Data Analysts work with data to generate insights. QA Engineers ensure software quality. Let me explain the salary tiers: Tier 2 includes service companies like TCS, Infosys, Wipro. Tier 1 includes better service companies and mid-sized product companies. Product companies like Microsoft India, Adobe offer higher packages. FAANG-level (Google, Amazon, Microsoft, Meta) offer the highest salaries with stock options. The job market for CSE graduates in 2026 is strong, especially for those with solid programming skills and good problem-solving ability. Companies look for candidates who can code well, have done meaningful projects, contribute to open source, or have internship experience.</p>
+            </div>
+        </div>
 
-        <!-- Slide 8: Mid-Career & Senior Roles -->
-        <section class="slide" id="slide-8" data-slide-number="8">
+        <!-- Slide 8: Career Growth - Mid to Senior Level -->
+        <div class="slide">
             <h2>Career Growth - Mid to Senior Level</h2>
 
-            <h3>Mid-Level Roles (3-7 years)</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Mid-Level Title 1]</h4>
-                    <p>[Lead responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+            <div class="two-column">
+                <div>
+                    <h3>Mid-Level Roles (3-7 years)</h3>
+                    <div class="card">
+                        <h4>Senior Software Engineer</h4>
+                        <p><strong>Responsibilities:</strong> Leading feature development, mentoring juniors, architectural decisions</p>
+                        <p><strong>Salary:</strong> ₹12-20 LPA</p>
+                    </div>
+                    <div class="card">
+                        <h4>Technical Lead</h4>
+                        <p><strong>Responsibilities:</strong> Leading small teams, technical decision-making, cross-functional coordination</p>
+                        <p><strong>Salary:</strong> ₹18-30 LPA</p>
+                    </div>
+                    <div class="card">
+                        <h4>DevOps Engineer</h4>
+                        <p><strong>Responsibilities:</strong> CI/CD pipelines, infrastructure automation, cloud management, monitoring</p>
+                        <p><strong>Salary:</strong> ₹15-25 LPA</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>[Mid-Level Title 2]</h4>
-                    <p>[Lead responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+
+                <div>
+                    <h3>Senior-Level Roles (8+ years)</h3>
+                    <div class="card">
+                        <h4>Engineering Manager</h4>
+                        <p><strong>Responsibilities:</strong> Managing teams, hiring, project planning, stakeholder management</p>
+                        <p><strong>Salary:</strong> ₹25-45 LPA (India), $120-180K (US)</p>
+                    </div>
+                    <div class="card">
+                        <h4>Principal/Staff Engineer</h4>
+                        <p><strong>Responsibilities:</strong> Setting technical direction, solving complex problems, designing systems at scale</p>
+                        <p><strong>Salary:</strong> ₹30-60 LPA (India), $150-250K (US)</p>
+                    </div>
+                    <div class="card">
+                        <h4>Architect</h4>
+                        <p><strong>Responsibilities:</strong> Designing large-scale systems, technology evaluation, setting standards</p>
+                        <p><strong>Salary:</strong> ₹35-70 LPA (India), $160-280K (US)</p>
+                    </div>
                 </div>
             </div>
 
-            <h3>Senior-Level Roles (8+ years)</h3>
+            <h3>Alternative Career Paths</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Senior Title 1]</h4>
-                    <p>[Senior responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                    <h4>Entrepreneurship</h4>
+                    <p>Build your own startup or SaaS products</p>
                 </div>
                 <div class="card">
-                    <h4>[Senior Title 2]</h4>
-                    <p>[Senior responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                    <h4>Academia & Research</h4>
+                    <p>MS/PhD followed by research positions</p>
+                </div>
+                <div class="card">
+                    <h4>Consulting</h4>
+                    <p>Technical consulting at McKinsey Digital, Accenture</p>
+                </div>
+                <div class="card">
+                    <h4>Product Management</h4>
+                    <p>Transition to PM roles leveraging technical expertise</p>
                 </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Career progression timeline, increased responsibilities at each level, alternative paths (entrepreneurship, research, consulting). See template.md Slide 8.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Career growth in Computer Science is strong if you develop the right skills and stay current. The progression from junior to mid-level typically takes 3-5 years. Senior Software Engineers write high-quality code, make technical decisions, and mentor juniors. Technical Leads balance coding with leadership – you might spend 50% coding and 50% guiding the team. This is the fork where you decide: technical track or management track. DevOps Engineers focus on infrastructure and deployment. Reaching senior-level typically requires 8-12 years. Engineering Managers go the management route – responsible for team output, hiring, performance reviews. Principal or Staff Engineers stay on the technical track solving the hardest problems and designing systems for millions of users. Architects focus on high-level system design across products. International opportunities are excellent – H1B visa in the US actively sponsors software engineers. Salaries are 3-5X higher than India but cost of living is also higher. Alternative paths include entrepreneurship – many successful startup founders have CSE backgrounds. Research and academia is ideal if you love diving deep into specific problems. Consulting firms hire engineers with strong communication skills. Product management is a popular transition for engineers who want to focus on what to build rather than how.</p>
+            </div>
+        </div>
 
-        <!-- Slide 9: Industry Sectors -->
-        <section class="slide" id="slide-9" data-slide-number="9">
+        <!-- Slide 9: Industry Sectors & Companies -->
+        <div class="slide">
             <h2>Industry Sectors & Companies</h2>
 
-            <h3>Major Industries</h3>
+            <h3>Major Industries Hiring CSE Graduates</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Industry 1]</h4>
-                    <p>[What they do, typical roles]</p>
+                    <h4>Technology & Software Products</h4>
+                    <p>Building software products and platforms. Google, Microsoft, Adobe, Oracle, Salesforce</p>
                 </div>
                 <div class="card">
-                    <h4>[Industry 2]</h4>
-                    <p>[What they do, typical roles]</p>
+                    <h4>IT Services & Consulting</h4>
+                    <p>Technology solutions for clients. TCS, Infosys, Wipro, Accenture, Cognizant</p>
                 </div>
                 <div class="card">
-                    <h4>[Industry 3]</h4>
-                    <p>[What they do, typical roles]</p>
+                    <h4>E-commerce & Consumer Internet</h4>
+                    <p>Online platforms for retail, food delivery. Amazon, Flipkart, Swiggy, Zomato</p>
                 </div>
                 <div class="card">
-                    <h4>[Industry 4]</h4>
-                    <p>[What they do, typical roles]</p>
+                    <h4>Fintech & Banking</h4>
+                    <p>Financial technology and payment systems. Paytm, PhonePe, Razorpay, CRED, HDFC Bank</p>
+                </div>
+                <div class="card">
+                    <h4>Emerging Tech & AI</h4>
+                    <p>AI/ML platforms and analytics. OpenAI, DeepMind, Nvidia, AI startups</p>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <strong>Top Recruiters:</strong> [Company 1], [Company 2], [Company 3], [Company 4], [Company 5], [Company 6], [Company 7], [Company 8]
+            <div class="two-column">
+                <div>
+                    <h3>Top Recruiters (India)</h3>
+                    <p><strong>Product Companies:</strong> Google, Microsoft, Amazon, Adobe, Oracle, SAP, Salesforce, VMware</p>
+                    <p><strong>Service Companies:</strong> TCS, Infosys, Wipro, HCL, Tech Mahindra, Cognizant, Capgemini</p>
+                    <p><strong>Startups:</strong> Razorpay, CRED, Zerodha, Meesho, Dunzo, Unacademy, ShareChat</p>
+                    <p><strong>Core Sector:</strong> ISRO, DRDO, Bharat Electronics (systems and embedded software)</p>
+                </div>
+                <div>
+                    <h3>International Giants</h3>
+                    <p>Apple, Meta (Facebook), Netflix, Tesla, SpaceX, Uber, Airbnb, Spotify, Stripe, GitHub, Atlassian, Databricks</p>
+
+                    <div class="image-container" style="height: 200px;">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team of software engineers collaborating">
+                    </div>
+                    <p class="image-credit">Photo by Annie Spratt on Unsplash</p>
+                </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain each industry sector, why they hire this branch, product vs service companies, startup ecosystem. See template.md Slide 9.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Computer Science graduates work across incredibly diverse industries. Technology and software product companies are where most CSE graduates aspire to work – they build products used by millions. Google builds search and Android, Microsoft builds Windows and Azure, Adobe builds creative tools. Working here means modern technology stack, challenging problems at scale, and highest salaries. IT Services companies are the largest employers of CSE graduates in India. TCS, Infosys, and Wipro hire tens of thousands of freshers annually. You'll work on client projects across industries. The learning curve is good for freshers, work-life balance is stable, and there are opportunities for onsite assignments abroad. E-commerce and consumer internet companies are exciting – you see your work directly impact millions of users. Fintech and banking is booming in India. Companies like Paytm, PhonePe, and Razorpay are building digital payment systems. This sector offers good salaries and interesting technical challenges around security and scale. Emerging tech and AI companies focus on cutting-edge technologies. Startups offer different experience – you'll move fast and have significant impact even as a fresher. The beauty of Computer Science is that you're not locked into one industry – skills are transferable. You could start in e-commerce, move to fintech, then join a startup, and later work for a big tech company.</p>
+            </div>
+        </div>
 
-        <!-- Slide 10: Higher Education -->
-        <section class="slide" id="slide-10" data-slide-number="10">
+        <!-- Slide 10: Higher Education Pathways -->
+        <div class="slide">
             <h2>Higher Education Pathways</h2>
 
-            <h3>Master's Specializations</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Specialization 1]</h4>
-                    <p><strong>Focus:</strong> [Research/technical focus]</p>
-                    <p><strong>Career Path:</strong> [Outcomes]</p>
+            <h3>Master's Specializations (M.Tech/MS)</h3>
+            <div class="two-column">
+                <div>
+                    <div class="card">
+                        <h4>Artificial Intelligence & Machine Learning</h4>
+                        <p><strong>Focus:</strong> Deep learning, computer vision, NLP, reinforcement learning</p>
+                        <p><strong>Career:</strong> ML Engineer, Research Scientist – high demand, premium salaries</p>
+                        <p><strong>Top Programs:</strong> CMU, Stanford, MIT (US); IIT Bombay, IISc (India)</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Data Science & Big Data</h4>
+                        <p><strong>Focus:</strong> Statistical analysis, data mining, predictive modeling</p>
+                        <p><strong>Career:</strong> Data Scientist, Data Engineer, Analytics Lead</p>
+                        <p><strong>Top Programs:</strong> UC Berkeley, Harvard; IIT Madras, IIT Kharagpur</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>[Specialization 2]</h4>
-                    <p><strong>Focus:</strong> [Research/technical focus]</p>
-                    <p><strong>Career Path:</strong> [Outcomes]</p>
-                </div>
-                <div class="card">
-                    <h4>[Specialization 3]</h4>
-                    <p><strong>Focus:</strong> [Research/technical focus]</p>
-                    <p><strong>Career Path:</strong> [Outcomes]</p>
-                </div>
-                <div class="card">
-                    <h4>[Specialization 4]</h4>
-                    <p><strong>Focus:</strong> [Research/technical focus]</p>
-                    <p><strong>Career Path:</strong> [Outcomes]</p>
+
+                <div>
+                    <div class="card">
+                        <h4>Cybersecurity</h4>
+                        <p><strong>Focus:</strong> Cryptography, network security, ethical hacking</p>
+                        <p><strong>Career:</strong> Security Engineer, Security Architect</p>
+                        <p><strong>Top Programs:</strong> Georgia Tech, Purdue; IIT Kanpur</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Cloud Computing</h4>
+                        <p><strong>Focus:</strong> Distributed algorithms, cloud architecture, scalability</p>
+                        <p><strong>Career:</strong> Cloud Architect, Distributed Systems Engineer</p>
+                        <p><strong>Top Programs:</strong> MIT, UC Berkeley; IITs, IIIT Hyderabad</p>
+                    </div>
                 </div>
             </div>
 
-            <h3>PhD Research Areas</h3>
-            <p>[Area 1] • [Area 2] • [Area 3] • [Area 4] • [Area 5]</p>
+            <div class="two-column">
+                <div>
+                    <h3>PhD Research Areas</h3>
+                    <ul>
+                        <li>Artificial Intelligence & Deep Learning</li>
+                        <li>Systems & Networking</li>
+                        <li>Theory & Algorithms</li>
+                        <li>Human-Computer Interaction</li>
+                        <li>Computer Security & Privacy</li>
+                    </ul>
 
-            <div class="highlight-box">
-                <strong>Top Universities:</strong> MIT, Stanford, [Univ 3], [Univ 4] (USA) | [Univ 1], [Univ 2] (Europe) | IITs, IISc (India)
+                    <h3>When to Pursue Higher Education?</h3>
+                    <p><strong>Immediately after B.Tech:</strong> Best if academically inclined, strong scores, momentum on your side</p>
+                    <p><strong>After 2-3 years work:</strong> Recommended - clearer goals, work experience strengthens application</p>
+                    <p><strong>For research/academia:</strong> PhD essential for research labs or professorships</p>
+                </div>
+
+                <div>
+                    <h3>Top Universities (Global)</h3>
+                    <p><strong>USA:</strong> MIT, Stanford, Carnegie Mellon, UC Berkeley, Cornell, Georgia Tech</p>
+                    <p><strong>Europe:</strong> ETH Zurich, Cambridge, Oxford, EPFL, TU Munich</p>
+                    <p><strong>India:</strong> IITs (Bombay, Delhi, Madras, Kanpur), IISc Bangalore, IIIT Hyderabad</p>
+                </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain each specialization, PhD path, top universities, timing considerations for higher education. See template.md Slide 10.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Higher education in Computer Science can significantly boost your career, but timing and specialization matter. AI and Machine Learning specializations are incredibly hot – companies desperately seek engineers with formal ML training. Career outcomes are excellent – AI roles pay ₹20-40 LPA in India and $150-250K in the US. Data Science programs teach statistics, data mining, and big data technologies. Cybersecurity addresses the growing need for security experts. Cloud Computing teaches building systems that scale to millions. The difference between M.Tech (India) and MS (abroad): M.Tech is typically 2 years, more coursework-focused, and you can get in through GATE. MS abroad is also 2 years but more flexible, often includes research, requires GRE/TOEFL, and many programs offer assistantships. PhD path is for those who want to dive deep into research – 4-6 years working on original research, publishing papers. Academic positions require PhD, and top research labs prefer PhD candidates. Timing matters: going immediately after B.Tech works if you're academically strong with good scores. Going after 2-3 years of work is what I recommend – you'll have clearer goals, real-world context, money saved, and your application is stronger. Many students use higher education to switch specializations – you might work as a web developer but pursue MS in AI to transition into ML roles.</p>
+            </div>
+        </div>
 
-        <!-- Slide 11: Day-to-Day Work -->
-        <section class="slide" id="slide-11" data-slide-number="11">
-            <h2>A Day in the Life - [JOB_ROLE] at [COMPANY_TYPE]</h2>
+        <!-- Slide 11: A Day in the Life -->
+        <div class="slide">
+            <h2>A Day in the Life - Software Engineer at Product Company</h2>
 
-            <h3>Morning (9:00 AM - 12:30 PM)</h3>
-            <ul>
-                <li><strong>9:00-9:30:</strong> [Activity and description]</li>
-                <li><strong>9:30-11:00:</strong> [Activity and description]</li>
-                <li><strong>11:00-12:30:</strong> [Activity and description]</li>
-            </ul>
+            <div class="two-column">
+                <div>
+                    <h3>Morning (9:00 AM - 12:30 PM)</h3>
+                    <div class="card">
+                        <h4>9:00 - 9:30: Stand-up Meeting</h4>
+                        <p>Daily team sync - share yesterday's work, today's plan, any blockers</p>
+                    </div>
+                    <div class="card">
+                        <h4>9:30 - 11:00: Feature Development</h4>
+                        <p>Writing code for new feature. Check design specs, write implementation, write tests, commit to version control</p>
+                    </div>
+                    <div class="card">
+                        <h4>11:00 - 12:30: Code Review</h4>
+                        <p>Review teammates' code for correctness and best practices. Provide feedback, discuss architectural decisions</p>
+                    </div>
+                </div>
 
-            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
-            <ul>
-                <li><strong>1:30-3:00:</strong> [Activity and description]</li>
-                <li><strong>3:00-5:00:</strong> [Activity and description]</li>
-            </ul>
+                <div>
+                    <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+                    <div class="card">
+                        <h4>1:30 - 3:00: Debugging & Fixing Issues</h4>
+                        <p>Investigate production bug. Reproduce issue, use logs and debugging tools to identify root cause, implement fix</p>
+                    </div>
+                    <div class="card">
+                        <h4>3:00 - 5:00: Architectural Discussion</h4>
+                        <p>Meeting with team to discuss technical approach for upcoming feature. Database schema, API design, scalability</p>
+                    </div>
 
-            <h3>Evening & Beyond</h3>
-            <ul>
-                <li><strong>5:00-6:00:</strong> [Activity and description]</li>
-            </ul>
-
-            <div class="highlight-box">
-                <strong>Real Challenges:</strong> [Challenge 1] • [Challenge 2] • [Challenge 3]
+                    <h3>Evening & Beyond</h3>
+                    <div class="card">
+                        <h4>5:00 - 6:00: Learning & Documentation</h4>
+                        <p>Reading articles, watching tutorials, updating documentation, learning from senior engineers</p>
+                    </div>
+                </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Realistic walkthrough of a typical day with specific details, tools used, challenges faced, what makes work satisfying. See template.md Slide 11.]</p>
-            </aside>
-        </section>
+            <div class="highlight">
+                <h4>Real Work Challenges</h4>
+                <ul>
+                    <li><strong>Debugging Complex Issues:</strong> Hours tracking down subtle bugs in race conditions or edge cases</li>
+                    <li><strong>Balancing Speed and Quality:</strong> Pressure to ship quickly while maintaining code quality</li>
+                    <li><strong>Cross-team Dependencies:</strong> Waiting for another team's API, requiring coordination</li>
+                </ul>
+                <h4>What Makes This Job Satisfying</h4>
+                <p>Seeing your code deployed and used by thousands/millions. Creative problem-solving aspect. Continuous learning – always new technologies to master.</p>
+            </div>
 
-        <!-- Slide 12: Salary & Growth -->
-        <section class="slide" id="slide-12" data-slide-number="12">
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let me paint a realistic picture of what your day might look like as a software engineer at a product company. The day starts around 9-9:30 AM (tech companies have flexible hours). You begin with a stand-up meeting where your team quickly syncs up. Everyone shares what they worked on yesterday, what they're doing today, and blockers. It's usually 10-15 minutes. Then you dive into actual coding – maybe implementing a new "share with friends" feature. You open the design document, plan your approach, and start writing code in VS Code, referring to existing codebase and Stack Overflow. You write unit tests, run the app locally to test, and fix bugs. Around mid-morning, you participate in code reviews – checking pull requests from teammates for correctness and efficiency. You leave comments and suggestions. Similarly, others review your code. This peer review ensures high quality and is a great learning opportunity. After lunch, you might debug a production issue – users can't upload photos. You investigate error logs, reproduce the issue, use debugging tools, and identify the problem. You fix it and write a test to catch this in the future. In the afternoon, you have a technical planning meeting discussing the best approach for an upcoming feature – should we use SQL or NoSQL? How should we structure the API? Real challenges include debugging complex issues that take hours, pressure to deliver quickly, and waiting for dependencies on other teams. What makes it satisfying is seeing your work deployed and used by real people, the creative problem-solving aspect, and continuous learning. Work-life balance varies – product companies generally respect personal time, though there might be occasional crunch periods. Many companies offer remote work or flexible hours.</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Compensation & Job Market Outlook -->
+        <div class="slide">
             <h2>Compensation & Job Market Outlook</h2>
 
             <div class="two-column">
                 <div>
                     <h3>Salary Progression (India)</h3>
-                    <ul>
-                        <li><strong>Fresh (0-1 yr):</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1), ₹[X-Y] LPA (Top)</li>
-                        <li><strong>Mid (3-5 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
-                        <li><strong>Senior (8-10 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
-                        <li><strong>Lead (12+ yr):</strong> ₹[X-Y] LPA to ₹[X] Cr+</li>
-                    </ul>
-
-                    <h3>International (USD)</h3>
-                    <ul>
-                        <li><strong>USA:</strong> Entry $[X-Y]K, Mid $[X-Y]K, Senior $[X-Y]K</li>
-                        <li><strong>Europe:</strong> [X-Y]% lower than US</li>
-                        <li><strong>Singapore:</strong> [X-Y]% of US</li>
-                    </ul>
+                    <div class="card">
+                        <h4>Fresh Graduate (0-1 years)</h4>
+                        <ul>
+                            <li>Tier 2: ₹3.5-6 LPA</li>
+                            <li>Tier 1: ₹6-10 LPA</li>
+                            <li>Top Product: ₹12-20 LPA</li>
+                            <li>Elite (FAANG): ₹25-40 LPA</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Mid-Level (3-5 years)</h4>
+                        <p>Average: ₹10-16 LPA<br>Top Performers: ₹18-30 LPA</p>
+                    </div>
+                    <div class="card">
+                        <h4>Senior (8-10 years)</h4>
+                        <p>Average: ₹20-35 LPA<br>Top Performers: ₹40-70 LPA</p>
+                    </div>
+                    <div class="card">
+                        <h4>Lead/Principal (12+ years)</h4>
+                        <p>Range: ₹50 LPA to ₹2 Cr+ (including stock options)</p>
+                    </div>
                 </div>
+
                 <div>
-                    <h3>Job Market (2025-2030)</h3>
-                    <p><strong>Demand:</strong> [Growing/Stable/Declining]</p>
+                    <h3>International Compensation (USD)</h3>
+                    <div class="card">
+                        <h4>USA</h4>
+                        <p>Entry: $80-120K<br>Mid: $120-180K<br>Senior: $180-280K<br>Principal: $300K+</p>
+                    </div>
+                    <div class="card">
+                        <h4>Other Regions</h4>
+                        <p><strong>Europe:</strong> 60-70% of US salaries<br>
+                        <strong>Middle East:</strong> 70-80% of US, often tax-free<br>
+                        <strong>Singapore/Australia:</strong> 70-80% of US</p>
+                    </div>
 
-                    <h4>Driving Factors</h4>
-                    <ul>
-                        <li>[Factor 1]</li>
-                        <li>[Factor 2]</li>
-                        <li>[Factor 3]</li>
-                    </ul>
+                    <h3>Job Market Outlook (2025-2030)</h3>
+                    <p><strong>Demand Trend:</strong> Strong Growth - 35% projected growth in software development roles through 2032</p>
 
-                    <h4>Premium Skills</h4>
+                    <h4>Factors Driving Demand:</h4>
                     <ul>
-                        <li>[Skill 1]</li>
-                        <li>[Skill 2]</li>
-                        <li>[Skill 3]</li>
+                        <li>AI/ML boom creating massive demand</li>
+                        <li>Digital transformation across all industries</li>
+                        <li>Cloud adoption driving need for cloud engineers</li>
+                        <li>Cybersecurity threats increasing demand</li>
+                        <li>Startup ecosystem in India growing rapidly</li>
                     </ul>
                 </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Honest salary discussion across tiers, job market outlook with data, skills commanding premium, international opportunities. See template.md Slide 12.]</p>
-            </aside>
-        </section>
+            <h3>Skills That Command Premium Salaries</h3>
+            <p>AI/ML and Deep Learning • Cloud platforms (AWS, Azure, GCP) and Kubernetes • System design and scalability expertise • Specialized domains (fintech, healthtech) • Full-stack with modern frameworks</p>
 
-        <!-- Slide 13: Current Trends -->
-        <section class="slide" id="slide-13" data-slide-number="13">
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's talk numbers – honestly. Fresh graduate salaries have a massive range. Tier 2 companies (smaller IT services) offer ₹3.5-6 LPA. Tier 1 companies (better service companies, established startups) offer ₹6-10 LPA – this is what most graduates get. Top product companies (Microsoft India, Adobe) offer ₹12-20 LPA. Elite companies (Google, Amazon, Meta) offer ₹25-40 LPA with stock options. Competition is fierce. Realistically, expect ₹5-8 LPA from Tier 2 college, ₹8-15 LPA from Tier 1 college with good skills, and ₹15-40 LPA from top IITs or with exceptional skills. Salary progression is excellent if you actively upskill. After 3-5 years with strategic job switches and valuable skills (cloud, AI, system design), you can reach ₹15-25 LPA. Job switches give 30-50% hikes; internal promotions give 10-15%. Top performers in ML or product companies can reach ₹25-30 LPA by year 5. At 8-10 years, senior engineers earn ₹20-35 LPA average, but top performers in specialized roles can earn ₹40-70 LPA. At principal level (12+ years), compensation can reach ₹50 LPA to over ₹2 Cr with stock options. International opportunities are excellent. USA has highest salaries – fresh graduates earn $80-120K (₹66 LPA-₹1 Cr), but H1B lottery is competitive and cost of living is high. Europe pays 60-70% of US with better work-life balance. Middle East offers 70-80% of US, often tax-free. Job market outlook is very strong through 2030 with 35% projected growth. AI revolution is creating new roles. However, challenges exist: competition for top companies is intense, there's a skill gap (many graduates can't pass technical interviews), and technology changes rapidly requiring continuous learning. Emerging opportunities are exciting – AI/ML roles growing fastest with premium salaries, DevOps and SRE roles critical for cloud infrastructure, full-stack developers with modern frameworks always in demand. Skills that boost earnings: AI/ML expertise can add ₹5-15 LPA. Cloud certifications highly valued. System design expertise separates mid from senior. Domain expertise in fintech or healthtech commands premium. Beyond base salary, total compensation at product companies includes bonuses (10-20%), stock options, and benefits.</p>
+            </div>
+        </div>
+
+        <!-- Slide 13: Current Trends & Future Outlook -->
+        <div class="slide">
             <h2>Current Trends & Future Outlook</h2>
 
-            <h3>Hot Technologies (2025-2030)</h3>
+            <h3>Hot Topics & Technologies (2025-2030)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Trend 1]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Generative AI & Large Language Models</h4>
+                    <p>ChatGPT, GPT-4, Claude transforming how software is built. Every company adding AI features; demand for LLM engineers skyrocketing.</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 2]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Edge AI & TinyML</h4>
+                    <p>Running AI on devices (phones, IoT) rather than cloud. Enables real-time processing, privacy, offline functionality.</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 3]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Cloud-Native Development</h4>
+                    <p>Microservices, containers (Docker), Kubernetes, serverless. Almost all modern apps are cloud-native; essential skill.</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 4]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Quantum Computing</h4>
+                    <p>Google, IBM building quantum computers that could revolutionize cryptography, optimization. Still early but creating new career paths.</p>
+                </div>
+                <div class="card">
+                    <h4>Web3 & Blockchain</h4>
+                    <p>Decentralized applications, cryptocurrencies, NFTs, DAOs. Growing niche with high salaries but more risk and volatility.</p>
                 </div>
             </div>
 
-            <h3>Research Frontiers</h3>
-            <p>[Research 1] • [Research 2] • [Research 3] • [Research 4]</p>
+            <div class="two-column">
+                <div>
+                    <h3>Industries Being Transformed</h3>
+                    <ul>
+                        <li><strong>Healthcare:</strong> AI diagnosis, telemedicine, health records digitization, drug discovery using ML</li>
+                        <li><strong>Finance:</strong> Digital payments, algorithmic trading, fraud detection, robo-advisors, DeFi</li>
+                        <li><strong>Transportation:</strong> Autonomous vehicles, ride-sharing platforms, drone delivery systems</li>
+                        <li><strong>Education:</strong> Online learning platforms, adaptive learning AI, virtual classrooms</li>
+                    </ul>
+                </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Detailed explanation of each trend, how they're transforming industries, research frontiers, advice for students. See template.md Slide 13.]</p>
-            </aside>
-        </section>
+                <div>
+                    <h3>Research Frontiers</h3>
+                    <ul>
+                        <li>Artificial General Intelligence (AGI)</li>
+                        <li>Neuromorphic Computing</li>
+                        <li>Privacy-Preserving ML</li>
+                        <li>Human-AI Collaboration</li>
+                    </ul>
 
-        <!-- Slide 14: Impact of AI - Part 1 -->
-        <section class="slide" id="slide-14" data-slide-number="14">
+                    <div class="highlight">
+                        <h4>What This Means For You</h4>
+                        <p>Focus on AI/ML fundamentals – becoming as essential as programming. Learn cloud platforms and distributed systems. Develop system design skills – separates good from great engineers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Computer Science is evolving at breakneck speed. Generative AI and Large Language Models are the biggest trend in 2026. ChatGPT showed what's possible when AI can understand and generate human language. Now every company asks: "How do we add AI to our product?" Engineers who can integrate LLMs, build AI-powered features, and create AI applications are in massive demand. This isn't just OpenAI or Google – every startup and product company needs engineers who understand AI APIs, prompt engineering, and AI workflows. Salaries for AI engineers are 20-50% higher. Edge AI and TinyML address running AI on devices rather than cloud – enabling real-time processing, privacy, and offline functionality. Engineers who can optimize neural networks for constrained hardware are valuable, especially for robotics and IoT. Cloud-Native Development is now default. Modern apps use microservices, Docker containers, and Kubernetes orchestration. Almost every tech company uses cloud platforms, so understanding cloud-native architecture is essential. Quantum Computing is still early but progressing rapidly. While practical applications are years away, research labs are hiring computer scientists who understand quantum algorithms. Web3 and Blockchain represent decentralized applications and cryptocurrencies. It's controversial but creating opportunities. These trends are transforming industries. Healthcare is being revolutionized by AI diagnosis systems and telemedicine. Finance is going digital with payment apps and algorithmic trading. Transportation is being transformed by autonomous vehicles. Education is shifting online with adaptive learning AI. Research frontiers include Artificial General Intelligence – building AI with human-level reasoning across all domains. Neuromorphic Computing designs chips that mimic the brain. Privacy-Preserving ML addresses training AI on sensitive data without exposing privacy. What this means for you: make AI/ML fundamentals a priority – even if you don't specialize, understanding AI is becoming fundamental. Learn cloud platforms. Develop strong system design skills. Stay curious and keep learning. The next 5-10 years will be defined by AI integration, cloud adoption, and exciting new frontiers like quantum computing.</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: How AI is Transforming CSE -->
+        <div class="slide">
             <h2>How AI is Transforming Electrical Engineering</h2>
 
-            <h3>AI Applications</h3>
+            <h3>AI Applications in CSE</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Application 1]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Software Development & Coding Assistance</h4>
+                    <p>GitHub Copilot, ChatGPT help developers write code faster, suggest implementations, debug errors. Developers are 30-50% more productive, but the bar is rising.</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 2]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Automated Testing & QA</h4>
+                    <p>AI systems automatically generate test cases, find bugs, predict which code changes introduce issues. QA becoming more about strategy than manual testing.</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 3]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>System Optimization & Performance</h4>
+                    <p>AI optimizes database queries, predicts resource needs, automatically scales infrastructure. Performance engineering becoming data-driven.</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 4]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Requirements Analysis & Documentation</h4>
+                    <p>AI tools analyze requirements, generate documentation, suggest technical approaches. Reduces manual work but requires validation.</p>
                 </div>
             </div>
 
@@ -801,353 +1034,586 @@
                 <div>
                     <h3>Tasks Being Automated</h3>
                     <ul>
-                        <li>[Task 1] - [Level/timeline]</li>
-                        <li>[Task 2] - [Level/timeline]</li>
-                        <li>[Task 3] - [Level/timeline]</li>
+                        <li>✓ <strong>Boilerplate Code Generation</strong> - Full automation</li>
+                        <li>✓ <strong>Basic Bug Detection</strong> - Partial automation</li>
+                        <li>✓ <strong>Code Documentation</strong> - Partial automation</li>
                     </ul>
-                </div>
-                <div>
+
                     <h3>Tasks Becoming More Important</h3>
                     <ul>
-                        <li>[Task 1] - [Why valuable]</li>
-                        <li>[Task 2] - [Why valuable]</li>
-                        <li>[Task 3] - [Why valuable]</li>
+                        <li>↑ <strong>System Architecture & Design</strong> - AI can't make high-level architectural decisions</li>
+                        <li>↑ <strong>Problem Definition & Requirements</strong> - Understanding what to solve is more valuable</li>
+                        <li>↑ <strong>AI Integration & Prompt Engineering</strong> - New skill: effectively using AI tools</li>
+                        <li>↑ <strong>Code Review & Quality Oversight</strong> - Reviewing AI-generated code requires deep expertise</li>
                     </ul>
+                </div>
+
+                <div>
+                    <h3>New Roles Emerging</h3>
+                    <div class="card">
+                        <h4>AI/ML Engineer</h4>
+                        <p>Building and deploying ML models, training neural networks, integrating AI into products</p>
+                    </div>
+                    <div class="card">
+                        <h4>Prompt Engineer</h4>
+                        <p>Designing effective prompts for LLMs, optimizing AI interactions, building AI workflows</p>
+                    </div>
+                    <div class="card">
+                        <h4>MLOps Engineer</h4>
+                        <p>Deploying, monitoring, maintaining ML models in production (DevOps but for AI)</p>
+                    </div>
+                    <div class="card">
+                        <h4>AI Safety & Ethics Specialist</h4>
+                        <p>Ensuring AI systems are safe, fair, and aligned with human values</p>
+                    </div>
                 </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain AI applications in detail, honest discussion of automation, which tasks become more valuable, balanced perspective. See template.md Slide 14.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>AI is dramatically transforming Computer Science. Software development is being augmented by AI coding assistants like GitHub Copilot. These tools can write functions, suggest implementations, and autocomplete code. Developers using these tools report 30-50% productivity gains. However, this raises the bar – if everyone is more productive with AI, expectations increase. You need to focus on skills AI can't easily replicate: understanding requirements, making architectural decisions, designing for scalability, and creative problem-solving. The mundane parts of coding are being commoditized. Automated testing and QA is being transformed. Tools can automatically generate test cases and predict which changes might break functionality. QA roles are shifting toward test strategy and automation design. System optimization is becoming more data-driven. AI can analyze database patterns and suggest optimizations. Requirements analysis and documentation are being partially automated. AI can analyze requirements and generate documentation, but you still need to validate outputs. Let's be honest about automation: boilerplate code generation is essentially fully automated – AI can write standard CRUD operations instantly. Basic bug detection is being partially automated – AI catches common errors but complex bugs need human expertise. Code documentation is being partially automated – AI can generate comments but humans ensure accuracy. But AI is also making certain skills more valuable. System architecture and design cannot be automated because it requires understanding business requirements, making trade-offs, considering scalability, and exercising judgment. These high-level decisions are what senior engineers do and command highest salaries. Problem definition is becoming more important because AI is good at "how" (implementation) but humans are needed for "what" and "why". AI integration and prompt engineering is a brand new skill. Code review and quality oversight is more important than ever because AI-generated code needs validation for correctness, security, and efficiency. New emerging roles blend CSE with AI: AI/ML Engineer builds and deploys ML models – fastest-growing and highest-paid role. Prompt Engineer designs effective prompts for LLMs – new role that didn't exist two years ago. MLOps Engineer combines software engineering with ML, focusing on deploying and maintaining models. AI Safety and Ethics Specialist ensures AI systems are safe and fair. The key message: AI is a tool that augments rather than replaces skilled engineers who adapt. Routine tasks might be automated, but system design, architecture, and judgment remain human domains. Learn to work effectively with AI tools and focus on high-value skills AI can't replicate.</p>
+            </div>
+        </div>
 
-        <!-- Slide 15: Impact of AI - Part 2 -->
-        <section class="slide" id="slide-15" data-slide-number="15">
+        <!-- Slide 15: AI Impact - Skills & Strategy for the Future -->
+        <div class="slide">
             <h2>AI Impact - Skills & Strategy for the Future</h2>
 
-            <h3>Future-Proof Skills</h3>
             <div class="two-column">
                 <div>
-                    <h4>Technical Skills</h4>
+                    <h3>Future-Proof Skills to Develop</h3>
+                    <h4>Technical Skills That Will Matter</h4>
                     <ul>
-                        <li>[Skill 1] - [Why AI-resistant]</li>
-                        <li>[Skill 2] - [Why AI-resistant]</li>
-                        <li>[Skill 3] - [Why AI-resistant]</li>
+                        <li><strong>System Design & Architecture</strong> - AI can't make high-level decisions requiring business understanding</li>
+                        <li><strong>Problem Definition</strong> - Understanding what problem to solve is more valuable than implementation</li>
+                        <li><strong>AI/ML Fundamentals</strong> - Understanding how AI works, when to use it, how to integrate it</li>
+                        <li><strong>Full-Stack Development</strong> - End-to-end understanding remains valuable</li>
                     </ul>
 
-                    <h4>Human Skills</h4>
+                    <h4>Human Skills AI Can't Replace</h4>
                     <ul>
-                        <li>[Skill 1] - [Why humans better]</li>
-                        <li>[Skill 2] - [Why humans better]</li>
-                        <li>[Skill 3] - [Why humans better]</li>
+                        <li><strong>Creative Problem-Solving</strong> - Defining novel solutions to ambiguous problems</li>
+                        <li><strong>Communication & Collaboration</strong> - Explaining technical concepts to non-technical stakeholders</li>
+                        <li><strong>Product Thinking & User Empathy</strong> - Understanding user needs and translating them into technical solutions</li>
+                        <li><strong>Ethical Judgment</strong> - Making decisions about AI safety, privacy, fairness, societal impact</li>
                     </ul>
                 </div>
+
                 <div>
-                    <h4>During College</h4>
+                    <h3>How to Stay Relevant</h3>
+                    <h4>During College:</h4>
                     <ul>
-                        <li>[Action 1]</li>
-                        <li>[Action 2]</li>
-                        <li>[Action 3]</li>
+                        <li>Build actual projects, not just coursework</li>
+                        <li>Contribute to open source</li>
+                        <li>Master data structures & algorithms</li>
+                        <li>Learn AI/ML fundamentals</li>
+                        <li>Practice on LeetCode, HackerRank, Codeforces</li>
                     </ul>
 
-                    <h4>Early Career (0-5 years)</h4>
+                    <h4>Early Career (0-5 years):</h4>
                     <ul>
-                        <li>[Action 1]</li>
-                        <li>[Action 2]</li>
-                        <li>[Action 3]</li>
+                        <li>Choose first job for learning, not just salary</li>
+                        <li>Specialize in one area while maintaining breadth</li>
+                        <li>Contribute to technical communities, write blogs</li>
+                        <li>Switch jobs strategically every 2-3 years</li>
+                        <li>Stay current with online courses and experimentation</li>
+                    </ul>
+
+                    <h4>Throughout Career:</h4>
+                    <ul>
+                        <li>Continuous learning is non-negotiable</li>
+                        <li>Build T-shaped skill profile: deep in one area, broad across multiple</li>
+                        <li>Develop soft skills: communication, leadership, mentoring</li>
+                        <li>Build professional network through conferences and communities</li>
+                        <li>Consider side projects or open source to explore new technologies</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <strong>Opportunities AI Creates:</strong> [Opp 1] • [Opp 2] • [Opp 3]
+            <div class="highlight">
+                <h4>Mindset for Success</h4>
+                <p>View AI as a collaborator, not competition. Embrace change and continuous learning. Focus on problems, not just code. Stay curious and experimental.</p>
+
+                <h4>Opportunities AI Creates</h4>
+                <p>Building AI-powered products • AI infrastructure • Democratization of development • New industries and applications</p>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Strategy for staying relevant, future-proof skills, concrete advice for college and early career, opportunities created by AI. See template.md Slide 15.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's talk strategy – how do you build a successful career in Computer Science in an age where AI is changing everything? Future-proof technical skills are those involving high-level thinking and judgment. System design and architecture requires understanding business requirements, making trade-offs, and predicting how systems will scale. AI can't do this because it lacks business context and judgment from experience. Problem definition is becoming more valuable because AI is great at "how" (implementation) but weak at "what" and "why". Engineers who can talk to stakeholders, understand user needs, and translate ambiguous requirements are increasingly valuable. AI/ML fundamentals are now as essential as understanding databases. You don't need to be an ML specialist, but every engineer should understand how neural networks work, when to use AI vs. traditional code, how to integrate AI APIs, and basics of training and deploying models. Full-stack development remains valuable because someone needs to put all the pieces together. Human skills that AI can't replicate are your competitive advantage. Creative problem-solving – defining novel solutions to ambiguous, complex problems – is inherently human. Communication and collaboration are essential for explaining technical concepts to non-technical stakeholders, working with designers and product managers, and mentoring juniors. Product thinking and user empathy requires human understanding of human needs. Ethical judgment about AI safety, privacy, fairness, and societal impact requires human values. During college, focus on building actual projects that demonstrate your skills. A portfolio of working applications is more valuable than just good grades. Contribute to open source to learn professional development practices. Master data structures and algorithms because every tech interview tests this. Learn AI/ML fundamentals even if you don't plan to specialize. Early career (first 5 years) is crucial. Choose your first job for learning opportunities, not just salary – working with smart engineers accelerates growth. Specialize in one area while maintaining breadth – this T-shaped profile makes you valuable. Switch jobs strategically every 2-3 years for significant salary increases (30-50% vs. 10-15% internal). Contribute to technical communities by writing blogs or giving talks – this builds your reputation. Throughout your career, continuous learning is non-negotiable. Technology evolves so fast that skills learned in college become outdated in 5 years. Dedicate time weekly to learning. Build a T-shaped skill profile: deep expertise in one domain combined with broad understanding across multiple areas. Develop soft skills like communication, leadership, and mentoring – these become more important as you advance. Build and maintain professional network through conferences and communities – many opportunities come through referrals. Consider side projects to explore new technologies without risk. Here's the exciting part – AI creates massive opportunities. Building AI-powered products is huge because every company wants AI features. AI infrastructure is booming – tools and platforms for AI development. Democratization of development means AI lowers the barrier to entry, creating a larger ecosystem with more opportunities. New industries and applications are emerging that weren't possible before – AI tutors, coding assistants, creative tools, automated analysis. The professionals who will thrive are those who view AI as a tool that amplifies their capabilities, embrace continuous learning, stay curious, focus on solving meaningful problems, and develop both technical depth and communication skills. Don't fear AI displacing you; instead, learn to leverage it as a powerful tool that makes you 10X more productive.</p>
+            </div>
+        </div>
 
-        <!-- Slide 16: Educational Resources -->
-        <section class="slide" id="slide-16" data-slide-number="16">
+        <!-- Slide 16: Educational Videos & Resources -->
+        <div class="slide">
             <h2>Educational Videos & Resources</h2>
 
-            <h3>Recommended YouTube Channels</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Channel 1]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
+            <div class="two-column">
+                <div>
+                    <h3>Recommended YouTube Channels</h3>
+                    <div class="card">
+                        <h4>CS Dojo</h4>
+                        <p>Computer science fundamentals and interview prep. Must-watch: Data Structures and Algorithms playlist</p>
+                    </div>
+                    <div class="card">
+                        <h4>Fireship</h4>
+                        <p>Fast-paced tech explainers and modern web dev. Must-watch: JavaScript in 100 Seconds series</p>
+                    </div>
+                    <div class="card">
+                        <h4>Corey Schafer</h4>
+                        <p>In-depth Python tutorials. Must-watch: Python Programming Tutorials, Flask Web Development</p>
+                    </div>
+                    <div class="card">
+                        <h4>The Coding Train</h4>
+                        <p>Creative coding and ML. Must-watch: Nature of Code, Neural Networks series</p>
+                    </div>
+                    <div class="card">
+                        <h4>Abdul Bari</h4>
+                        <p>Algorithms with clear explanations. Must-watch: Algorithm playlist</p>
+                    </div>
+                    <div class="card">
+                        <h4>freeCodeCamp</h4>
+                        <p>Comprehensive full-stack courses. Must-watch: Full-stack courses, CS courses from universities</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>[Channel 2]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-                <div class="card">
-                    <h4>[Channel 3]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-                <div class="card">
-                    <h4>[Channel 4]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
+
+                <div>
+                    <h3>Online Courses</h3>
+                    <div class="card">
+                        <h4>CS50 - Harvard (edX/YouTube)</h4>
+                        <p><strong>Level:</strong> Beginner | <strong>Duration:</strong> 12 weeks<br>
+                        CS fundamentals, algorithms, web development – one of the best CS intro courses globally</p>
+                    </div>
+                    <div class="card">
+                        <h4>The Odin Project</h4>
+                        <p><strong>Level:</strong> Beginner-Intermediate | <strong>Duration:</strong> Self-paced (6-12 months)<br>
+                        Complete full-stack web development with real projects – free and comprehensive</p>
+                    </div>
+                    <div class="card">
+                        <h4>Machine Learning - Andrew Ng (Coursera)</h4>
+                        <p><strong>Level:</strong> Intermediate | <strong>Duration:</strong> 11 weeks<br>
+                        ML fundamentals, neural networks – gold standard for learning ML</p>
+                    </div>
+                    <div class="card">
+                        <h4>Algorithms Specialization - Stanford (Coursera)</h4>
+                        <p><strong>Level:</strong> Intermediate-Advanced | <strong>Duration:</strong> 4 courses<br>
+                        Algorithm design and analysis – excellent for interview prep</p>
+                    </div>
+
+                    <h3>Books & Reading</h3>
+                    <p><strong>For Beginners:</strong> "Python Crash Course" by Eric Matthes<br>
+                    <strong>For Deep Dives:</strong> "Introduction to Algorithms" (CLRS), "Clean Code" by Robert Martin<br>
+                    <strong>Industry Perspective:</strong> "Cracking the Coding Interview" by Gayle Laakmann McDowell</p>
+
+                    <h3>Websites & Communities</h3>
+                    <p><strong>LeetCode</strong> - Coding interview practice • <strong>GitHub</strong> - Explore projects, contribute code • <strong>Stack Overflow</strong> - Programming Q&A • <strong>Dev.to / Medium</strong> - Technical blogs</p>
                 </div>
             </div>
 
-            <h3>Online Courses</h3>
-            <ul>
-                <li><strong>[Course 1]:</strong> [Platform], [Level], [What you learn]</li>
-                <li><strong>[Course 2]:</strong> [Platform], [Level], [What you learn]</li>
-                <li><strong>[Course 3]:</strong> [Platform], [Level], [What you learn]</li>
-            </ul>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>If you want to explore Computer Science deeper before making your decision, here are the best resources carefully selected for quality and relevance. CS Dojo is excellent for computer science fundamentals and technical interview preparation. The creator explains algorithms clearly with visualizations. Fireship is fantastic for fast-paced, engaging tech explainers. The "X in 100 Seconds" series gives you quick overviews. Corey Schafer has some of the best Python tutorials on YouTube. His teaching style is crystal clear. If you want to learn Python, start with his Python Beginner series. The Coding Train makes learning fun through creative projects like simulations and games. Abdul Bari is the go-to for algorithms – his whiteboard explanations are incredibly clear. freeCodeCamp publishes complete university-level CS courses for free, including full-stack development bootcamps. For online courses, CS50 from Harvard is legendary – one of the best intro CS courses in the world, covering fundamentals through engaging lectures. The Odin Project is a free, open-source full-stack curriculum with real projects. Andrew Ng's Machine Learning course on Coursera is the gold standard for learning ML. Stanford's Algorithms Specialization goes deep into algorithm design – perfect for technical interviews at top companies. For books, "Python Crash Course" is perfect for beginners. "Introduction to Algorithms" (CLRS) is comprehensive but dense – use as a reference. "Clean Code" teaches you to write readable, maintainable code. "Cracking the Coding Interview" is essential for placements. Communities are where you learn continuously. LeetCode is essential for interview prep – aim to solve 150-200 problems before placements. GitHub is where professional development happens – explore interesting projects and contribute when ready. Stack Overflow is invaluable for getting unstuck. Dev.to and Medium have excellent technical blogs. My suggestion for a concrete learning path: Start with CS50 or The Odin Project for foundational knowledge. Supplement with YouTube channels like CS Dojo and Fireship. Practice coding on LeetCode regularly starting with easy problems. Read "Clean Code" and "Cracking the Coding Interview" as you progress. Build at least 2-3 substantial projects. Set realistic expectations – becoming proficient takes consistent effort over months and years. Remember, exploring these resources helps you understand if CSE genuinely interests you, makes informed college decisions, and builds early skills that give you an advantage during placements.</p>
+            </div>
+        </div>
 
-            <h3>Books & Communities</h3>
-            <p><strong>Books:</strong> "[Title 1]", "[Title 2]", "[Title 3]"</p>
-            <p><strong>Communities:</strong> [Website/Forum 1], [Website/Forum 2], [Website/Forum 3]</p>
-
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain each resource in detail, why selected, concrete learning path recommendations. See template.md Slide 16.]</p>
-            </aside>
-        </section>
-
-        <!-- Slide 17: Real-World Projects -->
-        <section class="slide" id="slide-17" data-slide-number="17">
+        <!-- Slide 17: Real-World Projects & Innovation -->
+        <div class="slide">
             <h2>Real-World Projects & Innovation</h2>
 
-            <h3>Student Projects (Award-Winning)</h3>
+            <h3>Student Projects (That Got Recognition)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Project 1]</h4>
-                    <p><strong>What:</strong> [Description]</p>
-                    <p><strong>Tech:</strong> [Stack]</p>
-                    <p><strong>Impact:</strong> [Why special]</p>
+                    <h4>College ERP System</h4>
+                    <p><strong>What:</strong> Complete management system with student portal, attendance, grades, admin dashboard<br>
+                    <strong>Technology:</strong> MERN stack (MongoDB, Express, React, Node.js), JWT authentication<br>
+                    <strong>Impact:</strong> Deployed at college, used by 2000+ students; team members got multiple offers</p>
                 </div>
                 <div class="card">
-                    <h4>[Project 2]</h4>
-                    <p><strong>What:</strong> [Description]</p>
-                    <p><strong>Tech:</strong> [Stack]</p>
-                    <p><strong>Impact:</strong> [Why special]</p>
+                    <h4>AI-Powered Resume Analyzer</h4>
+                    <p><strong>What:</strong> ML system that analyzes resumes, provides feedback, matches candidates to jobs<br>
+                    <strong>Technology:</strong> Python, Flask, NLP libraries (spaCy, NLTK), machine learning<br>
+                    <strong>Impact:</strong> Won college hackathon, featured on Product Hunt, led to internship offers</p>
+                </div>
+                <div class="card">
+                    <h4>Real-Time Collaborative Code Editor</h4>
+                    <p><strong>What:</strong> Web-based code editor where multiple users can code together in real-time<br>
+                    <strong>Technology:</strong> React, WebSockets, Node.js, Monaco Editor, Docker<br>
+                    <strong>Impact:</strong> 500+ GitHub stars, used by study groups, demonstrated system design skills</p>
                 </div>
             </div>
 
             <h3>Industry Innovations</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Company/Project 1]</h4>
-                    <p>[Breakthrough innovation, problem solved]</p>
+            <div class="two-column">
+                <div>
+                    <div class="card">
+                        <h4>GPT-4 and Large Language Models (OpenAI)</h4>
+                        <p>Demonstrated AI can understand and generate human-like text. Impact: Launched entire industry of AI-powered applications.</p>
+                    </div>
+                    <div class="card">
+                        <h4>AlphaGo and AlphaFold (DeepMind)</h4>
+                        <p>AlphaGo defeated world champion in Go. AlphaFold solved protein folding. Impact: Accelerated drug discovery.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>[Company/Project 2]</h4>
-                    <p>[Breakthrough innovation, problem solved]</p>
+                <div>
+                    <div class="card">
+                        <h4>Kubernetes (Google, CNCF)</h4>
+                        <p>Container orchestration revolutionizing cloud deployment. Impact: Industry standard for cloud-native applications.</p>
+                    </div>
+                    <div class="card">
+                        <h4>React (Meta/Facebook)</h4>
+                        <p>JavaScript library transforming web development with component-based architecture. Impact: Most popular frontend framework.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <strong>Competitions:</strong> [Comp 1] • [Comp 2] • [Comp 3]
+            <h3>Open Source & Competitions</h3>
+            <p><strong>Open Source:</strong> TensorFlow/PyTorch, React/Angular/Vue, Linux Kernel, First Timers Only issues<br>
+            <strong>Competitions:</strong> ACM ICPC, Google Summer of Code, Smart India Hackathon, HackerRank/CodeChef contests</p>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let me show you what's actually possible in Computer Science through real projects. Student projects demonstrate what you can build during college. The College ERP System was built by third-year students – a complete management system replacing manual processes. Built using MERN stack, they learned full-stack development, database design, authentication, and deployment. The project was deployed and used by their college. In interviews, they could discuss real-world challenges like handling concurrent users and data security. Multiple companies offered jobs based on this project. The AI-Powered Resume Analyzer was a solo project by a student passionate about ML. It analyzes resumes using NLP, extracts skills, provides feedback, and matches candidates to jobs. Built in Python using Flask and NLP libraries. Won a college hackathon, featured on Product Hunt, and directly led to internship offers. The Real-Time Collaborative Code Editor mimics Google Docs but for coding. Built using React, WebSockets, Node.js, and Docker to safely execute code. Got 500+ GitHub stars showing developer community interest. Demonstrated understanding of complex concepts like real-time synchronization and system design. Industry innovations show professional CSE impact. GPT-4 and Large Language Models by OpenAI demonstrated AI can understand context, generate text, write code, and assist in creative tasks. This launched an entire industry of AI-powered applications. AlphaGo defeated the world champion in Go using reinforcement learning. AlphaFold solved protein folding – crucial for drug discovery. This proves AI can match or exceed human experts. Kubernetes revolutionized cloud infrastructure, automatically scaling applications and handling failures. It became the industry standard. React transformed frontend development with component-based architecture, becoming the most popular framework. Open source contribution is how many students break into tech. Contributing to TensorFlow or PyTorch helps you learn AI deeply. Contributing to React teaches modern web development. Start with "Good First Issue" labels – beginner-friendly issues in popular projects. Competitions build skills and resume. ACM ICPC is the world's premier competitive programming competition. Google Summer of Code pays students to contribute to open source with mentorship. Smart India Hackathon solves real problems for government and industry. Social impact projects show CSE isn't just commercial – telemedicine platforms connecting rural patients with doctors, AI-powered educational apps providing personalized learning, agricultural advisory systems helping farmers optimize yields, accessibility tools helping visually impaired users. Here's why this matters: these examples show the breadth of possibilities – web apps, mobile apps, AI systems, infrastructure tools, or socially impactful projects. Early project work builds your portfolio more than grades. Companies hire based on what you can build. Choose projects you're genuinely passionate about. Start small and iterate – your first project doesn't need to be revolutionary; it needs to be finished. Learn by building, getting stuck, debugging, and eventually succeeding.</p>
             </div>
+        </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Inspiring project stories, industry innovations explained, competitions and their value, social impact projects. See template.md Slide 17.]</p>
-            </aside>
-        </section>
-
-        <!-- Slide 18: Pros & Cons -->
-        <section class="slide" id="slide-18" data-slide-number="18">
+        <!-- Slide 18: Honest Assessment - Pros & Cons -->
+        <div class="slide">
             <h2>Honest Assessment - Pros & Cons</h2>
 
             <div class="two-column">
                 <div>
-                    <h3>✓ Advantages</h3>
+                    <h3>Advantages of Choosing CSE</h3>
                     <div class="card">
-                        <h4>[Pro 1]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>✓ Exceptional Career Opportunities</h4>
+                        <p>Highest placement rates, diverse roles across industries, opportunities in India and globally</p>
                     </div>
                     <div class="card">
-                        <h4>[Pro 2]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>✓ High Earning Potential</h4>
+                        <p>Among best-paying branches from day one. Top performers can reach ₹30-50 LPA within 5-7 years</p>
                     </div>
                     <div class="card">
-                        <h4>[Pro 3]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>✓ Endless Learning & Growth</h4>
+                        <p>Technology evolves constantly, preventing boredom. Work on cutting-edge technologies like AI, cloud, blockchain</p>
+                    </div>
+                    <div class="card">
+                        <h4>✓ Flexibility & Remote Work</h4>
+                        <p>Location-independent work. Many companies offer remote or hybrid. Abundant freelancing and entrepreneurship opportunities</p>
+                    </div>
+                    <div class="card">
+                        <h4>✓ Tangible Impact</h4>
+                        <p>Code you write can be used by millions. See direct impact of your work. Build products that solve real problems</p>
                     </div>
                 </div>
+
                 <div>
-                    <h3>✗ Challenges</h3>
+                    <h3>Challenges & Realities</h3>
                     <div class="card">
-                        <h4>[Challenge 1]</h4>
-                        <p>[Honest description]</p>
+                        <h4>✗ Intense Competition</h4>
+                        <p>Everyone wants CSE, making top colleges competitive. Fierce competition for FAANG jobs. Need to constantly prove skills</p>
                     </div>
                     <div class="card">
-                        <h4>[Challenge 2]</h4>
-                        <p>[Honest description]</p>
+                        <h4>✗ Requires Continuous Learning</h4>
+                        <p>Skills learned in college become outdated in 3-5 years. Must regularly learn new frameworks and tools. Can feel overwhelming</p>
                     </div>
                     <div class="card">
-                        <h4>[Challenge 3]</h4>
-                        <p>[Honest description]</p>
+                        <h4>✗ High Pressure & Deadlines</h4>
+                        <p>Tight deadlines and fast-paced environment. Crunch periods before launches mean long hours. High expectations</p>
+                    </div>
+                    <div class="card">
+                        <h4>✗ Debugging & Frustration</h4>
+                        <p>Spending hours tracking down single bug is common. "Should work" moments test patience. Requires persistence</p>
+                    </div>
+                    <div class="card">
+                        <h4>✗ Theory vs. Practice Gap</h4>
+                        <p>College curriculum lags behind industry. Need to self-learn modern frameworks and tools. Many struggle in interviews</p>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <p><strong>You'll thrive if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
-                <p><strong>Might struggle if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+            <div class="two-column">
+                <div>
+                    <h3>Who Thrives in CSE?</h3>
+                    <p>You'll love CSE if you:</p>
+                    <ul>
+                        <li>Enjoy logical thinking and problem-solving</li>
+                        <li>Are comfortable with mathematics</li>
+                        <li>Like building things and seeing them work</li>
+                        <li>Don't mind staring at screens for hours</li>
+                        <li>Are self-motivated to learn independently</li>
+                        <li>Enjoy continuous learning</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Who Might Struggle?</h3>
+                    <p>This might not be right fit if you:</p>
+                    <ul>
+                        <li>Dislike mathematics or logical reasoning</li>
+                        <li>Prefer hands-on physical work over abstract problem-solving</li>
+                        <li>Get frustrated easily when things don't work</li>
+                        <li>Want a stable, unchanging field</li>
+                        <li>Prefer clearly defined problems over ambiguity</li>
+                    </ul>
+                </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Honest pros and cons with examples, who thrives and who struggles, balanced perspective on choosing this branch. See template.md Slide 18.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's have a completely honest conversation about Computer Science – the good, the challenging, and who this branch is really right for. The advantages are real and significant. Career opportunities in CSE are exceptional – highest placement rates among engineering branches, with graduates working across diverse roles in virtually every industry. Both Indian and international opportunities are abundant. Earning potential is outstanding. CSE graduates have among the highest starting salaries – ₹6-10 LPA at good companies, ₹12-20 LPA at top product companies, and ₹25-40 LPA at elite companies. Salary growth is rapid – reaching ₹30-50 LPA within 5-7 years is realistic for top performers. The endless learning keeps work interesting. Technology evolves constantly – new frameworks, languages, tools emerge regularly. While this requires continuous learning, it also means you're never bored. Flexibility and remote work are huge advantages. Unlike mechanical or civil engineering, software development is location-independent. Post-COVID, many tech companies offer permanent remote work. Freelancing opportunities are abundant. The tangible impact is satisfying. Code you write can be used by millions – seeing your feature deployed and helping users is deeply rewarding. But let's be equally honest about the challenges. Competition is intense – CSE is the most sought-after branch, making admission competitive. Even after graduation, competition for top company jobs is fierce. You need to stand out through strong projects and interview performance. Continuous learning requirement is both pro and con. You need to dedicate time regularly to learning new technologies. For some, this feels exciting; for others, it's exhausting. High pressure and deadlines are common in tech. Fast-paced environments often have tight deadlines. Crunch periods can mean long hours. Debugging and frustration are inevitable. You will spend hours tracking down a single bug. Your code won't work for reasons that make no sense. If you get easily frustrated, this can be mentally draining. The theory-practice gap is real. College curricula lag behind industry practices. Many graduates struggle because college doesn't fully prepare them. You need to self-learn actively. Who thrives in CSE? You'll love it if you enjoy logical thinking and problem-solving – if you liked math puzzles, chess, or strategy games. Comfort with mathematics is important – you don't need to be a genius, but you should be comfortable with logical reasoning. If you like building things and seeing them work, you'll find CSE rewarding. Comfort with screen time is practical – coding involves sitting at computers for hours. Self-motivation to learn independently is crucial. Enjoying continuous learning and being curious correlates strongly with CSE success. Who might struggle? If you dislike mathematics or logical reasoning, CSE will be challenging. If you prefer hands-on physical work over abstract problem-solving, you might find CSE unsatisfying. If you get frustrated easily, debugging's repetitive trial-and-error will test your patience. If you want a stable, unchanging field, CSE's rapid evolution might be stressful. Important perspective: every branch has pros and cons. The "best" branch is the one that aligns with your interests and strengths. CSE is incredibly rewarding for those who love it and challenging for those who don't. Passion for the field matters more than prestige or salary. Choosing CSE because it's popular without genuine interest is a recipe for burnout. Conversely, if you love building things with code, CSE offers one of the most exciting, dynamic, and rewarding careers available.</p>
+            </div>
+        </div>
 
-        <!-- Slide 19: Decision Checklist -->
-        <section class="slide" id="slide-19" data-slide-number="19">
-            <h2>Is EE Right for You?</h2>
+        <!-- Slide 19: Is CSE Right for You? Decision Framework -->
+        <div class="slide">
+            <h2>Is CSE Right for You? Decision Framework</h2>
 
-            <h3>✓ Choose EE If...</h3>
-            <ul>
-                <li><strong>Interest:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
-                <li><strong>Skills:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
-                <li><strong>Goals:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
-            </ul>
+            <div class="two-column">
+                <div>
+                    <h3>Choose CSE If...</h3>
+                    <div class="card">
+                        <h4>✓ Interest Alignment</h4>
+                        <ul>
+                            <li>You enjoy solving logical puzzles and analytical thinking</li>
+                            <li>You find satisfaction in building things (even if not coding yet)</li>
+                            <li>You're curious about how software and technology work</li>
+                            <li>You get excited about creating something from logic and code</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>✓ Skills & Aptitude</h4>
+                        <ul>
+                            <li>You're comfortable with mathematics (not necessarily topper)</li>
+                            <li>You can focus on problems for extended periods</li>
+                            <li>You enjoy troubleshooting – persistence through frustration</li>
+                            <li>You're comfortable with self-directed learning</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>✓ Career Goals</h4>
+                        <ul>
+                            <li>You want diverse career options across industries and geographies</li>
+                            <li>High earning potential and rapid career growth matter to you</li>
+                            <li>You value flexibility (remote work, entrepreneurship, freelancing)</li>
+                            <li>You want to work in a constantly evolving field</li>
+                        </ul>
+                    </div>
 
-            <h3>⚠ Consider Alternatives If...</h3>
-            <ul>
-                <li>[Preference that suggests different branch 1]</li>
-                <li>[Preference that suggests different branch 2]</li>
-                <li>[Preference that suggests different branch 3]</li>
-            </ul>
+                    <h3>Consider Alternatives If...</h3>
+                    <p><strong>You Prefer:</strong></p>
+                    <ul>
+                        <li>Hands-on work with physical systems (consider Mechanical, Civil, EC hardware)</li>
+                        <li>Stable, well-defined problems (consider core engineering branches)</li>
+                        <li>Field work and outdoor environments (consider Civil, Environmental)</li>
+                        <li>Tangible, physical output (consider Mechanical, Manufacturing)</li>
+                    </ul>
+                </div>
 
-            <h3>Self-Assessment Questions</h3>
-            <ol>
-                <li>[Question about interest]</li>
-                <li>[Question about skills]</li>
-                <li>[Question about work preferences]</li>
-                <li>[Question about career expectations]</li>
-                <li>[Question about learning style]</li>
-            </ol>
+                <div>
+                    <h3>Self-Assessment Questions</h3>
+                    <p>Ask yourself honestly:</p>
+                    <ol>
+                        <li><strong>Interest Test:</strong> Have you tried coding? If yes, did you enjoy problem-solving aspect? If no, try a beginner Python tutorial and see if it clicks.</li>
+                        <li><strong>Learning Style:</strong> Do you enjoy figuring things out independently through trial-and-error, or do you strongly prefer structured classroom teaching?</li>
+                        <li><strong>Work Environment:</strong> Can you imagine spending most of your workday at a computer? Does writing code and debugging energize or bore you?</li>
+                        <li><strong>Continuous Learning:</strong> Are you excited or exhausted by learning new technologies every few years throughout your career?</li>
+                        <li><strong>Problem-Solving Approach:</strong> When faced with complex problems, do you enjoy breaking them down logically and experimenting, or do you quickly get frustrated?</li>
+                    </ol>
 
-            <div class="highlight-box">
-                <strong>Next Steps:</strong> [Action 1] • [Action 2] • [Action 3]
+                    <h3>Next Steps If You're Interested</h3>
+                    <h4>Before Application:</h4>
+                    <ul>
+                        <li>Try online coding courses (CS50, Python on Codecademy)</li>
+                        <li>Build a simple project (calculator app, personal website)</li>
+                        <li>Talk to current CSE students or working engineers</li>
+                        <li>Attend tech meetups or webinars</li>
+                    </ul>
+
+                    <h4>If You Choose This Branch:</h4>
+                    <ul>
+                        <li>Start programming before college begins</li>
+                        <li>Build projects from day one</li>
+                        <li>Participate in coding communities (Reddit, GitHub)</li>
+                        <li>Practice problem-solving on LeetCode, HackerRank</li>
+                        <li>Stay curious and experiment with different areas</li>
+                    </ul>
+
+                    <h4>Still Undecided? That's Okay!</h4>
+                    <p>Many colleges have common first year. You can explore programming courses before committing. Focus on building strong foundations. Talk to seniors and attend college fests. Success comes from interest + effort, not from picking the "perfect" branch on day one.</p>
+                </div>
             </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Help students make informed decision, explain alignment indicators, walk through self-assessment, reassure those undecided. See template.md Slide 19.]</p>
-            </aside>
-        </section>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>Let's help you make an informed decision about whether Computer Science is the right choice for you. Interest alignment is the starting point. If you enjoy solving logical puzzles (Sudoku, chess, strategy games), you'll likely enjoy algorithmic thinking. If you find satisfaction in building things – even if you haven't coded yet, maybe you loved building with Legos or playing Minecraft – this translates well to programming where you build applications from scratch. If you're curious about how apps, websites, and games work, CSE teaches you exactly that. If the idea of creating something functional from nothing but logic and code excites you, that's a strong indicator. Skills and aptitude matter but aren't absolutes. Being comfortable with mathematics is important – you don't need to be a topper, but if you actively hate math or struggle significantly with logical reasoning, CSE will be challenging. Can you focus on problems for extended periods without getting restless? Do you enjoy troubleshooting when things don't work – viewing broken code as an interesting puzzle rather than frustrating roadblock? Are you comfortable with self-directed learning – Googling errors, reading documentation, watching tutorials? Career goals alignment is practical. If you want diverse career options across industries and geographies, CSE offers maximum versatility. If high earning potential and rapid career growth are priorities, CSE is among the best-paying branches. If you value flexibility – remote work, potential to freelance, or start your own company – CSE provides this more than most engineering branches. If working in a constantly evolving field excites rather than stresses you, CSE stays relevant. Consider alternatives if your preferences don't align. If you prefer hands-on work with physical systems, consider Mechanical, Civil, or EC hardware side. If you prefer stable, well-defined problems, core engineering branches might suit you better. If you prefer field work and outdoor environments, consider Civil or Environmental. If tangible, physical output is more satisfying than abstract digital creations, consider Mechanical or Manufacturing. Self-assessment questions help clarify. First, try coding – take a free beginner Python tutorial online and see if problem-solving through code feels engaging or tedious. This experiment costs you a few hours and provides invaluable data. Second, evaluate your learning style. Third, honestly assess work environment preferences. Can you imagine spending 7-8 hours daily at a computer? Fourth, consider continuous learning. Are you excited or exhausted by learning new technologies every few years? Fifth, evaluate your problem-solving approach. When faced with complex problems, do you enjoy breaking it down logically or quickly get frustrated? Next steps if you're interested: Before applying, try real coding to validate interest. Take CS50, learn Python basics, or start The Odin Project. Build a simple project – calculator app, personal website, or simple game. Talk to current CSE students or working engineers about day-to-day realities. Attend tech meetups or webinars. If you choose CSE: Start programming before college – learn Python or JavaScript basics over summer. Build projects from first year. Participate in coding communities. Practice problem-solving on HackerRank and LeetCode. Stay curious and experiment with different areas to find what genuinely excites you. For those still undecided: It's perfectly normal and healthy. Many engineering colleges have common first year. You can take programming electives even in other branches. Focus on building strong foundations that transfer across branches. Talk to seniors in different branches. Remember: there's rarely a perfect choice on day one. Final thought: Choosing CSE is important but not irrevocable. Many successful people work in areas different from their branch. However, passion and genuine interest correlate strongly with success and satisfaction. Choose CSE because you're genuinely curious about technology and excited to build software, not just because it's popular or pays well. The money and opportunities come naturally when you love what you do. Trust your interests, experiment before deciding, and remember that success comes from passion + effort, not from picking the "perfect" branch.</p>
+            </div>
+        </div>
 
-        <!-- Slide 20: Closing -->
-        <section class="slide" id="slide-20" data-slide-number="20">
+        <!-- Slide 20: Thank You -->
+        <div class="slide">
             <h2>Thank You!</h2>
 
-            <h3>Key Takeaways</h3>
-            <ul>
-                <li><strong>About Electrical Engineering:</strong> [One sentence summary]</li>
-                <li><strong>Career Potential:</strong> [One sentence about opportunities]</li>
-                <li><strong>Right For You If:</strong> [One sentence criteria]</li>
-            </ul>
+            <div class="two-column">
+                <div>
+                    <h3>Key Takeaways</h3>
+                    <div class="card">
+                        <h4>About Electrical Engineering</h4>
+                        <p>CSE designs, develops, and analyzes software systems and algorithms that power our digital world – from AI to cloud computing, mobile apps to cybersecurity.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Career Potential</h4>
+                        <p>Exceptional opportunities across industries, highest-paying engineering roles, rapid career growth, and flexibility for remote work, entrepreneurship, and global opportunities.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Right For You If</h4>
+                        <p>You enjoy logical problem-solving, building things from scratch, continuous learning, and want to work in a constantly evolving, high-impact field that shapes technology's future.</p>
+                    </div>
+                </div>
 
-            <div class="highlight-box">
-                <h4>Your Decision Matters</h4>
-                <p>[2-3 sentences of encouragement about informed choice]</p>
+                <div>
+                    <h3>Your Decision Matters</h3>
+                    <p>Take time to explore programming before making your choice – try online tutorials, build a small project, talk to current students. The right branch is one that aligns with your genuine interests and strengths, not just prestige or salary. CSE is incredibly rewarding for those who love technology and problem-solving, but equally challenging for those who don't. Trust your interests, experiment, and choose based on what genuinely excites you.</p>
+
+                    <h3>Resources Mentioned</h3>
+                    <ul>
+                        <li><strong>YouTube Channels:</strong> CS Dojo, Fireship, Corey Schafer, The Coding Train (Slide 16)</li>
+                        <li><strong>Online Courses:</strong> CS50, The Odin Project, Andrew Ng's ML Course (Slide 16)</li>
+                        <li><strong>Practice Platforms:</strong> LeetCode, HackerRank, Codeforces (Slide 16)</li>
+                        <li><strong>Project Ideas:</strong> Full-stack web apps, AI/ML projects, open source contributions (Slide 17)</li>
+                    </ul>
+
+                    <h3>Questions to Explore Further</h3>
+                    <p><strong>Discuss with:</strong></p>
+                    <ul>
+                        <li><strong>Current CSE students</strong> - Ask about day-to-day college experience, projects, placements, honest challenges</li>
+                        <li><strong>Working software engineers</strong> - Ask about career growth, work-life balance, what skills matter most</li>
+                        <li><strong>Family and mentors</strong> - Discuss your interests, strengths, and career goals honestly</li>
+                    </ul>
+
+                    <h3>Stay Curious, Keep Learning!</h3>
+                    <p>Whether you choose CSE or another branch, embrace continuous learning, stay curious about how things work, build projects to apply knowledge, and remember that passion and persistence matter more than innate talent. Best of luck with your engineering journey – you've got this!</p>
+                </div>
             </div>
 
-            <h3>Resources to Explore</h3>
-            <ul>
-                <li>YouTube Channels (Slide 16)</li>
-                <li>Online Courses (Slide 16)</li>
-                <li>Project Ideas (Slide 17)</li>
-            </ul>
+            <div class="speaker-notes">
+                <h4>Speaker Notes</h4>
+                <p>We've covered a lot of ground about Computer Science and Engineering, so let's recap the most important points. CSE is fundamentally about using computation to solve problems – designing algorithms, building software systems, and creating applications that impact millions of users. It combines theoretical foundations with practical engineering. Key decision factors to remember: Advantages include exceptional career opportunities, highest-paying roles with rapid salary growth, continuous intellectual stimulation, flexibility for remote work and entrepreneurship, and satisfaction of building products used by millions. Challenges include intense competition, requirement for continuous learning, high-pressure environments, inevitable frustration of debugging code, and theory-practice gap requiring self-learning. Who thrives: those who enjoy logical thinking and problem-solving, are comfortable with mathematics, find satisfaction in building things, persist through frustration, and embrace continuous learning. Who might struggle: those who dislike math or logical reasoning, prefer hands-on physical work, get easily frustrated, want a stable field that doesn't change much, or prefer clearly defined problems over ambiguous requirements. Perspective on decision-making: This is a significant decision, but remember it's not a permanent life sentence. Passion and genuine interest strongly predict success and satisfaction. Make informed choices rather than prestige-based or pressure-based ones. If you're genuinely curious about technology, enjoy building things with code, and get excited by constant technological change, CSE offers one of the most exciting, dynamic, and rewarding careers available today. Encourage next steps: Before deciding, try real programming. Explore topics that interest you. Talk to professionals and current students. Give yourself permission to explore before committing. Final motivational message: Choosing your engineering branch is important, but success ultimately comes from passion plus consistent effort, not from making the "perfect" choice on day one. CSE rewards curiosity, persistence, and continuous learning more than innate genius. Whether you're naturally brilliant or just determined and willing to learn, there's space for you if you're genuinely interested. The technology field is democratizing – online resources make world-class education accessible, open source welcomes contributions from beginners, and companies increasingly hire based on demonstrated skills rather than just pedigree. If you choose CSE, commit to building from day one, practicing consistently, staying curious, and never stop learning. Trust your interests, validate them through experimentation, make informed decisions, and then commit fully to your chosen path. Thank you for taking the time to deeply explore Computer Science and Engineering. I hope this guide gave you clarity, honest perspective, and confidence to make the right decision for yourself. Best of luck with your engineering journey – exciting opportunities await regardless of which path you choose!</p>
+            </div>
+        </div>
 
-            <h3>Stay Curious, Keep Learning!</h3>
-            <p>[Final motivational message]</p>
+    </div>
 
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Recap key points, perspective on decision-making, encourage exploration, final motivational message. See template.md Slide 20.]</p>
-            </aside>
-        </section>
-
-    </main>
-
-    <div class="nav-buttons">
-        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
-        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    <div class="controls">
+        <button id="prevBtn">← Previous</button>
+        <button id="toggleNotes">Toggle Notes (N)</button>
+        <button id="nextBtn">Next →</button>
     </div>
 
     <script>
-        let currentSlide = 1;
-        const totalSlides = 20;
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const toggleNotesBtn = document.getElementById('toggleNotes');
+        const progressBar = document.getElementById('progressBar');
+        const slideNumber = document.getElementById('slideNumber');
 
         function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const counter = document.getElementById('slideCounter');
-            const progressBar = document.getElementById('progressBar');
-
-            if (n > totalSlides) currentSlide = totalSlides;
-            if (n < 1) currentSlide = 1;
-
             slides.forEach(slide => slide.classList.remove('active'));
-            slides[currentSlide - 1].classList.add('active');
+            slides[n].classList.add('active');
 
-            prevBtn.disabled = (currentSlide === 1);
-            nextBtn.disabled = (currentSlide === totalSlides);
+            prevBtn.disabled = (n === 0);
+            nextBtn.disabled = (n === totalSlides - 1);
 
-            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
-            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+            progressBar.style.width = ((n + 1) / totalSlides * 100) + '%';
+            slideNumber.textContent = `${n + 1} / ${totalSlides}`;
+
+            // Hide all notes first
+            document.querySelectorAll('.speaker-notes').forEach(note => {
+                note.classList.remove('active');
+            });
         }
 
-        function changeSlide(n) {
-            currentSlide += n;
-            showSlide(currentSlide);
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
         }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function toggleNotes() {
+            const currentNotes = slides[currentSlide].querySelector('.speaker-notes');
+            if (currentNotes) {
+                currentNotes.classList.toggle('active');
+            }
+        }
+
+        // Button click handlers
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        toggleNotesBtn.addEventListener('click', toggleNotes);
 
         // Keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-                changeSlide(-1);
-            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
-                event.preventDefault();
-                changeSlide(1);
-            } else if (event.key === 'Home') {
-                currentSlide = 1;
-                showSlide(currentSlide);
-            } else if (event.key === 'End') {
-                currentSlide = totalSlides;
-                showSlide(currentSlide);
-            } else if (event.key === 'n' || event.key === 'N') {
-                document.body.classList.toggle('show-notes');
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                case 'PageUp':
+                    prevSlide();
+                    break;
+                case 'ArrowRight':
+                case 'ArrowDown':
+                case 'PageDown':
+                case ' ':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'n':
+                case 'N':
+                    toggleNotes();
+                    break;
+                case 'Home':
+                    currentSlide = 0;
+                    showSlide(currentSlide);
+                    break;
+                case 'End':
+                    currentSlide = totalSlides - 1;
+                    showSlide(currentSlide);
+                    break;
             }
         });
 
-        // Touch/swipe support
+        // Touch/Swipe support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
-        document.addEventListener('touchstart', function(event) {
-            touchStartX = event.changedTouches[0].screenX;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
         });
 
-        document.addEventListener('touchend', function(event) {
-            touchEndX = event.changedTouches[0].screenX;
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         });
 
         function handleSwipe() {
-            if (touchEndX < touchStartX - 50) changeSlide(1);
-            if (touchEndX > touchStartX + 50) changeSlide(-1);
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
         }
 
         // Initialize
-        showSlide(currentSlide);
+        showSlide(0);
     </script>
 </body>
 </html>
