@@ -1143,3 +1143,31 @@ Before finalizing your [BRANCH_ABBREVIATION].md file, verify:
 - Coursera/edX course catalogs
 - NPTEL courses
 - Branch-specific online communities
+
+---
+
+## References
+
+**INSTRUCTIONS:** List all sources used for creating this content. Include specific URLs where applicable.
+
+### Academic Sources
+- [IIT/University] [BRANCH_ABBREVIATION] Curriculum: [URL]
+- [Additional academic sources with URLs]
+
+### Career & Salary Information
+- [Salary source 1]: [URL]
+- [Salary source 2]: [URL]
+- [Career opportunities source]: [URL]
+
+### Industry Trends & Technologies
+- [Trend source 1]: [URL]
+- [Technology/trend source 2]: [URL]
+
+### Educational Resources
+- [YouTube/Course source]: [URL]
+- [Additional learning resources]: [URL]
+
+### Company & Recruitment Information
+- [Company/recruitment source]: [URL]
+
+**Note:** Add all sources you referenced while creating content for this branch. This ensures credibility and allows readers to explore topics further.

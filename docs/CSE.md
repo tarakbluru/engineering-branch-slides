@@ -913,14 +913,42 @@ We've covered a lot of ground about Computer Science and Engineering, so let's r
 
 ---
 
-## Sources Referenced
+## References
 
-Research sources used for creating this CSE content:
-
+### Academic Sources
 - IIT Delhi CSE Curriculum: https://www.cse.iitd.ac.in/academics/btech_links/curriculum.shtml
-- CSE Salary India 2026: https://www.upes.ac.in/blog/computer-science/computer-science-engineering-salary-in-india
+- IIT Patna CSE Program: https://academics.iitp.ac.in/revised_syllabus/B.TECH-CSE/sem-1/CSE.html
+- IIT Kanpur CSE BTech Program: https://www.cse.iitk.ac.in/pages/ProgramBTech.html
+- GATE 2026 Syllabus for CSE: https://www.geeksforgeeks.org/gate/gate-cse-syllabus/
+- Computer Science Engineering Syllabus 2026: https://www.shiksha.com/engineering/computer-science-engineering-syllabus-chp
+
+### Career & Salary Information
+- CSE Salary in India 2026 (UPES): https://www.upes.ac.in/blog/computer-science/computer-science-engineering-salary-in-india
+- Computer Science Engineering Career Scope & Salary 2026: https://www.kzu.ac.in/blogs/computer-science-engineering-scope-salary-2026-complete-career-guide
+- CSE Engineering Salary in India: https://www.aryacollege.in/cse-engineering-salary-in-india-fresher-to-experienced-pay-scale-and-top-companies
 - Computer Science Career Opportunities 2026: https://www.shiksha.com/engineering/computer-science-engineering-career-chp
-- Software Engineering Career Growth: https://amquesteducation.com/blog/software-engineering-career-growth-in-india/
-- AI and Machine Learning Trends 2026: https://machinelearningmastery.com/7-machine-learning-trends-to-watch-in-2026/
-- Best Coding YouTube Channels 2026: https://tripleten.com/blog/posts/the-best-tech-youtube-channels-for-coders-of-all-levels
-- Top Companies Hiring Freshers India 2026: https://internshala.com/blog/list-of-companies-hiring-freshers-in-india/
+- Software Engineering Career Growth in India 2026: https://amquesteducation.com/blog/software-engineering-career-growth-in-india/
+- Average Computer Science Salary Trends India 2026: https://www.upgrad.com/blog/computer-science-salary-in-india/
+- Software Engineer Salary in India 2026: https://www.jaroeducation.com/blog/software-engineer-salary-in-india
+
+### Industry Trends & Technologies
+- Stanford AI Index for 2026: https://spectrum.ieee.org/state-of-ai-index-2026
+- 7 Machine Learning Trends to Watch in 2026: https://machinelearningmastery.com/7-machine-learning-trends-to-watch-in-2026/
+- 10 Machine Learning Trends 2026 and Beyond: https://softteco.com/blog/machine-learning-trends
+- Five Trends in AI and Data Science for 2026 (MIT Sloan): https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/
+- 10 AI and Machine Learning Trends 2026 (TechTarget): https://www.techtarget.com/searchenterpriseai/tip/9-top-AI-and-machine-learning-trends
+- AI and Machine Learning Job Trends 2026: https://talent500.com/blog/artificial-intelligence-machine-learning-job-trends-2026/
+
+### Educational Resources
+- The 28 Best Coding YouTube Channels in 2026: https://tripleten.com/blog/posts/the-best-tech-youtube-channels-for-coders-of-all-levels
+- 70 Computer Science YouTubers You Must Follow in 2026: https://videos.feedspot.com/computer_science_youtube_channels/
+- 14 Best YouTube Channels to Learn Coding in 2026: https://rockstardeveloperuniversity.com/best-youtube-channels-learn-coding/
+- 50 Best Coding YouTube Channels 2026: https://www.crackr.dev/blog/best-coding-youtube-channels
+
+### Company & Recruitment Information
+- Top 10 Companies Hiring Freshers in India 2026: https://internshala.com/blog/list-of-companies-hiring-freshers-in-india/
+- Top IT Companies Hiring Freshers in 2026: https://www.shework.in/top-it-companies-hiring-freshers/
+- Top Companies Hiring Software Engineers in 2026: https://www.jobaaj.com/blog/top-companies-hiring-software-engineers-in-2026
+- TCS Strategic AI and Data Hiring: https://www.tcs.com/careers/india/strategic-ai-data-hiring
+
+**Note:** All information researched and compiled in June 2026. Salary figures, trends, and company information reflect 2026 data.
