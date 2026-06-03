@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Electrical Engineering - Complete Career & Curriculum Guide">
+    <title>Electrical Engineering | Career Guide</title>
+
+    <!--
+    ========================================
+    TEMPLATE INSTRUCTIONS
+    ========================================
+
+    This is the HTML template for creating engineering branch slide decks.
+
+    PLACEHOLDERS TO REPLACE:
+    - [BRANCH_NAME] = Full branch name (e.g., "Computer Science & Engineering")
+    - [BRANCH_ABBREVIATION] = Short form (e.g., CSE, EE, IS)
+    - [BRANCH_TAGLINE] = Engaging one-liner
+    - [PRIMARY_COLOR] = Main color hex code
+    - [SECONDARY_COLOR] = Lighter shade of primary
+    - [ACCENT] = Darker shade of primary
+    - [IMAGE_URL_X] = Unsplash image URLs (test with curl first!)
+    - [IMAGE_ALT_X] = Descriptive alt text for accessibility
+    - [IMAGE_CREDIT_X] = Photo credit (Photographer name)
+    - [CONTENT] = Replace with actual slide content
+    - [SPEAKER_NOTES] = Replace with 200-500 word narration scripts
+
+    BRANCH COLOR REFERENCE:
+    - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
+    - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
+    - EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
+    - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
+    - CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
+    - CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
+    - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
+
+    STEPS TO USE THIS TEMPLATE:
+    1. Copy this file to slides/[BRANCH_ABBREVIATION].html
+    2. Replace all [PLACEHOLDERS] with actual content
+    3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
+    4. Test image URLs: curl -I "URL" should return HTTP 200
+    5. Fill all 20 slides with content and speaker notes
+    6. Test locally by opening in browser
+    7. Test navigation (arrow keys, buttons, 'N' for notes)
+    8. Commit and push to GitHub
+    9. Verify on GitHub Pages
+
+    IMAGE GUIDELINES:
+    - Use format: https://images.unsplash.com/photo-[ID]?w=800&q=80
+    - Test URL works before adding
+    - Add descriptive alt text
+    - Include photographer credit: "Photo by [Name] on Unsplash"
+
+    ========================================
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* EE Branch Colors */
+            --primary-color: #FFB800;       /* Gold */
+            --secondary-color: #FFCA33;   /* Light Gold */
+            --accent: #CC9400;                     /* Dark Gold */
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .speaker-notes {
+            display: none;
+            background: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        body.show-notes .speaker-notes {
+            display: block;
+        }
+
+        .slide-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 2rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .slide { padding: 3rem 3rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .speaker-notes { display: block; }
+            .slide { page-break-after: always; }
+            .nav-buttons, .slide-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="slide-nav" role="navigation" aria-label="Slide navigation">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
+    </nav>
+
+    <main class="slides-container" role="main">
+
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide active" id="slide-1" data-slide-number="1" data-slide-type="title">
+            <div class="content">
+                <h1>Electrical Engineering</h1>
+                <p class="tagline">Powering the World - From Generation to Smart Grids</p>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Welcome to this comprehensive overview of Electrical Engineering, one of the core and most versatile branches of engineering that literally powers our modern civilization. Electrical Engineering is the discipline that deals with the study, design, and application of equipment, devices, and systems which use electricity, electronics, and electromagnetism. From generating electricity in massive power plants to distributing it across cities, from designing electric vehicles to building renewable energy systems, from creating smart grids to developing industrial automation – electrical engineers are at the heart of our energy infrastructure. If you've ever wondered how electricity reaches your home reliably 24/7, how solar panels convert sunlight to electricity, how electric vehicles are revolutionizing transportation, or how the power grid stays stable despite fluctuating demand, this is the branch that makes it all possible. Electrical Engineering is unique because it combines hardcore physics and mathematics with practical, large-scale impact – the systems you design can power entire cities and industries. This presentation will take you through what you'll study, where you can work, how this branch is evolving with renewable energy and smart grids, and whether this is the right choice for you. With the world transitioning to clean energy, electric vehicles, and smart infrastructure, there has never been a more exciting time to be an electrical engineer. The opportunities span traditional power sector giants, cutting-edge renewable energy companies, electric vehicle manufacturers, and emerging technology firms.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 2: What is EE -->
+        <section class="slide" id="slide-2" data-slide-number="2">
+            <h2>What is Electrical Engineering?</h2>
+            <div class="two-column">
+                <div>
+                    <p><strong>Core Definition:</strong> Electrical Engineering is the branch that deals with the study, design, and application of systems involving electricity, electronics, and electromagnetism – from power generation and transmission to motors, control systems, and renewable energy.</p>
+
+                    <h3>Fundamental Areas</h3>
+                    <ul>
+                        <li><strong>Power Systems:</strong> Generation, transmission, distribution of electrical energy</li>
+                        <li><strong>Electronics & Control:</strong> Circuit design, control systems, automation, robotics</li>
+                        <li><strong>Electrical Machines:</strong> Motors, generators, transformers, drives</li>
+                        <li><strong>Renewable Energy:</strong> Solar, wind, battery systems, smart grids</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Key Insight:</strong> India is investing $135 billion in renewable energy infrastructure by 2030 and planning to achieve 500 GW of renewable capacity, creating unprecedented demand for electrical engineers in the clean energy transition.
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80" alt="Power plant and electrical infrastructure">
+                    <p class="image-caption">Photo by Matthew Henry on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's start with the basics. Electrical Engineering is fundamentally about understanding and harnessing electrical energy to power our world. The power systems side focuses on generating electricity (from thermal, hydro, nuclear, solar, wind sources), transmitting it across long distances through high-voltage lines, and distributing it to homes and industries. The electronics and control side deals with circuits, sensors, automation, and control systems that make machines and processes run intelligently. The electrical machines aspect covers motors (converting electricity to mechanical motion), generators (converting mechanical motion to electricity), and transformers (changing voltage levels). The renewable energy dimension, which is exploding right now, focuses on clean energy systems like solar panels, wind turbines, battery storage, and smart grids that balance supply and demand dynamically. Historically, electrical engineering emerged in the late 19th century with pioneers like Thomas Edison and Nikola Tesla, whose battle between DC and AC systems shaped our modern power grid. Today, electrical engineering is more relevant than ever because the world is undergoing a massive energy transition. India is investing $135 billion in renewable energy infrastructure by 2030, with a target of 500 GW renewable capacity. This massive buildout requires tens of thousands of electrical engineers. Electrical engineers solve challenges like: How do we integrate intermittent renewable energy into the grid without causing blackouts? How do we reduce transmission losses? It's a field where your work has massive, tangible impact – the systems you design power economies and improve billions of lives.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 3: First & Second Year Curriculum -->
+        <section class="slide" id="slide-3" data-slide-number="3">
+            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="two-column">
+                <div>
+                    <h3>First Year (Common Engineering Foundation)</h3>
+                    <ul>
+                        <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations, Complex Analysis</li>
+                        <li><strong>Engineering Physics</strong> - Mechanics, Electromagnetism, Quantum Physics, Semiconductor Physics</li>
+                        <li><strong>Engineering Chemistry</strong> - Material Science, Electrochemistry, Polymer Chemistry</li>
+                        <li><strong>Basic Electrical Engineering</strong> - DC/AC circuits, network theorems, electrical safety</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing, CAD basics</li>
+                        <li><strong>Programming Fundamentals</strong> - C/Python for engineering applications</li>
+                    </ul>
+
+                    <h3>Second Year - EE Specialization Begins</h3>
+                    <ul>
+                        <li><strong>Circuit Theory & Network Analysis</strong> - Kirchhoff's laws, Thevenin/Norton theorems, AC circuit analysis</li>
+                        <li><strong>Electromagnetic Theory</strong> - Maxwell's equations, wave propagation, transmission lines</li>
+                        <li><strong>Electrical Machines I</strong> - DC machines, transformers, construction, working principles</li>
+                        <li><strong>Analog & Digital Electronics</strong> - Diodes, transistors, op-amps, logic gates</li>
+                        <li><strong>Signals & Systems</strong> - Time and frequency domain analysis, Fourier and Laplace transforms</li>
+                        <li><strong>Lab Work:</strong> Circuits Lab, Electronics Lab, Electrical Machines Lab</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112d38e315?w=800&q=80" alt="Engineering students working in lab">
+                    <p class="image-caption">Photo by ThisisEngineering RAEng on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's walk through what you'll actually study in Electrical Engineering over four years, starting with the foundation. First Year is common across most engineering branches and builds your fundamental knowledge. Engineering Mathematics is absolutely crucial for EE – calculus helps you understand changing currents and voltages, linear algebra is essential for analyzing large power systems, differential equations model how circuits and machines behave over time, and complex analysis is used extensively in AC circuit analysis. Engineering Physics is particularly important because electromagnetism is the foundation of everything you'll do – you'll study electric and magnetic fields, electromagnetic induction (the principle behind transformers and generators), and Maxwell's equations. Basic Electrical Engineering is your first introduction to circuits – you'll learn about voltage, current, resistance, Ohm's law, and electrical safety (critical because you'll work with high voltages). Second Year is where Electrical Engineering really begins. Circuit Theory teaches you systematic methods to analyze complex electrical circuits. Electromagnetic Theory dives deep into Maxwell's equations – the four elegant equations that explain all electromagnetic phenomena. Electrical Machines I introduces you to DC motors, generators, and transformers – the workhorses of electrical systems. Lab work is hands-on and exciting – you'll build actual circuits, measure voltages and currents, operate transformers, and debug when things don't work.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 4: Third Year Curriculum -->
+        <section class="slide" id="slide-4" data-slide-number="4">
+            <h2>Third Year - Core Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Major Subjects</h3>
+                    <ul>
+                        <li><strong>Power Systems I</strong> - Power generation, transmission line modeling, per-unit system</li>
+                        <li><strong>Electrical Machines II</strong> - Induction motors, synchronous machines, special machines</li>
+                        <li><strong>Power Electronics</strong> - Thyristors, IGBTs, rectifiers, inverters, choppers, converters</li>
+                        <li><strong>Control Systems</strong> - Transfer functions, stability analysis, Bode plots, PID controllers</li>
+                        <li><strong>Measurement & Instrumentation</strong> - Sensors, transducers, data acquisition</li>
+                        <li><strong>Microprocessors & Microcontrollers</strong> - 8085/8086 architecture, embedded systems</li>
+                    </ul>
+
+                    <h3>Lab Courses</h3>
+                    <ul>
+                        <li>Power Systems Lab (load flow studies, fault analysis)</li>
+                        <li>Machines Lab (testing induction motors, synchronous generators)</li>
+                        <li>Power Electronics Lab (building rectifiers, inverters, converters)</li>
+                        <li>Control Systems Lab (PID tuning, stability analysis)</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Mini Project:</strong> Design and simulate a power system component or build a working control system (e.g., motor speed controller, solar charge controller)
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Solar panels and renewable energy infrastructure">
+                    <p class="image-caption">Photo by American Public Power Association on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Third year is where you dive deep into core electrical engineering. Power Systems I is the heart of EE – you'll learn how electricity is generated in thermal, hydro, and nuclear plants, study transmission line modeling, and power flow analysis. Electrical Machines II covers three-phase induction motors (the workhorses of industry), synchronous generators (used in all power plants), and their control methods. Power Electronics is incredibly exciting – you'll study semiconductor switching devices like thyristors and IGBTs that can handle hundreds of amps, and learn to design rectifiers, inverters, and converters. This is crucial for renewable energy, electric vehicles, and industrial drives. Control Systems teaches you how to make systems behave as desired using feedback – you'll learn stability analysis, PID controllers, and frequency response. The lab courses are where theory meets practice. In Power Systems Lab, you'll use software like MATLAB or ETAP to simulate power networks and perform load flow studies. In Machines Lab, you'll actually operate induction motors and generators. In Power Electronics Lab, you'll build converter circuits using IGBTs. Your mini project lets you apply multiple concepts – maybe design a solar charge controller or build a motor speed control system.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 5: Fourth Year Curriculum -->
+        <section class="slide" id="slide-5" data-slide-number="5">
+            <h2>Fourth Year - Advanced & Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Advanced Courses</h3>
+                    <ul>
+                        <li><strong>Power Systems II</strong> - Load flow analysis, fault analysis, stability, FACTS devices</li>
+                        <li><strong>High Voltage Engineering</strong> - Insulation, breakdown mechanisms, HVDC transmission</li>
+                        <li><strong>Renewable Energy Systems</strong> - Solar PV, wind energy, battery storage, grid integration</li>
+                        <li><strong>Electric Drives</strong> - VFDs, motor control, traction systems, electric vehicles</li>
+                    </ul>
+
+                    <h3>Electives (Choose 3-4)</h3>
+                    <ul>
+                        <li>Power System Operation & Control</li>
+                        <li>Smart Grid Technologies & IoT</li>
+                        <li>Electric Vehicle Technology</li>
+                        <li>Industrial Automation & PLC</li>
+                        <li>HVDC & FACTS</li>
+                        <li>Energy Management & Audit</li>
+                        <li>Renewable Energy Integration</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card">
+                        <h4>Major Project (6-8 months)</h4>
+                        <p>Capstone project involving design, simulation, and potentially hardware implementation of an electrical system. Often done in collaboration with power utilities, equipment manufacturers, or research labs.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Emerging Trends</h4>
+                        <ul>
+                            <li>Electric Vehicle Charging Infrastructure</li>
+                            <li>Battery Management Systems</li>
+                            <li>Microgrid Design and Operation</li>
+                            <li>AI and ML for Power Systems</li>
+                            <li>IoT and Smart Grid Technologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Fourth year is where you specialize in advanced topics. Power Systems II covers load flow analysis using Newton-Raphson method, fault analysis calculating fault currents, stability ensuring the system doesn't collapse, and FACTS devices that control power flow. High Voltage Engineering deals with voltages above 33 kV, including insulation design and HVDC transmission for long-distance bulk power. Renewable Energy Systems is one of the hottest courses – you'll learn about solar PV systems, wind energy, battery storage, and grid integration challenges. Electric Drives covers variable frequency drives used extensively in industry to control motor speed and save energy. Your electives let you specialize based on career goals. Smart Grid Technologies covers sensors, communication, and AI for grid management. Electric Vehicle Technology is booming with battery technology and charging infrastructure. Industrial Automation teaches PLC programming for factories. Your major project is the crown jewel – maybe designing a solar microgrid, developing a battery management system for EVs, or implementing industrial automation. Many students collaborate with PSUs like NTPC, equipment manufacturers like Siemens, or renewable energy companies, often leading to job offers. Industry internships are incredibly valuable – working at power plants, substations, or solar companies gives you real-world exposure.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 6: Skills Development -->
+        <section class="slide" id="slide-6" data-slide-number="6">
+            <h2>Skills You'll Develop</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Power System Analysis & Design</h4>
+                    <p>Analyze, design, and optimize power generation, transmission, and distribution systems. Understand load flow, fault analysis, stability, and protection.</p>
+                </div>
+                <div class="card">
+                    <h4>Electrical Machines & Drives</h4>
+                    <p>Design, operate, and control motors, generators, and transformers. Understand efficiency optimization and variable speed drives.</p>
+                </div>
+                <div class="card">
+                    <h4>Power Electronics & Converters</h4>
+                    <p>Design and implement rectifiers, inverters, choppers, and converters. Work with IGBTs, thyristors, and control circuits.</p>
+                </div>
+                <div class="card">
+                    <h4>Control Systems & Automation</h4>
+                    <p>Design controllers for stability and performance. Implement PID, state-space, and advanced control algorithms. Program PLCs and SCADA systems.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tools & Technologies:</strong> MATLAB/Simulink, ETAP, PowerWorld, PSS/E, PSCAD, AutoCAD Electrical, DIgSILENT PowerFactory, Python, Oscilloscopes, PLCs (Siemens, Allen-Bradley), SCADA systems
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Beyond book knowledge, Electrical Engineering develops crucial practical skills. Power system analysis is your core skill – you'll analyze how electricity flows through complex networks, design systems for reliability, and ensure stability. Machines and drives expertise makes you valuable in manufacturing where motors consume 60-70% of industrial electricity. Power electronics is incredibly hot – you'll design circuits with IGBTs and MOSFETs that convert power with 95-98% efficiency, critical for renewable energy, EVs, and industrial drives. Control systems and automation allow you to design self-regulating systems. You'll master software like MATLAB and Simulink for simulation, ETAP or PowerWorld for power system analysis, AutoCAD Electrical for drawings, and Python for automation. On hardware, you'll use oscilloscopes to visualize waveforms, PLCs to program automation sequences, and SCADA systems for remote monitoring. Knowledge of IEEE and IEC standards is important. Professional skills matter too – safety is paramount when working with lethal voltages, technical communication is critical for reports and documentation, and continuous learning is essential as technologies evolve rapidly.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 7: Entry-Level Careers -->
+        <section class="slide" id="slide-7" data-slide-number="7">
+            <h2>Career Opportunities - Entry Level</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Power Plant Electrical Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Operating and maintaining power generation equipment, monitoring plant performance, troubleshooting failures, ensuring safety</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹8-12 LPA (PSUs like NTPC, BHEL)</p>
+                </div>
+                <div class="card">
+                    <h4>Transmission & Distribution Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Designing substations, transmission lines, protection schemes, performing load flow and fault studies</p>
+                    <p><strong>Salary:</strong> ₹4-7 LPA (Tier 2), ₹10-15 LPA (PGCIL, PowerGrid)</p>
+                </div>
+                <div class="card">
+                    <h4>Control & Automation Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Programming PLCs, designing control panels, implementing SCADA systems, automation commissioning</p>
+                    <p><strong>Salary:</strong> ₹5-8 LPA (Tier 2), ₹12-18 LPA (Siemens, ABB, Schneider)</p>
+                </div>
+                <div class="card">
+                    <h4>Renewable Energy Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Designing solar/wind projects, site assessment, energy yield calculations, grid integration studies</p>
+                    <p><strong>Salary:</strong> ₹4-7 LPA (Tier 2), ₹10-16 LPA (Adani Green, ReNew Power)</p>
+                </div>
+                <div class="card">
+                    <h4>Power Electronics Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Designing converters, inverters, motor drives, PCB design, testing and validation</p>
+                    <p><strong>Salary:</strong> ₹5-9 LPA (Tier 2), ₹12-20 LPA (EV companies, solar inverter manufacturers)</p>
+                </div>
+                <div class="card">
+                    <h4>Electrical Design Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Creating electrical drawings, load calculations, cable sizing, panel design using AutoCAD</p>
+                    <p><strong>Salary:</strong> ₹3.5-6 LPA (Tier 2), ₹8-12 LPA (L&T, Tata Projects)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk about where you can actually work after graduating. Power Plant Engineer works at thermal, hydro, or renewable plants operating massive generators, turbines, and transformers. PSUs like NTPC offer excellent job security and salaries starting ₹8-12 LPA. Transmission & Distribution Engineer designs substations and grid infrastructure. PowerGrid starts at ₹10-15 LPA with good benefits. Control & Automation Engineer programs PLCs for factories and infrastructure, with companies like Siemens paying ₹12-18 LPA. Renewable Energy Engineer designs solar/wind projects – fastest growing sector due to India's 500 GW renewable target. Adani Green and ReNew Power hire aggressively at ₹10-16 LPA. Power Electronics Engineer designs converters and inverters for EVs and renewable energy, commanding ₹12-20 LPA at EV companies because skills are in short supply. Electrical Design Engineer creates drawings and designs for buildings and infrastructure, offering stable work-life balance. The job market in 2026 is strong, especially for renewable energy, power electronics, automation, and power systems skills.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 8: Mid-Career & Senior Roles -->
+        <section class="slide" id="slide-8" data-slide-number="8">
+            <h2>Career Growth - Mid to Senior Level</h2>
+
+            <h3>Mid-Level Roles (3-7 years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Senior Electrical Engineer</h4>
+                    <p>Leading design teams, reviewing designs, mentoring juniors, client interactions</p>
+                    <p><strong>Salary:</strong> ₹12-20 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Project Engineer / Execution Engineer</h4>
+                    <p>Managing electrical aspects of projects, vendor coordination, site supervision, commissioning</p>
+                    <p><strong>Salary:</strong> ₹15-25 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Protection & Control Engineer</h4>
+                    <p>Designing protection schemes, setting relays, analyzing disturbances, protection philosophy</p>
+                    <p><strong>Salary:</strong> ₹18-28 LPA</p>
+                </div>
+            </div>
+
+            <h3>Senior-Level Roles (8+ years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Engineering Manager</h4>
+                    <p>Managing teams, project oversight, client relations, business development</p>
+                    <p><strong>Salary:</strong> ₹25-40 LPA (India), $90-140K (US)</p>
+                </div>
+                <div class="card">
+                    <h4>Principal Engineer / Chief Engineer</h4>
+                    <p>Technical leadership, design approvals, complex problem-solving, subject matter expertise</p>
+                    <p><strong>Salary:</strong> ₹30-50 LPA (India), $100-160K (US)</p>
+                </div>
+            </div>
+
+            <h4>Alternative Paths:</h4>
+            <p>Entrepreneurship (EPC firms, solar companies), Academia & Research (MS/PhD, faculty positions), Consulting (Energy consulting at McKinsey, BCG), Regulatory/Policy (electricity commissions, energy ministries)</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Career growth is strong and steady in EE, though less explosive than software but more stable. Progression from junior to mid-level takes 4-6 years and involves leading teams and managing subsystems. Senior Electrical Engineers review designs, mentor juniors, and interact with clients. Project Engineers manage entire projects, coordinating vendors and supervising sites, requiring both technical knowledge and people management, earning ₹15-25 LPA. Protection & Control Engineers are highly specialized, designing protection schemes for power systems – critical work commanding ₹18-28 LPA. Senior-level roles require 8-12 years. Engineering Managers go the management route, managing teams of 10-30 engineers and driving business development, earning ₹25-40 LPA. Principal Engineers stay technical as subject matter experts who provide technical leadership without direct management, ideal for those who love deep technical work, earning ₹30-50 LPA. International opportunities exist but are less abundant than software. Alternative paths include entrepreneurship (starting EPC or solar companies), academia (pursuing PhD and research), consulting (energy strategy at firms like McKinsey), or regulatory work (shaping electricity policy). The field offers stable, respectable career progression with good work-life balance.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 9: Industry Sectors -->
+        <section class="slide" id="slide-9" data-slide-number="9">
+            <h2>Industry Sectors & Companies</h2>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Power Generation</h4>
+                    <p>Thermal, hydro, nuclear, and renewable power plants. Operating generators, maintenance, plant engineering. NTPC, NHPC, NPC, Tata Power, Adani Power</p>
+                </div>
+                <div class="card">
+                    <h4>Transmission & Distribution</h4>
+                    <p>Building and operating power grids, substations, transmission lines. PowerGrid (PGCIL), state utilities, Sterlite Power, Adani Transmission</p>
+                </div>
+                <div class="card">
+                    <h4>Renewable Energy</h4>
+                    <p>Solar and wind projects, energy storage, hybrid systems. Adani Green, ReNew Power, Tata Power Solar, Azure Power, Hero Future Energies</p>
+                </div>
+                <div class="card">
+                    <h4>Electrical Equipment Manufacturing</h4>
+                    <p>Transformers, switchgear, cables, meters, power electronics. BHEL, Siemens, ABB, Schneider, L&T Electrical, Havells, Polycab</p>
+                </div>
+                <div class="card">
+                    <h4>Industrial Automation & Control</h4>
+                    <p>PLCs, SCADA, DCS, industrial IoT for factories. Siemens, ABB, Schneider, Rockwell Automation, Honeywell</p>
+                </div>
+                <div class="card">
+                    <h4>Electric Vehicles & E-Mobility</h4>
+                    <p>EV powertrains, charging infrastructure, battery systems. Tata Motors, Ather Energy, Ola Electric, Exide, charging companies</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> NTPC, PowerGrid, NHPC, BHEL, Siemens, ABB, Schneider Electric, L&T, Tata Power, Adani Green, ReNew Power, Tata Motors, Ather, Ola Electric
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Electrical engineers work across diverse sectors. Power Generation includes thermal, hydro, and renewable plants. NTPC is India's largest power producer with 70+ GW capacity, the most coveted PSU offering ₹8-12 LPA starting. Transmission & Distribution builds and operates the power grid. PowerGrid operates India's national grid with 170,000 circuit-km of lines, offering ₹10-15 LPA starting. Renewable Energy is the fastest-growing sector with companies like Adani Green and ReNew Power executing massive solar/wind projects, paying ₹7-12 LPA and growing rapidly. Equipment Manufacturing includes companies making transformers, switchgear, and power electronics. BHEL is the largest PSU manufacturer; private firms like Siemens and ABB offer better salaries. Industrial Automation provides PLCs and SCADA systems for factories, with strong demand for automation engineers who can program PLCs. Electric Vehicles is emerging and high-growth, with EV manufacturers and battery companies needing electrical engineers for battery management systems and motor drives, paying ₹10-18 LPA. EPC companies like L&T and Tata Projects execute electrical projects turnkey. The diversity means if you tire of one sector, your skills transfer to others, providing career security.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 10: Higher Education -->
+        <section class="slide" id="slide-10" data-slide-number="10">
+            <h2>Higher Education Pathways</h2>
+
+            <h3>Master's Specializations (M.Tech/MS)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Power Systems</h4>
+                    <p><strong>Focus:</strong> Advanced power system analysis, renewable integration, smart grids, stability, FACTS</p>
+                    <p><strong>Career Path:</strong> Grid planning engineer, protection specialist, research scientist – high demand in utilities</p>
+                </div>
+                <div class="card">
+                    <h4>Power Electronics & Drives</h4>
+                    <p><strong>Focus:</strong> Advanced converter topologies, motor control, electric vehicles, renewable energy converters</p>
+                    <p><strong>Career Path:</strong> Power electronics engineer in EV, renewable energy – premium salaries</p>
+                </div>
+                <div class="card">
+                    <h4>High Voltage Engineering</h4>
+                    <p><strong>Focus:</strong> Insulation, HVDC transmission, lightning protection, power apparatus design</p>
+                    <p><strong>Career Path:</strong> High voltage engineer in utilities, equipment manufacturers – specialized niche</p>
+                </div>
+                <div class="card">
+                    <h4>Control Systems & Automation</h4>
+                    <p><strong>Focus:</strong> Advanced control theory, robotics, industrial automation, process control</p>
+                    <p><strong>Career Path:</strong> Automation engineer, control specialist – broad applicability across industries</p>
+                </div>
+            </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>Renewable Energy Integration • Battery Storage Systems • Smart Grids & Microgrids • Power Electronics for EV • HVDC & FACTS • AI/ML in Power Systems</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, Stanford, Georgia Tech, UC Berkeley (USA) | ETH Zurich, TU Delft, Imperial College (Europe) | IITs (Bombay, Delhi, Madras), IISc Bangalore (India)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Higher education in EE can significantly boost your career, especially for specialized roles. Power Systems M.Tech/MS is highly valued by utilities and grid operators, covering renewable integration, smart grids, and stability. Career outcomes are excellent – specialized power system engineers command ₹15-30 LPA. Power Electronics M.Tech is incredibly valuable due to EV and renewable booms, with masters graduates commanding ₹18-35 LPA because skills are in severe shortage. High Voltage Engineering is niche but highly respected, opening doors in utilities and HVDC transmission. Control Systems is broader in applicability, useful beyond power sector. M.Tech from IITs/IISc costs ₹2-4 lakhs total through GATE. MS abroad costs $30-60K but gives access to international job market, with US graduates earning $80-120K. PhD path is for research lovers, taking 4-6 years, essential for faculty positions or R&D labs. Timing matters: going immediately after B.Tech makes sense if academically strong with good GATE score. Going after 2-3 years work experience is often better – you have clearer goals and can relate coursework to practical problems, and many foreign MS programs prefer work experience. The specialization typically results in 40-60% salary jump.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 11: Day-to-Day Work -->
+        <section class="slide" id="slide-11" data-slide-number="11">
+            <h2>A Day in the Life - Power Plant Electrical Engineer</h2>
+
+            <h3>Morning (8:00 AM - 12:00 PM)</h3>
+            <ul>
+                <li><strong>8:00-8:30:</strong> Shift handover – receive briefing on plant status, issues overnight, generation schedule</li>
+                <li><strong>8:30-10:00:</strong> Control room monitoring – monitor generator output, grid frequency, voltage levels, respond to alarms</li>
+                <li><strong>10:00-12:00:</strong> Inspection & maintenance – field visit to generators, transformers, switchyard; coordinate preventive maintenance</li>
+            </ul>
+
+            <h3>Afternoon (1:00 PM - 4:00 PM)</h3>
+            <ul>
+                <li><strong>1:00-2:30:</strong> Troubleshooting – investigate auxiliary transformer trip, review relay logs, identify insulation failure, coordinate repair</li>
+                <li><strong>2:30-4:00:</strong> Documentation – update maintenance log, prepare generation report, attend safety meeting</li>
+            </ul>
+
+            <h3>Evening (4:00 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>4:00-5:00:</strong> Coordination – discuss next day's generation schedule, plan upcoming generator maintenance outage, switchyard operations</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> Emergency outages requiring diagnosis under time pressure • Safety-critical environment (22 kV systems, arc flash risks) • Shift work and remote locations • Operating massive equipment (500 MW generators, 315 MVA transformers)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me paint a realistic picture of your day as an electrical engineer at a 400 MW coal-fired power plant. The day starts with shift handover around 8 AM. Power plants operate continuously, so there's always an engineer on duty. You receive briefing on plant status: generator running at 380 MW, one auxiliary pump under maintenance, grid scheduled load reduction to 320 MW at 11 AM. You head to the control room with rows of screens showing real-time data: generator output, stator/rotor currents, power factor, excitation voltage, bearing temperatures, grid frequency (ideally 50.00 Hz), system voltage levels. You monitor these parameters, respond to alarms, and execute load changes as per grid instructions. Around 10 AM, you take a field inspection – walking through the generator hall (generator is bus-sized), checking excitation system, visiting the switchyard (400 kV transmission lines), inspecting transformers, coordinating preventive maintenance on auxiliary motor requiring safe isolation and work permits. After lunch, an alarm sounds: 6.6 kV transformer tripped on differential protection indicating internal fault. You immediately check backup transformer picked up load, review relay logs showing imbalance suggesting internal short circuit, coordinate detailed inspection including oil sampling for dissolved gas analysis. Insulation degradation caused a turn-to-turn fault requiring repair. This troubleshooting – using relay data, electrical tests, and logic to diagnose failures – is daily reality. Afternoon includes documentation and safety meetings (arc flash incidents are rare but catastrophic, strict procedures keep you safe). Evening involves coordinating next day's schedule and planning upcoming annual generator maintenance. Real challenges include emergency outages under pressure, safety-critical work with lethal voltages, shift work including nights, and remote plant locations. What makes it satisfying: producing electricity powering millions, operating massive equipment, deep learning about systems at scale, PSU job security and benefits. Work-life balance after initial years is good. This represents traditional power engineering – very different from renewable energy (project execution), manufacturing (design/testing), EPC (site construction), or automation (PLC programming), but gives deepest understanding of electrical systems at scale.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 12: Salary & Growth -->
+        <section class="slide" id="slide-12" data-slide-number="12">
+            <h2>Compensation & Job Market Outlook</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Salary Progression (India)</h3>
+                    <ul>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹3.5-6 LPA (Tier 2), ₹8-12 LPA (PSUs), ₹10-16 LPA (EV companies)</li>
+                        <li><strong>Mid (4-7 yr):</strong> ₹12-20 LPA avg, ₹20-30 LPA specialized</li>
+                        <li><strong>Senior (10-15 yr):</strong> ₹22-35 LPA avg, ₹35-55 LPA top</li>
+                        <li><strong>Leadership (15+ yr):</strong> ₹40 LPA to ₹1.5 Cr</li>
+                    </ul>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $70-95K, Mid $95-135K, Senior $130-180K</li>
+                        <li><strong>Middle East:</strong> $70-140K (tax-free)</li>
+                        <li><strong>Europe:</strong> €50-90K mid-level</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Job Market (2026-2032)</h3>
+                    <p><strong>Demand:</strong> Moderate Growth (3-5% annually), Strong Growth in Renewable/EV</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>India's 500 GW renewable energy target by 2030</li>
+                        <li>EV adoption and charging infrastructure</li>
+                        <li>Grid modernization and smart grids</li>
+                        <li>Industrial automation initiatives</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>Power Electronics (IGBTs, inverters, motor drives)</li>
+                        <li>Battery Management Systems (BMS)</li>
+                        <li>PLC & SCADA Programming</li>
+                        <li>Renewable Energy (solar/wind system design)</li>
+                        <li>Protection & Control expertise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk numbers honestly – EE salaries are respectable but generally lower than CSE. Fresh graduate salaries vary: Tier 2 companies offer ₹3.5-6 LPA, state utilities ₹6-10 LPA with government job security, PSUs like NTPC/PowerGrid offer ₹8-12 LPA all-inclusive with excellent benefits (housing, medical, pension). The real PSU value is total package including subsidized housing worth ₹3-5 LPA, medical benefits, and defined career progression. Top private companies like Siemens and ABB offer ₹8-14 LPA with faster growth. Renewable companies offer ₹7-12 LPA in explosive growth sector. EV companies offer highest (₹10-16 LPA) because skilled engineers are scarce. Mid-level (4-7 years) engineers earn ₹12-20 LPA average, ₹20-30 LPA with specialized skills like power electronics or protection. Senior engineers (10-15 years) earn ₹22-35 LPA, ₹35-55 LPA for top performers or managers. Leadership reaches ₹40 LPA to ₹1.5 Cr. International: USA offers $70-95K entry rising to $130-180K senior, though visa is challenging. Middle East offers tax-free $70-140K on project contracts. Europe €50-90K mid-level. Job market outlook is moderate overall growth (3-5% annually) but strong variation by subsector. Renewable energy and EV are exploding, creating massive demand. Smart grid deployment and industrial automation growing. Traditional thermal power is stagnant. Skills commanding premium: Power electronics, BMS, PLC/SCADA programming, renewable energy design, protection expertise add ₹3-8 LPA premium. Overall, EE offers stable, respectable careers with good earning potential for specialized skills, though not explosive like software. Value impact and job security over maximizing compensation.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 13: Current Trends -->
+        <section class="slide" id="slide-13" data-slide-number="13">
+            <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2026-2032)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Renewable Energy & Smart Grids</h4>
+                    <p>India targeting 500 GW renewable by 2030. Smart grids using IoT, AI for optimization. Massive job creation in solar/wind projects, grid integration, battery storage.</p>
+                </div>
+                <div class="card">
+                    <h4>Electric Vehicles & Charging</h4>
+                    <p>EV adoption accelerating with 30% sales target by 2030. Requires charging networks, battery management, V2G integration. New career paths in EV powertrains and charging infrastructure.</p>
+                </div>
+                <div class="card">
+                    <h4>Energy Storage & Batteries</h4>
+                    <p>Grid-scale battery storage essential for balancing variable renewable generation. Lithium-ion, flow batteries, pumped hydro. High demand for battery engineers and BMS specialists.</p>
+                </div>
+                <div class="card">
+                    <h4>Power Electronics Revolution</h4>
+                    <p>Wide-bandgap semiconductors (SiC, GaN) enabling higher efficiency, smaller size. Used in EV inverters, solar converters, industrial drives. Premium salaries for power electronics engineers.</p>
+                </div>
+            </div>
+
+            <h3>Research Frontiers</h3>
+            <p>High-penetration renewable grids • Wireless power transmission • Superconducting transmission • AI/ML for grid operation • Microgrids for resilience • Green hydrogen systems</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Electrical engineering is undergoing its biggest transformation in a century due to clean energy transition. Renewable Energy Integration is THE mega-trend – India adding 15-20 GW annually, creating unprecedented demand for engineers to design solar/wind farms, integrate them into grids, design battery storage to buffer variability, and build smart grids with sensors and AI that dynamically balance supply-demand. Electric Vehicles and charging infrastructure is transforming transportation with 30% EV sales target by 2030, requiring millions of charging points, smart charging, V2G technology, creating jobs in EV powertrains, BMS, and charging networks. Energy Storage and Battery Systems are critical for renewable grids – grid-scale batteries (tens to hundreds of MWh) smooth solar/wind variations, provide frequency regulation. Battery engineers with 5 years experience earn ₹20-30+ LPA. Power Electronics Revolution with SiC and GaN devices operating at higher voltages and frequencies, enabling smaller, more efficient converters. SiC inverters achieve 98-99% efficiency, extending EV range. For power electronics engineers, learning SiC/GaN commands significant salary premium. Research frontiers include high-penetration renewable grids (70-80% renewable), wireless power transmission, superconducting transmission with zero resistance, AI/ML for grid optimization, microgrids for remote areas and disaster resilience. The next decade will be defined by clean energy transition, electrification of everything, and digital transformation.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 14: Impact of AI - Part 1 -->
+        <section class="slide" id="slide-14" data-slide-number="14">
+            <h2>How AI is Transforming Electrical Engineering</h2>
+
+            <h3>AI Applications in Power Systems</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Renewable Energy Forecasting</h4>
+                    <p>ML models predicting solar/wind generation 1-48 hours ahead with 90%+ accuracy, enabling better grid planning and market participation.</p>
+                </div>
+                <div class="card">
+                    <h4>Predictive Maintenance</h4>
+                    <p>AI analyzing equipment data (vibration, temperature, oil quality) to predict failures weeks before they occur, reducing downtime.</p>
+                </div>
+                <div class="card">
+                    <h4>IoT & Digital Twins</h4>
+                    <p>IoT sensors on transformers, cables, breakers providing real-time health monitoring. Virtual replicas of physical systems for simulation and testing.</p>
+                </div>
+                <div class="card">
+                    <h4>Load Forecasting & Optimization</h4>
+                    <p>AI predicting electricity demand accurately, optimizing generation dispatch, implementing automated demand response.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Tasks Being Enhanced</h3>
+                    <ul>
+                        <li>Load Flow & Fault Studies - Software speeds calculations, but engineers needed for design</li>
+                        <li>Electrical Design - Tools like AutoCAD assist, but judgment remains critical</li>
+                        <li>Protection Coordination - Software helps, but expert knowledge required</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>System Integration - Managing complexity of hybrid systems with solar, wind, battery, grid</li>
+                        <li>Cybersecurity - Securing SCADA and protection systems from cyber attacks</li>
+                        <li>Energy Management & Optimization - Using data, AI, control to minimize costs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Technology is transforming electrical engineering, augmenting capabilities rather than replacing engineers. Digitalization and IoT make grids "smart" – IoT sensors on equipment provide real-time data enabling predictive maintenance. Algorithms analyze patterns and warn "this transformer will likely fail in 3 months" allowing planned replacement before catastrophic failure. SCADA systems are evolving – cloud-based, advanced visualization, mobile access. Digital twins are virtual replicas allowing simulation without risking real equipment. AI Applications include Renewable Energy Forecasting using ML models predicting solar/wind output 1-48 hours ahead with 90%+ accuracy, helping operators plan reserves and manage energy markets. Predictive Maintenance AI analyzes equipment sensor data, recognizing patterns that precede failures. For transformers, dissolved gas analysis indicates faults; for motors, vibration analysis detects bearing wear. Load Forecasting AI predicts electricity demand based on weather, day-of-week, with high accuracy. Demand response programs adjust loads to balance supply-demand. Tasks being automated: Load flow and fault studies that took hours manually now run in seconds with ETAP or PowerWorld, but engineers still build models and interpret results. Electrical design uses AutoCAD, but judgment is needed. Protection coordination software helps, but designing philosophy requires expertise. Tools augment but don't replace. Tasks becoming more valuable: System integration and renewable integration is complex – no software designs complete systems. Cybersecurity is critical as power systems become digitally connected. Energy management using data and AI requires both electrical knowledge AND analytical skills.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 15: Impact of AI - Part 2 -->
+        <section class="slide" id="slide-15" data-slide-number="15">
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li>Power System Fundamentals - Physics-based knowledge that doesn't change with technology</li>
+                        <li>Renewable Energy & Storage Systems - Fastest-growing area for jobs</li>
+                        <li>Power Electronics - Critical for EV, renewable energy, industrial drives</li>
+                        <li>Software & Data Skills - MATLAB, Python, power system software, data analysis</li>
+                    </ul>
+
+                    <h4>Human Skills</h4>
+                    <ul>
+                        <li>Safety-First Mindset - High voltage work can be lethal, safety awareness is paramount</li>
+                        <li>Systems Thinking - Understanding how components interact in complex systems</li>
+                        <li>Practical Problem-Solving - Troubleshooting real equipment failures under pressure</li>
+                        <li>Communication & Project Management - Essential for coordinating teams and stakeholders</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>Focus on fundamentals (circuits, machines, power systems) – these don't change</li>
+                        <li>Learn power system software (MATLAB, ETAP), AutoCAD Electrical</li>
+                        <li>Do meaningful projects (solar system design, motor control, protection scheme)</li>
+                        <li>Seek internships at utilities, PSUs, or equipment manufacturers</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>Choose first job for learning depth, not just salary – work at power plant or utility to learn fundamentals</li>
+                        <li>Develop specialized expertise (protection, power electronics, renewable energy, automation)</li>
+                        <li>Get professional certifications (PE, PMP, energy auditor, PLC programming)</li>
+                        <li>Build network through IEEE, industry associations, technical conferences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities Created by Energy Transition:</strong> Designing India's 500 GW renewable capacity buildout (decades of work) • Electrifying transport (millions of charging points needed) • Modernizing century-old grid infrastructure for smart grids • Export opportunities (Indian EE expertise is globally competitive)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Future-proof technical skills start with power system fundamentals – regardless of technology, you need to understand voltage, current, power, frequency, load flow, fault analysis. These fundamentals rooted in physics don't change. Build on this with renewable energy and storage systems (fastest-growing jobs), power electronics (critical for EV/renewable), and software skills (MATLAB, Python, power system software). Human skills matter equally: safety-first mindset is paramount when working with lethal voltages, systems thinking for understanding complex interactions, practical problem-solving for troubleshooting under pressure, and communication for explaining to non-engineers. During college: focus on strong fundamentals, learn MATLAB and ETAP, do meaningful projects demonstrating skills, seek internships at utilities or PSUs. Early career: choose first job for learning depth (working at power plant teaches fundamentals deeply), develop specialized expertise, get professional certifications (PMP, PLC programming), build network through IEEE and conferences. Throughout career, continuous learning is essential because EE is evolving due to energy transition – technologies mainstream today (batteries, EV charging) barely existed 15 years ago. Opportunities from energy transition are massive: India's 500 GW renewable buildout requires thousands of engineers for decades, electrifying transport needs millions of charging points, modernizing grids for smart technology, and Indian EE expertise is globally competitive. With right skills, mindset, and continuous learning, EE offers deeply satisfying careers powering civilization while contributing to clean energy transition.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 16: Educational Resources -->
+        <section class="slide" id="slide-16" data-slide-number="16">
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>The Electrical Guy</h4>
+                    <p>Practical electrical engineering – switchgear, transformers, protection systems with real equipment</p>
+                    <p><small>Must-watch: Switchgear basics series</small></p>
+                </div>
+                <div class="card">
+                    <h4>GreatScott!</h4>
+                    <p>Power electronics, battery systems, converters, LED projects with engineering explanations</p>
+                    <p><small>Must-watch: Battery management and DC-DC converters</small></p>
+                </div>
+                <div class="card">
+                    <h4>ElectroBOOM</h4>
+                    <p>Electrical experiments demonstrating dos and don'ts with humor (7.8M subscribers)</p>
+                    <p><small>Must-watch: Electrical safety demonstrations</small></p>
+                </div>
+                <div class="card">
+                    <h4>Andreas Spiess</h4>
+                    <p>Solar-powered systems, ESP boards, IoT sensors, home automation for smart grids</p>
+                    <p><small>Must-watch: Solar and low-power systems</small></p>
+                </div>
+            </div>
+
+            <h3>Online Courses</h3>
+            <ul>
+                <li><strong>Power System Analysis (Coursera):</strong> University of Washington, Intermediate, Power flow, fault analysis, stability with MATLAB</li>
+                <li><strong>Introduction to Solar Energy (NPTEL):</strong> IIT Madras, 8 weeks, Solar thermal and PV systems, design, economics</li>
+                <li><strong>Power Electronics (Coursera):</strong> University of Colorado, 10-week specialization, Converter design, control, motor drives</li>
+            </ul>
+
+            <h3>Books & Communities</h3>
+            <p><strong>Books:</strong> "Electrical Machines" by P.S. Bimbhra, "Power System Analysis" by Hadi Saadat, "Power Electronics" by Ned Mohan</p>
+            <p><strong>Communities:</strong> IEEE Power & Energy Society, All About Circuits, Electrical Engineering Stack Exchange, EEWeb</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Here are the best resources for exploring EE. The Electrical Guy by Gaurav Joshi explains switchgear, transformers, protection systems with actual equipment – invaluable for understanding what you'll work with in substations. GreatScott! builds actual projects (converters, battery chargers, motor drivers) with engineering explanations – perfect for hands-on power electronics learning. ElectroBOOM by Mehdi demonstrates what NOT to do (getting shocked, short circuits) to drive home safety lessons. Andreas Spiess covers low-power electronics, IoT, solar systems relevant to smart grid applications. For courses, Coursera's Power System Analysis from UW covers load flow, fault analysis with MATLAB assignments. NPTEL IIT Madras courses on solar energy and power systems are excellent with Indian context. University of Colorado's Power Electronics specialization is comprehensive. For books, P.S. Bimbhra for machines, Hadi Saadat for power systems, Ned Mohan for power electronics – all are industry-standard with clear explanations. IEEE Power & Energy Society is THE professional organization with student membership giving access to papers, webinars, conferences. All About Circuits provides free textbook-style content and forums. For software, MATLAB/Simulink is essential, ETAP/PowerWorld for power systems analysis, AutoCAD Electrical for design drawings, PLC programming (Siemens TIA Portal) for automation – all offer student versions. My learning path suggestion: strengthen fundamentals in year 1-2, learn MATLAB and power system software in year 3, take advanced online courses and build substantial project in final year. Throughout, read IEEE Spectrum and connect with professional communities.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 17: Real-World Projects -->
+        <section class="slide" id="slide-17" data-slide-number="17">
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Microgrid for Rural Electrification</h4>
+                    <p><strong>What:</strong> Solar-battery microgrid with diesel backup for remote village, with energy management system</p>
+                    <p><strong>Tech:</strong> Solar PV, lithium battery bank, smart inverter with grid-forming capability, load scheduling</p>
+                    <p><strong>Impact:</strong> Deployed powering 150 homes, won national competition, team secured renewable energy jobs</p>
+                </div>
+                <div class="card">
+                    <h4>Motor Drive for Electric Rickshaw</h4>
+                    <p><strong>What:</strong> BLDC motor drive with regenerative braking for electric three-wheeler</p>
+                    <p><strong>Tech:</strong> Power MOSFET H-bridge, microcontroller, rotor position sensing, closed-loop speed control</p>
+                    <p><strong>Impact:</strong> 15% efficiency improvement over commercial controllers, showcased to EV manufacturer</p>
+                </div>
+            </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Bhadla Solar Park - 2.25 GW</h4>
+                    <p>World's fourth-largest solar power plant in Rajasthan supplying clean energy equivalent to powering 1.3 million homes. Demonstrates India's renewable energy capability.</p>
+                </div>
+                <div class="card">
+                    <h4>Delhi Metro Regenerative Braking</h4>
+                    <p>Trains using regenerative braking feed electricity back to grid when slowing down, saving 20-25% energy through advanced power electronics.</p>
+                </div>
+                <div class="card">
+                    <h4>Grid-Scale Battery Storage - 1 GW (AP)</h4>
+                    <p>India's largest battery energy storage system for balancing renewable energy variability, providing grid stability with advanced BMS.</p>
+                </div>
+                <div class="card">
+                    <h4>BHEL's 800 MW Supercritical Technology</h4>
+                    <p>Indigenously developed supercritical technology achieving 42-43% efficiency vs 35-38% subcritical, saving millions of tons of coal annually.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> IEEE Student Design Contests • Smart India Hackathon (Power Sector) • ISGW Student Competition • GATE for PSUs • All India Inter University EE Projects
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me show you what's possible in EE through real projects. Student projects demonstrate what you can build in college with creativity. The Microgrid for Rural Electrification was built by final-year IIT team – complete microgrid for remote village with 30 kW solar, 100 kWh battery, diesel backup, smart inverter with energy management. Deployed powering 150 homes, team won national competition and secured renewable energy jobs. This shows meaningful projects are possible. Motor Drive for Electric Rickshaw by NIT students built three-phase inverter using MOSFETs driving BLDC motor, implemented field-oriented control, added regenerative braking extending range 10-15%. Demonstrated 15% efficiency improvement, showcased to EV manufacturer R&D team leading to internship offers. Shows power electronics projects can have commercial relevance. Smart Transformer Monitoring solved utility problem – IoT monitoring system with sensors measuring oil temperature, load current, power factor, with LoRa wireless to cloud dashboard. Pilot-tested with state utility on 50 transformers, warned of 8 failures 2-3 weeks in advance. Won Smart India Hackathon. Industry innovations inspire: Bhadla Solar Park 2.25 GW in Rajasthan is world's fourth-largest, millions of panels across 14,000 acres, thousands of electrical engineers involved in design and execution. Mumbai-Ahmedabad Bullet Train requires advanced 25 kV AC electrification at 320 km/h. Delhi Metro's regenerative braking saves 20-25% energy. Grid-scale battery storage like AP's 1 GW planned installation is critical for renewable integration. Early project work builds portfolio and provides interview talking points.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 18: Pros & Cons -->
+        <section class="slide" id="slide-18" data-slide-number="18">
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>Core Branch with Broad Applicability</h4>
+                        <p>EE fundamentals apply across power, electronics, automation, telecommunications – versatility protects against technological obsolescence</p>
+                    </div>
+                    <div class="card">
+                        <h4>Stable, Respectable Careers</h4>
+                        <p>PSU jobs offer excellent job security, benefits, work-life balance. Utilities provide stable employment less volatile than startups</p>
+                    </div>
+                    <div class="card">
+                        <h4>Massive, Tangible Impact</h4>
+                        <p>Directly powering homes, industries, cities. Work has visible, meaningful impact on millions – substations, power plants you designed</p>
+                    </div>
+                    <div class="card">
+                        <h4>Growing Clean Energy Opportunities</h4>
+                        <p>India's 500 GW renewable target, EV adoption, grid modernization creating unprecedented opportunities in modern technologies</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>Lower Salaries Than CS/IT</h4>
+                        <p>Fresh packages ₹4-8 LPA vs ₹8-15 LPA for CS. Growth steadier but slower than software's potential for explosive salary increases</p>
+                    </div>
+                    <div class="card">
+                        <h4>Thermal Power Sector Stagnant</h4>
+                        <p>Coal power not expanding, so traditional power plant jobs aren't growing. Must pivot toward renewables or automation for growth</p>
+                    </div>
+                    <div class="card">
+                        <h4>Field Work & Remote Locations</h4>
+                        <p>Many jobs at power plants (often remote), substations, construction sites. Less suited for purely office-based metro city work</p>
+                    </div>
+                    <div class="card">
+                        <h4>High Voltage Safety Risks</h4>
+                        <p>Working with potentially lethal voltages requires constant vigilance. Arc flash and electrocution risks are real, safety protocols are strict</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> You enjoy physics/mathematics, value stability and meaningful work over maximum salary, comfortable with field work and physical systems, interested in energy sector and sustainability</p>
+                <p><strong>Might struggle if:</strong> Primarily motivated by salary maximization, want exclusively metro office-based work, uncomfortable with physical work or safety risks, prefer rapidly changing technology and quick iterations</p>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's have completely honest conversation. Advantages are real: EE is core branch with broad applicability – fundamentals apply across power, automation, electronics, protecting against obsolescence. Stable, respectable careers especially in PSUs offering excellent job security, benefits, work-life balance. Massive tangible impact – literally powering civilization, seeing substations and power plants you designed energize regions is deeply satisfying. Growing opportunities in clean energy with India's 500 GW renewable target, EV adoption, grid modernization. Physical hands-on work if you enjoy actual equipment beyond computer screens. But challenges are equally real: Lower salaries than CS/IT, especially initially – ₹4-8 LPA average vs ₹8-15 LPA for CS. Thermal power stagnant with no new coal plants, must focus on renewables or automation for growth. Many jobs require field work and remote locations – power plants often in remote areas, less suited for metro office-only preference. High voltage work has real safety risks requiring constant discipline – arc flash and electrocution can be fatal. Project timelines are long (3-5 years) requiring patience. You'll thrive if you enjoy physics and mathematics, value stability and meaningful work over maximum compensation, comfortable with field work and physical systems, interested in energy sector and sustainability. Might struggle if primarily motivated by salary maximization (CS offers higher ceiling), want exclusively metro office work, uncomfortable with physical work or safety risks, prefer rapidly changing tech and quick iterations. Every branch has trade-offs – the "best" branch aligns with your interests, values, and lifestyle preferences.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 19: Decision Checklist -->
+        <section class="slide" id="slide-19" data-slide-number="19">
+            <h2>Is EE Right for You?</h2>
+
+            <h3>✓ Choose Electrical Engineering If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> You enjoyed physics (especially electricity and magnetism) in school, curious about how electrical systems work, sustainability and clean energy excite you</li>
+                <li><strong>Skills:</strong> Comfortable with mathematics (complex numbers, calculus), enjoy problem-solving requiring both theory and practice, willing to work hands-on with equipment</li>
+                <li><strong>Goals:</strong> Value stable careers with work-life balance over maximum salary growth, want meaningful large-scale impact, comfortable with field work and remote locations, interested in PSU jobs or core sector</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>Maximum salary potential and rapid growth are your top priorities (consider CS/IT)</li>
+                <li>You prefer abstract problem-solving and software over physical systems (consider CS)</li>
+                <li>You strongly prefer exclusively metro city living with office-based work (consider CS/IT)</li>
+                <li>You want rapidly evolving technologies and quick project cycles (consider CS/EC)</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>Did you genuinely enjoy learning about electricity and magnetism in school, or find it dry/abstract?</li>
+                <li>Rank: (a) Maximum salary (b) Job stability & work-life balance (c) Tangible impact (d) Cutting-edge tech. Which rank highest?</li>
+                <li>How do you feel about visiting power plants, substations, construction sites vs sitting in air-conditioned offices?</li>
+                <li>Are you naturally cautious and safety-conscious, or more risk-taking? High voltage requires disciplined safety adherence.</li>
+                <li>Are you patient with multi-year projects showing delayed gratification, or need quick feedback and rapid iterations?</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> Visit a power plant or substation if possible • Talk to working electrical engineers about realities • Read about energy sector trends – do they excite you? • Try simple electrical experiments or projects
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's help you make informed decision. Choose EE if you enjoyed physics (especially electromagnetism) in school, curious about how electrical systems work, excited by sustainability and clean energy transition. If comfortable with mathematics, enjoy problem-solving requiring theory and practice, willing to work hands-on with equipment. If you value stable careers with work-life balance over maximum salary growth, want meaningful large-scale impact powering cities, comfortable with field work and remote locations, interested in PSU jobs or core sector. Consider alternatives if maximum salary potential is top priority (CS offers higher ceiling), prefer abstract software over physical systems, strongly prefer exclusively metro office-based work, or want rapidly evolving tech and quick iterations. Self-assess honestly: Did you enjoy electricity/magnetism in school? Rank your values – if stability and impact rank high, EE suits you; if maximum salary and cutting-edge tech rank highest, consider CS. How do you feel about field work vs office work? Are you naturally safety-conscious? Patient with multi-year projects or need quick feedback? Next steps: Visit power plant or substation to see real work environment, talk to working engineers about day-to-day realities, read energy sector trends and see if they engage you. Choose based on genuine interest and honest self-assessment, not just placement statistics or external pressure. Success comes from passion plus effort.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 20: Closing -->
+        <section class="slide" id="slide-20" data-slide-number="20">
+            <h2>Thank You!</h2>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About Electrical Engineering:</strong> Core branch that powers civilization – designing, building, and operating systems for electricity generation, transmission, distribution, and utilization from machines to renewable energy and electric vehicles.</li>
+                <li><strong>Career Potential:</strong> Stable, respectable careers especially in PSUs and utilities. Growing opportunities in renewable energy, EV, and smart grids. Salaries competitive though typically lower than CS. Excellent work-life balance and job security.</li>
+                <li><strong>Right For You If:</strong> You enjoy physics and mathematics, value meaningful work powering society, comfortable with field work and physical systems, interested in sustainability and clean energy, prioritize stability and impact over maximum salary.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>Take time to understand what electrical engineering really involves – not just textbooks, but field work, high voltage systems, long project timelines, and tangible large-scale impact. Choose based on genuine interest and honest self-assessment of your values and preferences, not just placement statistics or prestige. EE is incredibly rewarding for those who love energy sector and physical systems.</p>
+            </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li><strong>YouTube:</strong> The Electrical Guy, GreatScott!, ElectroBOOM, Andreas Spiess (Slide 16)</li>
+                <li><strong>Courses:</strong> Power System Analysis (Coursera), NPTEL Solar Energy, Power Electronics (Slide 16)</li>
+                <li><strong>Software:</strong> MATLAB, ETAP/PowerWorld, AutoCAD Electrical, PLC Programming (Slide 16)</li>
+                <li><strong>Competitions:</strong> IEEE contests, Smart India Hackathon, GATE for PSUs (Slide 17)</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Building!</h3>
+            <p>Whether you choose EE or another branch, embrace the energy transition happening now – clean energy is the future. Build projects demonstrating skills, not just collecting certificates. Focus on fundamentals deeply – they form foundation for everything. Stay safe always when working with electricity. Best of luck with your engineering journey – <strong>you have the power to light up the world!</strong> ⚡</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>We've covered extensive ground about Electrical Engineering. Key takeaways: EE is fundamentally about powering civilization – understanding and controlling electrical energy from generation through transmission to utilization in motors, drives, and modern applications. Career opportunities are stable and respectable, particularly in PSUs offering excellent job security and benefits, with growing opportunities in renewable energy, EVs, and smart grids. Salaries are competitive though typically lower than CS, with excellent work-life balance. You're right for EE if you enjoy physics and mathematics, value meaningful work powering society, comfortable with field work and physical systems, interested in sustainability. Your decision matters – take time to understand what EE really involves. Visit power plant or substation if possible, talk to working engineers, read about energy sector trends. Choose based on genuine interest and honest self-assessment, not just placement statistics. EE rewards those who love it with stable, meaningful careers contributing to society's fundamental need – reliable, clean electricity. India is undergoing historic energy transition – the next 20 years offer unprecedented opportunities to build infrastructure serving generations. Resources: Explore YouTube channels (The Electrical Guy, GreatScott!), take online courses (Coursera Power Systems, NPTEL Solar Energy), learn software (MATLAB, ETAP, PLC programming), participate in competitions (IEEE, Smart India Hackathon, GATE). Final message: Whether you choose EE or another branch, embrace clean energy transition. Build projects demonstrating skills. Focus on fundamentals – they don't change and form foundation. Stay safe working with electricity. Best of luck – you have the power to light up the world! Thank you!</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            prevBtn.disabled = (currentSlide === 1);
+            nextBtn.disabled = (currentSlide === totalSlides);
+
+            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key === 'n' || event.key === 'N') {
+                document.body.classList.toggle('show-notes');
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
