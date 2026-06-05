@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mechanical Engineering - Complete Career & Curriculum Guide">
+    <title>Mechanical Engineering | Career Guide</title>
+
+    <!--
+    ========================================
+    TEMPLATE INSTRUCTIONS
+    ========================================
+
+    This is the HTML template for creating engineering branch slide decks.
+
+    PLACEHOLDERS TO REPLACE:
+    - [BRANCH_NAME] = Full branch name (e.g., "Computer Science & Engineering")
+    - [BRANCH_ABBREVIATION] = Short form (e.g., CSE, EE, IS)
+    - [BRANCH_TAGLINE] = Engaging one-liner
+    - [PRIMARY_COLOR] = Main color hex code
+    - [SECONDARY_COLOR] = Lighter shade of primary
+    - [ACCENT] = Darker shade of primary
+    - [IMAGE_URL_X] = Unsplash image URLs (test with curl first!)
+    - [IMAGE_ALT_X] = Descriptive alt text for accessibility
+    - [IMAGE_CREDIT_X] = Photo credit (Photographer name)
+    - [CONTENT] = Replace with actual slide content
+    - [SPEAKER_NOTES] = Replace with 200-500 word narration scripts
+
+    BRANCH COLOR REFERENCE:
+    - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
+    - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
+    - EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
+    - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
+    - CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
+    - CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
+    - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
+
+    STEPS TO USE THIS TEMPLATE:
+    1. Copy this file to slides/[BRANCH_ABBREVIATION].html
+    2. Replace all [PLACEHOLDERS] with actual content
+    3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
+    4. Test image URLs: curl -I "URL" should return HTTP 200
+    5. Fill all 20 slides with content and speaker notes
+    6. Test locally by opening in browser
+    7. Test navigation (arrow keys, buttons, 'N' for notes)
+    8. Commit and push to GitHub
+    9. Verify on GitHub Pages
+
+    IMAGE GUIDELINES:
+    - Use format: https://images.unsplash.com/photo-[ID]?w=800&q=80
+    - Test URL works before adding
+    - Add descriptive alt text
+    - Include photographer credit: "Photo by [Name] on Unsplash"
+
+    ========================================
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* ME Branch Colors - Blue Gray / Steel */
+            --primary-color: #607D8B;       /* Gold */
+            --secondary-color: #90A4AE;   /* Light Gold */
+            --accent: #455A64;                     /* Dark Gold */
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .speaker-notes {
+            display: none;
+            background: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        body.show-notes .speaker-notes {
+            display: block;
+        }
+
+        .slide-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 2rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .slide { padding: 3rem 3rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .speaker-notes { display: block; }
+            .slide { page-break-after: always; }
+            .nav-buttons, .slide-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="slide-nav" role="navigation" aria-label="Slide navigation">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
+    </nav>
+
+    <main class="slides-container" role="main">
+
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide active" id="slide-1" data-slide-number="1" data-slide-type="title">
+            <div class="content">
+                <h1>Mechanical Engineering</h1>
+                <p class="tagline">Powering the World - From Generation to Smart Grids</p>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Welcome to this comprehensive overview of Mechanical Engineering, one of the core and most versatile branches of engineering that literally powers our modern civilization. Mechanical Engineering is the discipline that deals with the study, design, and application of equipment, devices, and systems which use electricity, electronics, and electromagnetism. From generating electricity in massive power plants to distributing it across cities, from designing electric vehicles to building renewable energy systems, from creating smart grids to developing industrial automation – electrical engineers are at the heart of our energy infrastructure. If you've ever wondered how electricity reaches your home reliably 24/7, how solar panels convert sunlight to electricity, how electric vehicles are revolutionizing transportation, or how the power grid stays stable despite fluctuating demand, this is the branch that makes it all possible. Mechanical Engineering is unique because it combines hardcore physics and mathematics with practical, large-scale impact – the systems you design can power entire cities and industries. This presentation will take you through what you'll study, where you can work, how this branch is evolving with renewable energy and smart grids, and whether this is the right choice for you. With the world transitioning to clean energy, electric vehicles, and smart infrastructure, there has never been a more exciting time to be an electrical engineer. The opportunities span traditional power sector giants, cutting-edge renewable energy companies, electric vehicle manufacturers, and emerging technology firms.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 2: What is EE -->
+        <section class="slide" id="slide-2" data-slide-number="2">
+            <h2>What is Mechanical Engineering?</h2>
+            <div class="two-column">
+                <div>
+                    <p><strong>Core Definition:</strong> Mechanical Engineering is the discipline that applies principles of physics, materials science, and mathematics to design, analyze, manufacture, and maintain mechanical systems – essentially anything that moves, generates power, or transforms energy.</p>
+
+                    <h3>Fundamental Areas</h3>
+                    <ul>
+                        <li><strong>Mechanics & Dynamics:</strong> Understanding forces, motion, stress, and how objects behave under different conditions</li>
+                        <li><strong>Thermodynamics & Energy Systems:</strong> Heat transfer, power generation, refrigeration, and energy conversion</li>
+                        <li><strong>Design & Manufacturing:</strong> Creating products from concept to production using CAD, simulation, and advanced manufacturing</li>
+                        <li><strong>Robotics & Mechatronics:</strong> Intelligent mechanical systems combining mechanical, electronics, and software</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Key Insight:</strong> Mechanical engineers design 95% of manufactured products globally, and the field employs over 3 million professionals worldwide, making it one of the broadest and most versatile engineering disciplines.</div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="Industrial machinery and manufacturing">
+                    <p class="image-caption">Photo by Christopher Burns on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's start with the basics. Mechanical Engineering is fundamentally about understanding and harnessing electrical energy to power our world. The power systems side focuses on generating electricity (from thermal, hydro, nuclear, solar, wind sources), transmitting it across long distances through high-voltage lines, and distributing it to homes and industries. The electronics and control side deals with circuits, sensors, automation, and control systems that make machines and processes run intelligently. The electrical machines aspect covers motors (converting electricity to mechanical motion), generators (converting mechanical motion to electricity), and transformers (changing voltage levels). The renewable energy dimension, which is exploding right now, focuses on clean energy systems like solar panels, wind turbines, battery storage, and smart grids that balance supply and demand dynamically. Historically, electrical engineering emerged in the late 19th century with pioneers like Thomas Edison and Nikola Tesla, whose battle between DC and AC systems shaped our modern power grid. Today, electrical engineering is more relevant than ever because the world is undergoing a massive energy transition. Mechanical engineers design 95% of manufactured products globally, and the field employs over 3 million professionals worldwide, making it one of the broadest and most versatile engineering disciplines.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 3: First & Second Year Curriculum -->
+        <section class="slide" id="slide-3" data-slide-number="3">
+            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="two-column">
+                <div>
+                    <h3>First Year (Common Engineering Foundation)</h3>
+                    <ul>
+                        <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
+                        <li><strong>Engineering Physics</strong> - Mechanics, Thermodynamics, Waves, Electromagnetism</li>
+                        <li><strong>Engineering Chemistry</strong> - Material Science, Corrosion, Polymers</li>
+                        <li><strong>Programming Fundamentals</strong> - C/C++/Python for engineering</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing, CAD Basics</li>
+                        <li><strong>Workshop Practice</strong> - Hands-on machining, welding, carpentry</li>
+                    </ul>
+
+                    <h3>Second Year - ME Specialization Begins</h3>
+                    <ul>
+                        <li><strong>Engineering Mechanics</strong> - Statics, dynamics, kinematics</li>
+                        <li><strong>Strength of Materials</strong> - Stress, strain, beam theory, failure analysis</li>
+                        <li><strong>Thermodynamics I</strong> - Laws of thermodynamics, power cycles, entropy</li>
+                        <li><strong>Fluid Mechanics</strong> - Fluid statics and dynamics, Bernoulli's equation</li>
+                        <li><strong>Manufacturing Processes</strong> - Casting, forming, machining, welding</li>
+                        <li><strong>Lab Work:</strong> Material Testing Lab, Thermodynamics Lab, Manufacturing Workshop</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112d38e315?w=800&q=80" alt="Engineering students working in lab">
+                    <p class="image-caption">Photo by ThisisEngineering RAEng on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's walk through what you'll actually study in Mechanical Engineering over four years, starting with the foundation. First Year is common across most engineering branches and builds your fundamental knowledge. Mathematics is crucial – calculus helps you understand rates of change (velocity, acceleration, heat transfer rates), differential equations model dynamic systems (vibrations, control systems), and linear algebra is used in finite element analysis for structural simulations. Physics focuses heavily on mechanics (Newton's laws, energy, momentum) and thermodynamics basics, which are the bedrock of all mechanical engineering. Chemistry covers materials science – understanding atomic structure, bonding, and material properties that determine which materials to use for different applications. Programming is increasingly essential for simulations, data analysis, automation, and controlling smart manufacturing systems. Second Year is where ME really starts. Engineering Mechanics teaches you to analyze forces and motion – from static structures to dynamic systems. Strength of Materials is fundamental – understanding how materials deform and fail under loads, critical for designing safe structures and machines. Thermodynamics is the heart of ME – you'll learn the laws governing energy conversion, why engines have efficiency limits, and how to design power generation and refrigeration systems. Fluid Mechanics covers liquids and gases – essential for designing pumps, turbines, aircraft, HVAC systems. Lab work is hands-on and exciting – you'll test materials until they break, conduct experiments on heat engines, and get workshop experience with lathes, milling machines, and welding equipment.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 4: Third Year Curriculum -->
+        <section class="slide" id="slide-4" data-slide-number="4">
+            <h2>Third Year - Core Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Major Subjects</h3>
+                    <ul>
+                        <li><strong>Machine Design</strong> - Design of gears, bearings, shafts, springs, clutches</li>
+                        <li><strong>Heat Transfer</strong> - Conduction, convection, radiation, heat exchangers</li>
+                        <li><strong>Fluid Machinery</strong> - Pumps, turbines, compressors, fans</li>
+                        <li><strong>Dynamics of Machinery</strong> - Vibrations, balancing, critical speeds</li>
+                        <li><strong>Manufacturing Technology</strong> - Advanced machining, CNC programming, metrology</li>
+                        <li><strong>Material Science & Metallurgy</strong> - Phase diagrams, heat treatment, material selection</li>
+                        <li><strong>Thermodynamics II</strong> - Gas dynamics, combustion, refrigeration and air conditioning</li>
+                        <li><strong>Control Systems & Instrumentation</strong> - Feedback control, sensors, actuators</li>
+                    </ul>
+
+                    <h3>Lab Courses</h3>
+                    <ul>
+                        <li>CAD/CAM Lab (SolidWorks, CATIA, CNC programming)</li>
+                        <li>Heat Transfer & Thermal Engineering Lab</li>
+                        <li>Dynamics & Vibrations Lab</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Mini Project:</strong> Design a material handling system, build a solar water heater, create an automated mechanism, or develop a mini wind turbine
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Solar panels and renewable energy infrastructure">
+                    <p class="image-caption">Photo by American Public Power Association on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Third year is where you dive deep into core ME concepts and really start feeling like a mechanical engineer. Machine Design teaches you to select and design machine components that won't fail – calculating shaft diameters, choosing bearing types, designing gear trains for optimal power transmission. Heat Transfer extends thermodynamics to understand how heat moves – critical for designing electronics cooling to power plant boilers. Fluid Machinery covers pumps and turbines that move fluids and extract energy – you'll understand jet engines, design efficient pumps, and learn hydraulic systems. Dynamics of Machinery addresses vibration problems – why washing machines shake, how to balance rotating machinery. Manufacturing Technology covers CNC machining where you program automated manufacturing, precision measurement, and understanding tolerances. Material Science teaches why steel can be hard or soft through heat treatment, how aluminum alloys work in aircraft. Advanced Thermodynamics covers gas turbines, rocket propulsion, and refrigeration cycles. The lab courses are where theory meets practice. In CAD/CAM lab, you'll master SolidWorks or CATIA, run simulations, and program CNC machines. Heat transfer lab lets you experiment with heat exchangers. Your mini project applies multiple concepts together – designing a complete system from concept through fabrication and testing.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 5: Fourth Year Curriculum -->
+        <section class="slide" id="slide-5" data-slide-number="5">
+            <h2>Fourth Year - Advanced & Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Advanced Courses</h3>
+                    <ul>
+                        <li><strong>Automobile Engineering</strong> - Vehicle systems, engine design, chassis, transmission</li>
+                        <li><strong>Finite Element Analysis (FEA)</strong> - Computer-aided stress and thermal analysis</li>
+                        <li><strong>Computational Fluid Dynamics (CFD)</strong> - Numerical simulation of fluid flows</li>
+                        <li><strong>Industrial Engineering & Management</strong> - Production planning, operations research, lean manufacturing</li>
+                    </ul>
+
+                    <h3>Electives (Choose 3-4)</h3>
+                    <ul>
+                        <li>Robotics & Mechatronics</li>
+                        <li>Renewable Energy Systems</li>
+                        <li>Aerospace Engineering</li>
+                        <li>HVAC & Refrigeration</li>
+                        <li>Additive Manufacturing (3D Printing)</li>
+                        <li>Finite Element Methods (Advanced)</li>
+                        <li>Automotive Electronics</li>
+                        <li>Power Plant Engineering</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card">
+                        <h4>Major Project (6-8 months)</h4>
+                        <p>Capstone project involving design, analysis, fabrication, and testing of a complete mechanical system. Often done in collaboration with industry or research labs. Examples: electric go-kart, formula race car, solar-powered system, robotic arm, mini wind turbine, or CNC machine.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Emerging Trends</h4>
+                        <ul>
+                            <li>Electric Vehicle Technology & Battery Management</li>
+                            <li>Industry 4.0 & Smart Manufacturing</li>
+                            <li>Additive Manufacturing & 3D Printing</li>
+                            <li>AI/ML for Predictive Maintenance</li>
+                            <li>Sustainable Engineering & Green Tech</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Fourth year is where you specialize and apply everything you've learned to advanced technologies. Automobile Engineering covers the complete vehicle – engine thermodynamics, transmission design, suspension dynamics, vehicle aerodynamics, and electric powertrains. FEA is powerful software-based analysis where you virtually test designs for stress or heat, replacing expensive physical prototypes. CFD simulates air and fluid flows – used to design aerodynamic cars, optimize HVAC, and model combustion. Industrial Engineering teaches the management side – running efficient factories, lean manufacturing. Electives let you choose your path. Robotics & Mechatronics combines mechanical, electronics, and software for intelligent machines. Renewable Energy focuses on wind turbines, solar thermal, and sustainable tech. Aerospace opens doors to aircraft and spacecraft design. HVAC is a massive industry with constant demand. Advanced Manufacturing covers 3D printing revolutionizing production. Your major project is the crown jewel – designing and building an electric go-kart, formula race car, solar irrigation system, robotic arm, mini wind turbine, or CNC machine. Many collaborate with companies solving real problems, leading to job offers. This project is your resume centerpiece demonstrating complete engineering capability.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 6: Skills Development -->
+        <section class="slide" id="slide-6" data-slide-number="6">
+            <h2>Skills You'll Develop</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Design & CAD Mastery</h4>
+                    <p>Proficiency in 3D modeling, assembly design, and engineering drawings using SolidWorks, CATIA, or AutoCAD – creating detailed designs that can be manufactured.</p>
+                </div>
+                <div class="card">
+                    <h4>Simulation & Analysis</h4>
+                    <p>Using FEA for structural analysis, CFD for fluid flows, and simulation software to virtually test designs before building physical prototypes.</p>
+                </div>
+                <div class="card">
+                    <h4>Manufacturing Knowledge</h4>
+                    <p>Understanding machining, casting, welding, 3D printing, and manufacturing processes to design producible parts with proper tolerances.</p>
+                </div>
+                <div class="card">
+                    <h4>Thermodynamics & Materials</h4>
+                    <p>Analyzing heat transfer, designing thermal systems, and selecting appropriate materials based on strength, weight, cost, and application requirements.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tools & Technologies:</strong> SolidWorks, CATIA, AutoCAD, ANSYS (FEA), MATLAB, Siemens NX, Creo, COMSOL, Fusion 360, LabVIEW, Python, CNC machines, 3D printers, Arduino/Raspberry Pi
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Beyond book knowledge, Mechanical Engineering develops crucial practical skills that employers highly value. Design and CAD skills are fundamental – you'll spend significant time in SolidWorks or CATIA creating parametric 3D models, assemblies with moving parts, and generating manufacturing drawings. Employers expect new graduates to be productive in CAD from day one. Simulation and analysis skills set modern engineers apart – using ANSYS to predict if parts will fail under stress, running CFD simulations to optimize airflow, conducting thermal analysis to prevent overheating. These virtual tests save enormous time and money. Manufacturing knowledge makes you a practical engineer – understanding that designs with undercuts might be impossible to cast, knowing when to specify tolerance levels, choosing processes that balance quality and cost. Thermodynamics and materials selection combine science and art – choosing aluminum for lightweight but considering corrosion, steel for strength but factoring weight. You'll master professional software used in industry, understand CNC programming, and increasingly need programming skills (Python, Arduino) for automation and data analysis. Professional skills matter enormously – project management, cross-functional collaboration, technical communication, and continuous learning as new technologies emerge constantly.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 7: Entry-Level Careers -->
+        <section class="slide" id="slide-7" data-slide-number="7">
+            <h2>Career Opportunities - Entry Level</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Design Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Create 3D models, perform design calculations, generate manufacturing drawings, conduct design reviews, prototype testing</p>
+                    <p><strong>Salary:</strong> ₹3.5-5 LPA (Tier 2), ₹5-8 LPA (Tier 1), ₹10-18 LPA (Top companies)</p>
+                </div>
+                <div class="card">
+                    <h4>Manufacturing/Production Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Optimize manufacturing processes, troubleshoot production issues, implement quality control, reduce cycle times</p>
+                    <p><strong>Salary:</strong> ₹3-4.5 LPA (Tier 2), ₹4.5-7 LPA (Tier 1), ₹8-12 LPA (Top companies)</p>
+                </div>
+                <div class="card">
+                    <h4>Quality Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Develop quality standards, conduct inspections and audits, analyze defects, implement corrective actions</p>
+                    <p><strong>Salary:</strong> ₹3-4 LPA (Tier 2), ₹4-6 LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>Maintenance Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Preventive and corrective maintenance, troubleshoot breakdowns, optimize equipment uptime, manage spare parts</p>
+                    <p><strong>Salary:</strong> ₹3-5 LPA (Tier 2), ₹5-8 LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>Thermal Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Design cooling systems, thermal analysis and simulation, heat exchanger design, HVAC systems, temperature testing</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>CAD/CAE Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Create detailed 3D models, run FEA simulations, optimize designs, generate manufacturing data, support design teams</p>
+                    <p><strong>Salary:</strong> ₹3.5-5 LPA (Tier 2), ₹5-9 LPA (Tier 1)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk about where you can actually work after graduating with ME degree. Design Engineer is the most popular role – you'll work in CAD creating 3D models of products, perform calculations, and collaborate with manufacturing. You might design automotive components, consumer products, or industrial machinery. Manufacturing/Production Engineer focuses on the factory floor – ensuring products are manufactured efficiently and with high quality. You'll troubleshoot production lines and implement improvements. Quality Engineer ensures products meet specifications through testing and analysis. Maintenance Engineer roles are abundant in industries with significant machinery – power plants, chemical plants, manufacturing facilities. You ensure equipment runs reliably through preventive maintenance. Thermal Engineer opportunities are growing with EV battery thermal management, data center cooling, and HVAC design. CAD/CAE Engineer roles involve creating models and running simulations. Tier 1 companies include large multinationals (Bosch, Siemens, GE), major automotive OEMs (Tata Motors, Mahindra, Maruti), and product companies. Tier 2 includes smaller manufacturing companies in smaller cities. The job market is stable with consistent demand across industries.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 8: Mid-Career & Senior Roles -->
+        <section class="slide" id="slide-8" data-slide-number="8">
+            <h2>Career Growth - Mid to Senior Level</h2>
+
+            <h3>Mid-Level Roles (3-7 years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Senior Design/Development Engineer</h4>
+                    <p>Lead design projects, mentor junior engineers, make critical technical decisions, own product subsystems</p>
+                    <p><strong>Salary:</strong> ₹8-15 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Engineering Manager</h4>
+                    <p>Manage engineering teams, project planning and execution, resource allocation, technical oversight</p>
+                    <p><strong>Salary:</strong> ₹12-20 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Product Development Lead</h4>
+                    <p>Drive product development from concept to launch, cross-functional coordination, technical architecture</p>
+                    <p><strong>Salary:</strong> ₹10-18 LPA</p>
+                </div>
+            </div>
+
+            <h3>Senior-Level Roles (8+ years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Principal Engineer / Technical Expert</h4>
+                    <p>Organization-wide technical leadership, solve complex problems, establish best practices</p>
+                    <p><strong>Salary:</strong> ₹18-35 LPA (India), $120-180K (US)</p>
+                </div>
+                <div class="card">
+                    <h4>Engineering Director</h4>
+                    <p>Lead multiple engineering teams, strategic planning, budgets, business alignment</p>
+                    <p><strong>Salary:</strong> ₹25-50 LPA (India), $150-250K (US)</p>
+                </div>
+            </div>
+
+            <h4>Alternative Paths:</h4>
+            <p>Entrepreneurship (manufacturing units, product companies), Academia & Research (PhD, faculty, R&D labs), Consulting (McKinsey, BCG operations), Product Management (technical products)</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Career growth in ME is strong if you develop the right skills and stay current. Progression from junior to mid-level happens around 3-5 years when you've mastered fundamentals and can work independently. You transition from executing tasks to leading small projects, making technical decisions, and mentoring juniors. Senior Design Engineer roles involve owning major subsystems – you're the expert making critical decisions about design approaches and materials. Engineering Manager roles shift toward people and project management – delivering projects on time and budget, growing team capabilities. Product Development Leads drive products from concept to market. Senior-level progression requires 8-12+ years. Principal Engineers are technical authorities with deep expertise in specific domains. You influence technology direction across the organization. Engineering Directors manage managers – leading 20-100+ engineers across multiple projects. Alternative paths offer exciting possibilities: entrepreneurship in ME (starting contract manufacturing, developing innovative products, specialized engineering services), research careers through PhD programs, consulting helping companies optimize operations, or product management for technical products. International opportunities are excellent – ME skills are universally recognized, manufacturing exists worldwide.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 9: Industry Sectors -->
+        <section class="slide" id="slide-9" data-slide-number="9">
+            <h2>Industry Sectors & Companies</h2>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Automotive & Electric Vehicles</h4>
+                    <p>Vehicle design, powertrains, chassis, EV systems, battery thermal management. Tata Motors, Mahindra, Maruti, Ola Electric, Ather Energy, Bajaj</p>
+                </div>
+                <div class="card">
+                    <h4>Aerospace & Defense</h4>
+                    <p>Aircraft, spacecraft, missiles, drones – structures, propulsion, systems integration. ISRO, HAL, DRDO, Agnikul, Skyroot, BEL</p>
+                </div>
+                <div class="card">
+                    <h4>Energy & Power</h4>
+                    <p>Power plants, renewable energy, oil & gas equipment. NTPC, BHEL, Thermax, GE, Siemens, wind/solar companies</p>
+                </div>
+                <div class="card">
+                    <h4>Manufacturing & Industrial Equipment</h4>
+                    <p>Machinery, material handling, robotics, automation systems. L&T, Bharat Forge, Godrej, Kirloskar, Cummins</p>
+                </div>
+                <div class="card">
+                    <h4>HVAC & Building Systems</h4>
+                    <p>Heating, ventilation, air conditioning for buildings, data centers, clean rooms. Blue Star, Voltas, Carrier, Daikin</p>
+                </div>
+                <div class="card">
+                    <h4>Consumer Products</h4>
+                    <p>Appliances, electronics, industrial products. Samsung, LG, Whirlpool, Philips, Bosch</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> Tata Motors, Mahindra, Maruti, L&T, BHEL, Bosch, Siemens, ABB, ISRO, HAL, Ather, Ola Electric, Thermax, Kirloskar
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>ME graduates work across incredibly diverse industries. Automotive & EV sector is massive – you'll work on engine development, vehicle chassis, transmission systems, or battery thermal management for EVs. Companies like Tata Motors, Mahindra, and EV startups are growing fast. Aerospace & Defense is prestigious and technically demanding – working on aircraft structures, propulsion systems, or rockets at ISRO, HAL, or private space startups like Agnikul. Energy & Power sector needs ME engineers for thermal power plants, renewable energy systems (wind turbines, solar thermal), and energy storage. Manufacturing & Industrial Equipment encompasses everything from CNC machine tools to industrial robots to material handling. Companies like L&T and Bharat Forge are global players. HVAC & Building Systems offers excellent career stability – every building needs climate control, data centers require cooling. Consumer Products companies need ME for designing appliances and products. The beauty of ME is versatility – skills transfer across sectors easily, providing career resilience.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 10: Higher Education -->
+        <section class="slide" id="slide-10" data-slide-number="10">
+            <h2>Higher Education Pathways</h2>
+
+            <h3>Master's Specializations (M.Tech/MS)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Thermal Engineering / Heat Transfer</h4>
+                    <p><strong>Focus:</strong> Advanced thermodynamics, computational heat transfer, energy systems, refrigeration</p>
+                    <p><strong>Career Path:</strong> Thermal design engineer, HVAC specialist, energy consultant – growing with EVs</p>
+                </div>
+                <div class="card">
+                    <h4>Design Engineering / CAD/CAM</h4>
+                    <p><strong>Focus:</strong> Advanced design methodology, optimization, FEA/CFD, manufacturing integration</p>
+                    <p><strong>Career Path:</strong> Senior design engineer, CAE specialist, product development lead</p>
+                </div>
+                <div class="card">
+                    <h4>Manufacturing / Industrial Engineering</h4>
+                    <p><strong>Focus:</strong> Advanced manufacturing, automation, robotics, supply chain, lean manufacturing</p>
+                    <p><strong>Career Path:</strong> Manufacturing engineer, operations manager, automation specialist</p>
+                </div>
+                <div class="card">
+                    <h4>Mechatronics & Robotics</h4>
+                    <p><strong>Focus:</strong> Integration of mechanical, electronics, software; robot design, control systems</p>
+                    <p><strong>Career Path:</strong> Robotics engineer, automation engineer, R&D in autonomous systems</p>
+                </div>
+            </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>Robotics & Autonomous Systems • Computational Mechanics • Fluid Dynamics • Advanced Manufacturing (3D Printing) • Energy Systems • Biomechanics</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, Stanford, UC Berkeley, Georgia Tech, University of Michigan (USA) | ETH Zurich, TU Munich, Imperial College (Europe) | IIT Bombay, IIT Madras, IISc Bangalore (India)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Higher education in ME can significantly boost your career. Thermal Engineering specialization is valuable with growing focus on energy efficiency, EV battery cooling, data center thermal management, and renewable energy. Design Engineering develops advanced CAD/CAE skills and design methodology – highly valued because companies need experts who can handle complex simulation and optimization. Manufacturing and Industrial Engineering is increasingly relevant with Industry 4.0 trends – smart manufacturing with IoT, digital twins, and AI. Mechatronics & Robotics is fastest-growing, combining mechanical, electronics, and software – positions you for cutting-edge technology careers. M.Tech in IITs costs ₹2-4 lakhs total through GATE with financial support. MS abroad (particularly US) costs $50-80K but offers international exposure and significantly higher starting salaries that can offset cost within 2-3 years. PhD path is for those passionate about research, taking 4-6 years, essential for faculty positions or high-level R&D. Timing matters: going immediately works if certain about research interests; 2-3 years work experience provides valuable context and clearer direction. Many use higher education to switch specializations within ME.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 11: Day-to-Day Work -->
+        <section class="slide" id="slide-11" data-slide-number="11">
+            <h2>A Day in the Life - Design Engineer at Automotive Company</h2>
+
+            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <ul>
+                <li><strong>9:00-9:30:</strong> Daily standup meeting with team – review project status, discuss blockers, plan day's priorities</li>
+                <li><strong>9:30-11:00:</strong> CAD design work – continue 3D modeling of suspension component in CATIA, make revisions based on design review feedback</li>
+                <li><strong>11:00-12:30:</strong> FEA simulation – run structural analysis on updated design to check stress levels, iterate on geometry to reduce peak stress</li>
+            </ul>
+
+            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>1:30-3:00:</strong> Cross-functional meeting – join manufacturing team to discuss producibility of design, modify features that are difficult to machine</li>
+                <li><strong>3:00-5:00:</strong> Design calculations & documentation – perform hand calculations to validate FEA results, update design specs, prepare drawings for supplier</li>
+            </ul>
+
+            <h3>Evening (5:00 PM - 6:00 PM)</h3>
+            <ul>
+                <li><strong>5:00-6:00:</strong> Prototype lab visit – check on component being tested on test rig, discuss failure mode with test engineer, note design changes needed</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> Conflicting constraints (lightweight yet strong, manufacturable yet optimized) • Cross-functional coordination (changes impact other systems) • Compressed timelines with aggressive launch dates
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me paint a realistic picture of your day as a Design Engineer at an automotive company working on vehicle components. Your morning starts with a quick standup meeting where your team synchronizes on a new suspension component for an upcoming vehicle. You discuss yesterday's design review feedback about potential stress concentration issues. You spend the next 90 minutes in CATIA modeling the component geometry, adjusting corner radius to distribute stress better, checking that your part fits within available space (packaging is huge challenge in vehicles), and ensuring proper interface with adjacent components. Next you export geometry into ANSYS for structural FEA. You set up simulation with appropriate loads (vehicle weight, road impacts), boundary conditions (mounting points), and material properties. Running the simulation takes 20-30 minutes – you grab coffee and check emails. Results show stress distribution – good news, peak stress is reduced and within material safety limits. However, component is slightly heavier than target. You iterate, adding lightening holes and reducing thickness in low-stress regions, then run simulation again. This design-simulate-evaluate cycle is core to modern engineering work. After lunch, you attend cross-functional meeting with manufacturing engineering. They review your design for producibility – turns out some features are difficult to machine economically. You discuss options and agree on compromise. Back at desk, you work on documentation – detailed design specifications and engineering drawings for the supplier who will manufacture prototype parts. Late afternoon, you head to prototype lab where an earlier component you designed is undergoing durability testing. The test engineer shows you a crack after 80,000 cycles – short of 100,000 target. You examine failure location and discuss root causes. This physical testing feedback is critical. Real challenges: you constantly navigate conflicting constraints (lighter but stronger, optimize but keep costs down), cross-functional coordination can be frustrating when your changes impact others, timeline pressure is real with fixed vehicle launch dates. What makes it satisfying: seeing your designed components in production vehicles, intellectually engaging problem-solving, working with smart colleagues. Work-life balance: typically 45-50 hour weeks, 55-60+ during critical launch phases.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 12: Salary & Growth -->
+        <section class="slide" id="slide-12" data-slide-number="12">
+            <h2>Compensation & Job Market Outlook</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Salary Progression (India)</h3>
+                    <ul>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹3-5 LPA (Tier 2), ₹5-8 LPA (Tier 1), ₹8-15 LPA (Top), ₹15-25 LPA (Elite)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹6-12 LPA avg, ₹12-18 LPA top</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹12-22 LPA avg, ₹22-35 LPA top</li>
+                        <li><strong>Leadership (12+ yr):</strong> ₹20-50 LPA to ₹1 Cr+</li>
+                    </ul>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $65-85K, Mid $85-120K, Senior $120-180K</li>
+                        <li><strong>Europe:</strong> €50-70K entry, €100-150K senior</li>
+                        <li><strong>Middle East:</strong> 70-80% US salaries, tax-free</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Job Market (2025-2030)</h3>
+                    <p><strong>Demand:</strong> Stable to Growing - steady demand with growth in EV, renewable energy, aerospace, automation</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>Electric vehicle revolution (battery thermal, lightweight design)</li>
+                        <li>Renewable energy expansion (wind turbines, energy storage)</li>
+                        <li>Industry 4.0 and automation (robotics, smart manufacturing)</li>
+                        <li>Aerospace growth (private space, expanding ISRO)</li>
+                        <li>Make in India initiative boosting manufacturing</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>Advanced CAE (FEA/CFD with ANSYS, COMSOL)</li>
+                        <li>Electric vehicle systems (battery, thermal, lightweight)</li>
+                        <li>Robotics & mechatronics (ROS, controls)</li>
+                        <li>Additive manufacturing / 3D printing</li>
+                        <li>Data analytics & ML for mechanical systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk numbers – ME salaries lag behind software engineering but are respectable. Fresh graduate salaries range ₹3-5 LPA at Tier 2 companies (smaller manufacturing firms, component suppliers), ₹5-8 LPA at Tier 1 companies (major automotive OEMs, multinationals like Bosch/Siemens), ₹8-15 LPA at top product companies, and ₹15-25 LPA at elite companies (Tesla-level or top consulting). Realistically, most graduates should expect ₹4-7 LPA in first job. College brand, grades, projects, and communication skills significantly affect placement. Salary progression requires developing specialized expertise or moving into management. After 3-5 years, average reaches ₹6-12 LPA with ₹12-18 LPA for top performers who switch companies strategically (switching jobs typically yields 30-50% raises vs. 8-15% annual staying). At 8-10 years, senior engineers average ₹12-22 LPA, reaching ₹22-35+ LPA for top performers. Beyond 12 years, compensation depends heavily on path – principal engineers command ₹20-50 LPA while managers/directors reach ₹30 LPA to ₹1 Cr+. International opportunities: USA pays $65-85K entry-level with mid-level $85-120K and senior $120-180K. Germany's automotive sector actively recruits at €50-70K entry. Middle East offers tax-free salaries. Job market is stable with pockets of strong growth. EV sector is booming with demand for battery thermal and lightweight specialists. Renewable energy, aerospace, and automation are growing. Premium skills commanding higher salaries: Advanced CAE, EV technology, robotics/mechatronics, additive manufacturing, and data analytics applied to mechanical systems.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 13: Current Trends -->
+        <section class="slide" id="slide-13" data-slide-number="13">
+            <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2026-2032)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Electric Vehicle Technology - EVs, battery thermal management, lightweight materials</li>
+                        <li>Electrical Design - Tools like AutoCAD assist, but judgment remains critical</li>
+                        <li>Protection Coordination - Software helps, but expert knowledge required</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>System Integration - Managing complexity of hybrid systems with solar, wind, battery, grid</li>
+                        <li>Cybersecurity - Securing SCADA and protection systems from cyber attacks</li>
+                        <li>Energy Management & Optimization - Using data, AI, control to minimize costs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Technology is transforming electrical engineering, augmenting capabilities rather than replacing engineers. Digitalization and IoT make grids "smart" – IoT sensors on equipment provide real-time data enabling predictive maintenance. Algorithms analyze patterns and warn "this transformer will likely fail in 3 months" allowing planned replacement before catastrophic failure. SCADA systems are evolving – cloud-based, advanced visualization, mobile access. Digital twins are virtual replicas allowing simulation without risking real equipment. AI Applications include Renewable Energy Forecasting using ML models predicting solar/wind output 1-48 hours ahead with 90%+ accuracy, helping operators plan reserves and manage energy markets. Predictive Maintenance AI analyzes equipment sensor data, recognizing patterns that precede failures. For transformers, dissolved gas analysis indicates faults; for motors, vibration analysis detects bearing wear. Load Forecasting AI predicts electricity demand based on weather, day-of-week, with high accuracy. Demand response programs adjust loads to balance supply-demand. Tasks being automated: Load flow and fault studies that took hours manually now run in seconds with ETAP or PowerWorld, but engineers still build models and interpret results. Electrical design uses AutoCAD, but judgment is needed. Protection coordination software helps, but designing philosophy requires expertise. Tools augment but don't replace. Tasks becoming more valuable: System integration and renewable integration is complex – no software designs complete systems. Cybersecurity is critical as power systems become digitally connected. Energy management using data and AI requires both electrical knowledge AND analytical skills.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 15: Impact of AI - Part 2 -->
+        <section class="slide" id="slide-15" data-slide-number="15">
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li>Power System Fundamentals - Physics-based knowledge that doesn't change with technology</li>
+                        <li>Renewable Energy & Storage Systems - Fastest-growing area for jobs</li>
+                        <li>Power Electronics - Critical for EV, renewable energy, industrial drives</li>
+                        <li>Software & Data Skills - MATLAB, Python, power system software, data analysis</li>
+                    </ul>
+
+                    <h4>Human Skills</h4>
+                    <ul>
+                        <li>Safety-First Mindset - High voltage work can be lethal, safety awareness is paramount</li>
+                        <li>Systems Thinking - Understanding how components interact in complex systems</li>
+                        <li>Practical Problem-Solving - Troubleshooting real equipment failures under pressure</li>
+                        <li>Communication & Project Management - Essential for coordinating teams and stakeholders</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>Focus on fundamentals (circuits, machines, power systems) – these don't change</li>
+                        <li>Learn power system software (MATLAB, ETAP), AutoCAD Electrical</li>
+                        <li>Do meaningful projects (solar system design, motor control, protection scheme)</li>
+                        <li>Seek internships at utilities, PSUs, or equipment manufacturers</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>Choose first job for learning depth, not just salary – work at power plant or utility to learn fundamentals</li>
+                        <li>Develop specialized expertise (protection, power electronics, renewable energy, automation)</li>
+                        <li>Get professional certifications (PE, PMP, energy auditor, PLC programming)</li>
+                        <li>Build network through IEEE, industry associations, technical conferences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities Created by Energy Transition:</strong> Designing India's 500 GW renewable capacity buildout (decades of work) • Electrifying transport (millions of charging points needed) • Modernizing century-old grid infrastructure for smart grids • Export opportunities (Indian EE expertise is globally competitive)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Future-proof technical skills start with power system fundamentals – regardless of technology, you need to understand voltage, current, power, frequency, load flow, fault analysis. These fundamentals rooted in physics don't change. Build on this with renewable energy and storage systems (fastest-growing jobs), power electronics (critical for EV/renewable), and software skills (MATLAB, Python, power system software). Human skills matter equally: safety-first mindset is paramount when working with lethal voltages, systems thinking for understanding complex interactions, practical problem-solving for troubleshooting under pressure, and communication for explaining to non-engineers. During college: focus on strong fundamentals, learn MATLAB and ETAP, do meaningful projects demonstrating skills, seek internships at utilities or PSUs. Early career: choose first job for learning depth (working at power plant teaches fundamentals deeply), develop specialized expertise, get professional certifications (PMP, PLC programming), build network through IEEE and conferences. Throughout career, continuous learning is essential because EE is evolving due to energy transition – technologies mainstream today (batteries, EV charging) barely existed 15 years ago. Opportunities from energy transition are massive: India's 500 GW renewable buildout requires thousands of engineers for decades, electrifying transport needs millions of charging points, modernizing grids for smart technology, and Indian EE expertise is globally competitive. With right skills, mindset, and continuous learning, EE offers deeply satisfying careers powering civilization while contributing to clean energy transition.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 16: Educational Resources -->
+        <section class="slide" id="slide-16" data-slide-number="16">
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>The Electrical Guy</h4>
+                    <p>Practical electrical engineering – switchgear, transformers, protection systems with real equipment</p>
+                    <p><small>Must-watch: Switchgear basics series</small></p>
+                </div>
+                <div class="card">
+                    <h4>GreatScott!</h4>
+                    <p>Power electronics, battery systems, converters, LED projects with engineering explanations</p>
+                    <p><small>Must-watch: Battery management and DC-DC converters</small></p>
+                </div>
+                <div class="card">
+                    <h4>ElectroBOOM</h4>
+                    <p>Electrical experiments demonstrating dos and don'ts with humor (7.8M subscribers)</p>
+                    <p><small>Must-watch: Electrical safety demonstrations</small></p>
+                </div>
+                <div class="card">
+                    <h4>Andreas Spiess</h4>
+                    <p>Solar-powered systems, ESP boards, IoT sensors, home automation for smart grids</p>
+                    <p><small>Must-watch: Solar and low-power systems</small></p>
+                </div>
+            </div>
+
+            <h3>Online Courses</h3>
+            <ul>
+                <li><strong>Power System Analysis (Coursera):</strong> University of Washington, Intermediate, Power flow, fault analysis, stability with MATLAB</li>
+                <li><strong>Introduction to Solar Energy (NPTEL):</strong> IIT Madras, 8 weeks, Solar thermal and PV systems, design, economics</li>
+                <li><strong>Power Electronics (Coursera):</strong> University of Colorado, 10-week specialization, Converter design, control, motor drives</li>
+            </ul>
+
+            <h3>Books & Communities</h3>
+            <p><strong>Books:</strong> "Electrical Machines" by P.S. Bimbhra, "Power System Analysis" by Hadi Saadat, "Power Electronics" by Ned Mohan</p>
+            <p><strong>Communities:</strong> IEEE Power & Energy Society, All About Circuits, Mechanical Engineering Stack Exchange, EEWeb</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Here are the best resources for exploring EE. The Electrical Guy by Gaurav Joshi explains switchgear, transformers, protection systems with actual equipment – invaluable for understanding what you'll work with in substations. GreatScott! builds actual projects (converters, battery chargers, motor drivers) with engineering explanations – perfect for hands-on power electronics learning. ElectroBOOM by Mehdi demonstrates what NOT to do (getting shocked, short circuits) to drive home safety lessons. Andreas Spiess covers low-power electronics, IoT, solar systems relevant to smart grid applications. For courses, Coursera's Power System Analysis from UW covers load flow, fault analysis with MATLAB assignments. NPTEL IIT Madras courses on solar energy and power systems are excellent with Indian context. University of Colorado's Power Electronics specialization is comprehensive. For books, P.S. Bimbhra for machines, Hadi Saadat for power systems, Ned Mohan for power electronics – all are industry-standard with clear explanations. IEEE Power & Energy Society is THE professional organization with student membership giving access to papers, webinars, conferences. All About Circuits provides free textbook-style content and forums. For software, MATLAB/Simulink is essential, ETAP/PowerWorld for power systems analysis, AutoCAD Electrical for design drawings, PLC programming (Siemens TIA Portal) for automation – all offer student versions. My learning path suggestion: strengthen fundamentals in year 1-2, learn MATLAB and power system software in year 3, take advanced online courses and build substantial project in final year. Throughout, read IEEE Spectrum and connect with professional communities.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 17: Real-World Projects -->
+        <section class="slide" id="slide-17" data-slide-number="17">
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Microgrid for Rural Electrification</h4>
+                    <p><strong>What:</strong> Solar-battery microgrid with diesel backup for remote village, with energy management system</p>
+                    <p><strong>Tech:</strong> Solar PV, lithium battery bank, smart inverter with grid-forming capability, load scheduling</p>
+                    <p><strong>Impact:</strong> Deployed powering 150 homes, won national competition, team secured renewable energy jobs</p>
+                </div>
+                <div class="card">
+                    <h4>Motor Drive for Electric Rickshaw</h4>
+                    <p><strong>What:</strong> BLDC motor drive with regenerative braking for electric three-wheeler</p>
+                    <p><strong>Tech:</strong> Power MOSFET H-bridge, microcontroller, rotor position sensing, closed-loop speed control</p>
+                    <p><strong>Impact:</strong> 15% efficiency improvement over commercial controllers, showcased to EV manufacturer</p>
+                </div>
+            </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Bhadla Solar Park - 2.25 GW</h4>
+                    <p>World's fourth-largest solar power plant in Rajasthan supplying clean energy equivalent to powering 1.3 million homes. Demonstrates India's renewable energy capability.</p>
+                </div>
+                <div class="card">
+                    <h4>Delhi Metro Regenerative Braking</h4>
+                    <p>Trains using regenerative braking feed electricity back to grid when slowing down, saving 20-25% energy through advanced power electronics.</p>
+                </div>
+                <div class="card">
+                    <h4>Grid-Scale Battery Storage - 1 GW (AP)</h4>
+                    <p>India's largest battery energy storage system for balancing renewable energy variability, providing grid stability with advanced BMS.</p>
+                </div>
+                <div class="card">
+                    <h4>BHEL's 800 MW Supercritical Technology</h4>
+                    <p>Indigenously developed supercritical technology achieving 42-43% efficiency vs 35-38% subcritical, saving millions of tons of coal annually.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> IEEE Student Design Contests • Smart India Hackathon (Power Sector) • ISGW Student Competition • GATE for PSUs • All India Inter University EE Projects
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me show you what's possible in EE through real projects. Student projects demonstrate what you can build in college with creativity. The Microgrid for Rural Electrification was built by final-year IIT team – complete microgrid for remote village with 30 kW solar, 100 kWh battery, diesel backup, smart inverter with energy management. Deployed powering 150 homes, team won national competition and secured renewable energy jobs. This shows meaningful projects are possible. Motor Drive for Electric Rickshaw by NIT students built three-phase inverter using MOSFETs driving BLDC motor, implemented field-oriented control, added regenerative braking extending range 10-15%. Demonstrated 15% efficiency improvement, showcased to EV manufacturer R&D team leading to internship offers. Shows power electronics projects can have commercial relevance. Smart Transformer Monitoring solved utility problem – IoT monitoring system with sensors measuring oil temperature, load current, power factor, with LoRa wireless to cloud dashboard. Pilot-tested with state utility on 50 transformers, warned of 8 failures 2-3 weeks in advance. Won Smart India Hackathon. Industry innovations inspire: Bhadla Solar Park 2.25 GW in Rajasthan is world's fourth-largest, millions of panels across 14,000 acres, thousands of electrical engineers involved in design and execution. Mumbai-Ahmedabad Bullet Train requires advanced 25 kV AC electrification at 320 km/h. Delhi Metro's regenerative braking saves 20-25% energy. Grid-scale battery storage like AP's 1 GW planned installation is critical for renewable integration. Early project work builds portfolio and provides interview talking points.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 18: Pros & Cons -->
+        <section class="slide" id="slide-18" data-slide-number="18">
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>Core Branch with Broad Applicability</h4>
+                        <p>EE fundamentals apply across power, electronics, automation, telecommunications – versatility protects against technological obsolescence</p>
+                    </div>
+                    <div class="card">
+                        <h4>Stable, Respectable Careers</h4>
+                        <p>PSU jobs offer excellent job security, benefits, work-life balance. Utilities provide stable employment less volatile than startups</p>
+                    </div>
+                    <div class="card">
+                        <h4>Massive, Tangible Impact</h4>
+                        <p>Directly powering homes, industries, cities. Work has visible, meaningful impact on millions – substations, power plants you designed</p>
+                    </div>
+                    <div class="card">
+                        <h4>Growing Clean Energy Opportunities</h4>
+                        <p>India's 500 GW renewable target, EV adoption, grid modernization creating unprecedented opportunities in modern technologies</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>Lower Salaries Than CS/IT</h4>
+                        <p>Fresh packages ₹4-8 LPA vs ₹8-15 LPA for CS. Growth steadier but slower than software's potential for explosive salary increases</p>
+                    </div>
+                    <div class="card">
+                        <h4>Thermal Power Sector Stagnant</h4>
+                        <p>Coal power not expanding, so traditional power plant jobs aren't growing. Must pivot toward renewables or automation for growth</p>
+                    </div>
+                    <div class="card">
+                        <h4>Field Work & Remote Locations</h4>
+                        <p>Many jobs at power plants (often remote), substations, construction sites. Less suited for purely office-based metro city work</p>
+                    </div>
+                    <div class="card">
+                        <h4>High Voltage Safety Risks</h4>
+                        <p>Working with potentially lethal voltages requires constant vigilance. Arc flash and electrocution risks are real, safety protocols are strict</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> You enjoy physics/mathematics, value stability and meaningful work over maximum salary, comfortable with field work and physical systems, interested in energy sector and sustainability</p>
+                <p><strong>Might struggle if:</strong> Primarily motivated by salary maximization, want exclusively metro office-based work, uncomfortable with physical work or safety risks, prefer rapidly changing technology and quick iterations</p>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's have completely honest conversation. Advantages are real: EE is core branch with broad applicability – fundamentals apply across power, automation, electronics, protecting against obsolescence. Stable, respectable careers especially in PSUs offering excellent job security, benefits, work-life balance. Massive tangible impact – literally powering civilization, seeing substations and power plants you designed energize regions is deeply satisfying. Growing opportunities in clean energy with India's 500 GW renewable target, EV adoption, grid modernization. Physical hands-on work if you enjoy actual equipment beyond computer screens. But challenges are equally real: Lower salaries than CS/IT, especially initially – ₹4-8 LPA average vs ₹8-15 LPA for CS. Thermal power stagnant with no new coal plants, must focus on renewables or automation for growth. Many jobs require field work and remote locations – power plants often in remote areas, less suited for metro office-only preference. High voltage work has real safety risks requiring constant discipline – arc flash and electrocution can be fatal. Project timelines are long (3-5 years) requiring patience. You'll thrive if you enjoy physics and mathematics, value stability and meaningful work over maximum compensation, comfortable with field work and physical systems, interested in energy sector and sustainability. Might struggle if primarily motivated by salary maximization (CS offers higher ceiling), want exclusively metro office work, uncomfortable with physical work or safety risks, prefer rapidly changing tech and quick iterations. Every branch has trade-offs – the "best" branch aligns with your interests, values, and lifestyle preferences.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 19: Decision Checklist -->
+        <section class="slide" id="slide-19" data-slide-number="19">
+            <h2>Is EE Right for You?</h2>
+
+            <h3>✓ Choose Mechanical Engineering If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> You enjoyed physics (especially electricity and magnetism) in school, curious about how electrical systems work, sustainability and clean energy excite you</li>
+                <li><strong>Skills:</strong> Comfortable with mathematics (complex numbers, calculus), enjoy problem-solving requiring both theory and practice, willing to work hands-on with equipment</li>
+                <li><strong>Goals:</strong> Value stable careers with work-life balance over maximum salary growth, want meaningful large-scale impact, comfortable with field work and remote locations, interested in PSU jobs or core sector</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>Maximum salary potential and rapid growth are your top priorities (consider CS/IT)</li>
+                <li>You prefer abstract problem-solving and software over physical systems (consider CS)</li>
+                <li>You strongly prefer exclusively metro city living with office-based work (consider CS/IT)</li>
+                <li>You want rapidly evolving technologies and quick project cycles (consider CS/EC)</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>Did you genuinely enjoy learning about electricity and magnetism in school, or find it dry/abstract?</li>
+                <li>Rank: (a) Maximum salary (b) Job stability & work-life balance (c) Tangible impact (d) Cutting-edge tech. Which rank highest?</li>
+                <li>How do you feel about visiting power plants, substations, construction sites vs sitting in air-conditioned offices?</li>
+                <li>Are you naturally cautious and safety-conscious, or more risk-taking? High voltage requires disciplined safety adherence.</li>
+                <li>Are you patient with multi-year projects showing delayed gratification, or need quick feedback and rapid iterations?</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> Visit a power plant or substation if possible • Talk to working electrical engineers about realities • Read about energy sector trends – do they excite you? • Try simple electrical experiments or projects
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's help you make informed decision. Choose EE if you enjoyed physics (especially electromagnetism) in school, curious about how electrical systems work, excited by sustainability and clean energy transition. If comfortable with mathematics, enjoy problem-solving requiring theory and practice, willing to work hands-on with equipment. If you value stable careers with work-life balance over maximum salary growth, want meaningful large-scale impact powering cities, comfortable with field work and remote locations, interested in PSU jobs or core sector. Consider alternatives if maximum salary potential is top priority (CS offers higher ceiling), prefer abstract software over physical systems, strongly prefer exclusively metro office-based work, or want rapidly evolving tech and quick iterations. Self-assess honestly: Did you enjoy electricity/magnetism in school? Rank your values – if stability and impact rank high, EE suits you; if maximum salary and cutting-edge tech rank highest, consider CS. How do you feel about field work vs office work? Are you naturally safety-conscious? Patient with multi-year projects or need quick feedback? Next steps: Visit power plant or substation to see real work environment, talk to working engineers about day-to-day realities, read energy sector trends and see if they engage you. Choose based on genuine interest and honest self-assessment, not just placement statistics or external pressure. Success comes from passion plus effort.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 20: Closing -->
+        <section class="slide" id="slide-20" data-slide-number="20">
+            <h2>Thank You!</h2>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About Mechanical Engineering:</strong> Core branch that powers civilization – designing, building, and operating systems for electricity generation, transmission, distribution, and utilization from machines to renewable energy and electric vehicles.</li>
+                <li><strong>Career Potential:</strong> Stable, respectable careers especially in PSUs and utilities. Growing opportunities in renewable energy, EV, and smart grids. Salaries competitive though typically lower than CS. Excellent work-life balance and job security.</li>
+                <li><strong>Right For You If:</strong> You enjoy physics and mathematics, value meaningful work powering society, comfortable with field work and physical systems, interested in sustainability and clean energy, prioritize stability and impact over maximum salary.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>Take time to understand what electrical engineering really involves – not just textbooks, but field work, high voltage systems, long project timelines, and tangible large-scale impact. Choose based on genuine interest and honest self-assessment of your values and preferences, not just placement statistics or prestige. EE is incredibly rewarding for those who love energy sector and physical systems.</p>
+            </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li><strong>YouTube:</strong> The Electrical Guy, GreatScott!, ElectroBOOM, Andreas Spiess (Slide 16)</li>
+                <li><strong>Courses:</strong> Power System Analysis (Coursera), NPTEL Solar Energy, Power Electronics (Slide 16)</li>
+                <li><strong>Software:</strong> MATLAB, ETAP/PowerWorld, AutoCAD Electrical, PLC Programming (Slide 16)</li>
+                <li><strong>Competitions:</strong> IEEE contests, Smart India Hackathon, GATE for PSUs (Slide 17)</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Building!</h3>
+            <p>Whether you choose EE or another branch, embrace the energy transition happening now – clean energy is the future. Build projects demonstrating skills, not just collecting certificates. Focus on fundamentals deeply – they form foundation for everything. Stay safe always when working with electricity. Best of luck with your engineering journey – <strong>you have the power to light up the world!</strong> ⚡</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>We've covered extensive ground about Mechanical Engineering. Key takeaways: EE is fundamentally about powering civilization – understanding and controlling electrical energy from generation through transmission to utilization in motors, drives, and modern applications. Career opportunities are stable and respectable, particularly in PSUs offering excellent job security and benefits, with growing opportunities in renewable energy, EVs, and smart grids. Salaries are competitive though typically lower than CS, with excellent work-life balance. You're right for EE if you enjoy physics and mathematics, value meaningful work powering society, comfortable with field work and physical systems, interested in sustainability. Your decision matters – take time to understand what EE really involves. Visit power plant or substation if possible, talk to working engineers, read about energy sector trends. Choose based on genuine interest and honest self-assessment, not just placement statistics. EE rewards those who love it with stable, meaningful careers contributing to society's fundamental need – reliable, clean electricity. India is undergoing historic energy transition – the next 20 years offer unprecedented opportunities to build infrastructure serving generations. Resources: Explore YouTube channels (The Electrical Guy, GreatScott!), take online courses (Coursera Power Systems, NPTEL Solar Energy), learn software (MATLAB, ETAP, PLC programming), participate in competitions (IEEE, Smart India Hackathon, GATE). Final message: Whether you choose EE or another branch, embrace clean energy transition. Build projects demonstrating skills. Focus on fundamentals – they don't change and form foundation. Stay safe working with electricity. Best of luck – you have the power to light up the world! Thank you!</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            prevBtn.disabled = (currentSlide === 1);
+            nextBtn.disabled = (currentSlide === totalSlides);
+
+            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key === 'n' || event.key === 'N') {
+                document.body.classList.toggle('show-notes');
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
