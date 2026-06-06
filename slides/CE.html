@@ -14,8 +14,8 @@
     This is the HTML template for creating engineering branch slide decks.
 
     PLACEHOLDERS TO REPLACE:
-    - Civil Engineering = Full branch name (e.g., "Computer Science & Engineering")
-    - CE = Short form (e.g., CSE, EE, IS)
+    - [BRANCH_NAME] = Full branch name (e.g., "Computer Science & Engineering")
+    - [BRANCH_ABBREVIATION] = Short form (e.g., CSE, EE, IS)
     - [BRANCH_TAGLINE] = Engaging one-liner
     - [PRIMARY_COLOR] = Main color hex code
     - [SECONDARY_COLOR] = Lighter shade of primary
@@ -36,7 +36,7 @@
     - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
 
     STEPS TO USE THIS TEMPLATE:
-    1. Copy this file to slides/CE.html
+    1. Copy this file to slides/[BRANCH_ABBREVIATION].html
     2. Replace all [PLACEHOLDERS] with actual content
     3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
     4. Test image URLs: curl -I "URL" should return HTTP 200
@@ -344,12 +344,12 @@
 
                     <h3>Fundamental Areas</h3>
                     <ul>
-                        <li><strong>Structural Engineering:</strong> Design of buildings, bridges, and load-bearing structures</li>
-                        <li><strong>Transportation:</strong> Highways, railways, airports, and mass transit systems</li>
-                        <li><strong>Geotechnical:</strong> Soil behavior, foundations, tunnels, and earth structures</li>
-                        <li><strong>Water Resources:</strong> Water supply, drainage, irrigation, and flood control</li>
-                        <li><strong>Environmental:</strong> Waste management, pollution control, sustainable practices</li>
-                        <li><strong>Construction Management:</strong> Project planning, scheduling, and execution</li>
+                        <li><strong>Structural Engineering:</strong> Design and analysis of buildings, bridges, towers to ensure safety and durability</li>
+                        <li><strong>Transportation Engineering:</strong> Planning and design of highways, railways, airports, and mass transit systems</li>
+                        <li><strong>Geotechnical Engineering:</strong> Study of soil and rock behavior for foundations, tunnels, and earth structures</li>
+                        <li><strong>Water Resources:</strong> Management of water supply, drainage, irrigation, and flood control systems</li>
+                        <li><strong>Environmental Engineering:</strong> Waste management, pollution control, and sustainable practices</li>
+                        <li><strong>Construction Management:</strong> Project planning, scheduling, and execution within budget and timeline</li>
                     </ul>
 
                     <div class="highlight-box">
@@ -363,7 +363,7 @@
             </div>
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Let's start with the basics. Civil Engineering is fundamentally about creating, improving, and maintaining the infrastructure that makes modern civilization possible – everything from buildings and bridges to water systems and transportation networks. Civil engineering is one of the oldest engineering disciplines, dating back to ancient civilizations. The pyramids of Egypt, Roman aqueducts, and the Great Wall of China were all feats of civil engineering. The field was formalized in the 18th century when John Smeaton called himself a "civil engineer" to distinguish his work from military engineering. Major milestones include the development of reinforced concrete in the 1800s, the rise of skyscrapers in the early 1900s, and modern innovations like earthquake-resistant design and green building technologies. The main goal of professionals in this field is to design, build, and maintain safe, efficient, and sustainable infrastructure that serves society's needs. Infrastructure represents about 70% of global GDP when you consider all the buildings, roads, utilities, and systems that enable economic activity. By 2040, the world will need to invest $94 trillion in infrastructure to keep pace with population growth and urbanization. Civil engineering uniquely combines physics, mathematics, materials science, geology, environmental science, and even social sciences to solve complex, large-scale challenges.</p>
+                <p>Let's start with the basics. Civil Engineering is fundamentally about creating, improving, and maintaining the infrastructure that makes modern civilization possible – everything from buildings and bridges to water systems and transportation networks. Civil engineering is one of the oldest engineering disciplines, dating back to ancient civilizations. The pyramids of Egypt, Roman aqueducts, and the Great Wall of China were all feats of civil engineering. The field was formalized in the 18th century. Major milestones include the development of reinforced concrete in the 1800s, the rise of skyscrapers in the early 1900s, and modern innovations like earthquake-resistant design. The main goal is to design, build, and maintain safe, efficient, and sustainable infrastructure. Infrastructure represents about 70% of global GDP. By 2040, the world will need $94 trillion in infrastructure investment. Civil engineering uniquely combines physics, mathematics, materials science, geology, environmental science to solve complex, large-scale challenges.</p>
             </aside>
         </section>
 
@@ -376,29 +376,29 @@
                     <ul>
                         <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
                         <li><strong>Engineering Physics</strong> - Mechanics, Properties of Matter, Thermodynamics</li>
-                        <li><strong>Engineering Chemistry</strong> - Material Science, Electrochemistry</li>
+                        <li><strong>Engineering Chemistry</strong> - Material Science, Corrosion, Electrochemistry</li>
                         <li><strong>Programming Fundamentals</strong> - C/C++/Python for engineering applications</li>
-                        <li><strong>Engineering Graphics</strong> - Technical Drawing</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing, CAD fundamentals</li>
                         <li><strong>Basic Civil Engineering</strong> - Introduction to structures, surveying, materials</li>
                     </ul>
 
                     <h3>Second Year - CE Specialization Begins</h3>
                     <ul>
-                        <li><strong>Strength of Materials</strong> - Stress, strain, bending, shear, torsion</li>
-                        <li><strong>Fluid Mechanics</strong> - Flow dynamics, hydraulics fundamentals</li>
-                        <li><strong>Surveying</strong> - Land measurement, leveling, theodolite use</li>
-                        <li><strong>Engineering Geology</strong> - Rock and soil formation, site investigation</li>
+                        <li><strong>Strength of Materials</strong> - Stress, strain, bending, shear, torsion in structural elements</li>
+                        <li><strong>Fluid Mechanics</strong> - Properties of fluids, flow dynamics, hydraulics fundamentals</li>
+                        <li><strong>Surveying</strong> - Land measurement, leveling, theodolite, total station use</li>
+                        <li><strong>Engineering Geology</strong> - Rock and soil formation, geological maps, site investigation</li>
                         <li><strong>Lab Work:</strong> Materials testing, surveying field work, fluid mechanics experiments</li>
                     </ul>
                 </div>
                 <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Construction site with structural framework">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Construction site with structural framework being built">
                     <p class="image-caption">Photo by Scott Blake on Unsplash</p>
                 </div>
             </div>
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Let's walk through what you'll actually study in Civil Engineering over four years. First Year builds your fundamental knowledge. Mathematics is critical – calculus for understanding rates of change, differential equations for modeling dynamic systems, linear algebra for structural analysis software. Physics, especially mechanics, forms the bedrock of civil engineering. Programming helps you work with specialized civil engineering software. Second Year is where CE really starts. Strength of Materials teaches how beams, columns behave under loads – fundamental for any structure design. Fluid Mechanics opens the door to water resources engineering. Surveying is hands-on with theodolites and total stations. Engineering Geology teaches what's beneath the surface. Lab work includes testing concrete cubes to destruction, steel rods in tension, surveying outdoors with professional instruments, and fluid flow experiments. This combination of theory and practical work prepares you for core specialization ahead.</p>
             </aside>
         </section>
 
@@ -410,11 +410,11 @@
                     <h3>Major Subjects</h3>
                     <ul>
                         <li><strong>Structural Analysis</strong> - Analysis of beams, frames, trusses using matrix methods</li>
-                        <li><strong>Design of Concrete Structures</strong> - RCC design per IS codes</li>
-                        <li><strong>Design of Steel Structures</strong> - Steel member design, connections</li>
-                        <li><strong>Soil Mechanics</strong> - Soil properties, classification, shear strength</li>
-                        <li><strong>Foundation Engineering</strong> - Shallow and deep foundations</li>
-                        <li><strong>Transportation Engineering</strong> - Highway planning, geometric design</li>
+                        <li><strong>Design of Concrete Structures</strong> - RCC design, columns, beams, slabs per IS codes</li>
+                        <li><strong>Design of Steel Structures</strong> - Steel member design, connections, industrial structures</li>
+                        <li><strong>Soil Mechanics</strong> - Soil properties, classification, compaction, shear strength</li>
+                        <li><strong>Foundation Engineering</strong> - Shallow and deep foundations, bearing capacity</li>
+                        <li><strong>Transportation Engineering</strong> - Highway planning, geometric design, pavement design</li>
                     </ul>
 
                     <h3>Lab Courses</h3>
@@ -425,17 +425,17 @@
                     </ul>
 
                     <div class="highlight-box">
-                        <strong>Mini Project:</strong> Structural design of a building frame, highway geometric design, water distribution network, soil investigation report
+                        <strong>Mini Project:</strong> Structural design of building frame, highway geometric design, water distribution network, soil investigation report
                     </div>
                 </div>
                 <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=800&q=80" alt="Civil engineering student working on structural drawings">
+                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=800&q=80" alt="Engineering students working on structural design and calculations">
                     <p class="image-caption">Photo by Marvin Meyer on Unsplash</p>
                 </div>
             </div>
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Third year is where you dive deep into core CE concepts. Structural Analysis teaches systematic methods to calculate forces using software like SAP2000. Design of Concrete Structures is where you design actual beams, columns, footings following Indian Standard codes. Design of Steel Structures covers designing for factories and high-rises. Soil Mechanics teaches how soil behaves differently from other materials. Foundation Engineering applies this to design foundations. Transportation Engineering covers highway design. Lab courses include testing concrete cubes to destruction, running soil mechanics tests like grain size analysis and shear tests, and hydraulic flow experiments. Your mini project lets you apply multiple concepts – designing a complete building frame, highway stretch, water distribution system, or soil investigation report. This project-based learning cements your understanding and gives you something tangible for job interviews.</p>
             </aside>
         </section>
 
@@ -448,7 +448,7 @@
                     <ul>
                         <li><strong>Advanced Structural Design</strong> - Pre-stressed concrete, earthquake-resistant design</li>
                         <li><strong>Project Planning & Management</strong> - CPM/PERT, resource optimization</li>
-                        <li><strong>Quantity Surveying & Estimation</strong> - Cost estimation, billing</li>
+                        <li><strong>Quantity Surveying & Estimation</strong> - Cost estimation, billing, valuation</li>
                         <li><strong>Construction Technology</strong> - Modern construction methods, equipment</li>
                     </ul>
 
@@ -459,12 +459,14 @@
                         <li>Water Resources Engineering</li>
                         <li>Advanced Transportation</li>
                         <li>Building Information Modeling (BIM)</li>
+                        <li>Geotechnical Engineering</li>
+                        <li>Environmental Impact Assessment</li>
                     </ul>
                 </div>
                 <div>
                     <div class="card">
                         <h4>Major Project (6-8 months)</h4>
-                        <p>Capstone project involving design, implementation, and testing. Often in collaboration with industry or research labs.</p>
+                        <p>Complete design, analysis, and planning of a civil engineering system. Often done in collaboration with industry partners, consulting firms, or research institutions. Examples: structural design of multi-story building, bridge design, water supply scheme, traffic optimization, BIM model development.</p>
                     </div>
 
                     <div class="card">
@@ -480,7 +482,7 @@
             </div>
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Fourth year is where you specialize. Advanced Structural Design covers pre-stressed concrete and earthquake-resistant design. Project Planning teaches CPM and resource optimization – essential for management roles. Electives let you choose your path – Bridge Engineering, Tall Buildings, Water Resources, or BIM. The beauty of CE is this flexibility – you can specialize in structural design, construction management, transportation, or water resources. Your major project could be complete structural design of a building, bridge design, water supply scheme, or BIM model. Many students collaborate with companies like L&T or Tata Projects, gaining real-world experience and often job offers.</p>
             </aside>
         </section>
 
@@ -492,33 +494,29 @@
             <div class="card-grid">
                 <div class="card">
                     <h4>Structural Analysis & Design</h4>
-                    <p>Ability to analyze forces and design safe structural elements using codes and standards</p>
+                    <p>Analyze forces in structures and design safe, economical structural elements using codes and standards</p>
                 </div>
                 <div class="card">
                     <h4>CAD & BIM Modeling</h4>
-                    <p>Creating detailed 2D drawings and 3D Building Information Models</p>
+                    <p>Create detailed 2D technical drawings and 3D Building Information Models for construction planning</p>
                 </div>
                 <div class="card">
-                    <h4>Construction Planning</h4>
-                    <p>Planning construction sequences, managing resources, ensuring quality and safety</p>
+                    <h4>Construction Planning & Site Management</h4>
+                    <p>Plan construction sequences, manage resources, coordinate trades, ensure quality and safety on sites</p>
                 </div>
                 <div class="card">
                     <h4>Geotechnical Investigation</h4>
-                    <p>Application in civil engineering projects</p>
-                </div>
-                <div class="card">
-                    <h4>[Skill Category 4]</h4>
-                    <p>Application in civil engineering projects</p>
+                    <p>Understand soil behavior, interpret test data, design appropriate foundation systems</p>
                 </div>
             </div>
 
             <div class="highlight-box">
-                <strong>Tools & Technologies:</strong> [List 8-12 key software tools, hardware, platforms]
+                <strong>Tools & Technologies:</strong> AutoCAD, Revit (BIM), SAP2000, ETABS, STAAD.Pro (structural analysis), Primavera P6, MS Project (project management), Total Station, Theodolite, GPS receivers, Civil 3D
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Beyond book knowledge, Civil Engineering develops crucial practical skills. Structural Analysis & Design is your core competency. CAD & BIM skills are essential – Revit and AutoCAD are industry standard. Construction Planning means managing resources and coordinating trades. Geotechnical skills involve understanding soil and designing foundations. Software tools are daily companions – AutoCAD for 2D drawings, SAP2000/ETABS for structural analysis, Primavera P6 for project scheduling, Revit for BIM. Professional skills matter equally – coordinating multiple parties, technical communication, site supervision, and leadership.</p>
             </aside>
         </section>
 
@@ -528,65 +526,36 @@
 
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Job Title 1]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Site Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Supervise construction, ensure quality, coordinate contractors, maintain documentation, conduct quality checks</p>
+                    <p><strong>Salary:</strong> ₹3-4.5 LPA (Small), ₹4.5-6 LPA (Mid-size), ₹6-9 LPA (L&T, Tata)</p>
                 </div>
                 <div class="card">
-                    <h4>[Job Title 2]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Design Engineer (Structural)</h4>
+                    <p><strong>Responsibilities:</strong> Structural analysis and design, prepare drawings, perform calculations per IS codes, coordinate with architects</p>
+                    <p><strong>Salary:</strong> ₹3.5-5 LPA (Small), ₹5-7 LPA (Mid), ₹7-10 LPA (Top consultancies)</p>
                 </div>
                 <div class="card">
-                    <h4>[Job Title 3]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>Project Planning Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Create project schedules using Primavera/MS Project, track progress, resource planning, prepare reports</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Mid-size), ₹6-8 LPA (Large companies)</p>
                 </div>
                 <div class="card">
-                    <h4>[Job Title 4]</h4>
-                    <p><strong>Responsibilities:</strong> [3-5 specific responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1)</p>
+                    <h4>CAD/BIM Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Create construction drawings in AutoCAD/Revit, develop BIM models, clash detection</p>
+                    <p><strong>Salary:</strong> ₹3-4.5 LPA (Small), ₹4.5-6.5 LPA (Mid), ₹6-8 LPA (BIM firms)</p>
                 </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> L&T, Tata Projects, Shapoorji Pallonji (EPC) • AECOM, Jacobs, Arup (Consultancies) • DLF, Godrej, Prestige (Real Estate) • NHAI, DMRC, NBCC (PSUs)
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Site Engineer is the most common entry role – 70-80% time at construction sites managing work. Design Engineer roles are office-based using SAP2000/ETABS. Project Planning Engineers use Primavera P6 for scheduling. CAD/BIM Engineers create models in Revit. Tier 1 companies (L&T, Tata) offer ₹6-10 LPA, Tier 2 firms ₹4-6 LPA, small contractors ₹3-4.5 LPA. Software skills (Revit, STAAD.Pro, Primavera) and internship experience significantly affect starting salary. Job market is stable – construction companies hire year-round.</p>
             </aside>
         </section>
-            <div class="two-column">
-                <div>
-                    <h3>Entry Roles & Salaries</h3>
-                    <ul>
-                        <li><strong>Site Engineer</strong> - ₹3-9 LPA
-                        <br><small>Supervise construction, ensure quality, coordinate contractors</small></li>
-                        <li><strong>Design Engineer (Structural)</strong> - ₹3.5-10 LPA
-                        <br><small>Structural analysis and design, prepare drawings</small></li>
-                        <li><strong>Project Planning Engineer</strong> - ₹4-8 LPA
-                        <br><small>Create schedules, track progress, resource planning</small></li>
-                        <li><strong>Quantity Surveyor</strong> - ₹3.5-7 LPA
-                        <br><small>Cost estimates, billing, contract administration</small></li>
-                        <li><strong>CAD/BIM Engineer</strong> - ₹3-8 LPA
-                        <br><small>Create construction drawings and BIM models</small></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="card">
-                        <h4>Top Recruiters</h4>
-                        <p><strong>Large EPC:</strong> L&T, Tata Projects, Shapoorji Pallonji</p>
-                        <p><strong>Consultancies:</strong> AECOM, Jacobs, Arup, STUP</p>
-                        <p><strong>Real Estate:</strong> DLF, Godrej, Prestige, Sobha</p>
-                        <p><strong>PSUs:</strong> NHAI, DMRC, NBCC, CPWD</p>
-                    </div>
-                    <div class="highlight-box">
-                        <strong>Salary Factors:</strong> College tier, software skills, internship experience determine placement tier
-                    </div>
-                </div>
-            </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>Site Engineer is the most common entry role – you'll spend 70-80% time at construction sites managing work. Design Engineer roles are office-based using SAP2000/ETABS for structural analysis. Project Planning Engineers create project schedules using Primavera P6. Quantity Surveyors handle cost estimation and billing. CAD/BIM Engineers create detailed models in Revit. Tier 1 companies (L&T, Tata Projects) offer ₹6-10 LPA, Tier 2 firms ₹4-6 LPA, small contractors ₹3-4.5 LPA. Software skills (Revit, STAAD.Pro, Primavera) and internship experience significantly affect starting salary.</p>
-            </aside>
 
         <!-- Slide 8: Mid-Career & Senior Roles -->
         <section class="slide" id="slide-8" data-slide-number="8">
@@ -595,364 +564,526 @@
             <h3>Mid-Level Roles (3-7 years)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Mid-Level Title 1]</h4>
-                    <p>[Lead responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+                    <h4>Senior Site Engineer</h4>
+                    <p>Lead site teams (5-10 engineers), manage multiple work fronts, client interface, resolve complex issues</p>
+                    <p><strong>Salary:</strong> ₹8-15 LPA</p>
                 </div>
                 <div class="card">
-                    <h4>[Mid-Level Title 2]</h4>
-                    <p>[Lead responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA</p>
+                    <h4>Project Manager</h4>
+                    <p>Overall project execution, P&L responsibility, client relationships, resource management</p>
+                    <p><strong>Salary:</strong> ₹12-20 LPA</p>
                 </div>
             </div>
 
             <h3>Senior-Level Roles (8+ years)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Senior Title 1]</h4>
-                    <p>[Senior responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                    <h4>Project Director</h4>
+                    <p>Multiple project oversight, strategic planning, business development, senior client engagement</p>
+                    <p><strong>Salary:</strong> ₹20-40 LPA / $90-150K (US/Middle East)</p>
                 </div>
                 <div class="card">
-                    <h4>[Senior Title 2]</h4>
-                    <p>[Senior responsibilities]</p>
-                    <p><strong>Salary:</strong> ₹[X-Y] LPA / $[X-Y]K (US)</p>
+                    <h4>Principal Structural Engineer</h4>
+                    <p>Technical leadership, complex project approvals, design standards, mentoring, business development</p>
+                    <p><strong>Salary:</strong> ₹18-35 LPA / $100-160K (US/Middle East)</p>
                 </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Alternative Paths:</strong> Entrepreneurship (contracting/consultancy) • Government Service (IES, PWD, NHAI) • Real Estate Development • International (Middle East ₹40-90 LPA tax-free)
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Speaker notes content - see CE.md for full narration</p>
+                <p>Career progression takes 3-5 years to mid-level. Senior Site Engineers run significant project portions. Project Managers handle ₹20-100 crore projects. Senior roles (12-15 years) include Project Directors overseeing portfolios and Principal Engineers as top technical authorities. International opportunities excellent, especially Middle East with tax-free packages. Entrepreneurship viable – starting contracting firm or consultancy. Government services offer stability and pension.</p>
             </aside>
         </section>
-            <div class="two-column">
-                <div>
-                    <h3>Mid-Level (3-7 years)</h3>
-                    <ul>
-                        <li><strong>Senior Site Engineer</strong> - ₹8-15 LPA</li>
-                        <li><strong>Senior Design Engineer</strong> - ₹9-16 LPA</li>
-                        <li><strong>Project Manager</strong> - ₹12-20 LPA</li>
-                    </ul>
-
-                    <h3>Senior (8+ years)</h3>
-                    <ul>
-                        <li><strong>Project Director</strong> - ₹20-40 LPA</li>
-                        <li><strong>Principal Structural Engineer</strong> - ₹18-35 LPA</li>
-                        <li><strong>Construction Head/VP</strong> - ₹25-50+ LPA</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Alternative Paths</h3>
-                    <div class="card">
-                        <h4>Entrepreneurship</h4>
-                        <p>Construction contracting, structural consultancy, real estate development</p>
-                    </div>
-                    <div class="card">
-                        <h4>International</h4>
-                        <p>Middle East: $60-140K tax-free<br>US/Canada: $70-150K</p>
-                    </div>
-                    <div class="card">
-                        <h4>Government Service</h4>
-                        <p>IES, PWD, NHAI, metro corporations - stable with pension</p>
-                    </div>
-                </div>
-            </div>
-            <aside class="speaker-notes">
-                <h4>Narration Script:</h4>
-                <p>Career progression takes 3-5 years to reach mid-level, where you lead teams and manage work packages. Senior Site Engineers run significant portions of large projects. Project Managers handle ₹20-100 crore projects with P&L responsibility. Senior roles (12-15 years) include Project Directors overseeing portfolios, Principal Engineers as top technical authorities, and VPs running divisions. International opportunities are excellent, especially Middle East with tax-free ₹40-90 LPA packages. Entrepreneurship is viable – starting a contracting firm or consultancy after gaining experience. Government services offer stability and pension benefits.</p>
-            </aside>
 
         <!-- Slide 9: Industry Sectors -->
         <section class="slide" id="slide-9" data-slide-number="9">
             <h2>Industry Sectors & Companies</h2>
-            <div class="two-column">
-                <div>
-                    <h3>Major Sectors</h3>
-                    <ul>
-                        <li><strong>Construction & Infrastructure:</strong> EPC contractors building roads, bridges, buildings</li>
-                        <li><strong>Real Estate Development:</strong> Property developers creating residential and commercial projects</li>
-                        <li><strong>Consulting & Design:</strong> Engineering consultancies providing design and PM services</li>
-                        <li><strong>Government & PSUs:</strong> PWD, NHAI, metro corporations, stable employment</li>
-                        <li><strong>Water & Environment:</strong> Treatment plants, waste management, sustainability</li>
-                    </ul>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Construction & EPC</h4>
+                    <p>Building roads, bridges, buildings, dams, airports. Largest employers: L&T, Tata Projects, Shapoorji, GMR</p>
                 </div>
-                <div>
-                    <h3>Top Employers</h3>
-                    <p><strong>Large EPC:</strong> L&T, Tata Projects, Shapoorji, GMR, NCC</p>
-                    <p><strong>Consultancies:</strong> AECOM, Jacobs, Arup, Mott MacDonald</p>
-                    <p><strong>International:</strong> Bechtel, Fluor, Skanska, Samsung C&T</p>
-                    <div class="highlight-box">
-                        <strong>Career Flexibility:</strong> Skills transfer across sectors - start in construction, move to design consulting, then project management or government
-                    </div>
+                <div class="card">
+                    <h4>Real Estate Development</h4>
+                    <p>Residential and commercial properties. Companies: DLF, Godrej Properties, Prestige, Sobha</p>
+                </div>
+                <div class="card">
+                    <h4>Consulting & Design</h4>
+                    <p>Engineering consultancies providing structural design, PM services. Firms: AECOM, Jacobs, Arup, STUP</p>
+                </div>
+                <div class="card">
+                    <h4>Government & PSUs</h4>
+                    <p>PWD, NHAI, metro corporations, CPWD. Stable employment with moderate pay and pension benefits</p>
                 </div>
             </div>
+
+            <div class="highlight-box">
+                <strong>International Giants:</strong> Bechtel, Fluor, Jacobs Engineering, AECOM, Skanska, Vinci, Samsung C&T • <strong>Career Flexibility:</strong> Skills transfer across sectors - can switch from construction to consultancy to government
+            </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Construction & Infrastructure companies like L&T execute massive projects - metro systems, highways, power plants. They're the largest employers offering hands-on learning. Real Estate developers build residential and commercial properties. Consultancies provide specialized engineering services - office-based technical work. PSUs offer job security and work-life balance. Middle East constantly hires Indian civil engineers for infrastructure projects. Skills are transferable - you can switch sectors throughout your career.</p>
+                <p>Construction & Infrastructure companies like L&T execute massive projects – metro systems, highways, power plants. They're the largest employers offering hands-on learning. Real Estate developers build residential and commercial properties. Consultancies provide specialized engineering services – office-based technical work. PSUs offer job security and work-life balance. International firms offer global opportunities. Skills are transferable – you can switch sectors throughout your career from construction to design to project management.</p>
             </aside>
         </section>
 
         <!-- Slide 10: Higher Education -->
         <section class="slide" id="slide-10" data-slide-number="10">
             <h2>Higher Education Pathways</h2>
-            <div class="two-column">
-                <div>
-                    <h3>M.Tech/MS Specializations</h3>
-                    <ul>
-                        <li><strong>Structural Engineering</strong> - Advanced analysis, earthquake engineering, tall buildings</li>
-                        <li><strong>Geotechnical Engineering</strong> - Foundation design, ground improvement, tunneling</li>
-                        <li><strong>Transportation Engineering</strong> - Highway design, traffic engineering, urban transit</li>
-                        <li><strong>Construction Management</strong> - Project management, scheduling, optimization</li>
-                    </ul>
+
+            <h3>Master's Specializations (M.Tech/MS)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Structural Engineering</h4>
+                    <p><strong>Focus:</strong> Advanced analysis, earthquake engineering, tall buildings, bridge design</p>
+                    <p><strong>Career Path:</strong> Senior design positions in consultancies, specialized structural engineering</p>
                 </div>
-                <div>
-                    <h3>Top Universities</h3>
-                    <p><strong>India:</strong> IIT Madras, IIT Bombay, IIT Delhi, IISc Bangalore</p>
-                    <p><strong>USA:</strong> MIT, UC Berkeley, Stanford, Georgia Tech</p>
-                    <p><strong>Europe:</strong> Imperial College London, TU Delft, ETH Zurich</p>
-                    <div class="highlight-box">
-                        <strong>When to pursue:</strong> Immediately after B.Tech for research/academia, or after 2-3 years work for specialization
-                    </div>
+                <div class="card">
+                    <h4>Geotechnical Engineering</h4>
+                    <p><strong>Focus:</strong> Foundation design, ground improvement, tunneling, slope stability</p>
+                    <p><strong>Career Path:</strong> Geotechnical consultant, dam engineering, infrastructure projects</p>
+                </div>
+                <div class="card">
+                    <h4>Transportation Engineering</h4>
+                    <p><strong>Focus:</strong> Highway design, traffic engineering, urban transit, intelligent systems</p>
+                    <p><strong>Career Path:</strong> Highway authorities, traffic consultancies, metro projects</p>
+                </div>
+                <div class="card">
+                    <h4>Construction Management</h4>
+                    <p><strong>Focus:</strong> Project management, construction technology, scheduling, cost optimization</p>
+                    <p><strong>Career Path:</strong> Senior PM roles, construction planning, consultancy, entrepreneurship</p>
                 </div>
             </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>Sustainable Materials • Earthquake & Disaster Resilience • Smart Infrastructure • Computational Mechanics • Water Resources & Climate Adaptation</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, UC Berkeley, Stanford, Georgia Tech (USA) | Imperial College, TU Delft, ETH Zurich (Europe) | IIT Madras, IIT Bombay, IIT Delhi, IISc (India)
+            </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>M.Tech specializations include Structural, Geotechnical, Transportation, and Construction Management. Top Indian programs at IITs via GATE. International programs at MIT, Berkeley, TU Delft offer global exposure. Timing matters - go immediately for academia path, or after 2-3 years work for clarity on specialization.</p>
+                <p>M.Tech specializations include Structural, Geotechnical, Transportation, and Construction Management. Top Indian programs at IITs via GATE. International programs at MIT, Berkeley, TU Delft offer global exposure. PhD research areas include sustainable materials, earthquake engineering, smart infrastructure with IoT, and climate adaptation. Timing matters – go immediately after B.Tech for academia path, or after 2-3 years work for clarity on specialization and financial stability.</p>
             </aside>
         </section>
 
         <!-- Slide 11: Day-to-Day Work -->
         <section class="slide" id="slide-11" data-slide-number="11">
-            <h2>A Day in the Life - Site Engineer</h2>
-            <div class="two-column">
-                <div>
-                    <h3>Morning (7:00 AM - 12:30 PM)</h3>
-                    <ul>
-                        <li>7:00 - Site arrival, PPE, safety brief</li>
-                        <li>7:30 - Supervise concrete pour/formwork</li>
-                        <li>9:30 - Technical coordination with contractor</li>
-                        <li>10:30 - Quality checks, documentation</li>
-                    </ul>
-                    <h3>Afternoon (1:30 PM - 6:00 PM)</h3>
-                    <ul>
-                        <li>1:30 - Problem-solving (design issues, material delays)</li>
-                        <li>3:00 - Update schedules, prepare daily report</li>
-                        <li>5:00 - Site closure, planning for next day</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Real Challenges</h3>
-                    <ul>
-                        <li>Contractor delays - workers absent, materials late</li>
-                        <li>Design-reality mismatches requiring quick decisions</li>
-                        <li>Quality vs speed pressure</li>
-                    </ul>
-                    <div class="highlight-box">
-                        <strong>Satisfaction:</strong> Seeing tangible progress daily - floors rising, structures taking shape
-                    </div>
-                </div>
+            <h2>A Day in the Life - [JOB_ROLE] at [COMPANY_TYPE]</h2>
+
+            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <ul>
+                <li><strong>9:00-9:30:</strong> [Activity and description]</li>
+                <li><strong>9:30-11:00:</strong> [Activity and description]</li>
+                <li><strong>11:00-12:30:</strong> [Activity and description]</li>
+            </ul>
+
+            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>1:30-3:00:</strong> [Activity and description]</li>
+                <li><strong>3:00-5:00:</strong> [Activity and description]</li>
+            </ul>
+
+            <h3>Evening & Beyond</h3>
+            <ul>
+                <li><strong>5:00-6:00:</strong> [Activity and description]</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> [Challenge 1] • [Challenge 2] • [Challenge 3]
             </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Site Engineers start early - 7 AM arrival for safety briefing. Day involves supervising work, quality checks, coordinating with contractors, solving problems. Physically demanding but rewarding - you see your work literally built. Challenges include delays, weather, quality control. Work satisfaction comes from tangible progress and hands-on problem-solving.</p>
+                <p>[SPEAKER_NOTES: Realistic walkthrough of a typical day with specific details, tools used, challenges faced, what makes work satisfying. See template.md Slide 11.]</p>
             </aside>
         </section>
 
         <!-- Slide 12: Salary & Growth -->
         <section class="slide" id="slide-12" data-slide-number="12">
-            <h2>Compensation & Job Market</h2>
+            <h2>Compensation & Job Market Outlook</h2>
+
             <div class="two-column">
                 <div>
-                    <h3>India Salary Progression</h3>
+                    <h3>Salary Progression (India)</h3>
                     <ul>
-                        <li><strong>Fresh (0-1 yr):</strong> ₹3-10 LPA</li>
-                        <li><strong>Mid (3-5 yr):</strong> ₹8-18 LPA</li>
-                        <li><strong>Senior (8-10 yr):</strong> ₹15-35 LPA</li>
-                        <li><strong>Lead (12+ yr):</strong> ₹30-50+ LPA</li>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1), ₹[X-Y] LPA (Top)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
+                        <li><strong>Lead (12+ yr):</strong> ₹[X-Y] LPA to ₹[X] Cr+</li>
                     </ul>
-                    <h3>International</h3>
-                    <p><strong>Middle East:</strong> $45-140K (tax-free + housing)</p>
-                    <p><strong>USA:</strong> $65-150K</p>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $[X-Y]K, Mid $[X-Y]K, Senior $[X-Y]K</li>
+                        <li><strong>Europe:</strong> [X-Y]% lower than US</li>
+                        <li><strong>Singapore:</strong> [X-Y]% of US</li>
+                    </ul>
                 </div>
                 <div>
-                    <h3>Job Market Outlook</h3>
-                    <p><strong>Demand:</strong> Stable to Growing (3-5% annual)</p>
-                    <div class="card">
-                        <h4>Drivers</h4>
-                        <ul>
-                            <li>₹111 lakh crore infrastructure pipeline</li>
-                            <li>Urbanization and smart cities</li>
-                            <li>Climate-resilient infrastructure need</li>
-                        </ul>
-                    </div>
-                    <div class="highlight-box">
-                        <strong>Premium Skills:</strong> BIM (+₹2-4 LPA), PMP (+₹3-5 LPA), LEED AP (+₹1-3 LPA)</li>
-                    </div>
+                    <h3>Job Market (2025-2030)</h3>
+                    <p><strong>Demand:</strong> [Growing/Stable/Declining]</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>[Factor 1]</li>
+                        <li>[Factor 2]</li>
+                        <li>[Factor 3]</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>[Skill 1]</li>
+                        <li>[Skill 2]</li>
+                        <li>[Skill 3]</li>
+                    </ul>
                 </div>
             </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Starting salaries ₹3-10 LPA depending on college and company tier. Mid-career reaches ₹8-18 LPA, senior ₹15-35 LPA. International opportunities excellent, especially Middle East with tax-free ₹40-90 LPA packages. Job market stable with infrastructure push. Skills like BIM, PMP certification, LEED add significant salary premiums.</p>
+                <p>[SPEAKER_NOTES: Honest salary discussion across tiers, job market outlook with data, skills commanding premium, international opportunities. See template.md Slide 12.]</p>
             </aside>
         </section>
 
         <!-- Slide 13: Current Trends -->
         <section class="slide" id="slide-13" data-slide-number="13">
             <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2025-2030)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>Building Information Modeling (BIM)</h4>
-                    <p>3D modeling with embedded data, clash detection, 4D scheduling - becoming mandatory for large projects</p>
+                    <h4>[Trend 1]</h4>
+                    <p>[What it is, why growing, impact]</p>
                 </div>
                 <div class="card">
-                    <h4>Sustainable Design</h4>
-                    <p>LEED and GRIHA certified buildings, net-zero energy, green materials, solar integration</p>
+                    <h4>[Trend 2]</h4>
+                    <p>[What it is, why growing, impact]</p>
                 </div>
                 <div class="card">
-                    <h4>Smart Cities & IoT</h4>
-                    <p>Sensors in structures, smart traffic systems, automated infrastructure monitoring</p>
+                    <h4>[Trend 3]</h4>
+                    <p>[What it is, why growing, impact]</p>
                 </div>
                 <div class="card">
-                    <h4>Modular Construction</h4>
-                    <p>Factory-built components, 30-50% faster construction, improved quality control</p>
+                    <h4>[Trend 4]</h4>
+                    <p>[What it is, why growing, impact]</p>
                 </div>
             </div>
-            <div class="highlight-box">
-                <strong>What this means for you:</strong> Learn BIM tools (Revit) during degree, focus on sustainability knowledge, develop data skills for smart infrastructure
-            </div>
+
+            <h3>Research Frontiers</h3>
+            <p>[Research 1] • [Research 2] • [Research 3] • [Research 4]</p>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>BIM is the biggest technology shift - government mandating for large projects, companies need BIM-skilled engineers. Sustainable design moved from niche to mainstream - LEED/GRIHA now expected. Smart Cities Mission driving IoT integration in infrastructure. Modular construction gaining traction for speed and quality. Students should learn Revit, understand sustainability, and develop basic data skills.</p>
+                <p>[SPEAKER_NOTES: Detailed explanation of each trend, how they're transforming industries, research frontiers, advice for students. See template.md Slide 13.]</p>
             </aside>
         </section>
 
         <!-- Slide 14: Impact of AI - Part 1 -->
         <section class="slide" id="slide-14" data-slide-number="14">
-            <h2>How AI is Transforming Civil Engineering</h2>
+            <h2>How AI is Transforming [BRANCH_NAME]</h2>
+
+            <h3>AI Applications</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Application 1]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 2]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 3]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+                <div class="card">
+                    <h4>[Application 4]</h4>
+                    <p>[How AI is used, what it enables]</p>
+                </div>
+            </div>
+
             <div class="two-column">
                 <div>
-                    <h3>AI Applications</h3>
+                    <h3>Tasks Being Automated</h3>
                     <ul>
-                        <li><strong>Design Optimization:</strong> AI algorithms find optimal structural layouts, reducing material 20-30%</li>
-                        <li><strong>Progress Monitoring:</strong> Drones + AI track construction progress automatically</li>
-                        <li><strong>Defect Detection:</strong> AI analyzing images detects cracks, corrosion faster than humans</li>
-                        <li><strong>Cost Prediction:</strong> ML predicts project overruns from historical data</li>
+                        <li>[Task 1] - [Level/timeline]</li>
+                        <li>[Task 2] - [Level/timeline]</li>
+                        <li>[Task 3] - [Level/timeline]</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>Impact on Careers</h3>
-                    <div class="card">
-                        <h4>✓ Being Automated</h4>
-                        <p>Quantity take-offs, standard drawing generation, basic code checking</p>
-                    </div>
-                    <div class="card">
-                        <h4>↑ More Valuable</h4>
-                        <p>Design intent, system integration, on-site judgment, client communication</p>
-                    </div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>[Task 1] - [Why valuable]</li>
+                        <li>[Task 2] - [Why valuable]</li>
+                        <li>[Task 3] - [Why valuable]</li>
+                    </ul>
                 </div>
             </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>AI optimizing structural designs to minimize material while meeting safety - already used by consultancies like Arup. Construction progress monitoring using drones and computer vision - L&T piloting these systems. Defect detection improving quality control. Routine tasks being automated, but human judgment for design, integration, and site issues remains irreplaceable. AI is tool that augments, not replaces civil engineers.</p>
+                <p>[SPEAKER_NOTES: Explain AI applications in detail, honest discussion of automation, which tasks become more valuable, balanced perspective. See template.md Slide 14.]</p>
             </aside>
         </section>
 
         <!-- Slide 15: Impact of AI - Part 2 -->
         <section class="slide" id="slide-15" data-slide-number="15">
-            <h2>AI Strategy - Skills for the Future</h2>
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
             <div class="two-column">
                 <div>
-                    <h3>Future-Proof Technical Skills</h3>
+                    <h4>Technical Skills</h4>
                     <ul>
-                        <li>Deep structural understanding - AI can't validate safety without expert judgment</li>
-                        <li>Construction practical knowledge - learned on sites, not automatable</li>
-                        <li>System integration thinking - coordinating across disciplines</li>
+                        <li>[Skill 1] - [Why AI-resistant]</li>
+                        <li>[Skill 2] - [Why AI-resistant]</li>
+                        <li>[Skill 3] - [Why AI-resistant]</li>
                     </ul>
-                    <h3>Human Skills AI Can't Replace</h3>
+
+                    <h4>Human Skills</h4>
                     <ul>
-                        <li>Creative problem-solving for unique constraints</li>
-                        <li>Stakeholder management and negotiation</li>
-                        <li>Ethical & safety-critical judgment</li>
+                        <li>[Skill 1] - [Why humans better]</li>
+                        <li>[Skill 2] - [Why humans better]</li>
+                        <li>[Skill 3] - [Why humans better]</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>How to Stay Relevant</h3>
-                    <div class="card">
-                        <h4>During College</h4>
-                        <p>Master fundamentals deeply, learn BIM and analysis software, do site internships</p>
-                    </div>
-                    <div class="card">
-                        <h4>Throughout Career</h4>
-                        <p>Embrace AI tools, build on what AI can't do, commit to lifelong learning</p>
-                    </div>
-                    <div class="highlight-box">
-                        <strong>Key Mindset:</strong> Engineers who use AI will replace those who don't - embrace it as amplifier
-                    </div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>[Action 1]</li>
+                        <li>[Action 2]</li>
+                        <li>[Action 3]</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>[Action 1]</li>
+                        <li>[Action 2]</li>
+                        <li>[Action 3]</li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities AI Creates:</strong> [Opp 1] • [Opp 2] • [Opp 3]
+            </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>Future-proof skills require deep expertise and judgment. Construction practical knowledge from site work can't be automated. Human skills like creativity, stakeholder management, ethical judgment become differentiators. During college: master fundamentals, learn software, get site exposure. Career strategy: be early adopter of AI tools, focus on judgment-based skills, continuous learning. Don't fear AI - embrace as tool. Engineers using AI outperform those resisting it.</p>
+                <p>[SPEAKER_NOTES: Strategy for staying relevant, future-proof skills, concrete advice for college and early career, opportunities created by AI. See template.md Slide 15.]</p>
             </aside>
         </section>
 
         <!-- Slide 16: Educational Resources -->
         <section class="slide" id="slide-16" data-slide-number="16">
-            <h2>Educational Resources</h2>
-            <div class="card">
-                <p><strong>YouTube:</strong> Practical Engineering, The Efficient Engineer, The B1M, NPTEL IIT</p><p><strong>Courses:</strong> Coursera (Georgia Tech), edX (TU Delft), NPTEL RCC Design</p><p><strong>Books:</strong> "Why Buildings Stand Up" (Salvadori), "The Works" (Ascher)</p>
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Channel 1]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 2]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 3]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
+                <div class="card">
+                    <h4>[Channel 4]</h4>
+                    <p>[Focus area, why valuable]</p>
+                    <p><small>Must-watch: [Series]</small></p>
+                </div>
             </div>
+
+            <h3>Online Courses</h3>
+            <ul>
+                <li><strong>[Course 1]:</strong> [Platform], [Level], [What you learn]</li>
+                <li><strong>[Course 2]:</strong> [Platform], [Level], [What you learn]</li>
+                <li><strong>[Course 3]:</strong> [Platform], [Level], [What you learn]</li>
+            </ul>
+
+            <h3>Books & Communities</h3>
+            <p><strong>Books:</strong> "[Title 1]", "[Title 2]", "[Title 3]"</p>
+            <p><strong>Communities:</strong> [Website/Forum 1], [Website/Forum 2], [Website/Forum 3]</p>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>See CE.md for comprehensive narration content for this slide.</p>
+                <p>[SPEAKER_NOTES: Explain each resource in detail, why selected, concrete learning path recommendations. See template.md Slide 16.]</p>
             </aside>
         </section>
 
         <!-- Slide 17: Real-World Projects -->
         <section class="slide" id="slide-17" data-slide-number="17">
-            <h2>Real-World Projects</h2>
-            <div class="card">
-                <p><strong>Student:</strong> Solar water purification (IIT Madras), Pothole detection app (NIT Trichy)</p><p><strong>Industry:</strong> Mumbai Trans-Harbour Link (21.8km), Chenab Bridge (world's highest railway bridge)</p>
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Project 1]</h4>
+                    <p><strong>What:</strong> [Description]</p>
+                    <p><strong>Tech:</strong> [Stack]</p>
+                    <p><strong>Impact:</strong> [Why special]</p>
+                </div>
+                <div class="card">
+                    <h4>[Project 2]</h4>
+                    <p><strong>What:</strong> [Description]</p>
+                    <p><strong>Tech:</strong> [Stack]</p>
+                    <p><strong>Impact:</strong> [Why special]</p>
+                </div>
             </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>[Company/Project 1]</h4>
+                    <p>[Breakthrough innovation, problem solved]</p>
+                </div>
+                <div class="card">
+                    <h4>[Company/Project 2]</h4>
+                    <p>[Breakthrough innovation, problem solved]</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> [Comp 1] • [Comp 2] • [Comp 3]
+            </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>See CE.md for comprehensive narration content for this slide.</p>
+                <p>[SPEAKER_NOTES: Inspiring project stories, industry innovations explained, competitions and their value, social impact projects. See template.md Slide 17.]</p>
             </aside>
         </section>
 
         <!-- Slide 18: Pros & Cons -->
         <section class="slide" id="slide-18" data-slide-number="18">
-            <h2>Pros & Cons</h2>
-            <div class="card">
-                <p><strong>Pros:</strong> Tangible impact, stable demand, diverse paths, international opportunities</p><p><strong>Cons:</strong> Lower starting salary than CSE, demanding site work, cyclical industry</p>
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>[Pro 1]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Pro 2]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Pro 3]</h4>
+                        <p>[Detailed explanation]</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>[Challenge 1]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Challenge 2]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                    <div class="card">
+                        <h4>[Challenge 3]</h4>
+                        <p>[Honest description]</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+                <p><strong>Might struggle if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+            </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>See CE.md for comprehensive narration content for this slide.</p>
+                <p>[SPEAKER_NOTES: Honest pros and cons with examples, who thrives and who struggles, balanced perspective on choosing this branch. See template.md Slide 18.]</p>
             </aside>
         </section>
 
         <!-- Slide 19: Decision Checklist -->
         <section class="slide" id="slide-19" data-slide-number="19">
-            <h2>Decision Framework</h2>
-            <div class="card">
-                <p><strong>Choose CE if:</strong> Fascinated by infrastructure, comfortable with physics/math, value tangible impact</p><p><strong>Consider alternatives if:</strong> Need high starting salary, prefer desk-only work, want cutting-edge tech</p>
+            <h2>Is [BRANCH_ABBREVIATION] Right for You?</h2>
+
+            <h3>✓ Choose [BRANCH_ABBREVIATION] If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+                <li><strong>Skills:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+                <li><strong>Goals:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>[Preference that suggests different branch 1]</li>
+                <li>[Preference that suggests different branch 2]</li>
+                <li>[Preference that suggests different branch 3]</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>[Question about interest]</li>
+                <li>[Question about skills]</li>
+                <li>[Question about work preferences]</li>
+                <li>[Question about career expectations]</li>
+                <li>[Question about learning style]</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> [Action 1] • [Action 2] • [Action 3]
             </div>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>See CE.md for comprehensive narration content for this slide.</p>
+                <p>[SPEAKER_NOTES: Help students make informed decision, explain alignment indicators, walk through self-assessment, reassure those undecided. See template.md Slide 19.]</p>
             </aside>
         </section>
 
         <!-- Slide 20: Closing -->
         <section class="slide" id="slide-20" data-slide-number="20">
             <h2>Thank You!</h2>
-            <div class="card">
-                <p><strong>Key Takeaway:</strong> CE designs infrastructure that serves society for generations. Right for those valuing impact over maximum salary.</p><p><strong>Resources:</strong> Comprehensive content in CE.md file</p>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About [BRANCH_NAME]:</strong> [One sentence summary]</li>
+                <li><strong>Career Potential:</strong> [One sentence about opportunities]</li>
+                <li><strong>Right For You If:</strong> [One sentence criteria]</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>[2-3 sentences of encouragement about informed choice]</p>
             </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li>YouTube Channels (Slide 16)</li>
+                <li>Online Courses (Slide 16)</li>
+                <li>Project Ideas (Slide 17)</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Learning!</h3>
+            <p>[Final motivational message]</p>
+
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>See CE.md for comprehensive narration content for this slide.</p>
+                <p>[SPEAKER_NOTES: Recap key points, perspective on decision-making, encourage exploration, final motivational message. See template.md Slide 20.]</p>
             </aside>
         </section>
 
