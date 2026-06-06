@@ -15,16 +15,16 @@
 
     PLACEHOLDERS TO REPLACE:
     - [BRANCH_NAME] = Full branch name (e.g., "Computer Science & Engineering")
-    - [BRANCH_ABBREVIATION] = Short form (e.g., CSE, EE, IS)
+    - Civil Engineering = Short form (e.g., CSE, EE, IS)
     - [BRANCH_TAGLINE] = Engaging one-liner
     - [PRIMARY_COLOR] = Main color hex code
-    - [SECONDARY_COLOR] = Lighter shade of primary
+    - #F08A65 = Lighter shade of primary
     - [ACCENT] = Darker shade of primary
     - [IMAGE_URL_X] = Unsplash image URLs (test with curl first!)
     - [IMAGE_ALT_X] = Descriptive alt text for accessibility
     - [IMAGE_CREDIT_X] = Photo credit (Photographer name)
     - [CONTENT] = Replace with actual slide content
-    - [SPEAKER_NOTES] = Replace with 200-500 word narration scripts
+    - See CE.md for detailed narration content = Replace with 200-500 word narration scripts
 
     BRANCH COLOR REFERENCE:
     - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
@@ -36,7 +36,7 @@
     - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
 
     STEPS TO USE THIS TEMPLATE:
-    1. Copy this file to slides/[BRANCH_ABBREVIATION].html
+    1. Copy this file to slides/Civil Engineering.html
     2. Replace all [PLACEHOLDERS] with actual content
     3. Find 3 relevant images from Unsplash (slides 2, 3, 4 typically)
     4. Test image URLs: curl -I "URL" should return HTTP 200
@@ -676,33 +676,34 @@
 
         <!-- Slide 11: Day-to-Day Work -->
         <section class="slide" id="slide-11" data-slide-number="11">
-            <h2>A Day in the Life - [JOB_ROLE] at [COMPANY_TYPE]</h2>
+            <h2>A Day in the Life - Site Engineer</h2>
 
-            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <h3>Morning (7:00 AM - 12:30 PM)</h3>
             <ul>
-                <li><strong>9:00-9:30:</strong> [Activity and description]</li>
-                <li><strong>9:30-11:00:</strong> [Activity and description]</li>
-                <li><strong>11:00-12:30:</strong> [Activity and description]</li>
+                <li><strong>7:00-7:30:</strong> Site arrival, PPE, safety briefing with workers and contractors</li>
+                <li><strong>7:30-9:30:</strong> Supervise concrete pour/formwork, check quality, take photos</li>
+                <li><strong>9:30-12:30:</strong> Technical coordination, review drawings, approve materials, quality checks</li>
             </ul>
 
-            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <h3>Afternoon (1:30 PM - 6:00 PM)</h3>
             <ul>
-                <li><strong>1:30-3:00:</strong> [Activity and description]</li>
-                <li><strong>3:00-5:00:</strong> [Activity and description]</li>
-            </ul>
-
-            <h3>Evening & Beyond</h3>
-            <ul>
-                <li><strong>5:00-6:00:</strong> [Activity and description]</li>
+                <li><strong>1:30-3:00:</strong> Problem-solving (design issues, material delays, contractor conflicts)</li>
+                <li><strong>3:00-5:00:</strong> Update schedules in Primavera, prepare daily progress report (DPR)</li>
+                <li><strong>5:00-6:00:</strong> Site closure, final round, submit reports, plan next day</li>
             </ul>
 
             <div class="highlight-box">
-                <strong>Real Challenges:</strong> [Challenge 1] • [Challenge 2] • [Challenge 3]
+                <strong>Real Challenges:</strong> Contractor delays (workers absent, materials late) • Design-reality mismatches requiring quick decisions • Quality vs speed pressure
+            </div>
+
+            <div class="card">
+                <h4>What Makes It Satisfying</h4>
+                <p>Seeing tangible daily progress - floors rising, structures taking shape. Solving real problems using engineering knowledge. Hands-on learning and leadership development.</p>
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Realistic walkthrough of a typical day with specific details, tools used, challenges faced, what makes work satisfying. See template.md Slide 11.]</p>
+                <p>Site Engineers start early – 7 AM for safety briefing. Day involves supervising work, quality checks, coordinating with contractors, solving problems. Physically demanding but rewarding – you see your work literally built. Afternoons involve problem-solving (design clashes, delays), updating schedules in Primavera, preparing daily reports. Challenges include contractor delays, weather, quality control. Work satisfaction comes from tangible progress and hands-on problem-solving. Typically 6-day weeks, 8-10 hour days during active construction.</p>
             </aside>
         </section>
 
@@ -714,42 +715,42 @@
                 <div>
                     <h3>Salary Progression (India)</h3>
                     <ul>
-                        <li><strong>Fresh (0-1 yr):</strong> ₹[X-Y] LPA (Tier 2), ₹[X-Y] LPA (Tier 1), ₹[X-Y] LPA (Top)</li>
-                        <li><strong>Mid (3-5 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
-                        <li><strong>Senior (8-10 yr):</strong> ₹[X-Y] LPA avg, ₹[X-Y] LPA top</li>
-                        <li><strong>Lead (12+ yr):</strong> ₹[X-Y] LPA to ₹[X] Cr+</li>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹3-4.5 LPA (Tier 2), ₹4.5-6.5 LPA (Tier 1), ₹6-10 LPA (Top)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹8-12 LPA avg, ₹12-18 LPA top performers</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹15-25 LPA avg, ₹25-35 LPA top</li>
+                        <li><strong>Lead (12+ yr):</strong> ₹30-50 LPA to ₹1 Cr+</li>
                     </ul>
 
                     <h3>International (USD)</h3>
                     <ul>
-                        <li><strong>USA:</strong> Entry $[X-Y]K, Mid $[X-Y]K, Senior $[X-Y]K</li>
-                        <li><strong>Europe:</strong> [X-Y]% lower than US</li>
-                        <li><strong>Singapore:</strong> [X-Y]% of US</li>
+                        <li><strong>USA:</strong> Entry $65-80K, Mid $80-110K, Senior $110-150K+</li>
+                        <li><strong>Middle East:</strong> $45-140K (tax-free + housing)</li>
+                        <li><strong>Europe:</strong> 20-30% lower than US</li>
                     </ul>
                 </div>
                 <div>
                     <h3>Job Market (2025-2030)</h3>
-                    <p><strong>Demand:</strong> [Growing/Stable/Declining]</p>
+                    <p><strong>Demand:</strong> Stable to Growing (3-5% annual)</p>
 
                     <h4>Driving Factors</h4>
                     <ul>
-                        <li>[Factor 1]</li>
-                        <li>[Factor 2]</li>
-                        <li>[Factor 3]</li>
+                        <li>₹111 lakh crore National Infrastructure Pipeline</li>
+                        <li>Urbanization and smart cities push</li>
+                        <li>Climate-resilient infrastructure need</li>
                     </ul>
 
-                    <h4>Premium Skills</h4>
+                    <h4>Premium Skills (+₹2-5 LPA)</h4>
                     <ul>
-                        <li>[Skill 1]</li>
-                        <li>[Skill 2]</li>
-                        <li>[Skill 3]</li>
+                        <li>BIM proficiency (Revit, Navisworks)</li>
+                        <li>PMP certification & Primavera P6</li>
+                        <li>LEED AP / green building expertise</li>
                     </ul>
                 </div>
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Honest salary discussion across tiers, job market outlook with data, skills commanding premium, international opportunities. See template.md Slide 12.]</p>
+                <p>Starting salaries ₹3-10 LPA depending on college and company tier. Mid-career ₹8-18 LPA, senior ₹15-35 LPA. International opportunities excellent – Middle East offers tax-free ₹40-90 LPA packages. Job market stable with 3-5% growth driven by ₹111 lakh crore infrastructure pipeline. Skills like BIM, PMP certification, and LEED add ₹2-5 LPA premiums.</p>
             </aside>
         </section>
 
@@ -760,53 +761,54 @@
             <h3>Hot Technologies (2025-2030)</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Trend 1]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Building Information Modeling (BIM)</h4>
+                    <p>3D modeling with embedded data, clash detection, 4D scheduling - government mandating for large projects</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 2]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Sustainable Design</h4>
+                    <p>LEED and GRIHA certified buildings, net-zero energy, green materials, solar integration</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 3]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Smart Cities & IoT</h4>
+                    <p>Sensors in structures for health monitoring, smart traffic systems, intelligent infrastructure</p>
                 </div>
                 <div class="card">
-                    <h4>[Trend 4]</h4>
-                    <p>[What it is, why growing, impact]</p>
+                    <h4>Modular Construction</h4>
+                    <p>Factory-built components assembled on-site, reduces construction time 30-50%, improves quality</p>
                 </div>
             </div>
 
-            <h3>Research Frontiers</h3>
-            <p>[Research 1] • [Research 2] • [Research 3] • [Research 4]</p>
+            <div class="highlight-box">
+                <strong>What this means for you:</strong> Learn BIM tools (Revit) during degree, focus on sustainability knowledge, develop data skills for smart infrastructure
+            </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Detailed explanation of each trend, how they're transforming industries, research frontiers, advice for students. See template.md Slide 13.]</p>
+                <p>BIM is the biggest technology shift – government mandating for large projects, companies need BIM-skilled engineers. Sustainable design moved from niche to mainstream – LEED/GRIHA now expected. Smart Cities Mission driving IoT integration in infrastructure. Modular construction gaining traction for speed and quality. Students should learn Revit, understand sustainability, and develop basic data skills.</p>
             </aside>
         </section>
 
         <!-- Slide 14: Impact of AI - Part 1 -->
         <section class="slide" id="slide-14" data-slide-number="14">
-            <h2>How AI is Transforming [BRANCH_NAME]</h2>
+            <h2>How AI is Transforming Civil Engineering</h2>
 
             <h3>AI Applications</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>[Application 1]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Design Optimization</h4>
+                    <p>AI algorithms find optimal structural layouts, reducing material use by 20-30% while meeting safety requirements</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 2]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Progress Monitoring</h4>
+                    <p>Drones + computer vision track construction progress automatically, comparing with BIM models</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 3]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Defect Detection</h4>
+                    <p>AI analyzing images detects cracks, corrosion faster and more accurately than manual inspection</p>
                 </div>
                 <div class="card">
-                    <h4>[Application 4]</h4>
-                    <p>[How AI is used, what it enables]</p>
+                    <h4>Cost Prediction</h4>
+                    <p>Machine learning predicts project overruns by analyzing historical data and current conditions</p>
                 </div>
             </div>
 
@@ -814,117 +816,94 @@
                 <div>
                     <h3>Tasks Being Automated</h3>
                     <ul>
-                        <li>[Task 1] - [Level/timeline]</li>
-                        <li>[Task 2] - [Level/timeline]</li>
-                        <li>[Task 3] - [Level/timeline]</li>
+                        <li>Quantity take-offs - Already automated</li>
+                        <li>Standard drawing generation - Rapid progress</li>
+                        <li>Basic code checking - In development</li>
                     </ul>
                 </div>
                 <div>
                     <h3>Tasks Becoming More Important</h3>
                     <ul>
-                        <li>[Task 1] - [Why valuable]</li>
-                        <li>[Task 2] - [Why valuable]</li>
-                        <li>[Task 3] - [Why valuable]</li>
+                        <li>Design intent - Human creativity crucial</li>
+                        <li>System integration - Complex coordination</li>
+                        <li>On-site judgment - Unpredictable conditions</li>
+                        <li>Client communication - Relationship building</li>
                     </ul>
                 </div>
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain AI applications in detail, honest discussion of automation, which tasks become more valuable, balanced perspective. See template.md Slide 14.]</p>
+                <p>AI optimizing structural designs to minimize material while meeting safety codes - already used by consultancies like Arup. Construction progress monitoring using drones and computer vision - L&T piloting these systems. Defect detection improving quality control. Routine tasks being automated, but human judgment for design intent, system integration, and site issues remains irreplaceable. AI is a tool that augments, not replaces civil engineers.</p>
             </aside>
         </section>
 
         <!-- Slide 15: Impact of AI - Part 2 -->
         <section class="slide" id="slide-15" data-slide-number="15">
-            <h2>AI Impact - Skills & Strategy for the Future</h2>
+            <h2>AI Strategy - Skills for the Future</h2>
 
             <h3>Future-Proof Skills</h3>
             <div class="two-column">
                 <div>
                     <h4>Technical Skills</h4>
                     <ul>
-                        <li>[Skill 1] - [Why AI-resistant]</li>
-                        <li>[Skill 2] - [Why AI-resistant]</li>
-                        <li>[Skill 3] - [Why AI-resistant]</li>
+                        <li>Deep structural understanding - AI can't validate safety without expert judgment</li>
+                        <li>Construction practical knowledge - Learned on sites, not automatable</li>
+                        <li>System integration thinking - Coordinating across disciplines</li>
                     </ul>
 
                     <h4>Human Skills</h4>
                     <ul>
-                        <li>[Skill 1] - [Why humans better]</li>
-                        <li>[Skill 2] - [Why humans better]</li>
-                        <li>[Skill 3] - [Why humans better]</li>
+                        <li>Creative problem-solving - For unique site constraints</li>
+                        <li>Stakeholder management - Client and team relationships</li>
+                        <li>Ethical judgment - Safety-critical decisions</li>
                     </ul>
                 </div>
                 <div>
                     <h4>During College</h4>
                     <ul>
-                        <li>[Action 1]</li>
-                        <li>[Action 2]</li>
-                        <li>[Action 3]</li>
+                        <li>Master fundamentals deeply - Foundation remains critical</li>
+                        <li>Learn BIM and analysis software - Industry standard tools</li>
+                        <li>Do site internships - Practical experience invaluable</li>
                     </ul>
 
                     <h4>Early Career (0-5 years)</h4>
                     <ul>
-                        <li>[Action 1]</li>
-                        <li>[Action 2]</li>
-                        <li>[Action 3]</li>
+                        <li>Embrace AI tools - Early adopters thrive</li>
+                        <li>Build expertise AI can't replace - Judgment, leadership</li>
+                        <li>Commit to lifelong learning - Field evolves constantly</li>
                     </ul>
                 </div>
             </div>
 
             <div class="highlight-box">
-                <strong>Opportunities AI Creates:</strong> [Opp 1] • [Opp 2] • [Opp 3]
+                <strong>Key Mindset:</strong> Engineers who use AI will replace those who don't - embrace it as an amplifier
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Strategy for staying relevant, future-proof skills, concrete advice for college and early career, opportunities created by AI. See template.md Slide 15.]</p>
+                <p>Future-proof skills require deep expertise and judgment. Construction practical knowledge from site work can't be automated. Human skills like creativity, stakeholder management, ethical judgment become differentiators. During college: master fundamentals, learn software, get site exposure. Career strategy: be early adopter of AI tools, focus on judgment-based skills, continuous learning. Don't fear AI - embrace as tool. Engineers using AI outperform those resisting it.</p>
             </aside>
         </section>
 
         <!-- Slide 16: Educational Resources -->
         <section class="slide" id="slide-16" data-slide-number="16">
-            <h2>Educational Videos & Resources</h2>
+            <h2>Educational Resources</h2>
 
-            <h3>Recommended YouTube Channels</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Channel 1]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-                <div class="card">
-                    <h4>[Channel 2]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-                <div class="card">
-                    <h4>[Channel 3]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-                <div class="card">
-                    <h4>[Channel 4]</h4>
-                    <p>[Focus area, why valuable]</p>
-                    <p><small>Must-watch: [Series]</small></p>
-                </div>
-            </div>
+            <h3>YouTube Channels</h3>
+            <p><strong>Practical Engineering:</strong> Real-world infrastructure explanations • <strong>The Efficient Engineer:</strong> Engineering concepts simplified • <strong>The B1M:</strong> Construction megaprojects • <strong>NPTEL IIT:</strong> Free university-level courses</p>
 
             <h3>Online Courses</h3>
-            <ul>
-                <li><strong>[Course 1]:</strong> [Platform], [Level], [What you learn]</li>
-                <li><strong>[Course 2]:</strong> [Platform], [Level], [What you learn]</li>
-                <li><strong>[Course 3]:</strong> [Platform], [Level], [What you learn]</li>
-            </ul>
+            <p><strong>Coursera:</strong> Georgia Tech's courses • <strong>edX:</strong> TU Delft civil engineering • <strong>NPTEL:</strong> RCC Design, Structural Analysis</p>
 
-            <h3>Books & Communities</h3>
-            <p><strong>Books:</strong> "[Title 1]", "[Title 2]", "[Title 3]"</p>
-            <p><strong>Communities:</strong> [Website/Forum 1], [Website/Forum 2], [Website/Forum 3]</p>
+            <h3>Books</h3>
+            <div class="card">
+                <p>"Why Buildings Stand Up" by Mario Salvadori • "The Works: Anatomy of a City" by Kate Ascher • "Structures" by J.E. Gordon</p>
+            </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Explain each resource in detail, why selected, concrete learning path recommendations. See template.md Slide 16.]</p>
+                <p>Practical Engineering explains real infrastructure - bridges, dams, roads. The Efficient Engineer simplifies complex concepts. The B1M covers construction megaprojects worldwide. NPTEL offers free university courses. Coursera and edX provide structured learning. Books like "Why Buildings Stand Up" make engineering accessible. Start with YouTube for visual learning, then structured courses for depth.</p>
             </aside>
         </section>
 
@@ -932,41 +911,23 @@
         <section class="slide" id="slide-17" data-slide-number="17">
             <h2>Real-World Projects & Innovation</h2>
 
-            <h3>Student Projects (Award-Winning)</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Project 1]</h4>
-                    <p><strong>What:</strong> [Description]</p>
-                    <p><strong>Tech:</strong> [Stack]</p>
-                    <p><strong>Impact:</strong> [Why special]</p>
-                </div>
-                <div class="card">
-                    <h4>[Project 2]</h4>
-                    <p><strong>What:</strong> [Description]</p>
-                    <p><strong>Tech:</strong> [Stack]</p>
-                    <p><strong>Impact:</strong> [Why special]</p>
-                </div>
-            </div>
+            <h3>Student Projects</h3>
+            <p><strong>Solar Water Purification System:</strong> IIT Madras students using solar energy for village water treatment</p>
+            <p><strong>Pothole Detection App:</strong> NIT Trichy project using smartphone sensors to map road damage</p>
+            <p><strong>Rainwater Harvesting Model:</strong> Low-cost system for urban residential buildings</p>
 
-            <h3>Industry Innovations</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <h4>[Company/Project 1]</h4>
-                    <p>[Breakthrough innovation, problem solved]</p>
-                </div>
-                <div class="card">
-                    <h4>[Company/Project 2]</h4>
-                    <p>[Breakthrough innovation, problem solved]</p>
-                </div>
-            </div>
+            <h3>Industry Megaprojects</h3>
+            <p><strong>Mumbai Trans-Harbour Link:</strong> 21.8km sea bridge, India's longest sea bridge</p>
+            <p><strong>Chenab Bridge:</strong> World's highest railway bridge at 359m in J&K</p>
+            <p><strong>Delhi Metro Phase 4:</strong> 104km expansion with 3 new corridors</p>
 
             <div class="highlight-box">
-                <strong>Competitions:</strong> [Comp 1] • [Comp 2] • [Comp 3]
+                <strong>Competitions:</strong> IIT TechFest • ASCE Student Competitions • Smart India Hackathon (Infrastructure)
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Inspiring project stories, industry innovations explained, competitions and their value, social impact projects. See template.md Slide 17.]</p>
+                <p>Student projects show innovation - solar purification addressing rural water needs, pothole detection using smartphone sensors. Industry megaprojects demonstrate scale - Mumbai Trans-Harbour Link connecting mainland to Navi Mumbai, Chenab Bridge engineering marvel in Himalayas. Competitions like IIT TechFest and ASCE offer platforms to showcase work. These projects inspire and show the tangible impact of civil engineering.</p>
             </aside>
         </section>
 
@@ -978,80 +939,80 @@
                 <div>
                     <h3>✓ Advantages</h3>
                     <div class="card">
-                        <h4>[Pro 1]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>Tangible Impact</h4>
+                        <p>See your work physically built - structures serving society for generations</p>
                     </div>
                     <div class="card">
-                        <h4>[Pro 2]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>Stable Demand</h4>
+                        <p>Infrastructure always needed - recession-resistant career with steady opportunities</p>
                     </div>
                     <div class="card">
-                        <h4>[Pro 3]</h4>
-                        <p>[Detailed explanation]</p>
+                        <h4>Diverse Career Paths</h4>
+                        <p>Construction, design, management, government, international - many options</p>
                     </div>
                 </div>
                 <div>
                     <h3>✗ Challenges</h3>
                     <div class="card">
-                        <h4>[Challenge 1]</h4>
-                        <p>[Honest description]</p>
+                        <h4>Lower Starting Salary</h4>
+                        <p>₹3-6 LPA typical vs CSE's ₹10-30 LPA - financial trade-off for impact</p>
                     </div>
                     <div class="card">
-                        <h4>[Challenge 2]</h4>
-                        <p>[Honest description]</p>
+                        <h4>Demanding Site Work</h4>
+                        <p>Early career involves 7 AM starts, outdoor conditions, physical demands</p>
                     </div>
                     <div class="card">
-                        <h4>[Challenge 3]</h4>
-                        <p>[Honest description]</p>
+                        <h4>Cyclical Industry</h4>
+                        <p>Construction tied to economy - hiring slows during downturns</p>
                     </div>
                 </div>
             </div>
 
             <div class="highlight-box">
-                <p><strong>You'll thrive if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
-                <p><strong>Might struggle if:</strong> [Trait 1], [Trait 2], [Trait 3]</p>
+                <p><strong>You'll thrive if:</strong> Hands-on learning • Site work experience • Leadership development</p>
+                <p><strong>Might struggle if:</strong> Hands-on learning • Site work experience • Leadership development</p>
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Honest pros and cons with examples, who thrives and who struggles, balanced perspective on choosing this branch. See template.md Slide 18.]</p>
+                <p>Honest perspective: tangible impact is real, stable career in essential field. But financially, starting salaries lag CSE significantly. Site work demanding physically. Industry tied to economy. Right for those prioritizing impact over maximum starting salary.</p>
             </aside>
         </section>
 
         <!-- Slide 19: Decision Checklist -->
         <section class="slide" id="slide-19" data-slide-number="19">
-            <h2>Is [BRANCH_ABBREVIATION] Right for You?</h2>
+            <h2>Is Civil Engineering Right for You?</h2>
 
-            <h3>✓ Choose [BRANCH_ABBREVIATION] If...</h3>
+            <h3>✓ Choose Civil Engineering If...</h3>
             <ul>
-                <li><strong>Interest:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
-                <li><strong>Skills:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
-                <li><strong>Goals:</strong> [Indicator 1], [Indicator 2], [Indicator 3]</li>
+                <li><strong>Interest:</strong> Infrastructure fascinates you • Comfortable with physics/math • Value tangible impact</li>
+                <li><strong>Skills:</strong> Infrastructure fascinates you • Comfortable with physics/math • Value tangible impact</li>
+                <li><strong>Goals:</strong> Infrastructure fascinates you • Comfortable with physics/math • Value tangible impact</li>
             </ul>
 
             <h3>⚠ Consider Alternatives If...</h3>
             <ul>
-                <li>[Preference that suggests different branch 1]</li>
-                <li>[Preference that suggests different branch 2]</li>
-                <li>[Preference that suggests different branch 3]</li>
+                <li>Need high starting salary (₹15-30 LPA)</li>
+                <li>Prefer purely desk-based work</li>
+                <li>Want cutting-edge AI/software technology</li>
             </ul>
 
             <h3>Self-Assessment Questions</h3>
             <ol>
-                <li>[Question about interest]</li>
-                <li>[Question about skills]</li>
-                <li>[Question about work preferences]</li>
-                <li>[Question about career expectations]</li>
-                <li>[Question about learning style]</li>
+                <li>Does physical infrastructure interest you more than software?</li>
+                <li>Are you comfortable with math and physics applications?</li>
+                <li>Can you commit to site work early career?</li>
+                <li>Does stable career matter more than maximum salary?</li>
+                <li>Do you learn better through hands-on practical work?</li>
             </ol>
 
             <div class="highlight-box">
-                <strong>Next Steps:</strong> [Action 1] • [Action 2] • [Action 3]
+                <strong>Next Steps:</strong> Watch Practical Engineering on YouTube • Visit construction sites • Talk to civil engineers • Read CE.md
             </div>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Help students make informed decision, explain alignment indicators, walk through self-assessment, reassure those undecided. See template.md Slide 19.]</p>
+                <p>Choose CE if infrastructure fascinates you and you value impact. Consider alternatives if maximizing salary is priority. No wrong choice - alignment matters most. Explore resources, talk to professionals before deciding.</p>
             </aside>
         </section>
 
@@ -1061,29 +1022,25 @@
 
             <h3>Key Takeaways</h3>
             <ul>
-                <li><strong>About [BRANCH_NAME]:</strong> [One sentence summary]</li>
-                <li><strong>Career Potential:</strong> [One sentence about opportunities]</li>
-                <li><strong>Right For You If:</strong> [One sentence criteria]</li>
+                <li><strong>About Civil Engineering:</strong> Designs and builds infrastructure that serves society for generations</li>
+                <li><strong>Career Potential:</strong> Stable demand, diverse paths (design, construction, management), international opportunities</li>
+                <li><strong>Right For You If:</strong> You value tangible impact over maximum salary and are comfortable with physics/math</li>
             </ul>
 
             <div class="highlight-box">
                 <h4>Your Decision Matters</h4>
-                <p>[2-3 sentences of encouragement about informed choice]</p>
+                <p>Choosing your engineering branch is significant, but not permanent. Your passion and effort matter more than the branch name. Make an informed choice aligned with your interests and values.</p>
             </div>
 
-            <h3>Resources to Explore</h3>
-            <ul>
-                <li>YouTube Channels (Slide 16)</li>
-                <li>Online Courses (Slide 16)</li>
-                <li>Project Ideas (Slide 17)</li>
-            </ul>
+            <h3>Complete Guide Available</h3>
+            <p><strong>docs/CE.md</strong> - Comprehensive 25,000-word career guide with detailed curriculum, salary data, AI impact analysis, and decision frameworks</p>
 
-            <h3>Stay Curious, Keep Learning!</h3>
-            <p>[Final motivational message]</p>
+            <h3>Stay Curious, Keep Building!</h3>
+            <p>Civil engineering shapes the world around us. If this path resonates with you, dive deeper, explore projects, and connect with professionals. The infrastructure of tomorrow needs passionate engineers today.</p>
 
             <aside class="speaker-notes">
                 <h4>Narration Script:</h4>
-                <p>[SPEAKER_NOTES: Recap key points, perspective on decision-making, encourage exploration, final motivational message. See template.md Slide 20.]</p>
+                <p>Thank you for exploring Civil Engineering with us. Key takeaways: CE designs lasting infrastructure, offers stable diverse careers, suits those valuing impact. Your branch choice matters but isn't permanent - passion and effort count more. For complete details, see CE.md guide. If this resonates, explore further - watch videos, visit sites, talk to engineers. The world needs infrastructure, and passionate civil engineers will always be valued. Good luck with your decision!</p>
             </aside>
         </section>
 
