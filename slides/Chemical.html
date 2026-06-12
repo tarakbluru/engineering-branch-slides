@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chemical Engineering - Complete Career & Curriculum Guide">
+    <title>Chemical Engineering | Career Guide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #16A34A;
+            --secondary-color: #22C55E;
+            --accent: #15803D;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .speaker-notes {
+            display: none;
+            background: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        body.show-notes .speaker-notes {
+            display: block;
+        }
+
+        .slide-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 2rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .slide { padding: 3rem 3rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .speaker-notes { display: block; }
+            .slide { page-break-after: always; }
+            .nav-buttons, .slide-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="slide-nav">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
+    </nav>
+
+    <main class="slides-container">
+
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide active" id="slide-1" data-slide-number="1">
+            <div class="content">
+                <h1>Chemical Engineering</h1>
+                <p class="tagline">Transforming Molecules into Solutions - From Lab Bench to Global Industry</p>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Welcome to this comprehensive overview of Chemical Engineering, the discipline that sits at the intersection of chemistry, physics, mathematics, and engineering to solve some of the world's most pressing challenges. Chemical engineers design the processes that transform raw materials into the products we use every day—from life-saving pharmaceuticals to sustainable fuels, from advanced materials to clean water. This field is unique because it operates at the intersection of molecular science and large-scale industrial production. India's chemical industry is valued at over $220 billion and growing rapidly, creating tremendous opportunities for chemical engineers.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 2: What is Chemical Engineering? -->
+        <section class="slide" id="slide-2" data-slide-number="2">
+            <h2>What is Chemical Engineering?</h2>
+            <div class="two-column">
+                <div>
+                    <p><strong>Core Definition:</strong> Chemical Engineering applies principles of chemistry, physics, mathematics, and economics to efficiently transform raw materials and energy into valuable products through chemical, physical, and biological processes.</p>
+
+                    <h3>Fundamental Areas</h3>
+                    <ul>
+                        <li><strong>Process Design & Optimization:</strong> Designing industrial-scale chemical processes that are safe, economical, and environmentally sustainable</li>
+                        <li><strong>Transport Phenomena:</strong> Understanding how mass, energy, and momentum transfer in chemical systems—from molecular diffusion to large-scale fluid flow</li>
+                        <li><strong>Thermodynamics & Reaction Engineering:</strong> Mastering energy transformations and chemical reaction kinetics to optimize product yields and minimize waste</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Key Insight:</strong> Chemical engineers design processes that produce over 96% of manufactured goods globally, with the Indian chemical sector employing over 2 million people and expected to reach $300 billion by 2025.
+                    </div>
+                </div>
+                <div>
+                    <p style="color: var(--text-light); font-style: italic; text-align: center; padding: 2rem;">
+                        [Industrial chemical plant image would appear here]
+                    </p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Chemical Engineering is fundamentally about scaling up chemical reactions and separation processes from laboratory glassware to industrial plants that can produce millions of tons of product annually. The field emerged in the late 19th century when industries needed engineers who understood both chemistry and large-scale manufacturing. The first chemical engineering curriculum was established at MIT in 1888. Chemical engineers have one of the highest starting salaries among engineering disciplines in India (₹6-12 LPA average), and the field offers incredible versatility—working in oil refineries, pharmaceutical companies, food processing plants, or environmental consulting firms.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 3: Foundation Years Curriculum -->
+        <section class="slide" id="slide-3" data-slide-number="3">
+            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="two-column">
+                <div>
+                    <h3>First Year (Common Engineering Foundation)</h3>
+                    <ul>
+                        <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
+                        <li><strong>General Chemistry I & II</strong> - Atomic structure, bonding, thermodynamics, kinetics</li>
+                        <li><strong>General Physics I & II</strong> - Mechanics, electricity, magnetism</li>
+                        <li><strong>Programming</strong> - MATLAB/Python</li>
+                        <li><strong>Engineering Drawing/CAD</strong></li>
+                        <li><strong>Introduction to Chemical Engineering</strong></li>
+                    </ul>
+
+                    <h3>Second Year - Chemical Engineering Begins</h3>
+                    <ul>
+                        <li><strong>Material and Energy Balances</strong> - Foundation of all process calculations</li>
+                        <li><strong>Thermodynamics I & II</strong> - Phase equilibria, chemical reaction equilibria</li>
+                        <li><strong>Fluid Mechanics</strong> - Flow behavior, pump selection, piping design</li>
+                        <li><strong>Organic Chemistry I & II</strong> - Reaction mechanisms, synthesis pathways</li>
+                        <li><strong>Physical Chemistry</strong> - Kinetics, electrochemistry</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="highlight-box">
+                        <h4>Laboratory Work</h4>
+                        <p>Chemical Engineering Principles Lab I & II - Density, viscosity, heat capacity, vapor pressure measurements</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>First Year builds fundamental knowledge common across engineering. Mathematics is crucial—you'll use calculus to model reaction rates and differential equations for heat transfer. Chemistry courses go deeper than high school, studying molecular structures and reaction mechanisms. Second Year is where Chemical Engineering really starts with Material and Energy Balances—teaching you to track every atom through a process. Thermodynamics helps predict which reactions are feasible. Lab work provides hands-on experience measuring properties and understanding experimental techniques.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 4: Third Year Curriculum -->
+        <section class="slide" id="slide-4" data-slide-number="4">
+            <h2>Third Year - Core Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Major Subjects</h3>
+                    <ul>
+                        <li><strong>Heat and Mass Transfer</strong> - Heat exchanger design, diffusion, convection</li>
+                        <li><strong>Mass Transfer Operations I & II</strong> - Distillation, absorption, extraction</li>
+                        <li><strong>Chemical Reaction Engineering I & II</strong> - Reactor design, catalysis, kinetics</li>
+                        <li><strong>Separation Processes</strong> - Membrane separations, crystallization</li>
+                        <li><strong>Process Dynamics and Control</strong> - PID control, feedback systems</li>
+                        <li><strong>Transport Phenomena</strong> - Unified treatment of momentum, heat, mass transfer</li>
+                    </ul>
+
+                    <h3>Lab Courses</h3>
+                    <ul>
+                        <li>Unit Operations Lab I (Distillation columns, heat exchangers)</li>
+                        <li>Unit Operations Lab II (Reactors: CSTR, PFR, batch)</li>
+                        <li>Process Control Lab (PID tuning, DCS systems)</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="highlight-box">
+                        <strong>Mini Project:</strong> Biodiesel production, wastewater treatment, polymer synthesis, pharmaceutical formulation
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Third year is where you dive deep into core Chemical Engineering. Mass Transfer Operations teaches distillation for separating petroleum, absorption for pollution control. Chemical Reaction Engineering covers designing reactors processing tons per hour—batch for pharmaceuticals, continuous for large-scale chemicals. Process Control keeps processes running safely despite disturbances. Labs give hands-on experience with 3-story distillation columns, running continuous reactors, and using Aspen Plus simulation software.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 5: Fourth Year Curriculum -->
+        <section class="slide" id="slide-5" data-slide-number="5">
+            <h2>Fourth Year - Advanced & Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Advanced Courses</h3>
+                    <ul>
+                        <li><strong>Chemical Plant Design and Economics</strong> - Complete plant design, profitability analysis</li>
+                        <li><strong>Process Optimization</strong> - Linear/nonlinear programming, pinch analysis</li>
+                        <li><strong>Process Safety Engineering</strong> - HAZOP studies, risk assessment</li>
+                        <li><strong>Advanced Process Control</strong> - Model predictive control</li>
+                    </ul>
+
+                    <h3>Electives (Choose 3-4)</h3>
+                    <ul>
+                        <li>Biochemical Engineering</li>
+                        <li>Polymer Engineering</li>
+                        <li>Pharmaceutical Engineering</li>
+                        <li>Environmental Engineering</li>
+                        <li>Energy Systems Engineering</li>
+                        <li>Petroleum Refining</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card">
+                        <h4>Major Project (6-8 months)</h4>
+                        <p>Capstone project: Complete chemical plant design (biodiesel, carbon capture, pharmaceutical facility) with economic analysis, safety assessment, and environmental impact evaluation.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Emerging Trends</h4>
+                        <ul>
+                            <li>Process Intensification</li>
+                            <li>Green Engineering</li>
+                            <li>Data Analytics for Process Engineers</li>
+                            <li>Circular Economy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Fourth year brings everything together. Chemical Plant Design integrates all knowledge—designing complete plants from scratch with economic analysis. Process Safety is critical for handling hazardous materials. Electives let you specialize: Biochemical Engineering for pharma/biotech careers, Polymer for plastics industry, Pharmaceutical for drug manufacturing, Environmental for sustainability. The capstone project is the crown jewel—6-8 months designing a complete facility, often with industry collaboration.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 6: Skills Development -->
+        <section class="slide" id="slide-6" data-slide-number="6">
+            <h2>Skills You'll Develop</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Process Design & Simulation</h4>
+                    <p>Master Aspen Plus/HYSYS to model chemical plants, design equipment, optimize processes for economic performance and safety.</p>
+                </div>
+                <div class="card">
+                    <h4>Thermodynamics & Transport</h4>
+                    <p>Deep understanding of energy transformations, phase equilibria, and transport of mass, momentum, and energy.</p>
+                </div>
+                <div class="card">
+                    <h4>Reaction Engineering & Catalysis</h4>
+                    <p>Design and optimize reactors for maximum yield, understand catalytic mechanisms, scale from lab to industrial production.</p>
+                </div>
+                <div class="card">
+                    <h4>Process Safety & Risk Assessment</h4>
+                    <p>Conduct HAZOP studies, design safety systems, implement inherently safer design principles.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tools & Technologies:</strong> Aspen Plus, Aspen HYSYS, MATLAB, Python, COMSOL Multiphysics, AutoCAD, CFD tools (ANSYS Fluent), ChemCAD, Excel, gPROMS
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Chemical Engineering develops crucial practical skills. Process simulation using Aspen Plus/HYSYS lets you model entire plants before building them—companies actively seek this proficiency. Thermodynamics and transport phenomena enable predicting system behavior. Reaction engineering is critical for pharma and petrochemicals. Safety skills are non-negotiable—HAZOP experience is mentioned in job descriptions. You'll also develop professional skills: systematic problem-solving, project management, technical communication, and teamwork across disciplines.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 7: Entry-Level Careers -->
+        <section class="slide" id="slide-7" data-slide-number="7">
+            <h2>Career Opportunities - Entry Level</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Process Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Optimize chemical processes, troubleshoot production issues, implement improvements, conduct mass/energy balances</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹10-18 LPA (Top companies)</p>
+                </div>
+                <div class="card">
+                    <h4>Production Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Supervise plant operations, ensure safety compliance, manage production schedules, optimize throughput</p>
+                    <p><strong>Salary:</strong> ₹4-7 LPA (Tier 2), ₹7-12 LPA (Tier 1), ₹12-20 LPA (Petrochemical majors)</p>
+                </div>
+                <div class="card">
+                    <h4>R&D Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Scale up processes from lab to production, optimize reaction conditions, develop new synthesis routes</p>
+                    <p><strong>Salary:</strong> ₹5-8 LPA (Tier 2), ₹8-14 LPA (Tier 1), ₹14-25 LPA (Pharma/specialty)</p>
+                </div>
+                <div class="card">
+                    <h4>Safety Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Conduct HAZOP studies, ensure regulatory compliance, investigate incidents, implement safety improvements</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Process Engineer is the most common entry role—optimizing refinery units, troubleshooting distillation columns, or improving pharmaceutical yields. Production Engineers manage plant operations, often with rotating shifts in 24/7 facilities. R&D positions in pharma and specialty chemicals scale promising lab reactions to commercial production. Safety Engineers are increasingly important given regulatory focus. Entry salaries vary by company, sector, and location—top offers from Reliance, Shell, or international pharma can reach ₹10-18 LPA.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 8: Mid-Career & Senior Roles -->
+        <section class="slide" id="slide-8" data-slide-number="8">
+            <h2>Career Growth - Mid to Senior Level</h2>
+
+            <h3>Mid-Level Roles (3-7 years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Senior Process Engineer</h4>
+                    <p>Lead process optimization projects, mentor junior engineers, conduct advanced troubleshooting, manage multimillion-dollar initiatives</p>
+                    <p><strong>Salary:</strong> ₹12-20 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Plant Manager</h4>
+                    <p>Overall responsibility for plant operations, safety, and profitability; manage teams of 50-200 people; P&L accountability</p>
+                    <p><strong>Salary:</strong> ₹18-30 LPA</p>
+                </div>
+            </div>
+
+            <h3>Senior-Level Roles (8+ years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Engineering Manager / Technical Director</h4>
+                    <p>Strategic technical leadership, technology roadmap development, multi-site oversight</p>
+                    <p><strong>Salary:</strong> ₹25-45 LPA (India), $120-180K (US)</p>
+                </div>
+                <div class="card">
+                    <h4>Operations Director</h4>
+                    <p>Multi-site operations oversight, strategic planning, major capital allocation, board-level reporting</p>
+                    <p><strong>Salary:</strong> ₹30-60 LPA (India), $140-220K (US)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Career progression in Chemical Engineering is strong with right skills. After 3-5 years, you advance to Senior Process Engineer leading major projects. Plant Manager is highly coveted with P&L responsibility for facilities worth hundreds of crores. Senior roles like Engineering Manager or Technical Director provide strategic leadership. International opportunities abound—Middle East offers tax-free salaries, USA pays $120-220K for experienced engineers. Entrepreneurship, consulting, and product management are alternative paths.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 9: Industry Sectors -->
+        <section class="slide" id="slide-9" data-slide-number="9">
+            <h2>Industry Sectors & Companies</h2>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Petroleum & Petrochemicals</h4>
+                    <p>Oil refining, petrochemical production, gas processing. Reliance, IOCL, BPCL, Shell, ExxonMobil</p>
+                </div>
+                <div class="card">
+                    <h4>Pharmaceuticals & Biotechnology</h4>
+                    <p>Drug manufacturing, bioprocessing, quality assurance. Sun Pharma, Dr. Reddy's, Cipla, Biocon, Pfizer</p>
+                </div>
+                <div class="card">
+                    <h4>Specialty Chemicals & Agrochemicals</h4>
+                    <p>High-value chemicals, dyes, catalysts. UPL, Aarti Industries, Navin Fluorine, SRF, BASF</p>
+                </div>
+                <div class="card">
+                    <h4>Food Processing & Consumer Goods</h4>
+                    <p>Food processing, personal care products. Unilever, P&G, Nestlé, ITC, Britannia</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> Reliance Industries, IOCL, BPCL, Shell, BASF, Dow, Sun Pharma, Dr. Reddy's, UPL, L&T, Technip, Unilever, P&G
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Chemical engineers work across remarkably diverse industries. Petroleum/petrochemicals employs 30%—Reliance's Jamnagar complex alone has thousands of engineers. Pharmaceuticals (20%) offers strong growth—India is "pharmacy of the world." Specialty chemicals provides innovation opportunities. Food/consumer goods companies like Unilever need chemical engineers for formulation and process engineering. Environmental and energy sectors are growing with sustainability focus. This versatility provides career insurance—skills transfer readily between sectors.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 10: Higher Education -->
+        <section class="slide" id="slide-10" data-slide-number="10">
+            <h2>Higher Education Pathways</h2>
+
+            <h3>Master's Specializations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Biochemical Engineering</h4>
+                    <p><strong>Focus:</strong> Bioprocess engineering, fermentation, downstream processing</p>
+                    <p><strong>Career:</strong> Pharma/biotech R&D, process development (₹12-20 LPA post-MS)</p>
+                </div>
+                <div class="card">
+                    <h4>Advanced Process Control</h4>
+                    <p><strong>Focus:</strong> Model predictive control, process systems engineering, optimization</p>
+                    <p><strong>Career:</strong> APC specialists, consulting (₹18-30 LPA premium salaries)</p>
+                </div>
+                <div class="card">
+                    <h4>Energy & Sustainability</h4>
+                    <p><strong>Focus:</strong> Renewable energy, carbon capture, sustainable process design</p>
+                    <p><strong>Career:</strong> Energy companies, environmental consulting, cleantech startups</p>
+                </div>
+                <div class="card">
+                    <h4>Materials & Nanotechnology</h4>
+                    <p><strong>Focus:</strong> Nanomaterials, advanced polymers, functional materials</p>
+                    <p><strong>Career:</strong> R&D in materials companies, semiconductors (₹15-25 LPA)</p>
+                </div>
+            </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>Catalysis & Reaction Engineering • Separation Science • Process Systems Engineering • Sustainable Engineering • Computational Chemistry</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, Stanford, UC Berkeley (USA) | ETH Zurich, Cambridge (Europe) | IITs, IISc Bangalore (India)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Master's degree significantly boosts earning potential—₹8-15 LPA starting vs ₹4-8 for B.Tech. Specializations allow deep focus: Biochemical for biotech careers, Process Control for refinery optimization, Energy/Sustainability for emerging green technologies, Materials for advanced applications. PhD path suits those passionate about research—faculty positions, industrial R&D, or national labs. Top programs at MIT, Stanford offer excellent education; IITs provide quality at minimal cost. Timing matters—immediately after B.Tech maintains momentum; after 2-3 years work experience provides clearer goals.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 11: Day in the Life -->
+        <section class="slide" id="slide-11" data-slide-number="11">
+            <h2>A Day in the Life - Process Engineer at Petroleum Refinery</h2>
+
+            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <ul>
+                <li><strong>9:00-9:30:</strong> Daily production meeting—review overnight performance, discuss process upsets</li>
+                <li><strong>9:30-11:00:</strong> Process data analysis—analyze DCS data, identify optimization opportunities</li>
+                <li><strong>11:00-12:30:</strong> Technical troubleshooting—investigate crude column pressure drop increase</li>
+            </ul>
+
+            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>1:30-3:00:</strong> Project work—debottlenecking study using Aspen HYSYS simulation</li>
+                <li><strong>3:00-5:00:</strong> HAZOP study participation—systematic hazard analysis with multidisciplinary team</li>
+            </ul>
+
+            <h3>Evening & Beyond</h3>
+            <ul>
+                <li><strong>5:00-6:00:</strong> Documentation, vendor coordination, reading technical papers</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> Balancing multiple priorities • Working with diverse teams • Troubleshooting under pressure (₹50+ lakh/hour production losses)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>A process engineer's day blends data analysis, troubleshooting, projects, and collaboration. Mornings start with production meetings reviewing 24-hour operations. Data analysis identifies trends—heat exchanger fouling increasing energy consumption. Troubleshooting crude column pressure issues requires analyzing temperature profiles and consulting operators. Afternoon project work on debottlenecking uses simulation to increase capacity 15%. HAZOP studies systematically analyze hazards. Work is intellectually challenging, collaborative, and has clear business impact. Satisfying when your optimization saves ₹15 crore annually.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 12: Salary & Growth -->
+        <section class="slide" id="slide-12" data-slide-number="12">
+            <h2>Compensation & Job Market Outlook</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Salary Progression (India)</h3>
+                    <ul>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹10-18 LPA (Top)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹10-16 LPA avg, ₹16-28 LPA top</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹18-30 LPA avg, ₹30-50 LPA top</li>
+                        <li><strong>Lead (12+ yr):</strong> ₹35-60 LPA to ₹1+ Cr</li>
+                    </ul>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $65-85K, Mid $85-120K, Senior $120-180K</li>
+                        <li><strong>Middle East:</strong> Tax-free salaries (significant savings)</li>
+                        <li><strong>Europe:</strong> 20-30% lower than US but better work-life balance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Job Market (2025-2030)</h3>
+                    <p><strong>Demand:</strong> Stable to Growing (8-10% annual sector growth)</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>PLI schemes for pharmaceuticals and specialty chemicals</li>
+                        <li>Green hydrogen, carbon capture, biofuels</li>
+                        <li>India's position as global generics hub</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>Aspen Plus/HYSYS expertise (20-30% premium)</li>
+                        <li>Advanced process control (APC/MPC)</li>
+                        <li>Six Sigma Black Belt</li>
+                        <li>Green hydrogen, carbon capture expertise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Starting salaries vary widely—₹4-6 LPA in tier-2 cities, ₹6-10 LPA in established companies, ₹10-18 LPA at top firms like Reliance or Shell. Progression is strong: ₹10-16 LPA at 3-5 years, ₹18-30 LPA at 8-10 years, ₹35-60 LPA+ for senior roles. International opportunities pay significantly higher—USA $65-180K+ across career, Middle East offers tax-free salaries. Job market outlook is positive with 8-10% annual growth driven by PLI schemes, pharma expansion, and sustainability focus. Skills in Aspen Plus, APC, and emerging technologies command premium salaries.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 13: Current Trends -->
+        <section class="slide" id="slide-13" data-slide-number="13">
+            <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2025-2030)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Green Hydrogen Production</h4>
+                    <p>India targets 5 million tons by 2030. Chemical engineers design electrolysis processes, purification systems. Reliance, Adani investing billions.</p>
+                </div>
+                <div class="card">
+                    <h4>Carbon Capture & Utilization (CCUS)</h4>
+                    <p>Capturing CO₂ from industrial emissions, converting to chemicals or storage. $100B+ global investment creates demand for process engineers.</p>
+                </div>
+                <div class="card">
+                    <h4>Biomanufacturing & Synthetic Biology</h4>
+                    <p>Engineering organisms to produce chemicals, materials, fuels. Process engineers scale biological processes from lab to industrial production.</p>
+                </div>
+                <div class="card">
+                    <h4>Process Intensification</h4>
+                    <p>Compact, efficient processes combining multiple operations—50-90% smaller footprint, 30-70% lower energy. Paradigm shift in plant design.</p>
+                </div>
+            </div>
+
+            <h3>Research Frontiers</h3>
+            <p>Electrochemical Engineering • Molecular Modeling • Sustainable Polymers • Nanomaterials for Catalysis</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Chemical Engineering is evolving rapidly. Green Hydrogen represents massive opportunity—National Hydrogen Mission targets 5 million tons capacity with billion-dollar investments from Reliance and Adani. Carbon Capture addresses climate change—chemical engineers design amine absorption systems and catalytic CO₂ conversion. Biomanufacturing combines biotech with process engineering—engineered organisms producing pharmaceuticals and chemicals. Process Intensification develops compact equipment combining reactions and separations. These trends make chemical engineering increasingly relevant and impactful.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 14: Impact of AI - Part 1 -->
+        <section class="slide" id="slide-14" data-slide-number="14">
+            <h2>How AI is Transforming Chemical Engineering</h2>
+
+            <h3>AI Applications</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Process Optimization & Control</h4>
+                    <p>ML algorithms optimize operations continuously—maximizing yields, minimizing energy. 5-15% improvement in efficiency.</p>
+                </div>
+                <div class="card">
+                    <h4>Predictive Maintenance</h4>
+                    <p>AI predicts equipment failures before they occur—30-50% reduction in unplanned downtime (saving ₹50 lakh-₹5 crore per incident).</p>
+                </div>
+                <div class="card">
+                    <h4>Quality Prediction</h4>
+                    <p>Neural networks predict product quality from process variables—enabling real-time control without time-consuming lab analysis.</p>
+                </div>
+                <div class="card">
+                    <h4>Molecular Design & Discovery</h4>
+                    <p>Generative AI designs novel catalysts, polymers, drug molecules—10-100x faster than traditional trial-and-error.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Tasks Being Automated</h3>
+                    <ul>
+                        <li>Routine process monitoring (70% automated)</li>
+                        <li>Data analysis for troubleshooting (50%)</li>
+                        <li>Routine optimization (60%)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>System-level thinking & integration</li>
+                        <li>Complex problem-solving & root cause analysis</li>
+                        <li>Process design for new technologies</li>
+                        <li>Safety assessment & risk management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>AI is transforming chemical engineering but creating opportunities rather than eliminating jobs. Process optimization using ML improves yields 5-15%—worth ₹10-30 crore annually for large refineries. Predictive maintenance prevents costly failures. Quality prediction enables real-time control. Molecular design accelerates R&D. Routine monitoring is automating, but engineers focus on higher-value work—system integration, complex troubleshooting, novel process design, safety judgment. Chemical engineers who combine process fundamentals with AI/data science skills will thrive.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 15: Impact of AI - Part 2 -->
+        <section class="slide" id="slide-15" data-slide-number="15">
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li><strong>Deep fundamentals:</strong> Thermodynamics, transport phenomena—AI can't replace understanding</li>
+                        <li><strong>Process design:</strong> Creativity in configuring plants for novel situations</li>
+                        <li><strong>Safety engineering:</strong> Judgment about ethics, values, risk acceptance</li>
+                        <li><strong>Interdisciplinary integration:</strong> Combining chemistry, engineering, economics, environment</li>
+                    </ul>
+
+                    <h4>Human Skills AI Can't Replace</h4>
+                    <ul>
+                        <li>Creative problem-solving for unusual situations</li>
+                        <li>Strategic thinking & business judgment</li>
+                        <li>Leadership & collaboration</li>
+                        <li>Ethical reasoning & social awareness</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>Master fundamentals relentlessly</li>
+                        <li>Learn Python for data analysis</li>
+                        <li>Work on diverse projects</li>
+                        <li>Develop communication skills</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>Seek roles with learning opportunities</li>
+                        <li>Build T-shaped expertise (deep + broad)</li>
+                        <li>Embrace digital tools proactively</li>
+                        <li>Pursue relevant certifications (Six Sigma, PE)</li>
+                    </ul>
+
+                    <h4>Throughout Career</h4>
+                    <ul>
+                        <li>Continuous learning (5-10 hrs/week)</li>
+                        <li>Network actively (AIChE, IIChE)</li>
+                        <li>Stay business-aware</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities AI Creates:</strong> Enhanced productivity • New problem spaces • Democratization of expertise • Data-driven innovation
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Future-proof skills center on deep fundamentals—thermodynamics and transport phenomena don't become obsolete. Process design requires creativity AI lacks. Safety engineering needs human judgment about acceptable risk. Human skills—creative problem-solving, strategic thinking, leadership—become more valuable. Strategy: master fundamentals in college, learn Python and data analysis, embrace digital tools in early career, pursue continuous learning throughout. Emerging roles combine chemical engineering with AI—Process Data Scientist, Digital Twin Engineer. AI amplifies skilled engineers who adapt, making chemical engineering more exciting than ever.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 16: Educational Resources -->
+        <section class="slide" id="slide-16" data-slide-number="16">
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>LearnChemE</h4>
+                    <p>Chemical engineering fundamentals and problem-solving. 2,000+ screencasts covering all topics.</p>
+                    <p><small>Must-watch: Mass and Energy Balances, Heat Exchangers, Distillation</small></p>
+                </div>
+                <div class="card">
+                    <h4>Chemical Engineering Guy</h4>
+                    <p>Process engineering and industry insights from experienced engineer.</p>
+                    <p><small>Must-watch: Process Equipment Deep Dives, Career Advice</small></p>
+                </div>
+                <div class="card">
+                    <h4>MIT OpenCourseWare</h4>
+                    <p>Complete university courses from MIT professors—world-class education free online.</p>
+                    <p><small>Must-watch: Thermodynamics, Transport Processes, Reactor Design</small></p>
+                </div>
+                <div class="card">
+                    <h4>AIChE</h4>
+                    <p>Professional society channel with webinars on Process Safety, Career Development, Emerging Technologies.</p>
+                    <p><small>Industry experts discussing current trends and best practices</small></p>
+                </div>
+            </div>
+
+            <h3>Online Courses & Books</h3>
+            <ul>
+                <li><strong>Coursera:</strong> Chemical Processes for Energy and Sustainability (MIT)</li>
+                <li><strong>edX:</strong> Introduction to Chemical Engineering (MIT)</li>
+                <li><strong>Udemy:</strong> Aspen Plus Complete Course</li>
+                <li><strong>Books:</strong> "Elementary Principles" (Felder & Rousseau), "Chemical Reaction Engineering" (Levenspiel), "Transport Phenomena" (Bird, Stewart & Lightfoot)</li>
+            </ul>
+
+            <h3>Communities</h3>
+            <p><strong>Online:</strong> AIChE Engage, r/ChemicalEngineering (Reddit), Chemical Engineering Magazine</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>LearnChemE is exceptional for students—short focused videos explaining specific concepts with worked examples. Chemical Engineering Guy provides industry perspective. MIT OpenCourseWare offers complete university courses free. Coursera and edX have structured learning paths. Aspen Plus course on Udemy teaches industry-standard simulation. Textbooks like Felder & Rousseau are invaluable references. Communities like AIChE Engage and r/ChemicalEngineering provide peer support and networking.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 17: Real-World Projects -->
+        <section class="slide" id="slide-17" data-slide-number="17">
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Low-Cost Arsenic Removal (IIT Kharagpur)</h4>
+                    <p><strong>What:</strong> Iron-oxide coated sand filtration for rural groundwater</p>
+                    <p><strong>Impact:</strong> Deployed in 50+ villages, 10,000+ people served</p>
+                </div>
+                <div class="card">
+                    <h4>Biodiesel from Waste Cooking Oil</h4>
+                    <p><strong>What:</strong> Transesterification process optimized for restaurant waste</p>
+                    <p><strong>Impact:</strong> Technology licensed to biodiesel producer, peer-reviewed publication</p>
+                </div>
+            </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Biocon's Continuous Insulin Manufacturing</h4>
+                    <p>Process intensification reduced production time from 6 weeks to 10 days, cut costs 40%, improved quality consistency.</p>
+                </div>
+                <div class="card">
+                    <h4>Dr. Reddy's Green Chemistry Initiative</h4>
+                    <p>Replaced hazardous solvents—eliminated 500+ tons annually, 60% waste reduction, improved worker safety.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> AIChE Student Design Competition • IChemE Global Awards • Chem-E-Car Competition
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Student projects demonstrate chemical engineering's social impact. IIT Kharagpur's arsenic removal system serves 10,000+ people using locally available materials. Biodiesel from waste oil shows waste-to-value concepts. Industry innovations like Biocon's continuous insulin manufacturing represent pharmaceutical transformation—40% cost reduction while improving quality. Dr. Reddy's green chemistry eliminated hazardous solvents, proving sustainability and profitability align. Competitions like AIChE Design Competition build skills and networking. These examples show chemical engineering's breadth from social impact to cutting-edge biotechnology.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 18: Pros & Cons -->
+        <section class="slide" id="slide-18" data-slide-number="18">
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>Versatile Career Options</h4>
+                        <p>Skills transfer across petroleum, pharmaceuticals, food, materials, environment, energy—career resilience and options.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Strong Compensation & Job Security</h4>
+                        <p>Top-tier starting salaries (₹6-12 LPA), strong mid-career (₹15-35 LPA), stable demand in essential industries.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Tangible Impact</h4>
+                        <p>Design processes producing medicines, clean fuels, materials—visible, meaningful impact. Intellectually stimulating problem-solving.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>Rigorous Academic Curriculum</h4>
+                        <p>Demanding coursework—thermodynamics, mass transfer require strong math and conceptual understanding. Heavy workload.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Plant Locations & Shift Work</h4>
+                        <p>Many jobs in industrial areas, not metro cities. Production roles involve rotating shifts including nights/weekends.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Cyclical Industry Sensitivity</h4>
+                        <p>Petroleum and commodity chemicals face boom-bust cycles with oil prices. Job security generally good but not immune to downturns.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> Enjoy chemistry/physics, comfortable with math, value practical applications, want career versatility</p>
+                <p><strong>Might struggle if:</strong> Dislike heavy math/physics, prefer purely digital/remote work, want rapid career flexibility to unrelated fields</p>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Versatile career options mean skills transfer across industries—if petroleum faces downturn, pharmaceuticals might boom. Strong compensation is real—₹6-12 LPA starting, ₹15-35 LPA mid-career. Tangible impact designing medicines or clean energy provides meaning. Rigorous curriculum is genuinely difficult—thermodynamics and mass transfer require strong mathematical ability. Plant locations affect lifestyle—often industrial towns rather than metros. Shift work in production roles challenges work-life balance. Cyclical sensitivity means petroleum hiring fluctuates with oil prices. Those enjoying chemistry/physics, comfortable with math, wanting practical impact will thrive.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 19: Decision Checklist -->
+        <section class="slide" id="slide-19" data-slide-number="19">
+            <h2>Is Chemical Engineering Right for You?</h2>
+
+            <h3>✓ Choose Chemical Engineering If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> Enjoyed chemistry and physics, curious about how products are manufactured at scale, satisfaction in optimizing systems</li>
+                <li><strong>Skills:</strong> Comfortable with mathematics (calculus, differential equations), strong analytical thinking, attention to detail</li>
+                <li><strong>Goals:</strong> Want stable well-compensated career, value versatility across industries, interested in technical work with business impact</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>Prefer purely software-based work with complete remote flexibility</li>
+                <li>Want maximum short-term compensation potential and startup culture (tech sector)</li>
+                <li>Strongly prefer work located in major metro tech hubs only</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>When reading about industrial processes, do you find yourself curious or bored?</li>
+                <li>Are you willing to work with complex equations regularly as problem-solving tools?</li>
+                <li>Comfortable with careers potentially requiring plant presence and shift work?</li>
+                <li>Does optimizing existing processes motivate you, or do you need creating entirely new things?</li>
+                <li>Prefer understanding how things work fundamentally or just building without deep theory?</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> Watch LearnChemE videos • Read Felder & Rousseau textbook chapters • Talk to chemical engineering students/professionals
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Interest alignment is crucial—genuinely enjoying chemistry and physics is positive indicator. Comfortable with mathematics doesn't mean genius level, but willing to work through problems systematically. Career goals matter—if you want stable career producing essential products, chemical engineering delivers. Consider alternatives candidly—if purely software remote work is priority, Computer Science better aligns. Self-assessment reveals genuine curiosity versus forced effort. Next steps: Watch LearnChemE videos—if engaging, positive sign. Read actual textbook experiencing real coursework. Talk to practitioners for honest conversations about realities.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 20: Closing -->
+        <section class="slide" id="slide-20" data-slide-number="20">
+            <h2>Thank You!</h2>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About Chemical Engineering:</strong> Applies science and mathematics to design, optimize, and operate processes transforming raw materials into valuable products—fuels, medicines, materials, chemicals.</li>
+                <li><strong>Career Potential:</strong> Strong compensation (₹6-12 LPA entry, ₹15-35+ LPA mid-career), excellent job security in essential industries, versatile options across petroleum, pharma, materials, energy, environment.</li>
+                <li><strong>Right For You If:</strong> Enjoy chemistry and physics, comfortable with mathematics, value practical applications with tangible impact, want career versatility rather than narrow specialization.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>Choosing chemical engineering requires four years of rigorous study and shapes your career trajectory. Make this decision based on genuine interest informed by exploration rather than external pressure. Those who thrive find intellectual stimulation in process optimization, professional satisfaction in creating essential products, and career fulfillment from versatile opportunities across industries.</p>
+            </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li><strong>YouTube Channels:</strong> LearnChemE, Chemical Engineering Guy, MIT OpenCourseWare, AIChE</li>
+                <li><strong>Online Courses:</strong> Coursera, edX, Udemy (Aspen Plus)</li>
+                <li><strong>Communities:</strong> AIChE Engage, r/ChemicalEngineering, IIChE</li>
+                <li><strong>Books:</strong> Felder & Rousseau, Levenspiel, Bird Stewart Lightfoot</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Learning!</h3>
+            <p>Chemical engineering combines scientific principles with engineering practice to solve humanity's most pressing challenges—from sustainable energy and clean water to life-saving medicines and advanced materials. Whether you choose chemical engineering or explore alternatives, maintain curiosity about how the world works and pursue education aligned with your genuine interests and values.</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Thank you for investing time to deeply explore Chemical Engineering. Key takeaways: Chemical engineering applies science to transform raw materials into products society needs. Career potential is strong—good compensation, job security, versatility across industries. Right for those enjoying chemistry/physics, comfortable with math, wanting practical impact. Make informed authentic choice based on exploration rather than pressure. Resources mentioned—LearnChemE videos, MIT courses, communities—help you explore further. Chemical engineering offers rewarding career for those passionate about solving real-world problems at scale. Best of luck making the decision that's right for you!</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            prevBtn.disabled = (currentSlide === 1);
+            nextBtn.disabled = (currentSlide === totalSlides);
+
+            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key === 'n' || event.key === 'N') {
+                document.body.classList.toggle('show-notes');
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
