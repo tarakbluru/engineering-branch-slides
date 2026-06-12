@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biotechnology Engineering - Complete Career & Curriculum Guide">
+    <title>Biotechnology Engineering | Career Guide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #10B981;
+            --secondary-color: #34D399;
+            --accent: #059669;
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .slide-content {
+            max-width: 100%;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slide-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .slide-content::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+
+        .slide-number {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 100;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .speaker-notes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 40vh;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 2rem;
+            overflow-y: auto;
+            display: none;
+            z-index: 99;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .speaker-notes.active {
+            display: block;
+        }
+
+        .speaker-notes h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .speaker-notes p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                display: block !important;
+                position: relative;
+                height: auto;
+                padding: 2rem;
+            }
+            .progress-bar, .slide-number, .speaker-notes, .nav-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <h1>Biotechnology Engineering</h1>
+            <p class="tagline">Engineering Life for a Better Tomorrow</p>
+        </div>
+
+        <!-- Slide 2: What is Biotechnology Engineering? -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>What is Biotechnology Engineering?</h2>
+                <p><strong>Definition:</strong> Application of engineering principles to biological systems and processes for practical applications.</p>
+
+                <h3>Core Focus Areas:</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Genetic Engineering</h4>
+                        <p>Modifying DNA, gene editing (CRISPR), recombinant DNA technology</p>
+                    </div>
+                    <div class="card">
+                        <h4>Bioprocess Technology</h4>
+                        <p>Fermentation, bioreactors, industrial enzyme production</p>
+                    </div>
+                    <div class="card">
+                        <h4>Bioinformatics</h4>
+                        <p>Computational analysis of biological data, genomics, proteomics</p>
+                    </div>
+                    <div class="card">
+                        <h4>Pharmaceutical Biotechnology</h4>
+                        <p>Drug development, vaccine production, biologics manufacturing</p>
+                    </div>
+                    <div class="card">
+                        <h4>Industrial Biotechnology</h4>
+                        <p>Biofuels, biochemicals, bio-based materials</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Key Question:</strong> How can we harness living organisms and biological systems to create useful products and solve problems?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: First Year - Foundation -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>First Year - Foundation</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Mathematics</h3>
+                        <ul>
+                            <li>Calculus I & II (differentiation, integration, differential equations)</li>
+                            <li>Linear Algebra (matrices, vector spaces)</li>
+                            <li>Probability and Statistics</li>
+                        </ul>
+
+                        <h3>Sciences</h3>
+                        <ul>
+                            <li>Physics I & II (mechanics, thermodynamics, electromagnetism) + Labs</li>
+                            <li>Chemistry (general, organic, physical) + Labs</li>
+                            <li>Introduction to Biology (cell structure, basic genetics)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Engineering</h3>
+                        <ul>
+                            <li>Engineering Mechanics (statics, dynamics)</li>
+                            <li>Engineering Drawing / CAD</li>
+                            <li>Introduction to Programming (C/Python)</li>
+                        </ul>
+
+                        <h3>Communication</h3>
+                        <ul>
+                            <li>English / Technical Communication</li>
+                            <li>Introduction to Professional Ethics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Second Year - Biotechnology Core -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Second Year - Biotechnology Core</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Core Biological Sciences</h3>
+                        <div class="card">
+                            <h4>Biochemistry</h4>
+                            <p>Protein structure/function, enzyme kinetics, metabolic pathways (glycolysis, TCA cycle, respiration)</p>
+                        </div>
+                        <div class="card">
+                            <h4>Microbiology</h4>
+                            <p>Bacteria, fungi, viruses; microbial growth, control, sterilization</p>
+                        </div>
+                        <div class="card">
+                            <h4>Cell Biology</h4>
+                            <p>Eukaryotic cells, organelles, cell division, signaling</p>
+                        </div>
+                        <div class="card">
+                            <h4>Genetics</h4>
+                            <p>Mendelian genetics, molecular genetics, gene expression, regulation</p>
+                        </div>
+                        <div class="card">
+                            <h4>Molecular Biology</h4>
+                            <p>DNA replication, transcription, translation, gene cloning</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Engineering Subjects</h3>
+                        <ul>
+                            <li>Thermodynamics for Biological Systems</li>
+                            <li>Mass Transfer Operations</li>
+                            <li>Chemical Reaction Engineering / Kinetics</li>
+                            <li>Fluid Mechanics and Heat Transfer</li>
+                        </ul>
+
+                        <h3>Laboratory Courses</h3>
+                        <ul>
+                            <li>Biochemistry Lab (enzyme assays, protein purification)</li>
+                            <li>Microbiology Lab (culturing, staining, identification)</li>
+                            <li>Analytical Techniques Lab (spectroscopy, chromatography)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Third & Fourth Year - Specialization -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Third & Fourth Year - Specialization</h2>
+
+                <h3>Advanced Core Courses</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Genetic Engineering</h4>
+                        <p>Recombinant DNA technology, CRISPR/Cas9, gene therapy, GMOs</p>
+                    </div>
+                    <div class="card">
+                        <h4>Bioprocess Engineering</h4>
+                        <p>Bioreactor design, fermentation technology, scale-up, downstream processing</p>
+                    </div>
+                    <div class="card">
+                        <h4>Immunology</h4>
+                        <p>Immune system, antibodies, vaccines, immunological techniques</p>
+                    </div>
+                    <div class="card">
+                        <h4>Bioinformatics</h4>
+                        <p>Sequence analysis, genomics, protein structure prediction, systems biology</p>
+                    </div>
+                </div>
+
+                <h3>Specialization Tracks (Electives)</h3>
+                <ul>
+                    <li><strong>Pharmaceutical Biotech:</strong> Drug discovery, formulation, quality control, regulatory affairs</li>
+                    <li><strong>Environmental Biotech:</strong> Bioremediation, wastewater treatment, biofuels</li>
+                    <li><strong>Agricultural Biotech:</strong> Crop improvement, plant tissue culture, biopesticides</li>
+                    <li><strong>Industrial Biotech:</strong> Enzyme technology, metabolic engineering, bio-based chemicals</li>
+                    <li><strong>Medical Biotech:</strong> Diagnostics, tissue engineering, stem cells, regenerative medicine</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Practical Training</h4>
+                    <ul>
+                        <li>Industrial Internship (6-8 weeks, usually summer after 3rd year)</li>
+                        <li>Major Project (6-8 months, final year)</li>
+                        <li>Seminar presentations and literature review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Essential Skills -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Essential Skills</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Technical Skills</h3>
+
+                        <div class="card">
+                            <h4>Laboratory Techniques</h4>
+                            <ul>
+                                <li>Aseptic technique and microbial culturing</li>
+                                <li>PCR and gel electrophoresis</li>
+                                <li>Protein purification and enzyme assays</li>
+                                <li>Cell culture (bacterial, mammalian)</li>
+                                <li>Chromatography (HPLC, FPLC, GC)</li>
+                                <li>Microscopy and spectroscopy</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Bioinformatics & Programming</h4>
+                            <ul>
+                                <li>Python/Biopython, R, MATLAB</li>
+                                <li>Sequence analysis tools (BLAST, Clustal)</li>
+                                <li>Data visualization and statistical analysis</li>
+                                <li>Database management (GenBank, PDB)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Bioprocess Operations</h4>
+                            <ul>
+                                <li>Bioreactor operation and monitoring</li>
+                                <li>Fermentation optimization</li>
+                                <li>Scale-up principles</li>
+                                <li>Quality control and GMP compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Soft Skills</h3>
+                        <ul>
+                            <li>Research methodology and experimental design</li>
+                            <li>Scientific writing and documentation</li>
+                            <li>Data interpretation and critical thinking</li>
+                            <li>Interdisciplinary collaboration</li>
+                            <li>Regulatory awareness and biosafety</li>
+                            <li>Project management</li>
+                            <li>Problem-solving in complex biological systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Career Paths - Entry Level -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Career Paths - Entry Level</h2>
+
+                <div class="card">
+                    <h4>1. Research Associate (₹5-10 LPA)</h4>
+                    <ul>
+                        <li>Laboratory research, experiment execution, data collection</li>
+                        <li>Literature review and method development</li>
+                        <li>Companies: Biocon, Dr. Reddy's, Lupin, Zydus, Serum Institute</li>
+                        <li><strong>Path to:</strong> Senior Scientist, R&D roles</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Quality Control/QA Analyst (₹4-7 LPA)</h4>
+                    <ul>
+                        <li>Testing raw materials and finished products</li>
+                        <li>Method validation, stability studies</li>
+                        <li>Compliance with GMP/GLP standards</li>
+                        <li><strong>Path to:</strong> QA Manager, Regulatory Affairs</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Process Development Associate (₹4-8 LPA)</h4>
+                    <ul>
+                        <li>Fermentation optimization, scale-up support</li>
+                        <li>Batch record documentation, troubleshooting</li>
+                        <li><strong>Path to:</strong> Bioprocess Engineer, Production Manager</li>
+                    </ul>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <h4>4. Bioinformatics Analyst (₹6-12 LPA)</h4>
+                        <ul>
+                            <li>Sequence analysis, database management</li>
+                            <li>Pipeline development, data visualization</li>
+                            <li><strong>Path to:</strong> Senior Bioinformatician</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>5. Production Officer (₹4-7 LPA)</h4>
+                        <ul>
+                            <li>Batch production operations</li>
+                            <li>GMP compliance, inventory management</li>
+                            <li><strong>Path to:</strong> Plant Manager</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Career Paths - Senior Level -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Career Paths - Senior Level</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Senior Scientist / Principal Scientist</h4>
+                        <p><strong>₹12-25 LPA</strong></p>
+                        <ul>
+                            <li>Lead research projects independently</li>
+                            <li>Team mentorship, grant writing, publications</li>
+                            <li>Strategic research direction</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Bioprocess Engineer</h4>
+                        <p><strong>₹10-20 LPA</strong></p>
+                        <ul>
+                            <li>Bioreactor design and optimization</li>
+                            <li>Scale-up from lab to manufacturing</li>
+                            <li>Technology transfer, process validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Regulatory Affairs Manager</h4>
+                        <p><strong>₹12-22 LPA</strong></p>
+                        <ul>
+                            <li>Drug approval submissions (CDSCO, FDA, EMA)</li>
+                            <li>Regulatory strategy and compliance</li>
+                            <li>Interaction with government authorities</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>R&D Manager / Associate Director</h4>
+                        <p><strong>₹15-30 LPA</strong></p>
+                        <ul>
+                            <li>Manage research teams (10-30 people)</li>
+                            <li>Project portfolio and budget management</li>
+                            <li>Strategic planning</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Production Manager / Plant Manager</h4>
+                        <p><strong>₹12-25 LPA</strong></p>
+                        <ul>
+                            <li>Manufacturing operations oversight</li>
+                            <li>GMP compliance and quality systems</li>
+                            <li>Team management (50-200 people)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Medical Affairs / Scientific Liaison</h4>
+                        <p><strong>₹12-20 LPA</strong></p>
+                        <ul>
+                            <li>Communication with healthcare professionals</li>
+                            <li>Clinical evidence presentation</li>
+                            <li>Medical education and training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Industries & Applications -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Industries & Applications</h2>
+
+                <div class="card">
+                    <h4>1. Pharmaceutical & Healthcare (Largest Sector)</h4>
+                    <p>Drug development, biologics, vaccines, biosimilars, gene therapy, cell therapy, immunotherapy</p>
+                    <p><strong>Companies:</strong> Biocon, Cipla, Dr. Reddy's, Lupin, Pfizer India, Novartis, GSK</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Agricultural Biotechnology</h4>
+                    <p>Crop improvement (GM crops), tissue culture, biopesticides, biofertilizers, seed development</p>
+                    <p><strong>Companies:</strong> Bayer CropScience, Syngenta, Mahyco, IARI</p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Industrial Biotechnology ("White Biotech")</h4>
+                    <p>Enzymes (detergents, textiles, food processing), biofuels (ethanol, biodiesel), bio-based chemicals and plastics</p>
+                    <p><strong>Companies:</strong> Novozymes, Genencor, Praj Industries</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <h4>4. Environmental Biotechnology</h4>
+                        <p>Wastewater treatment, bioremediation, solid waste management</p>
+                    </div>
+                    <div class="card">
+                        <h4>5. Food & Beverage</h4>
+                        <p>Fermentation, probiotics, food safety testing</p>
+                        <p><strong>Companies:</strong> Nestlé, Britannia, United Breweries</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>6. Research Institutions & Academia</h4>
+                    <p>CSIR labs (CCMB, IMTECH, IGIB, NCL), ICMR institutes, DBT labs, IITs, NITs, universities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Higher Education Paths -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Higher Education Paths</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Master's Programs in India</h3>
+                        <ul>
+                            <li>M.Tech Biotechnology (IITs, NITs, IISc)</li>
+                            <li>M.Tech Bioinformatics (JNU, BHU, universities)</li>
+                            <li>M.Tech Biomedical Engineering (IITs, AIIMS-IIT collaborations)</li>
+                            <li>M.Tech Biochemical Engineering (ICT Mumbai, selected IITs)</li>
+                            <li>2-year programs, thesis-based research</li>
+                        </ul>
+
+                        <h3>Master's/Ph.D. Abroad</h3>
+                        <ul>
+                            <li>M.S. Biotechnology, Molecular Biology, Biochemistry (USA, Europe)</li>
+                            <li>Ph.D. programs (4-6 years, funded with stipend)</li>
+                            <li><strong>Top universities:</strong> MIT, Stanford, Cambridge, ETH Zurich</li>
+                            <li>Strong research opportunities, international exposure</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Professional Certifications</h3>
+                        <div class="card">
+                            <h4>Industry Certifications</h4>
+                            <ul>
+                                <li><strong>Good Manufacturing Practice (GMP)</strong> - essential for pharma careers</li>
+                                <li><strong>Good Laboratory Practice (GLP)</strong> - research compliance</li>
+                                <li><strong>Regulatory Affairs Certification (RAC)</strong> - drug approval expertise</li>
+                                <li><strong>Six Sigma (Green Belt, Black Belt)</strong> - process optimization</li>
+                                <li><strong>Biosafety Levels training</strong> - safe handling of biohazards</li>
+                                <li><strong>Clinical Research</strong> certifications (CCRP, SOCRA)</li>
+                            </ul>
+                        </div>
+
+                        <h3>MBA or Management</h3>
+                        <ul>
+                            <li>MBA with Healthcare/Pharma specialization</li>
+                            <li>Business development, marketing, strategic roles</li>
+                            <li>Complements technical background</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Day in the Life -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Day in the Life</h2>
+                <h3>Role: Research Associate - Pharmaceutical Biotech Company</h3>
+
+                <div class="two-column">
+                    <div>
+                        <div class="card">
+                            <h4>Morning (9:00 AM - 12:30 PM)</h4>
+                            <ul>
+                                <li><strong>9:00</strong> - Review project status, plan day's experiments</li>
+                                <li><strong>9:30</strong> - Prepare cell culture media, passage mammalian cell lines</li>
+                                <li><strong>10:30</strong> - Set up protein purification run (FPLC), collect fractions</li>
+                                <li><strong>11:30</strong> - Prepare samples for HPLC analysis, run purity assays</li>
+                                <li><strong>12:00</strong> - Monitor bioreactor parameters (pH, DO, temperature)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Afternoon (1:30 PM - 5:30 PM)</h4>
+                            <ul>
+                                <li><strong>1:30</strong> - Team meeting: project progress, troubleshooting</li>
+                                <li><strong>2:30</strong> - Analyze data, plot graphs, compare to controls</li>
+                                <li><strong>3:30</strong> - Literature review: recent papers on protein expression</li>
+                                <li><strong>4:30</strong> - Document experiments in lab notebook and LIMS</li>
+                                <li><strong>5:00</strong> - Prepare reagents for next day, check inventory</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <h4>Evening (5:30 PM - 6:30 PM)</h4>
+                            <ul>
+                                <li>Equipment cleaning and lab maintenance</li>
+                                <li>Review safety protocols, check cold storage temperatures</li>
+                                <li>Plan next week's experiment schedule</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Tools Used Daily</h4>
+                            <ul>
+                                <li><strong>Lab equipment:</strong> Biosafety cabinets, incubators, centrifuges, FPLC/HPLC, spectrophotometers</li>
+                                <li><strong>Software:</strong> LIMS, Excel/Prism for data analysis, PubMed for literature</li>
+                                <li><strong>Documentation:</strong> Lab notebooks, batch records, SOPs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Compensation Guide -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Compensation Guide</h2>
+
+                <div class="two-column">
+                    <div>
+                        <div class="card">
+                            <h4>Entry Level (0-3 years)</h4>
+                            <ul>
+                                <li>Research Associate: ₹5-10 LPA (₹8-12 LPA with M.Tech/Ph.D.)</li>
+                                <li>QC/QA Analyst: ₹4-7 LPA</li>
+                                <li>Bioinformatics Analyst: ₹6-12 LPA</li>
+                                <li>Process Development Associate: ₹5-8 LPA</li>
+                                <li>Production Officer: ₹4-7 LPA</li>
+                                <li>Clinical Research Associate: ₹4-8 LPA</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Mid-Level (3-7 years)</h4>
+                            <ul>
+                                <li>Scientist: ₹10-18 LPA</li>
+                                <li>Bioprocess Engineer: ₹9-16 LPA</li>
+                                <li>Senior QA Manager: ₹10-16 LPA</li>
+                                <li>Senior Bioinformatician: ₹12-20 LPA</li>
+                                <li>Production Supervisor: ₹8-14 LPA</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <h4>Senior Level (7-15 years)</h4>
+                            <ul>
+                                <li>Senior Scientist / Principal Scientist: ₹15-28 LPA</li>
+                                <li>R&D Manager / Associate Director: ₹18-35 LPA</li>
+                                <li>Regulatory Affairs Manager: ₹15-25 LPA</li>
+                                <li>Bioprocess Development Manager: ₹16-28 LPA</li>
+                                <li>Plant Manager: ₹20-35 LPA</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Top Tier (15+ years / Director+ roles)</h4>
+                            <ul>
+                                <li>Director R&D: ₹35-60 LPA</li>
+                                <li>VP Operations / VP Quality: ₹45-80 LPA</li>
+                                <li>Chief Scientific Officer (CSO): ₹60 LPA - ₹1.5 Cr+</li>
+                                <li>General Manager / Business Head: ₹70 LPA - ₹2 Cr+</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4>Factors Affecting Salary:</h4>
+                            <ul>
+                                <li><strong>Company Type:</strong> MNCs pay 20-40% more than Indian companies</li>
+                                <li><strong>Location:</strong> Bangalore, Hyderabad, Pune hubs offer higher salaries</li>
+                                <li><strong>Education:</strong> Ph.D. commands 30-50% premium; M.Tech 20-30%</li>
+                                <li><strong>Publications & Patents:</strong> Significantly enhance negotiation power</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Future Trends & Technologies -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Future Trends & Technologies</h2>
+
+                <div class="card">
+                    <h4>1. CRISPR & Advanced Gene Editing</h4>
+                    <p>Precision gene therapy for genetic diseases, agricultural applications, CRISPR diagnostics</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Synthetic Biology & Metabolic Engineering</h4>
+                    <p>Designer organisms producing pharmaceuticals, materials, fuels; cell-free systems; biosensors</p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Personalized Medicine & Genomics</h4>
+                    <p>Treatment based on individual genetic profiles, pharmacogenomics, liquid biopsies for cancer</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <h4>4. Cell & Gene Therapy</h4>
+                        <p>CAR-T therapy for cancer, gene therapy for inherited disorders, stem cell therapies</p>
+                    </div>
+                    <div class="card">
+                        <h4>5. AI/ML in Drug Discovery</h4>
+                        <p>Protein structure prediction (AlphaFold), drug candidate screening using AI</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>6. Continuous Biomanufacturing</h4>
+                    <p>Shift from batch to continuous processes, real-time quality control, Industry 4.0 integration</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="card">
+                        <h4>7. mRNA Technology & Next-Gen Vaccines</h4>
+                        <p>Rapid vaccine development, cancer vaccines, mRNA therapeutics beyond vaccines</p>
+                    </div>
+                    <div class="card">
+                        <h4>8. Nanobiotechnology</h4>
+                        <p>Targeted drug delivery, nano-biosensors, nanoparticle-based therapeutics</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Market Growth Drivers</h4>
+                    <ul>
+                        <li>India's bioeconomy targeting $300 billion by 2030</li>
+                        <li>Biologics market growing at 12-15% CAGR</li>
+                        <li>Government initiatives (Biotech PRIDE, BioE3 policy)</li>
+                        <li>COVID-19 accelerated biomanufacturing capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: AI & Automation Impact -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>AI & Automation Impact</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>AI Applications in Biotechnology</h3>
+                        <div class="card">
+                            <h4>1. Drug Discovery & Development</h4>
+                            <ul>
+                                <li>Virtual screening of billions of molecules</li>
+                                <li>De novo drug design (AI generating new molecular structures)</li>
+                                <li>Clinical trial optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>2. Protein Engineering & Design</h4>
+                            <ul>
+                                <li>Structure prediction (AlphaFold, ESMFold)</li>
+                                <li>De novo protein design</li>
+                                <li>Enzyme optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>3. Genomics & Precision Medicine</h4>
+                            <ul>
+                                <li>Variant interpretation</li>
+                                <li>Gene expression analysis</li>
+                                <li>Patient stratification</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>4. Bioprocess Optimization</h4>
+                            <ul>
+                                <li>Real-time process monitoring and control</li>
+                                <li>Predictive maintenance</li>
+                                <li>Quality prediction</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Automation in Biotechnology</h3>
+                        <ul>
+                            <li>High-throughput screening robots</li>
+                            <li>Automated liquid handling</li>
+                            <li>Lab-on-a-chip devices</li>
+                            <li>Continuous manufacturing systems</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h4>Your Strategy to Stay Relevant:</h4>
+
+                            <strong>1. Develop Computational Skills</strong>
+                            <ul>
+                                <li>Master Python, R, and machine learning basics</li>
+                                <li>Learn bioinformatics tools and databases</li>
+                                <li>Understand statistics and experimental design</li>
+                            </ul>
+
+                            <strong>2. Bridge Biology and Technology</strong>
+                            <ul>
+                                <li>Your unique value = biology + technical skills</li>
+                                <li>Focus on experimental design, interpretation, innovation</li>
+                            </ul>
+
+                            <strong>3. Emphasize Uniquely Human Skills</strong>
+                            <ul>
+                                <li>Critical thinking and creativity</li>
+                                <li>Complex problem-solving</li>
+                                <li>Ethical reasoning</li>
+                                <li>Interdisciplinary collaboration</li>
+                            </ul>
+
+                            <strong>4. Stay Updated Continuously</strong>
+                            <ul>
+                                <li>AI capabilities expand rapidly</li>
+                                <li>Lifelong learning essential</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>The Reality:</strong> AI augments biotech professionals, rarely replaces them. Biological systems are complex; AI supports but doesn't supplant human expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Learning Resources -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Learning Resources</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Online Courses & Platforms</h3>
+                        <div class="card">
+                            <h4>Coursera</h4>
+                            <ul>
+                                <li>Genomic Data Science Specialization (Johns Hopkins)</li>
+                                <li>Bioinformatics Specialization (UC San Diego)</li>
+                                <li>Systems Biology and Biotechnology (IIT Kharagpur)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>edX</h4>
+                            <ul>
+                                <li>MITx: Molecular Biology</li>
+                                <li>HarvardX: Principles of Biochemistry</li>
+                                <li>Bioinformatics: Genomic Data Analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>NPTEL (Free, Indian Institutes)</h4>
+                            <ul>
+                                <li>Biotechnology courses from IITs</li>
+                                <li>Bioprocess Engineering</li>
+                                <li>Industrial Biotechnology</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Rosalind.info</h4>
+                            <p>Coding challenges for bioinformatics - learn by solving real problems</p>
+                        </div>
+
+                        <h3>Essential Books</h3>
+                        <ul>
+                            <li><em>Molecular Biology of the Cell</em> (Alberts et al.)</li>
+                            <li><em>Biochemistry</em> (Voet & Voet)</li>
+                            <li><em>Bioprocess Engineering Principles</em> (Doran)</li>
+                            <li><em>Bioinformatics and Functional Genomics</em> (Lesk)</li>
+                            <li><em>Python for Biologists</em> (Martin Jones)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Software & Tools</h3>
+                        <div class="card">
+                            <h4>Bioinformatics</h4>
+                            <ul>
+                                <li>BLAST (sequence similarity searches)</li>
+                                <li>Clustal Omega (multiple sequence alignment)</li>
+                                <li>Galaxy (web-based genomics workflows)</li>
+                                <li>PyMOL (protein structure visualization)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Programming & Data Analysis</h4>
+                            <ul>
+                                <li>Python + Biopython (sequence analysis)</li>
+                                <li>R + Bioconductor (statistical analysis)</li>
+                                <li>MATLAB (numerical computing)</li>
+                                <li>ImageJ/Fiji (microscopy image analysis)</li>
+                            </ul>
+                        </div>
+
+                        <h3>Professional Organizations</h3>
+                        <ul>
+                            <li><strong>DBT</strong> - Department of Biotechnology, Govt. of India</li>
+                            <li><strong>IAOBT</strong> - Indian Association of Biotechnology</li>
+                            <li><strong>ABLE</strong> - Association of Biotechnology Led Enterprises</li>
+                            <li><strong>Online Communities:</strong> r/biotech, Biostars.org, ResearchGate</li>
+                        </ul>
+
+                        <h3>Summer Programs & Internships</h3>
+                        <div class="card">
+                            <h4>Research Internships</h4>
+                            <ul>
+                                <li>CSIR labs summer programs (CCMB, IMTECH, IGIB)</li>
+                                <li>DBT-sponsored research internships</li>
+                                <li>IISc summer research fellowship</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Industry Internships</h4>
+                            <ul>
+                                <li>Biocon (Bangalore) - R&D and production</li>
+                                <li>Dr. Reddy's (Hyderabad)</li>
+                                <li>Serum Institute (Pune)</li>
+                                <li>Syngene (Bangalore)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Student Projects & Competitions -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Student Projects & Competitions</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Beginner Projects (High School)</h3>
+                        <div class="card">
+                            <h4>1. DNA Extraction from Fruits</h4>
+                            <p>Extract DNA from strawberries using household materials. Cost: <₹200</p>
+                        </div>
+                        <div class="card">
+                            <h4>2. Fermentation Experiments</h4>
+                            <p>Make yogurt, kombucha, bread - learn microbial metabolism</p>
+                        </div>
+                        <div class="card">
+                            <h4>3. Antibiotic Sensitivity Testing</h4>
+                            <p>Test household antibacterials against bacteria. Requires sterile technique</p>
+                        </div>
+
+                        <h3>Intermediate Projects (Early College)</h3>
+                        <div class="card">
+                            <h4>1. Bioinformatics Analysis</h4>
+                            <p>Analyze DNA sequences from databases, identify conserved regions. Free with computer</p>
+                        </div>
+                        <div class="card">
+                            <h4>2. Enzyme Kinetics</h4>
+                            <p>Study enzyme activity vs. temperature, pH. Calculate Km, Vmax</p>
+                        </div>
+                        <div class="card">
+                            <h4>3. Biofuel from Algae</h4>
+                            <p>Culture algae, extract lipids, calculate theoretical biodiesel yield</p>
+                        </div>
+
+                        <h3>Advanced Projects (Late College)</h3>
+                        <div class="card">
+                            <h4>1. Recombinant Protein Expression</h4>
+                            <p>Clone gene into plasmid, transform bacteria, express and purify protein</p>
+                        </div>
+                        <div class="card">
+                            <h4>2. CRISPR Gene Editing</h4>
+                            <p>Use educational CRISPR kits to edit genes in non-pathogenic bacteria</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Major Competitions</h3>
+
+                        <div class="card">
+                            <h4>1. iGEM (International Genetically Engineered Machine)</h4>
+                            <ul>
+                                <li>Global synthetic biology competition</li>
+                                <li>Design and build engineered biological systems</li>
+                                <li>Team-based (8-15 students + advisors)</li>
+                                <li><strong>Timeline:</strong> 6-9 months</li>
+                                <li><strong>Culminates:</strong> Annual jamboree (Paris)</li>
+                                <li><strong>Benefits:</strong> Publication opportunities, global exposure</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>2. ISEF (International Science and Engineering Fair)</h4>
+                            <ul>
+                                <li>World's largest pre-college science competition</li>
+                                <li>Individual or team projects</li>
+                                <li>Progression: School → Regional → National → International</li>
+                                <li><strong>Awards:</strong> Scholarships, internships, recognition</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>3. National Bio-Entrepreneurship Competition (India)</h4>
+                            <ul>
+                                <li>DBT-supported competition for biotech startups/ideas</li>
+                                <li>Pitch biotech business ideas to judges</li>
+                                <li><strong>Awards:</strong> Funding, incubation support, mentorship</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>4. Hackbio</h4>
+                            <ul>
+                                <li>Bioinformatics hackathons (online and in-person)</li>
+                                <li>48-72 hour intensive challenges</li>
+                                <li>Teams analyze real biological datasets</li>
+                                <li><strong>Skills:</strong> Programming, data analysis, teamwork</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>5. Google Science Fair (Online)</h4>
+                            <ul>
+                                <li>Global online science competition (ages 13-18)</li>
+                                <li>Individual or team entries</li>
+                                <li><strong>Grand prize:</strong> $50,000 scholarship</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Pros of Biotechnology Engineering -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Pros of Biotechnology Engineering</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>1. Cutting-Edge Research & Innovation</h4>
+                        <ul>
+                            <li>Work on breakthrough technologies: CRISPR, gene therapy</li>
+                            <li>Contribute to medical advances saving lives</li>
+                            <li>Constant learning as field evolves rapidly</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>2. Diverse Career Opportunities</h4>
+                        <ul>
+                            <li>Multiple industries: Pharma, agriculture, environment, food</li>
+                            <li>Various roles: Research, production, quality, regulatory</li>
+                            <li>Academia, industry, government, entrepreneurship</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>3. Growing Industry with Strong Future</h4>
+                        <ul>
+                            <li>India's bioeconomy growing 15%+ annually</li>
+                            <li>Government support: Funding, policies, startup ecosystem</li>
+                            <li>Pandemic demonstrated critical importance</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>4. Global Opportunities & Mobility</h4>
+                        <ul>
+                            <li>Strong demand in USA, Europe, Singapore, Canada</li>
+                            <li>Research collaborations with international institutions</li>
+                            <li>Skills transferable across countries</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>5. Meaningful Social Impact</h4>
+                        <ul>
+                            <li>Develop life-saving drugs, vaccines, diagnostics</li>
+                            <li>Address environmental challenges</li>
+                            <li>Improve food security</li>
+                            <li>Tangible outcomes you can see</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>6. Interdisciplinary Nature</h4>
+                        <ul>
+                            <li>Bridge biology, chemistry, engineering, computing</li>
+                            <li>Collaborate with diverse professionals</li>
+                            <li>Continuous intellectual stimulation</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>7. Innovation & Intellectual Property</h4>
+                        <ul>
+                            <li>Opportunity to create patents and IP</li>
+                            <li>Entrepreneurship potential (biotech startups)</li>
+                            <li>Recognition through publications</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>8. Reasonable Work-Life Balance</h4>
+                        <ul>
+                            <li>Better than IT consulting or investment banking</li>
+                            <li>Standard hours in most roles</li>
+                            <li>Job security in essential industry</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Challenges & Considerations -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Challenges & Considerations</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Realistic Challenges</h3>
+                        <div class="card">
+                            <h4>1. Lab-Intensive Work Environment</h4>
+                            <ul>
+                                <li>Long hours standing in laboratory</li>
+                                <li>Strict protocols and SOPs</li>
+                                <li>Safety requirements (PPE, biosafety)</li>
+                                <li>Experiments fail frequently - patience essential</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>2. Competitive Field</h4>
+                            <ul>
+                                <li>More graduates than top research positions</li>
+                                <li>Higher education (M.Tech/Ph.D.) often required</li>
+                                <li>Publication pressure in research roles</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>3. Slower Results & Long Timelines</h4>
+                            <ul>
+                                <li>Research projects take months to years</li>
+                                <li>Drug development: 10-15 years</li>
+                                <li>Regulatory approvals lengthy</li>
+                                <li>Requires patience and long-term thinking</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>4. Safety Concerns & Regulations</h4>
+                            <ul>
+                                <li>Work with biological hazards</li>
+                                <li>Strict biosafety compliance</li>
+                                <li>Heavy documentation burden (GMP/GLP)</li>
+                                <li>Regulatory scrutiny in pharma</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>5. Modest Starting Salaries</h4>
+                            <ul>
+                                <li>Entry-level: ₹4-8 LPA (lower than CS/IT)</li>
+                                <li>Significant improvement requires experience or Ph.D.</li>
+                                <li>Slower salary growth initially</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Who Should Choose Biotechnology?</h3>
+
+                        <div class="highlight-box" style="background: #f0fdf4;">
+                            <h4>✅ Yes, if you:</h4>
+                            <ul>
+                                <li>Genuinely love biology and life sciences</li>
+                                <li>Enjoy hands-on laboratory work</li>
+                                <li>Comfortable with chemistry, biochemistry</li>
+                                <li>Patient with slow, iterative processes</li>
+                                <li>Passionate about healthcare/medicine</li>
+                                <li>Value social impact over maximum earnings</li>
+                                <li>Willing to pursue higher education</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <h4>❌ Reconsider, if you:</h4>
+                            <ul>
+                                <li>Dislike biology or find it boring</li>
+                                <li>Primarily motivated by high immediate salaries</li>
+                                <li>Prefer purely computational work</li>
+                                <li>Uncomfortable in laboratory environments</li>
+                                <li>Impatient with slow project timelines</li>
+                                <li>Seeking rapid career progression</li>
+                                <li>Uninterested in continuous learning</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>6. Continuous Learning Demand</h4>
+                            <p>Rapidly evolving field - techniques obsolete quickly. Must stay updated with literature, tools, methods continuously.</p>
+                        </div>
+
+                        <div class="card">
+                            <h4>7. Ethical Dilemmas</h4>
+                            <p>Gene editing of embryos, animal testing, GMO controversies, equitable access to expensive therapies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Making Your Decision -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Making Your Decision</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Step 1: Self-Assessment</h3>
+                        <div class="card">
+                            <h4>Interest Check</h4>
+                            <ul>
+                                <li>Do I genuinely find biology fascinating?</li>
+                                <li>Am I curious about how cells work, diseases develop?</li>
+                                <li>Do I enjoy learning about biotech breakthroughs?</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Aptitude Check</h4>
+                            <ul>
+                                <li>Am I comfortable with chemistry and biochemistry?</li>
+                                <li>Can I handle mathematics reasonably well?</li>
+                                <li>Do I have patience for detailed, methodical work?</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Personality Fit</h4>
+                            <ul>
+                                <li>Do I enjoy hands-on laboratory work?</li>
+                                <li>Am I comfortable with slow, iterative processes?</li>
+                                <li>Can I handle experiments failing repeatedly?</li>
+                                <li>Am I interested in healthcare/medicine applications?</li>
+                            </ul>
+                        </div>
+
+                        <h3>Step 2: Academic Preparation</h3>
+                        <ul>
+                            <li><strong>Excel in:</strong> Biology, Chemistry, Mathematics, Physics</li>
+                            <li><strong>Develop programming skills:</strong> Learn Python basics</li>
+                            <li><strong>Improve communication:</strong> Scientific writing, presentations</li>
+                        </ul>
+
+                        <h3>Step 3: Gain Exposure</h3>
+                        <ul>
+                            <li>Try biology experiments at home</li>
+                            <li>Visit biotech labs or companies</li>
+                            <li>Watch lab technique videos</li>
+                            <li>Talk to biotech professionals</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Step 4: Compare with Similar Branches</h3>
+                        <div class="card">
+                            <h4>vs. Chemical Engineering</h4>
+                            <p><strong>Chemical:</strong> More process engineering, less biology, broader industries</p>
+                            <p><strong>Biotech:</strong> More life sciences focus, pharmaceutical-centric</p>
+                        </div>
+
+                        <div class="card">
+                            <h4>vs. Biochemical Engineering</h4>
+                            <p>Very similar; job markets largely overlap. Biochemical emphasizes chemical engineering principles slightly more.</p>
+                        </div>
+
+                        <div class="card">
+                            <h4>vs. Biomedical Engineering</h4>
+                            <p><strong>Biomedical:</strong> Medical devices, instrumentation, imaging</p>
+                            <p><strong>Biotech:</strong> Pharmaceuticals, diagnostics, genetic engineering</p>
+                        </div>
+
+                        <h3>Step 5: Evaluate College Programs</h3>
+                        <ul>
+                            <li><strong>Curriculum Quality:</strong> Modern techniques? (CRISPR, bioinformatics)</li>
+                            <li><strong>Lab Facilities:</strong> Well-equipped molecular biology labs?</li>
+                            <li><strong>Faculty Research:</strong> Are faculty actively publishing?</li>
+                            <li><strong>Industry Connections:</strong> Placement records, internships</li>
+                            <li><strong>Higher Education Support:</strong> Graduate school preparation</li>
+                        </ul>
+
+                        <div class="highlight-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <h4>Red Flags (Consider Other Branches)</h4>
+                            <ul>
+                                <li>🚫 You dislike biology or chemistry intensely</li>
+                                <li>🚫 You want immediate high salaries</li>
+                                <li>🚫 You prefer purely computational work</li>
+                                <li>🚫 You're uncomfortable with lab environments</li>
+                                <li>🚫 You expect rapid project completion</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box" style="background: #f0fdf4;">
+                            <h4>Green Lights (Good Fit)</h4>
+                            <ul>
+                                <li>✅ Biology genuinely fascinates you</li>
+                                <li>✅ You enjoyed chemistry and biology labs</li>
+                                <li>✅ Healthcare/medicine excites you</li>
+                                <li>✅ You value social impact highly</li>
+                                <li>✅ Open to M.Tech/Ph.D. if it advances career</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Your Next Steps -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Your Next Steps</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Immediate Actions (High School)</h3>
+
+                        <div class="card">
+                            <h4>1. Strengthen Academic Foundation</h4>
+                            <ul>
+                                <li><strong>Biology:</strong> Master cell biology, genetics, biochemistry</li>
+                                <li><strong>Chemistry:</strong> Excel in organic, physical, inorganic</li>
+                                <li><strong>Mathematics:</strong> Build strong calculus, statistics foundation</li>
+                                <li><strong>English:</strong> Develop scientific writing skills</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>2. Develop Computational Skills</h4>
+                            <ul>
+                                <li>Learn Python programming</li>
+                                <li>Try Rosalind.info bioinformatics challenges</li>
+                                <li>Basic data analysis: Excel, plotting graphs</li>
+                                <li>Explore bioinformatics tools (BLAST)</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>3. Gain Hands-On Exposure</h4>
+                            <ul>
+                                <li>Try home experiments (DNA extraction, fermentation)</li>
+                                <li>Science fair projects related to biotechnology</li>
+                                <li>Watch lab technique videos</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>4. Read & Stay Informed</h4>
+                            <ul>
+                                <li><strong>Books:</strong> "The Gene" (Mukherjee), "The Code Breaker" (Isaacson)</li>
+                                <li><strong>Websites:</strong> Nature.com, ScienceDaily biotech section</li>
+                                <li><strong>YouTube:</strong> Bozeman Science, Khan Academy Biology</li>
+                                <li>Follow biotech companies on LinkedIn</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>5. JEE Preparation Strategy</h4>
+                            <ul>
+                                <li><strong>Focus:</strong> Physics, Chemistry, Mathematics</li>
+                                <li><strong>Chemistry is crucial</strong> - overlaps with biotech</li>
+                                <li><strong>Target:</strong> IITs, NITs, top state universities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>After B.Tech Admission (Year 1-2)</h3>
+                        <ul>
+                            <li>Excel in fundamentals - don't neglect first-year subjects</li>
+                            <li>Volunteer in faculty research labs</li>
+                            <li>Start learning bioinformatics (Python + Biopython)</li>
+                            <li>Join biotechnology/biology clubs</li>
+                            <li>Apply for CSIR lab fellowships, IISc summer programs</li>
+                        </ul>
+
+                        <h3>During B.Tech (Year 3-4)</h3>
+                        <ul>
+                            <li>Choose specialization wisely - align with career interests</li>
+                            <li>Strong final year project - aim for publication</li>
+                            <li>Secure quality internship (summer after 3rd year)</li>
+                            <li>Plan post-graduation path (Job / M.Tech / M.S. / Ph.D.)</li>
+                        </ul>
+
+                        <h3>Resources to Start Today</h3>
+                        <div class="card">
+                            <h4>📚 Books</h4>
+                            <ul>
+                                <li>"The Gene: An Intimate History" (Mukherjee)</li>
+                                <li>"The Code Breaker" (Isaacson) - CRISPR</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>🌐 Websites</h4>
+                            <ul>
+                                <li>Learn.Genetics (University of Utah)</li>
+                                <li>Khan Academy Biology</li>
+                                <li>Rosalind.info - bioinformatics challenges</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>💻 Online Courses (Free)</h4>
+                            <ul>
+                                <li>Coursera: "Introduction to Genetics and Evolution" (Duke)</li>
+                                <li>edX: "MITx Introduction to Biology"</li>
+                                <li>NPTEL: IIT Biotechnology courses</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4>Final Inspiration</h4>
+                            <p><em>"Biotechnology is not just a career—it's a chance to engineer life for the better. Every vaccine that protects millions, every therapy that cures disease, every sustainable process replacing pollution began with passionate biotech engineers asking 'What if?'"</em></p>
+                            <p><strong>Your Journey Starts Now.</strong> The skills you build today compound over years. Biotech rewards curiosity, persistence, and continuous learning.</p>
+                            <p><strong>Welcome to biotechnology. The future of medicine, agriculture, and sustainability needs you.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="progress-bar"></div>
+    <div class="slide-number">1 / 20</div>
+    <div class="speaker-notes"></div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.querySelector('.progress-bar');
+        const slideNumber = document.querySelector('.slide-number');
+        const speakerNotes = document.querySelector('.speaker-notes');
+
+        const notes = [
+            `<h3>Speaker Notes - Slide 1</h3>
+            <p>Welcome to Biotechnology Engineering—one of the most exciting and rapidly evolving fields where biology meets engineering innovation. Imagine a career where you could develop life-saving vaccines, create crops that feed millions, design bacteria that clean up oil spills, or engineer new medicines from living cells. That's biotechnology engineering.</p>
+            <p>This branch sits at the intersection of multiple disciplines: biology, chemistry, engineering principles, and increasingly, computer science and data analytics. While traditional engineering branches work with steel, circuits, or code, biotech engineers work with living systems—cells, proteins, DNA, microorganisms—to solve real-world problems.</p>
+            <p>The field has exploded in importance, especially after recent global events highlighted our need for rapid vaccine development, diagnostic tools, and biomanufacturing capabilities. India is emerging as a global hub for biotechnology, with the government targeting a $150 billion bioeconomy by 2025.</p>`,
+
+            `<h3>Speaker Notes - Slide 2</h3>
+            <p>Biotechnology engineering is fundamentally about leveraging nature's own machinery—cells, enzymes, microorganisms—and applying engineering rigor to scale these processes for human benefit. Think of it as "programming life" to do useful work.</p>
+            <p>Genetic engineering involves directly manipulating DNA—cutting specific genes from one organism and inserting them into another. Bioprocess technology focuses on scaling up biological reactions. A scientist might discover that a specific fungus produces an anti-cancer compound in a petri dish; a biotech engineer figures out how to produce tons of it in industrial fermenters.</p>
+            <p>Bioinformatics emerged as genomic data exploded. Pharmaceutical biotechnology represents the largest sector—developing biologics, vaccines, gene therapies, and diagnostic tests. Industrial biotechnology addresses sustainability—replacing petroleum-based chemicals with bio-based alternatives.</p>`,
+
+            `<h3>Speaker Notes - Slide 3</h3>
+            <p>Your first year looks remarkably similar to other engineering branches—and that's intentional. You're building a fundamental toolkit that every engineer needs. Mathematics is the language of engineering. Calculus helps you model fermentation kinetics. Differential equations describe population growth of microorganisms. Statistics becomes crucial when analyzing experimental data.</p>
+            <p>Physics and Chemistry are foundational. Thermodynamics explains why certain biochemical reactions release or require energy. Organic chemistry is essential—you need to understand chemical structures of amino acids, sugars, and nucleotides that make up all biological molecules.</p>
+            <p>Programming has become non-negotiable. Python is particularly popular because of libraries like BioPython. Engineering Drawing and Mechanics might seem odd for a life sciences field, but you'll design lab equipment and understand plant layouts. The first year is admittedly heavy on fundamentals with limited biology, but these foundations are essential.</p>`,
+
+            `<h3>Speaker Notes - Slide 4</h3>
+            <p>Second year is where biotechnology engineering truly begins. Biochemistry is absolutely central—studying proteins, enzymes, and metabolic pathways. Understanding protein structure is crucial—how a specific 3D shape allows enzymes to catalyze reactions with incredible specificity.</p>
+            <p>Microbiology introduces the workhorses of biotechnology: bacteria, yeast, and fungi. Most biotech products are made using microorganisms. Cell Biology focuses on eukaryotic cells—understanding organelles, cell division, and cell signaling pathways.</p>
+            <p>Genetics and Molecular Biology dive into DNA structure, gene expression mechanisms, and regulation. You'll learn techniques like PCR to amplify DNA and gel electrophoresis to separate molecules. Engineering subjects now apply to biological contexts. Mass transfer describes how oxygen moves into bioreactor liquid media. Laboratory work dominates your schedule—you might spend 10-15 hours per week learning hands-on techniques.</p>`,
+
+            `<h3>Speaker Notes - Slide 5</h3>
+            <p>The final two years represent your transformation from student to specialized professional. Genetic Engineering covers recombinant DNA technology and CRISPR-Cas9—the revolutionary gene-editing tool. Bioprocess Engineering teaches you to think like a production engineer—designing bioreactors, optimizing fermentation, and scaling up from lab to manufacturing.</p>
+            <p>Immunology opens doors to vaccine development. Understanding immune mechanisms is crucial for developing vaccines and monoclonal antibody therapies. Bioinformatics has exploded in importance—DNA sequencing costs have plummeted, and we're drowning in biological data.</p>
+            <p>Elective choices shape your career trajectory. Pharmaceutical biotech is the largest employment sector. Environmental biotech addresses sustainability. Your internship provides industry exposure, and your final year project demonstrates your ability to independently tackle complex problems.</p>`,
+
+            `<h3>Speaker Notes - Slide 6</h3>
+            <p>Success requires mastering both technical laboratory skills and broader professional competencies. Laboratory techniques form your core toolkit. Aseptic technique is fundamental—a single airborne bacterium can ruin weeks of work. PCR is the workhorse of molecular biology. Protein purification skills are valuable—companies produce therapeutic proteins worth millions per kilogram.</p>
+            <p>Bioinformatics and programming have become non-negotiable. Python with Biopython allows sequence analysis. R is standard for statistical analysis. Companies increasingly seek biotech engineers who can code, bridging wet-lab biology with computational analysis.</p>
+            <p>Bioprocess operations distinguish biotechnology engineers from pure biologists. Operating a bioreactor involves monitoring multiple parameters simultaneously. GMP compliance is mandatory in pharmaceutical biotech. Soft skills often determine career trajectory—experimental design, scientific writing, critical thinking, and interdisciplinary collaboration.</p>`,
+
+            `<h3>Speaker Notes - Slide 7</h3>
+            <p>Entry-level opportunities span diverse sectors. Research Associate positions are most common for graduates interested in lab work. Companies like Biocon hire dozens annually. Salary ranges ₹5-10 LPA, varying based on company size and qualifications. Growth potential is significant—after 3-5 years, you can advance to Scientist roles.</p>
+            <p>Quality Control/QA Analyst roles suit those who prefer structured, protocol-driven work. Work-life balance is generally better than research. Career progression leads to QA Manager or Regulatory Affairs roles. Process Development Associate positions focus on optimizing production—systematically improving fermentation conditions to increase yields.</p>
+            <p>Bioinformatics Analyst positions are perfect for computational enthusiasts. Starting salaries are higher (₹6-12 LPA) because computational skills are scarcer. Production Officer roles involve operating equipment and manufacturing—shift work is common. Clinical Research Associate roles coordinate clinical trials, requiring travel but offering strong career growth.</p>`,
+
+            `<h3>Speaker Notes - Slide 8</h3>
+            <p>Senior positions combine deep technical expertise with leadership. Senior Scientists and Principal Scientists represent the technical leadership track—you design complex research programs with significant independence. Publications become important—papers in respected journals significantly enhance reputation.</p>
+            <p>Bioprocess Engineers take processes from lab-scale to full manufacturing. A process engineer might spend months perfecting conditions that increase yield dramatically, translating to millions in savings. Regulatory Affairs Managers handle complex regulations—preparing submissions running thousands of pages.</p>
+            <p>R&D Managers and Associate Directors oversee multiple project teams, manage budgets, and align research priorities with business strategy. The transition from individual contributor to manager is challenging. Production and Plant Managers oversee manufacturing operations with full P&L responsibility—high-pressure roles with substantial salary growth. Medical Affairs roles bridge science and commercial functions.</p>`,
+
+            `<h3>Speaker Notes - Slide 9</h3>
+            <p>Pharmaceutical and Healthcare Biotechnology dominates employment, representing 60-70% of biotech jobs. This sector produces biologics—insulin, monoclonal antibodies, vaccines. India's Biocon is a global biosimilars leader. Serum Institute manufactures over 1.5 billion vaccine doses annually.</p>
+            <p>Agricultural Biotechnology addresses food security—genetic modification creates pest-resistant crops, tissue culture multiplies disease-free plants. Bayer CropScience and Syngenta conduct extensive R&D. Industrial Biotechnology uses biological processes for production—enzymes in detergents, biofuels, bio-based plastics.</p>
+            <p>Environmental Biotechnology tackles pollution—wastewater treatment plants use microbial communities, bioremediation employs microorganisms to clean contaminated sites. Food and Beverage Biotechnology includes fermentation, probiotics, and food safety testing. Research Institutions offer careers for those passionate about fundamental research—CSIR labs, ICMR institutes, and academic positions.</p>`,
+
+            `<h3>Speaker Notes - Slide 10</h3>
+            <p>Higher education decisions significantly shape careers. M.Tech programs in India provide deeper specialization—IITs, IISc, and NITs offer excellent programs. M.Tech Bioinformatics suits computational enthusiasts. M.Tech Biomedical Engineering combines biotechnology with medical devices.</p>
+            <p>Master's programs abroad offer different advantages—access to cutting-edge facilities and renowned faculty. American M.S. programs typically last 2 years. European options are often shorter and cheaper. Ph.D. programs train you as an independent researcher—4-6 years with full funding. Only pursue Ph.D. if genuinely passionate about research.</p>
+            <p>Professional certifications add valuable credentials—GMP certification is virtually mandatory in pharma manufacturing. Regulatory Affairs Certification demonstrates drug approval expertise. Six Sigma trains in process optimization. Biosafety training certifies handling of hazardous materials. MBA programs suit those aiming for business roles—product management, business development, marketing.</p>`,
+
+            `<h3>Speaker Notes - Slide 11</h3>
+            <p>A typical day as a Research Associate starts at 9 AM with planning experiments and checking equipment reservations. By 9:30, you're in the lab doing cell culture work in biosafety cabinets—requiring meticulous aseptic technique. Around 10:30, you might set up protein purification using FPLC, monitoring UV absorbance and collecting fractions.</p>
+            <p>By 11:30, you're analyzing purity through HPLC or running enzyme assays. If monitoring a bioreactor, you periodically check that pH, dissolved oxygen, and temperature remain optimal. Afternoons often include team meetings where you present results and troubleshoot problems.</p>
+            <p>Post-meeting, you analyze data—loading chromatograms, plotting concentrations, calculating yields. Literature review time involves searching PubMed for recent papers. Documentation is critical and time-consuming—every experiment goes into lab notebooks and LIMS systems. The last hour involves preparation for the next day, cleaning, and safety checks. You leave around 6-6:30 PM most days—earlier than IT companies' late hours.</p>`,
+
+            `<h3>Speaker Notes - Slide 12</h3>
+            <p>Let's address compensation honestly. Fresh B.Tech graduates typically start at ₹4-8 LPA, averaging ₹5-6 LPA—lower than CS graduates. However, M.Tech or Ph.D. graduates command premiums. Bioinformatics represents an exception—strong computational skills can secure ₹6-12 LPA starting salaries.</p>
+            <p>Mid-career growth (3-7 years) is where compensation improves substantially—competent scientists reach ₹10-18 LPA. Bioprocess engineers are highly valued at ₹12-18 LPA because their work directly impacts profit margins. Senior positions (7-15 years) offer strong compensation—Principal Scientists earn ₹18-28 LPA at top companies.</p>
+            <p>Top-tier positions can be genuinely lucrative—Directors of R&D earn ₹40-70 LPA, VP-level positions ₹50-90 LPA, Chief Scientific Officers ₹60 LPA to ₹1.5 crore+. Geographic variation matters—Bangalore, Hyderabad, Pune offer 15-30% higher salaries. Multinational companies typically pay 20-40% more than Indian companies. Ph.D. graduates often earn 30-50% more for similar total experience. Publications and patents significantly boost compensation.</p>`,
+
+            `<h3>Speaker Notes - Slide 13</h3>
+            <p>Biotechnology stands at an extraordinary inflection point. CRISPR and gene editing represents arguably the most revolutionary development—the first CRISPR therapy was approved for sickle cell disease in 2023. Agriculture applications are equally transformative—climate-resistant crops addressing food security.</p>
+            <p>Synthetic biology takes biotechnology beyond editing to actually designing new biological systems—bacteria producing spider silk proteins, yeast manufacturing artemisinin. Personalized medicine shifts healthcare to individualized treatment based on genetic profiles. Cell and gene therapy is the most exciting frontier—CAR-T therapy engineers patient's immune cells to attack cancer.</p>
+            <p>AI and machine learning are transforming biotechnology. AlphaFold solved the protein folding problem with remarkable accuracy. Continuous biomanufacturing represents a paradigm shift—running constantly rather than in batches. mRNA technology's COVID-19 success validated a platform applicable far beyond infectious diseases. Market outlook is extremely positive—India's bioeconomy targeting $300 billion by 2030.</p>`,
+
+            `<h3>Speaker Notes - Slide 14</h3>
+            <p>AI applications are transforming drug discovery—companies use AI to design drug molecules, screening billions virtually in days rather than years. De novo drug design has AI generating entirely novel molecular structures. Protein engineering experienced a revolution with AlphaFold—for 50 years, determining protein structure was laborious. Now predictions happen in hours.</p>
+            <p>Genomics generates staggering data requiring computational power. Single-cell RNA sequencing produces gigabytes per experiment—only AI/ML can extract meaningful insights. Bioprocess optimization uses AI for real-time monitoring—machine learning explores multi-dimensional parameter spaces efficiently.</p>
+            <p>Automation is extensive—high-throughput screening robots, automated liquid handlers, lab-on-a-chip devices, continuous manufacturing. Jobs being augmented include routine analytical testing and basic bioinformatics. Jobs being created include AI/ML specialists in life sciences, bioinformatics pipeline developers, and automation engineers. Your strategy: develop computational skills (Python, R, machine learning), bridge biology and technology, emphasize uniquely human skills (critical thinking, creativity, ethical reasoning), and commit to lifelong learning.</p>`,
+
+            `<h3>Speaker Notes - Slide 15</h3>
+            <p>Self-directed learning dramatically amplifies formal education. Online courses have democratized access—Coursera's Genomic Data Science Specialization teaches next-generation sequencing analysis. IIT Kharagpur's Systems Biology course bridges molecular biology and mathematical modeling. edX offers MIT and Harvard courses—MITx Molecular Biology covers fundamentals rigorously.</p>
+            <p>NPTEL provides free courses from IITs and IISc on government platform—quality is excellent and certificates recognized. Rosalind.info is a hidden gem—coding challenges using biological problems. It's addictive, educational, and directly applicable.</p>
+            <p>Books remain foundational—Molecular Biology of the Cell is THE reference text. Biochemistry texts provide deep understanding. Doran's Bioprocess Engineering Principles is the industry standard. Software proficiency is career-critical—BLAST finds similar sequences, PyMOL visualizes protein structures, Python with Biopython is non-negotiable.</p>
+            <p>Professional organizations provide networking—DBT announces policies and funding. Online communities offer peer support—r/biotech subreddit has active discussions. Summer programs provide hands-on experience—CSIR labs offer 2-month fellowships. Industry internships provide commercial exposure. Strategic approach: create a learning roadmap across high school and college years rather than trying to consume everything at once.</p>`,
+
+            `<h3>Speaker Notes - Slide 16</h3>
+            <p>Hands-on projects transform theoretical knowledge into practical skills. Beginner projects require minimal equipment—DNA extraction from strawberries costs under ₹200 but makes DNA tangible. Fermentation projects like making yogurt connect to industrial applications—you can experiment with conditions for mini bioprocess optimization.</p>
+            <p>Antibiotic sensitivity testing demonstrates antimicrobial action and introduces aseptic technique. Water quality testing has environmental relevance and community impact. Intermediate projects like bioinformatics analysis are accessible with just a computer—download COVID-19 spike protein sequences and analyze mutations.</p>
+            <p>Enzyme kinetics experiments demonstrate quantitative biology—testing amylase activity at different conditions and calculating Km and Vmax. Biofuel from algae addresses sustainability. Microbial fuel cells demonstrate bioelectrochemistry—literally generating electricity from mud.</p>
+            <p>Advanced projects require lab access—recombinant protein expression is research-level work. CRISPR educational kits are now available for ₹15,000-40,000. iGEM is the pinnacle for synthetic biology—6-9 months designing novel biological systems, culminating in Paris jamboree. ISEF is the world's largest pre-college science fair. National Bio-Entrepreneurship Competition encourages commercialization. Hackbio offers 48-72 hour intensive challenges. Document projects thoroughly—they become your portfolio proving you can do science, not just study it.</p>`,
+
+            `<h3>Speaker Notes - Slide 17</h3>
+            <p>Cutting-edge research is arguably biotech's most exciting aspect—you could work on CRISPR gene editing or CAR-T cell therapy. The field evolves so rapidly that constant innovation means continuous learning—exhilarating if you love intellectual stimulation.</p>
+            <p>Diverse career opportunities provide flexibility—if you dislike lab work, transition to bioinformatics or regulatory affairs. Multiple industries offer distinct work cultures. Geographic options span academia, industry, government, and entrepreneurship.</p>
+            <p>Industry growth is undeniable—India's bioeconomy growing 15%+ annually. Government support through policies and funding creates favorable ecosystem. COVID-19 demonstrated India's biomanufacturing prowess globally, catalyzing investment.</p>
+            <p>Global opportunities are extensive—USA, Europe, Singapore have strong biotech industries with talent shortages. Meaningful social impact deeply motivates many—the insulin you helped manufacture enters diabetic patients' lives daily. Interdisciplinary nature means collaborating across domains—chemists, physicians, data scientists, lawyers.</p>
+            <p>Innovation and IP creation opportunities exist—filing patents, publishing papers, building startups. Work-life balance is generally reasonable compared to IT consulting or investment banking. Hands-on and intellectual work combination appeals to those who find purely desk-based work unstimulating.</p>`,
+
+            `<h3>Speaker Notes - Slide 18</h3>
+            <p>Lab-intensive work defines most biotech roles—you'll spend hours standing at benches. Strict protocols leave little flexibility. Biosafety requirements mean wearing PPE constantly. Experiments fail frequently—perhaps 50-70% of attempts initially, demanding patience and systematic troubleshooting.</p>
+            <p>Competition is real—India produces thousands of biotech graduates annually, but top research positions number in hundreds. Higher education helps significantly. Publication pressure means not just doing experiments but writing papers and dealing with rejections.</p>
+            <p>Slow timelines contrast sharply with software engineering. A developer deploys features in weeks; a biotech researcher works on drug candidates for years before clinical trials. Regulatory approvals are similarly slow—justified for patient safety but testing patience.</p>
+            <p>Safety concerns are genuine—working with pathogens carries infection risks if protocols aren't followed. Regulatory compliance in pharma is extraordinarily demanding—every action requires documentation. Modest starting salaries at ₹4-8 LPA lag CS/IT graduates earning ₹7-15 LPA.</p>
+            <p>Limited immediate impact visibility—you purify protein batches daily but won't see patients taking resulting medicines. Continuous learning demand is relentless—techniques become obsolete quickly. Ethical dilemmas are increasingly common—should we edit human embryos? How do we ensure equitable access to expensive therapies?</p>
+            <p>Self-assessment: Biotechnology suits people who genuinely love biology, enjoy hands-on lab work, have patience for slow processes, value social impact over maximum earnings, and are willing to pursue higher education. Reconsider if biology bores you, you're primarily motivated by high salaries, you prefer purely computational work, or you're uncomfortable in lab environments.</p>`,
+
+            `<h3>Speaker Notes - Slide 19</h3>
+            <p>Making an informed branch choice requires systematic self-reflection. Self-assessment starts with genuine interest—biology genuinely excites you, not just tolerating it for career prospects. Aptitude matters beyond interest—biotechnology requires chemistry mastery and math competence.</p>
+            <p>Personality fit is crucial—lab work demands meticulousness and patience. Iteration tolerance matters—experiments fail often. Career priorities require honesty about earnings versus social impact. Higher education willingness is increasingly important—M.Tech significantly improves prospects.</p>
+            <p>Academic preparation in high school maximizes college success—biology and chemistry mastery is non-negotiable. Programming (Python especially) is increasingly essential. Communication skills determine career success beyond technical competence.</p>
+            <p>Exposure prevents uninformed decisions—visit biotech companies, watch lab technique videos, read about breakthroughs. Talking to professionals provides unvarnished perspectives—message biotech graduates on LinkedIn asking about career trajectories.</p>
+            <p>Branch comparisons clarify positioning—Chemical engineering is broader but less biological depth. Biochemical engineering blends chemical engineering and biotechnology heavily. Biomedical engineering focuses on medical devices rather than pharmaceuticals. Evaluating college programs matters—not all biotech programs are equal. Examine curriculum modernity, lab facilities quality, faculty research activity, placement records, and higher education support.</p>
+            <p>Decision synthesis: After self-assessment, exposure, comparisons, and college evaluation, you should have clarity. If biology genuinely excites you, you enjoyed lab work, value impact over maximum earnings, and found a good biotech program, proceed confidently. If doubts persist, consider alternatives honestly.</p>`,
+
+            `<h3>Speaker Notes - Slide 20</h3>
+            <p>Immediate actions in high school: Strengthen academic foundation—master biology, chemistry, mathematics, and physics. Develop computational skills—learn Python programming and try Rosalind.info challenges. Gain hands-on exposure—try home experiments, science fair projects, watch lab technique videos.</p>
+            <p>Read and stay informed—books like "The Gene" and "The Code Breaker" are inspiring. Follow biotech companies on LinkedIn. JEE preparation strategy—focus on Physics, Chemistry, Mathematics; chemistry is crucial as it overlaps heavily with biotech. Target IITs, NITs, and top state universities.</p>
+            <p>After B.Tech admission (Year 1-2): Excel in fundamentals—don't neglect first-year subjects as they're foundational. Develop lab skills early—volunteer in faculty research labs. Start learning bioinformatics—Python + Biopython library. Apply for summer programs at CSIR labs, IISc, or IITs.</p>
+            <p>During B.Tech (Year 3-4): Choose specialization wisely—align electives with career interests. Strong final year project—aim for publication if possible. Secure quality internship—summer after 3rd year at top company or research lab. Plan post-graduation path—decide between job, M.Tech, M.S. abroad, or Ph.D.</p>
+            <p>Post-graduation: Continuous skill development—stay updated with new techniques through online courses and workshops. Build professional profile—publications, certifications, conference presentations. Long-term planning—identify career track (technical vs. management) and evaluate higher studies based on goals.</p>
+            <p>Resources to start today: Books, websites, online courses, and YouTube channels are all available for free or affordably. Final inspiration: Biotechnology is a chance to engineer life for the better—every vaccine, therapy, and sustainable process began with passionate biotech engineers. Your journey starts now—skills you build today compound over years. Welcome to biotechnology. The future of medicine, agriculture, and sustainability needs you.</p>`
+        ];
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].classList.add('fade-in');
+
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+            slideNumber.textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            if (speakerNotes.classList.contains('active')) {
+                speakerNotes.innerHTML = notes[currentSlide];
+            }
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = (currentSlide === 0);
+            document.getElementById('nextBtn').disabled = (currentSlide === totalSlides - 1);
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function toggleNotes() {
+            speakerNotes.classList.toggle('active');
+            if (speakerNotes.classList.contains('active')) {
+                speakerNotes.innerHTML = notes[currentSlide];
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'n' || e.key === 'N') {
+                e.preventDefault();
+                toggleNotes();
+            }
+        });
+
+        // Mouse click navigation
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.speaker-notes')) {
+                const clickX = e.clientX;
+                const windowWidth = window.innerWidth;
+                if (clickX > windowWidth / 2) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        });
+
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
