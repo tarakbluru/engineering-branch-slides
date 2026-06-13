@@ -7,7 +7,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 **Format:** Self-contained HTML files with embedded CSS/JS, speaker notes for AI video generation  
 **Structure:** 20 slides per branch covering curriculum, careers, salaries, trends, AI impact, pros/cons
 
-**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (21 total branches; CSE specializations are sub-tracks within CSE, not separate)
+**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (22 total branches; CSE specializations are sub-tracks within CSE, not separate)
 
 **Workflow:** See `generic_task.md` for step-by-step execution process
 
@@ -16,7 +16,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 ## Current Status Summary
 
 **Completed:** 6 branches (EC, EE, CSE, ME, CE, Aerospace)  
-**Remaining:** 15 branches across core, specialized, and emerging fields
+**Remaining:** 16 branches across core, specialized, and emerging fields
 
 ---
 
@@ -167,12 +167,13 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 3: Core Mechanical & Manufacturing**
 
-**Status: 2/4 Complete**
+**Status: 2/5 Complete**
 
 1. ✅ **ME** - Mechanical Engineering (COMPLETED)
 2. ✅ **Aerospace** - Aerospace Engineering (COMPLETED)
 3. ❌ **Automobile** - Automobile Engineering (TO DO)
-4. ❌ **Production** - Production/Industrial Engineering (TO DO)
+4. ❌ **Marine** - Marine Engineering (TO DO)
+5. ❌ **Production** - Production/Industrial Engineering (TO DO)
 
 ---
 
@@ -219,8 +220,8 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ## **Total Branches:**
 - **Completed:** 6 (CSE, EC, EE, ME, CE, Aerospace)
-- **Remaining:** 15
-- **Grand Total:** 21 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
+- **Remaining:** 16
+- **Grand Total:** 22 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
 
 ---
 
@@ -235,7 +236,8 @@ Remaining Computer Science & IT branches:
 Popular traditional engineering branches:
 1. Chemical Engineering
 2. Automobile Engineering
-3. Instrumentation Engineering
+3. Marine Engineering
+4. Instrumentation Engineering
 (Aerospace ✅ already complete)
 
 ### **Phase 3: Emerging Fields (Priority: MEDIUM)**
@@ -293,6 +295,7 @@ Niche but important branches:
 - ME: Primary #64748B, Secondary #94A3B8, Accent #475569
 - Automobile: Primary #DC2626, Secondary #EF4444, Accent #B91C1C
 - Aerospace: Primary #0369A1, Secondary #0284C7, Accent #075985
+- Marine: Primary #0E7490, Secondary #06B6D4, Accent #155E75
 - Production: Primary #475569, Secondary #64748B, Accent #334155
 
 **Core Infrastructure:**
@@ -317,6 +320,6 @@ Niche but important branches:
 ---
 
 **Last Updated:** June 13, 2026  
-**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 15 remaining
+**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 16 remaining
 
 **For execution workflow, see:** `generic_task.md`
