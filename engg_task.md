@@ -7,7 +7,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 **Format:** Self-contained HTML files with embedded CSS/JS, speaker notes for AI video generation  
 **Structure:** 20 slides per branch covering curriculum, careers, salaries, trends, AI impact, pros/cons
 
-**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (22 total branches)
+**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (24 total branches)
 
 **Workflow:** See `generic_task.md` for step-by-step execution process
 
@@ -16,7 +16,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 ## Current Status Summary
 
 **Completed:** 6 branches (EC, EE, CSE, ME, CE, Aerospace)  
-**Remaining:** 16 branches across core, specialized, and emerging fields
+**Remaining:** 18 branches across core, specialized, and emerging fields
 
 ---
 
@@ -136,7 +136,6 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 - Placeholder format: `[BRANCH_NAME]`, `[PRIMARY_COLOR]`, etc.
 - Comprehensive instructions and comments
 - All 20 slides structure pre-built
-- Color scheme reference for all 7 branches
 - Completion checklist included
 
 ---
@@ -155,13 +154,6 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 6. ❌ **CSE-CS** - CSE (Cyber Security specialization) (TO DO)
 7. ❌ **IT** - Information Technology (TO DO)
 
-**Color Schemes:**
-- IS: Teal (#00A896, #33BBAD, #008577)
-- CSE-DS: Purple (#8B5CF6, #A78BFA, #7C3AED)
-- CSE-AIML: Indigo (#4F46E5, #6366F1, #4338CA)
-- CSE-CS: Navy (#1E3A8A, #3B82F6, #1E40AF)
-- IT: Sky Blue (#0EA5E9, #38BDF8, #0284C7)
-
 ---
 
 ### **Category 2: Core Electrical & Electronics**
@@ -172,24 +164,16 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 2. ✅ **EC** - Electronics & Communication (COMPLETED)
 3. ❌ **Instrumentation** - Instrumentation & Control Engineering (TO DO)
 
-**Color Schemes:**
-- Instrumentation: Deep Purple (#6B21A8, #9333EA, #581C87)
-
 ---
 
 ### **Category 3: Core Mechanical & Manufacturing**
 
-**Status: 1/4 Complete**
+**Status: 2/4 Complete**
 
 1. ✅ **ME** - Mechanical Engineering (COMPLETED)
-2. ❌ **Automobile** - Automobile Engineering (TO DO)
-3. ❌ **Aerospace** - Aerospace Engineering (TO DO)
+2. ✅ **Aerospace** - Aerospace Engineering (COMPLETED)
+3. ❌ **Automobile** - Automobile Engineering (TO DO)
 4. ❌ **Production** - Production/Industrial Engineering (TO DO)
-
-**Color Schemes:**
-- Automobile: Racing Red (#DC2626, #EF4444, #B91C1C)
-- Aerospace: Sky Blue (#0369A1, #0284C7, #075985)
-- Production: Steel Gray (#475569, #64748B, #334155)
 
 ---
 
@@ -208,10 +192,6 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 1. ❌ **Chemical** - Chemical Engineering (TO DO)
 2. ❌ **Petroleum** - Petroleum Engineering (TO DO)
 
-**Color Schemes:**
-- Chemical: Forest Green (#16A34A, #22C55E, #15803D)
-- Petroleum: Dark Blue (#1E40AF, #3B82F6, #1E3A8A)
-
 ---
 
 ### **Category 6: Emerging Technologies**
@@ -224,13 +204,6 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 4. ❌ **Environmental** - Environmental Engineering (TO DO)
 5. ❌ **Mechatronics** - Mechatronics Engineering (TO DO)
 
-**Color Schemes:**
-- Robotics: Electric Blue (#2563EB, #3B82F6, #1D4ED8)
-- Renewable: Lime Green (#65A30D, #84CC16, #4D7C0F)
-- Biotech: Teal Blue (#0D9488, #14B8A6, #0F766E)
-- Environmental: Nature Green (#059669, #10B981, #047857)
-- Mechatronics: Orange (#EA580C, #F97316, #C2410C)
-
 ---
 
 ### **Category 7: Specialized Fields**
@@ -241,17 +214,14 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 2. ❌ **Mining** - Mining Engineering (TO DO)
 3. ❌ **Textile** - Textile Engineering (TO DO)
 
-**Color Schemes:**
-- Agricultural: Wheat Gold (#CA8A04, #EAB308, #A16207)
-- Mining: Coal Black (#18181B, #27272A, #09090B)
-- Textile: Magenta (#C026D3, #D946EF, #A21CAF)
+*(Color schemes for all branches are consolidated in the section below)*
 
 ---
 
 ## **Total Branches:**
-- **Completed:** 5 (CSE, EC, EE, ME, CE)
-- **Remaining:** 17
-- **Grand Total:** 22 engineering branches
+- **Completed:** 6 (CSE, EC, EE, ME, CE, Aerospace)
+- **Remaining:** 18
+- **Grand Total:** 24 engineering branches (EC spans Categories 1 & 2, counted once)
 
 ---
 
@@ -267,9 +237,9 @@ Finish the 4 remaining CSE/IT specializations from original plan:
 ### **Phase 2: Core Traditional Branches (Priority: MEDIUM)**
 Popular traditional engineering branches:
 1. Chemical Engineering
-2. Aerospace Engineering
-3. Automobile Engineering
-4. Instrumentation Engineering
+2. Automobile Engineering
+3. Instrumentation Engineering
+(Aerospace ✅ already complete)
 
 ### **Phase 3: Emerging Fields (Priority: MEDIUM)**
 Modern, high-growth branches:
@@ -354,11 +324,6 @@ Niche but important branches:
 ---
 
 **Last Updated:** June 13, 2026  
-**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 16 remaining
+**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 18 remaining
 
 **For execution workflow, see:** `generic_task.md`
-
-**Templates Available:**
-- ✅ `docs/template.md` - Markdown template with full instructions
-- ✅ `docs/template.html` - HTML template with full instructions ⚠️ **ALWAYS use this as starting point**
-- Both templates include all 20 slides structure with placeholder guidance
