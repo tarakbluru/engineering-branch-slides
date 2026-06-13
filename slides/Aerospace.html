@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aerospace Engineering - Complete Career & Curriculum Guide">
+    <title>Aerospace Engineering | Career Guide</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* REPLACE THESE COLOR VALUES WITH BRANCH-SPECIFIC COLORS */
+            --primary-color: #0369A1;       /* Aerospace primary */
+            --secondary-color: #0284C7;   /* Aerospace secondary */
+            --accent: #075985;                     /* Aerospace accent */
+            --text-dark: #222222;
+            --text-light: #666666;
+            --background: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--accent);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 5rem 6rem 4rem 6rem;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--background);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide.title-slide .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-box {
+            background: #fff8f0;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .speaker-notes {
+            display: none;
+            background: #f9f9f9;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        body.show-notes .speaker-notes {
+            display: block;
+        }
+
+        .slide-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 2rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        button.nav-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+
+        button.nav-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        button.nav-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .slide { padding: 3rem 3rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .two-column { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .speaker-notes { display: block; }
+            .slide { page-break-after: always; }
+            .nav-buttons, .slide-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="slide-nav" role="navigation" aria-label="Slide navigation">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter" id="slideCounter">Slide 1 of 20</div>
+    </nav>
+
+    <main class="slides-container" role="main">
+
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide active" id="slide-1" data-slide-number="1" data-slide-type="title">
+            <div class="content">
+                <h1>Aerospace Engineering</h1>
+                <p class="tagline">Designing the Future of Flight - From Aircraft to Spacecraft</p>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Welcome to this comprehensive overview of Aerospace Engineering, one of the most exciting and prestigious branches of engineering that literally reaches for the stars. This field combines cutting-edge technology with the dream of human flight, taking us from the Wright brothers' first flight to modern hypersonic aircraft and Mars rovers.</p>
+                <p>The aerospace industry is experiencing unprecedented growth. The global aerospace AI market alone is projected to reach $60.94 billion by 2035, growing at over 20% annually. Private space companies like SpaceX, Blue Origin, and India's own Skyroot Aerospace are revolutionizing space access. Electric aircraft and urban air mobility solutions are transforming how we think about transportation.</p>
+                <p>This presentation will take you through what you'll study, where you can work, and how this branch is evolving in the age of artificial intelligence. Whether you're considering this as your career path or just exploring your options, this guide will give you a complete picture of what Aerospace Engineering really involves.</p>
+                <p>From designing the next generation of fuel-efficient passenger aircraft to developing autonomous drones, from launching satellites that connect the world to planning missions to Mars, Aerospace Engineering is at the forefront of human innovation and exploration.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 2: Overview -->
+        <section class="slide" id="slide-2" data-slide-number="2">
+            <h2>What is Aerospace Engineering?</h2>
+            <div class="two-column">
+                <div>
+                    <p><strong>Core Definition:</strong> Aerospace Engineering is the discipline dedicated to designing, developing, testing, and producing aircraft, spacecraft, satellites, and missiles, along with their propulsion systems, avionics, and structural components.</p>
+
+                    <h3>Fundamental Areas</h3>
+                    <ul>
+                        <li><strong>Aeronautics:</strong> Design and operation of aircraft that fly within Earth's atmosphere - from commercial airliners to fighter jets and drones.</li>
+                        <li><strong>Astronautics:</strong> Development of spacecraft, satellites, launch vehicles, and systems for space exploration beyond Earth's atmosphere.</li>
+                        <li><strong>Propulsion Systems:</strong> Engineering of jet engines, rocket motors, and emerging electric/hybrid propulsion technologies.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Key Insight:</strong> India's space economy is projected to reach $44 billion by 2033, with ISRO launching 50+ satellites annually and private space startups raising over ₹1,000 crores in recent funding.
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80" alt="Commercial aircraft wing in flight above the clouds">
+                    <p class="image-caption">Photo by Ross Parmly on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's start with the basics. Aerospace Engineering is fundamentally about making flight possible - whether through air or space - by applying principles of physics, mathematics, and materials science to overcome gravity and atmospheric forces.</p>
+                <p>The field emerged in the early 20th century when pioneers like the Wright brothers proved powered flight was possible. Major milestones include breaking the sound barrier in 1947, landing humans on the Moon in 1969, developing commercial jet travel that now moves 4 billion passengers annually, and more recently, achieving reusable rockets that dramatically reduce space launch costs.</p>
+                <p>The main goal of aerospace engineers is to design safe, efficient, and innovative flying machines while optimizing performance, reliability, and cost. They work on problems ranging from reducing aircraft fuel consumption and emissions to enabling human exploration of Mars, from creating autonomous delivery drones to developing hypersonic vehicles that can cross continents in under two hours.</p>
+                <p>Here's something fascinating: a modern Boeing 787 contains over 2.3 million parts working together flawlessly, from composite materials that reduce weight by 20% to advanced avionics that can practically fly themselves. Every component represents countless hours of aerospace engineering expertise ensuring safety and performance.</p>
+                <p>Aerospace Engineering uniquely combines mechanical engineering, electrical systems, computer science, materials science, and aerodynamics. It spans from microscopic analysis of metal fatigue to system-level integration of entire vehicles. The scope ranges from small quadcopter drones weighing grams to the International Space Station weighing 420,000 kg, from subsonic flight to spacecraft traveling at 28,000 km/h.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 3: First & Second Year Curriculum -->
+        <section class="slide" id="slide-3" data-slide-number="3">
+            <h2>Curriculum: Foundation Years (1st & 2nd Year)</h2>
+            <div class="two-column">
+                <div>
+                    <h3>First Year (Common Engineering Foundation)</h3>
+                    <ul>
+                        <li><strong>Engineering Mathematics I & II</strong> - Calculus, Linear Algebra, Differential Equations</li>
+                        <li><strong>Engineering Physics</strong> - Mechanics, Waves, Thermodynamics, Electromagnetism</li>
+                        <li><strong>Engineering Chemistry</strong> - Materials Chemistry, Polymers</li>
+                        <li><strong>Programming Fundamentals</strong> - C/C++/Python</li>
+                        <li><strong>Engineering Graphics</strong> - Technical Drawing, CAD Fundamentals</li>
+                        <li><strong>Engineering Mechanics</strong> - Statics, Dynamics, Kinematics</li>
+                    </ul>
+
+                    <h3>Second Year - AE Specialization Begins</h3>
+                    <ul>
+                        <li><strong>Mechanics of Materials</strong> - Stress, Strain, Material Properties</li>
+                        <li><strong>Aerospace Materials Engineering</strong> - Composites, Alloys, Ceramics</li>
+                        <li><strong>Thermodynamics</strong> - Laws of Thermodynamics, Heat Transfer</li>
+                        <li><strong>Fluid Mechanics</strong> - Flow Dynamics, Bernoulli's Principle</li>
+                        <li><strong>Computer Aided Aircraft Drawing</strong> - CAD for Aerospace Applications</li>
+                        <li><strong>Lab Work:</strong> Fluid Mechanics Lab, Materials Testing Lab</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&q=80" alt="Spacecraft orbiting Earth in space">
+                    <p class="image-caption">Photo by NASA on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's walk through what you'll actually study in Aerospace Engineering over four years, starting with the foundation.</p>
+                <p>First Year is common across most engineering branches and builds your fundamental knowledge. Mathematics is absolutely critical in aerospace - differential equations model everything from airflow over wings to orbital mechanics, linear algebra is essential for structural analysis and control systems, and calculus helps you understand rates of change in dynamic flight conditions. This isn't just abstract math; you'll use these tools daily to predict how aircraft behave, optimize fuel efficiency, and ensure structural integrity under extreme conditions.</p>
+                <p>Physics topics particularly important for aerospace include classical mechanics for understanding forces on aircraft, thermodynamics for propulsion systems and heat management, and electromagnetism for avionics and communication systems. You'll learn why supersonic aircraft create sonic booms, how jet engines convert fuel to thrust, and why spacecraft need heat shields for atmospheric reentry.</p>
+                <p>Programming becomes your computational toolkit. You'll use MATLAB and Python to simulate airflow, analyze flight data, design control systems, and optimize aircraft performance - modern aerospace engineering is impossible without strong computational skills.</p>
+                <p>Second Year is where AE really starts. Mechanics of Materials teaches how aircraft structures handle enormous stresses - a wing experiences forces equivalent to supporting several elephants while weighing as little as possible. Aerospace Materials is fascinating because you'll study exotic materials like carbon fiber composites that are stronger than steel yet lighter than aluminum, titanium alloys that withstand extreme temperatures, and advanced ceramics for thermal protection systems.</p>
+                <p>Thermodynamics and Fluid Mechanics form the backbone of aerodynamics and propulsion. You'll learn why airplanes fly, how to calculate drag forces, and why jet engines are marvels of thermodynamic efficiency. Computer Aided Aircraft Drawing teaches industry-standard CAD software like CATIA and SolidWorks. Lab work is hands-on - you'll visualize airflow patterns in wind tunnels, test material samples to destruction, and use precision instruments to measure forces, pressures, and temperatures.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 4: Third Year Curriculum -->
+        <section class="slide" id="slide-4" data-slide-number="4">
+            <h2>Third Year - Core Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Major Subjects</h3>
+                    <ul>
+                        <li><strong>Aerodynamics-I</strong> - Airfoil Theory, Lift and Drag, Flow Visualization</li>
+                        <li><strong>Aerospace Structures-I</strong> - Structural Analysis, Beam Theory, Thin-Walled Structures</li>
+                        <li><strong>Flight Mechanics</strong> - Aircraft Performance, Stability, Control</li>
+                        <li><strong>Finite Element Methods</strong> - FEM/FEA for Structural Analysis</li>
+                        <li><strong>Aircraft Propulsion</strong> - Jet Engines, Turbines, Rocket Motors</li>
+                        <li><strong>Aerodynamics-II / Structures-II</strong> - Wing Theory, Compressible Flow, Aeroelasticity</li>
+                    </ul>
+
+                    <h3>Lab Courses</h3>
+                    <ul>
+                        <li>Aircraft Propulsion Lab (Engine Performance Testing)</li>
+                        <li>Aerodynamics Lab (Wind Tunnel Experiments)</li>
+                        <li>Structures Lab (FEA Software: ANSYS, Abaqus)</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Mini Project:</strong> UAV Design and Testing, Airfoil Optimization, Rocket Design and Launch
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1457364887197-9150188c107b?w=800&q=80" alt="Rocket launching with bright exhaust plume">
+                    <p class="image-caption">Photo by SpaceX on Unsplash</p>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Third year is where you dive deep into core AE concepts and really start feeling like an aerospace engineer.</p>
+                <p>Aerodynamics is the science of how air flows around objects and generates forces. In Aerodynamics-I, you'll understand why wings generate lift through pressure differences, how to design airfoil shapes for different speeds, and why drag limits aircraft performance. Aerodynamics-II advances to wing theory, explaining swept wings and supersonic flight where shock waves dominate.</p>
+                <p>Aerospace Structures teaches you to design aircraft that are incredibly strong yet lightweight - every kilogram of weight costs fuel over the aircraft's lifetime. Structures-II introduces aeroelasticity - the interaction between aerodynamic forces and structural flexibility that can cause phenomena like flutter.</p>
+                <p>Flight Mechanics is thrilling - you'll calculate aircraft performance including takeoff distance, climb rate, cruise efficiency, and landing requirements. Control theory teaches you how autopilots work and how to design fly-by-wire systems. Finite Element Methods introduces powerful computational tools to simulate structural behavior without building physical prototypes.</p>
+                <p>Aircraft Propulsion covers the heart of aerospace: engines. You'll dissect how jet engines work through compression, combustion, and expansion, and learn rocket propulsion fundamentals including liquid and solid propellants.</p>
+                <p>The lab courses are where theory meets practice. You'll test airfoils and wings in wind tunnels, observe shock wave formation, measure engine performance, and use FEA software to analyze real aircraft components. Your mini project lets you apply multiple concepts together - designing a fixed-wing UAV that actually flies, optimizing airfoil shapes using CFD, or designing model rockets with stability analysis.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 5: Fourth Year Curriculum -->
+        <section class="slide" id="slide-5" data-slide-number="5">
+            <h2>Fourth Year - Advanced & Specialization</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Advanced Courses</h3>
+                    <ul>
+                        <li><strong>Computational Fluid Dynamics</strong> - CFD Simulations, Mesh Generation, Solver Algorithms</li>
+                        <li><strong>Aero Design</strong> - Complete Aircraft Design Project</li>
+                        <li><strong>Flight Dynamics & Control</strong> - Advanced Control Systems, Autopilot Design</li>
+                        <li><strong>Avionics</strong> - Aircraft Electronics, Navigation Systems, Communication</li>
+                    </ul>
+
+                    <h3>Electives (Choose 3-4)</h3>
+                    <ul>
+                        <li>Helicopter Engineering / Rockets & Missiles</li>
+                        <li>Gas Turbine Engines / Satellite Technology</li>
+                        <li>Hypersonic Aerodynamics</li>
+                        <li>Composite Materials / Cryogenics</li>
+                        <li>Space Mechanics</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card">
+                        <h4>Major Project (6-8 months)</h4>
+                        <p>Capstone project involving design, implementation, and testing of a complete system. Often done in collaboration with industry or research labs. Industry internship of 2-6 months typically precedes the final year.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Emerging Trends</h4>
+                        <ul>
+                            <li>Autonomous Flight Systems & AI</li>
+                            <li>Electric and Hybrid Propulsion</li>
+                            <li>Sustainable Aviation Technologies</li>
+                            <li>Digital Twin & Additive Manufacturing (3D Printing)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Fourth year is where you specialize and apply everything you've learned to advanced, cutting-edge technologies.</p>
+                <p>Computational Fluid Dynamics is revolutionizing aerospace design. Instead of relying solely on expensive wind tunnel tests, engineers now simulate airflow digitally with incredible accuracy. You'll learn to set up complex 3D simulations, generate computational meshes with millions of cells, select turbulence models, and interpret results. Companies like Boeing use CFD to test hundreds of wing designs virtually before building a single prototype.</p>
+                <p>Aero Design is your comprehensive capstone design course where you'll design a complete aircraft from scratch based on specified requirements. Flight Dynamics & Control advances beyond basic stability to modern control systems including autopilots and fly-by-wire systems. Avionics covers the electronic brain of modern aircraft - flight management systems, navigation, radar, and communication.</p>
+                <p>The beauty of AE is flexibility - you can specialize in rotorcraft through Helicopter Engineering, dive into space through Rockets & Missiles and Satellite Technology, focus on propulsion through Gas Turbine Engines, explore extreme speeds via Hypersonic Aerodynamics, or specialize in materials through Composite Materials and Cryogenics.</p>
+                <p>Your major project is the crown jewel of your education. This 6-8 month endeavor could be designing a solar-powered UAV with autonomous flight, developing a cubesat for a space mission, creating a VTOL aircraft prototype, or designing a liquid rocket engine. Many students collaborate with companies like HAL, ISRO, or startups like Skyroot Aerospace, giving them real-world experience and often leading to job offers.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 6: Skills Development -->
+        <section class="slide" id="slide-6" data-slide-number="6">
+            <h2>Skills You'll Develop</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Aerodynamics & Fluid Mechanics</h4>
+                    <p>Analysis and design of airflow around vehicles, predicting lift, drag, and aerodynamic performance using analytical methods, CFD simulations, and wind tunnel testing.</p>
+                </div>
+                <div class="card">
+                    <h4>Structural Analysis & Design</h4>
+                    <p>Analyzing stress, strain, and deformation in aircraft structures using classical methods and finite element analysis, selecting materials and designing lightweight load-bearing structures.</p>
+                </div>
+                <div class="card">
+                    <h4>Propulsion Systems</h4>
+                    <p>Understanding thermodynamics of jet engines, rocket motors, and emerging electric propulsion; performance analysis and design optimization of propulsion systems.</p>
+                </div>
+                <div class="card">
+                    <h4>Flight Dynamics, CAD/CAE & Systems Integration</h4>
+                    <p>Analyzing stability and control, designing autopilots; creating 3D models and virtual testing; integrating mechanical, electrical, and software subsystems into functional flight vehicles.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Tools & Technologies:</strong> CATIA, SolidWorks, ANSYS Fluent, ANSYS Mechanical, MATLAB, Simulink, Python, Abaqus, Nastran, OpenFOAM, Star-CCM+, X-Plane, plus Wind Tunnels, Flight Simulators, Test Stands, and UAV Platforms
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Beyond just book knowledge, Aerospace Engineering develops crucial practical skills that employers highly value.</p>
+                <p>Aerodynamics expertise is fundamental - you'll learn to predict how air flows around wings, fuselages, and entire aircraft using both classical theories and modern computational methods. You develop this through theoretical courses, CFD simulations, and wind tunnel experiments where you validate predictions with real data.</p>
+                <p>Structural analysis skills enable you to design components that withstand extreme loads while minimizing weight. You'll master hand calculations, finite element analysis, and material selection considering strength, weight, temperature resistance, and cost. These skills transfer to any industry requiring structural design.</p>
+                <p>Propulsion expertise covers the thermodynamic cycles of jet engines, combustion processes, and rocket propulsion fundamentals. Flight dynamics and control skills teach you to model dynamic systems mathematically and design controllers - highly transferable whether controlling aircraft, autonomous vehicles, or industrial robots. You'll use MATLAB and Simulink extensively.</p>
+                <p>CAD/CAE design proficiency in industry-standard software like CATIA and SolidWorks is immediately employable. Systems integration is the ability to see beyond individual components to understand how subsystems interact. Professional skills are equally important - aerospace projects involve large teams where clear communication, documentation, and project management are essential. In this fast-paced field, the ability to learn new technologies quickly is perhaps the most valuable skill.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 7: Entry-Level Careers -->
+        <section class="slide" id="slide-7" data-slide-number="7">
+            <h2>Career Opportunities - Entry Level</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Aerodynamics Engineer</h4>
+                    <p><strong>Responsibilities:</strong> CFD analysis of aircraft components, wind tunnel testing, drag reduction studies, performance optimization, report generation</p>
+                    <p><strong>Salary:</strong> ₹4-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹10-18 LPA (Top)</p>
+                </div>
+                <div class="card">
+                    <h4>Structural Design Engineer</h4>
+                    <p><strong>Responsibilities:</strong> FEA analysis, component design, structural testing, material selection, CAD modeling, stress reports</p>
+                    <p><strong>Salary:</strong> ₹4.5-7 LPA (Tier 2), ₹7-12 LPA (Tier 1), ₹12-20 LPA (Top)</p>
+                </div>
+                <div class="card">
+                    <h4>Propulsion / Flight Test Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Engine performance analysis, thermodynamic calculations, test planning, instrumentation setup, data acquisition, troubleshooting</p>
+                    <p><strong>Salary:</strong> ₹5-8 LPA (Tier 2), ₹8-14 LPA (Tier 1)</p>
+                </div>
+                <div class="card">
+                    <h4>Systems / Satellite Systems Engineer</h4>
+                    <p><strong>Responsibilities:</strong> Subsystem integration, requirements management, orbital analysis, communication systems, power budgets, thermal control</p>
+                    <p><strong>Salary:</strong> ₹4.5-7 LPA (Tier 2), ₹6-9 LPA (ISRO), ₹8-15 LPA (Private)</p>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk about where you can actually work after graduating with an Aerospace Engineering degree. I'll be honest about both opportunities and salary ranges based on current market data.</p>
+                <p>Aerodynamics Engineers spend their days running CFD simulations to optimize aircraft shapes for minimum drag and maximum efficiency, conducting wind tunnel tests, and analyzing flight test data. The work involves significant computational time, detailed data analysis, and balancing conflicting requirements. Structural Design Engineers use FEA software to ensure aircraft components can handle flight loads without failure, design lightweight structures using composites, and participate in structural tests - requiring meticulous attention to detail since structural failures can be catastrophic.</p>
+                <p>Propulsion Engineers analyze performance data from test stands, coordinate engine testing campaigns, and troubleshoot performance issues. Flight Test Engineers have perhaps the most exciting role - planning tests, installing instrumentation, sometimes flying on test flights, and analyzing massive datasets. Systems Engineers ensure all subsystems work together harmoniously, while Satellite Systems Engineers design spacecraft subsystems and calculate orbital mechanics, with organizations like ISRO offering these roles.</p>
+                <p>Salary tiers reflect company categories and locations. Tier 2 offers ₹4-7 LPA starting salaries; Tier 1 (HAL, Boeing India, Airbus India) ₹7-12 LPA; top companies (ISRO, DRDO, well-funded startups) ₹10-20 LPA. Elite international offers from SpaceX or Boeing US can reach ₹25-40 LPA but are rare. Companies look for strong fundamentals, hands-on project experience, software proficiency, and genuine passion - internships significantly improve placement prospects.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 8: Mid-Career & Senior Roles -->
+        <section class="slide" id="slide-8" data-slide-number="8">
+            <h2>Career Growth - Mid to Senior Level</h2>
+
+            <h3>Mid-Level Roles (3-7 years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Senior Design Engineer</h4>
+                    <p>Lead design projects, mentor junior engineers, design reviews, customer interaction, technical decision-making</p>
+                    <p><strong>Salary:</strong> ₹10-18 LPA</p>
+                </div>
+                <div class="card">
+                    <h4>Lead Systems Engineer / Project Engineer</h4>
+                    <p>System architecture, cross-functional team leadership, requirements management, project planning and execution</p>
+                    <p><strong>Salary:</strong> ₹11-20 LPA</p>
+                </div>
+            </div>
+
+            <h3>Senior-Level Roles (8+ years)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Principal Engineer / Engineering Manager</h4>
+                    <p>Technical leadership, innovation strategy, technology roadmap, team management, strategic planning, budget ownership</p>
+                    <p><strong>Salary:</strong> ₹20-50 LPA / $120-200K (US)</p>
+                </div>
+                <div class="card">
+                    <h4>Chief Engineer / Technical Director</h4>
+                    <p>Program technical authority, major design decisions, risk management, certification liaison, executive reporting</p>
+                    <p><strong>Salary:</strong> ₹40 LPA - 1 Cr+ / $180-300K (US)</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Alternative Paths:</strong> Entrepreneurship (Skyroot, Agnikul Cosmos) • Academia & Research (IITs/NITs, NAL/ISRO, PhD abroad) • Consulting (McKinsey, BCG) • Product Management
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Career growth in Aerospace Engineering is strong if you develop the right skills and stay current with technology.</p>
+                <p>Progression from junior to mid-level typically takes 3-5 years and involves transitioning from executing assigned tasks to leading design efforts. Salary growth in this phase averages 15-25% annually through promotions and job changes. Senior Design Engineers lead complex projects like wing redesigns or engine upgrades and become recognized experts. Lead Systems Engineers orchestrate how different engineering disciplines work together, while Project Engineers focus on execution - coordinating schedules, managing resources, and mitigating risks.</p>
+                <p>Senior-level progression requires 8-12+ years and represents a fork: technical specialist or management track. Principal Engineers remain deeply technical, becoming go-to experts for the hardest problems. Engineering Managers shift toward people leadership. Chief Engineers are senior program leaders responsible for all technical aspects of major programs, interfacing with certification authorities like DGCA or FAA.</p>
+                <p>Alternative paths offer exciting opportunities. Entrepreneurship in space tech is booming - companies like Skyroot Aerospace and Agnikul Cosmos were founded by aerospace engineers and raised significant funding. Academia attracts those passionate about research and teaching. Consulting leverages aerospace's analytical rigor, with firms like McKinsey and BCG valuing aerospace engineers. International opportunities are significant - US salaries are 3-4x higher than India, European positions offer good work-life balance, and Middle East hubs like UAE offer tax-free salaries.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 9: Industry Sectors -->
+        <section class="slide" id="slide-9" data-slide-number="9">
+            <h2>Industry Sectors & Companies</h2>
+
+            <h3>Major Industries</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Commercial Aviation</h4>
+                    <p>Aircraft manufacturers (Boeing, Airbus) and suppliers need aerodynamics, structures, and systems engineers. Airlines hire for maintenance, engineering, and flight operations.</p>
+                </div>
+                <div class="card">
+                    <h4>Defense & Military Aviation</h4>
+                    <p>Fighter jets, transport aircraft, UAVs, and missiles. DRDO, HAL, and contractors (Lockheed Martin, Northrop Grumman) offer stable careers with strong job security.</p>
+                </div>
+                <div class="card">
+                    <h4>Space & Satellites</h4>
+                    <p>Fastest-growing sector: launch vehicles, satellites, space exploration. ISRO and private startups need propulsion, orbital mechanics, and spacecraft systems engineers.</p>
+                </div>
+                <div class="card">
+                    <h4>UAV/Drone & Aviation Services</h4>
+                    <p>Explosive drone growth for delivery, agriculture, surveillance. MRO companies need engineers for fleet management, troubleshooting, modifications, and certification.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Top Recruiters:</strong> HAL, Tata Advanced Systems, Boeing India, Airbus India, ISRO, DRDO, NAL, Skyroot Aerospace, Agnikul Cosmos | <strong>International:</strong> Boeing, Airbus, SpaceX, Blue Origin, Lockheed Martin, GE Aerospace, Rolls-Royce, NASA
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Aerospace Engineering graduates work across incredibly diverse industries. Let me walk you through where you'll find opportunities.</p>
+                <p>Commercial Aviation encompasses aircraft manufacturers like Boeing and Airbus, thousands of supplier companies, and airlines. This sector values aerodynamics, structures, systems, and certification engineers. It's cyclical - expanding during growth but contracting during downturns like COVID-19 - but long-term outlook remains strong as global air traffic doubles every 15 years.</p>
+                <p>Defense & Military Aviation offers some of the most advanced and challenging work. DRDO develops indigenous defense systems, HAL manufactures fighters like the Tejas, and international contractors work on advanced platforms. This sector offers exceptional job security and the satisfaction of contributing to national security.</p>
+                <p>Space & Satellites is the most exciting growth area. ISRO now launches 50+ satellites annually and commercializes through NewSpace India Limited. Private startups have raised over ₹1,000 crores - Skyroot building launch vehicles, Agnikul developing 3D-printed engines, Bellatrix working on electric propulsion. The sector pays competitively and offers stock options at startups.</p>
+                <p>UAV & Drone Industry has exploded with delivery, agricultural, surveillance, and mapping applications, offering startup culture and rapid innovation. Aviation Services & MRO is less glamorous but stable. The beauty of Aerospace Engineering is that skills in aerodynamics, structures, and systems transfer across aviation, space, automotive, wind energy, and even sports equipment.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 10: Higher Education -->
+        <section class="slide" id="slide-10" data-slide-number="10">
+            <h2>Higher Education Pathways</h2>
+
+            <h3>Master's Specializations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Aerospace Structures</h4>
+                    <p><strong>Focus:</strong> Advanced composites, structural dynamics, aeroelasticity, damage tolerance</p>
+                    <p><strong>Career Path:</strong> Structural specialist, research scientist, academia</p>
+                </div>
+                <div class="card">
+                    <h4>Aerodynamics & Fluid Mechanics</h4>
+                    <p><strong>Focus:</strong> Computational aerodynamics, hypersonic flows, turbulence modeling, experimental aerodynamics</p>
+                    <p><strong>Career Path:</strong> CFD specialist, aerodynamicist, R&D roles</p>
+                </div>
+                <div class="card">
+                    <h4>Propulsion</h4>
+                    <p><strong>Focus:</strong> Combustion, turbomachinery, rocket propulsion, advanced propulsion concepts</p>
+                    <p><strong>Career Path:</strong> Propulsion engineer, engine design specialist</p>
+                </div>
+                <div class="card">
+                    <h4>Flight Mechanics & Control</h4>
+                    <p><strong>Focus:</strong> Guidance navigation control, autonomous systems, flight dynamics</p>
+                    <p><strong>Career Path:</strong> Control systems engineer, autonomy specialist</p>
+                </div>
+            </div>
+
+            <h3>PhD Research Areas</h3>
+            <p>Hypersonic Aerodynamics • Autonomous Flight Systems • Sustainable Aviation • Advanced Materials • Space Exploration</p>
+
+            <div class="highlight-box">
+                <strong>Top Universities:</strong> MIT, Stanford, Caltech, Georgia Tech, Purdue (USA) | TU Delft, ISAE-SUPAERO, Cranfield (Europe) | IIT Bombay/Madras/Kanpur, IISc (India)
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Higher education in Aerospace Engineering can significantly boost your career, but timing and specialization matter.</p>
+                <p>Aerospace Structures M.Tech teaches advanced composite design, aeroelasticity, structural optimization, and damage tolerance, preparing you for specialist roles with a 20-40% salary premium. Aerodynamics & Fluid Mechanics goes deep into computational methods, hypersonic flows, and turbulence modeling - graduates become CFD specialists at companies like NASA or NAL. Propulsion M.Tech focuses on combustion, turbomachinery, and rocket propulsion, in demand with space startups hiring. Flight Mechanics & Control bridges aerospace and computer science, opening roles in autonomous vehicles beyond aerospace.</p>
+                <p>The difference between M.Tech in India and MS abroad: M.Tech at IITs is typically 2 years, costs ₹2-5 lakhs, and leads to positions in India. MS abroad is 1.5-2 years, costs $40,000-80,000 though often partially funded, emphasizes research, and provides access to international opportunities and higher salaries.</p>
+                <p>The PhD path is for those passionate about creating new knowledge, taking 4-6 years. Academic careers and research scientist roles at NASA, DLR, or NAL essentially require PhD. Timing matters - going immediately after B.Tech maintains academic momentum, while going after 2-3 years of work experience provides clarity on specialization, financial stability, and industry context that makes advanced concepts more meaningful.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 11: Day-to-Day Work -->
+        <section class="slide" id="slide-11" data-slide-number="11">
+            <h2>A Day in the Life - Aerodynamics Engineer at an Aircraft Manufacturer</h2>
+
+            <h3>Morning (9:00 AM - 12:30 PM)</h3>
+            <ul>
+                <li><strong>9:00-9:30:</strong> Team standup - review project status, discuss blockers, coordinate tasks across aerodynamics, structures, and systems teams.</li>
+                <li><strong>9:30-11:00:</strong> CFD simulation work - set up and run ANSYS Fluent simulations of new wing design, adjust mesh refinement near trailing edge, monitor solver convergence.</li>
+                <li><strong>11:00-12:30:</strong> Analysis and reporting - post-process CFD results, compare against baseline to quantify 3.2% drag reduction, prepare slides for design review.</li>
+            </ul>
+
+            <h3>Afternoon (1:30 PM - 5:00 PM)</h3>
+            <ul>
+                <li><strong>1:30-3:00:</strong> Design review meeting - present aerodynamic analysis, discuss integration challenges with structures team, answer questions on fuel efficiency impact.</li>
+                <li><strong>3:00-5:00:</strong> Wind tunnel test planning - schedule test, review instrumentation plan with 150 pressure taps, prepare test matrix across angles of attack and Mach numbers.</li>
+            </ul>
+
+            <h3>Evening & Beyond</h3>
+            <ul>
+                <li><strong>5:00-6:00:</strong> Learning and email - read research papers on laminar flow control, respond to manufacturing team on winglet constraints, update project schedule.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Real Challenges:</strong> Balancing conflicting requirements (drag vs. lift vs. weight vs. manufacturability) • CFD simulations taking hours/days requiring planning ahead • Experimental data not matching simulations, requiring investigation
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me paint a realistic picture of what your day might look like as an Aerodynamics Engineer at a commercial aircraft manufacturer like Boeing India or Tata Advanced Systems.</p>
+                <p>Your morning starts with a team standup where the aerodynamics team briefly shares work, raises blockers, and coordinates tasks. The core of your morning is computational work - refining a wing design aiming to reduce drag by 3-5%, which on a commercial airliner saves millions in fuel costs. You work in ANSYS Fluent running high-fidelity CFD simulations that might take 12-24 hours of compute time. While simulations run, you analyze previous results or study literature.</p>
+                <p>Afternoon design reviews are collaborative and crucial - you present that the new wing shape reduces drag by 3.2%, but the structures team raises stress concentration concerns and manufacturing notes the complex curvature is expensive. These sessions involve negotiation, trade-offs, and creative problem-solving. Mid-afternoon you plan wind tunnel tests - the experimental validation that proves CFD simulations are accurate. Wind tunnel testing is expensive (₹50,000-5 lakhs per day) so planning is critical.</p>
+                <p>What makes this work satisfying: knowing your 3.2% drag reduction will save an airline 500 tons of fuel annually per aircraft - immense environmental and economic impact. Collaborating with exceptionally smart colleagues across disciplines, and continuous learning as computational power increases. Work-life balance is generally reasonable - typical 45-50 hour weeks with occasional crunches approaching deadlines or during flight test campaigns.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 12: Salary & Growth -->
+        <section class="slide" id="slide-12" data-slide-number="12">
+            <h2>Compensation & Job Market Outlook</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>Salary Progression (India)</h3>
+                    <ul>
+                        <li><strong>Fresh (0-1 yr):</strong> ₹4.5-6 LPA (Tier 2), ₹6-10 LPA (Tier 1), ₹10-18 LPA (Top)</li>
+                        <li><strong>Mid (3-5 yr):</strong> ₹10-18 LPA avg, ₹18-28 LPA top</li>
+                        <li><strong>Senior (8-10 yr):</strong> ₹20-35 LPA avg, ₹35-50 LPA top</li>
+                        <li><strong>Lead (12+ yr):</strong> ₹40 LPA to ₹1 Cr+</li>
+                    </ul>
+
+                    <h3>International (USD)</h3>
+                    <ul>
+                        <li><strong>USA:</strong> Entry $70-85K, Mid $95-130K, Senior $130-180K</li>
+                        <li><strong>Europe:</strong> 25-35% lower than US</li>
+                        <li><strong>Middle East:</strong> 60-80% of US, tax-free</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Job Market (2025-2030)</h3>
+                    <p><strong>Demand:</strong> Moderate Growth (8-10% employment growth through 2030)</p>
+
+                    <h4>Driving Factors</h4>
+                    <ul>
+                        <li>Commercial space expansion (Skyroot, Agnikul)</li>
+                        <li>UAV/drone sector growth</li>
+                        <li>Sustainable aviation & defense modernization (AMCA, Ghatak)</li>
+                    </ul>
+
+                    <h4>Premium Skills</h4>
+                    <ul>
+                        <li>AI/ML for aerospace (autonomous systems, predictive maintenance)</li>
+                        <li>Advanced CFD, composites design & systems integration</li>
+                        <li>Certification & regulatory (FAA/EASA/DGCA) expertise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk numbers - and I'll be completely honest about what you can expect.</p>
+                <p>Fresh graduate salaries are moderate compared to software but respectable. Tier 2 companies offer ₹4.5-6 LPA, Tier 1 companies (HAL, Tata, Boeing India, Airbus India) ₹6-10 LPA, and top companies ₹10-18 LPA. Elite international offers from SpaceX or Blue Origin might reach ₹18-28 LPA for top IIT graduates. Your final year project significantly impacts offers. Salary progression is steady - internal promotions give 8-12% annual increases, while job switches can yield 30-50% jumps in the first decade.</p>
+                <p>International opportunities are significant but face visa challenges. US jobs pay $70-85K entry - 6-10x India salaries, but cost of living is 3-4x higher. The H1B lottery is uncertain and defense work often requires citizenship. Europe offers more accessible visas and better work-life balance, and the Middle East has tax-free salaries.</p>
+                <p>Job market outlook is moderately positive with 8-10% growth through 2030, driven by space sector expansion, the exploding UAV/drone sector, urgent sustainable aviation needs, and defense modernization with AMCA and Ghatak. Challenges include AI improving productivity (limiting some entry-level hiring), geographic concentration in Bangalore/Hyderabad/Pune, and industry cyclicality. Emerging opportunities include Urban Air Mobility (eVTOL air taxis), autonomous aircraft systems, space traffic management, and sustainable aviation engineering. Skills commanding premiums: AI/ML application, advanced CFD beyond button-pushing, composites expertise, systems engineering, and rare certification knowledge.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 13: Current Trends -->
+        <section class="slide" id="slide-13" data-slide-number="13">
+            <h2>Current Trends & Future Outlook</h2>
+
+            <h3>Hot Technologies (2025-2030)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Autonomous & AI-Powered Aviation</h4>
+                    <p>AI for predictive maintenance, flight optimization, and autonomous flight reducing pilot workload. Market expected to reach $60.94 billion by 2035.</p>
+                </div>
+                <div class="card">
+                    <h4>Sustainable & Electric Aviation</h4>
+                    <p>Electric regional aircraft (Eviation Alice), hydrogen fuel cell aircraft (Airbus ZEROe), hybrid-electric propulsion, and SAF reducing emissions 80%.</p>
+                </div>
+                <div class="card">
+                    <h4>Urban Air Mobility & Commercial Space</h4>
+                    <p>eVTOL flying taxis (Joby, Lilium, Archer) by 2025-2028. Reusable rockets (SpaceX Falcon 9), mega-constellations (Starlink), space tourism, and lunar/Mars missions.</p>
+                </div>
+                <div class="card">
+                    <h4>Digital Twin & Advanced Manufacturing</h4>
+                    <p>Virtual aircraft replicas for real-time monitoring and predictive maintenance. Additive manufacturing (3D printing) producing complex parts and entire rocket engines.</p>
+                </div>
+            </div>
+
+            <h3>Research Frontiers</h3>
+            <p>Hypersonic flight (Mach 5+) • Supersonic commercial revival with reduced sonic boom • Bio-inspired flight (flapping wings, morphing structures) • Nuclear thermal propulsion for deep space</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Aerospace Engineering is evolving rapidly. Let me share what's happening right now and where the field is heading.</p>
+                <p>Autonomous and AI-powered aviation is transforming the industry. Predictive maintenance uses sensor data with machine learning to predict failures days or weeks before they occur, saving airlines millions. Flight optimization AI dynamically adjusts routes to minimize fuel burn. Autonomous flight systems are advancing - cargo aircraft will likely go pilotless first within 10-15 years. The aerospace AI market is projected to hit $60.94 billion by 2035.</p>
+                <p>Sustainable aviation is the industry's most urgent priority. Electric aircraft like Eviation's Alice are becoming reality, though batteries remain limiting. Hydrogen fuel cell aircraft promise zero emissions - Airbus is developing ZEROe targeting 2035. Hybrid-electric propulsion reduces fuel consumption 20-30%. Sustainable Aviation Fuel can reduce lifecycle emissions 80%, with governments mandating adoption.</p>
+                <p>Urban Air Mobility represents a completely new segment - eVTOL aircraft from Joby, Lilium, and Archer targeting air taxi services by 2025-2028. Commercial space has transformed from government-only to vibrant private industry with reusable rockets reducing launch costs from $10,000/kg to under $2,000/kg, mega-constellations like Starlink, and Indian startups like Skyroot and Agnikul. Digital Twin technology and additive manufacturing complete the picture. Students should integrate AI/ML learning with aerospace fundamentals, focus on sustainability, develop strong software skills, and seek interdisciplinary experience.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 14: Impact of AI - Part 1 -->
+        <section class="slide" id="slide-14" data-slide-number="14">
+            <h2>How AI is Transforming Aerospace Engineering</h2>
+
+            <h3>AI Applications</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Design Optimization</h4>
+                    <p>Generative design explores thousands of variations automatically. Airbus used AI to design cabin partitions 45% lighter. AI-assisted CFD reduces simulation time from weeks to hours.</p>
+                </div>
+                <div class="card">
+                    <h4>Predictive Maintenance</h4>
+                    <p>ML analyzes sensor data to predict failures before they occur, reducing unscheduled maintenance 25-30%. GE Aviation's Predix monitors engine health across global fleets.</p>
+                </div>
+                <div class="card">
+                    <h4>Autonomous Flight Systems</h4>
+                    <p>AI enables autonomous navigation, obstacle detection and avoidance, adaptive flight control, mission planning for UAVs, and computer vision for landing and taxiing.</p>
+                </div>
+                <div class="card">
+                    <h4>Manufacturing & Quality Control</h4>
+                    <p>Computer vision inspects composite layups and welds detecting defects faster than humans. Robotic systems use AI for automated assembly of complex aircraft structures.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Tasks Being Automated</h3>
+                    <ul>
+                        <li>Routine CFD analysis - AI sets up standard cases (Already happening)</li>
+                        <li>Design optimization iterations - generative design explores options (Widespread by 2025)</li>
+                        <li>Data analysis and reporting - AI generates initial insights (Accelerating now)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tasks Becoming More Important</h3>
+                    <ul>
+                        <li>Systems architecture & integration - system-level trade-offs need human judgment</li>
+                        <li>Creative problem definition - identifying the right problems to solve</li>
+                        <li>Certification & ethical/safety decisions - human accountability essential</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>AI is dramatically transforming Aerospace Engineering, and it's crucial to understand both the opportunities and challenges this creates.</p>
+                <p>Design optimization is being revolutionized by AI-powered generative design. Airbus used topology optimization to design cabin partition brackets 45% lighter than human-designed parts. AI-assisted CFD reduces simulation times dramatically - companies like Neural Concept use deep learning to predict aerodynamic performance 100x faster. This doesn't eliminate engineers but makes them vastly more productive.</p>
+                <p>Predictive maintenance represents massive cost savings. GE Aviation's Predix platform analyzes data from thousands of engines globally in real-time, recommending preemptive replacements. Airlines report 25-30% reduction in unscheduled maintenance. Autonomous flight systems are advancing rapidly - military UAVs already operate with high autonomy, and commercial autonomous cargo aircraft are 5-10 years away. Manufacturing benefits immensely from computer vision and robotics for inspecting composite structures and precise assembly.</p>
+                <p>Let's be honest: routine engineering tasks are being automated significantly - standard CFD cases, design optimization iterations, and data analysis. But AI is also creating demand for uniquely human skills. Systems architecture and integration thinking becomes more valuable, creative problem definition is increasingly important, certification and regulatory compliance remains firmly human domain, and ethical decision-making and safety oversight are critical in aviation where lives depend on engineering choices. New roles are emerging: AI/Aerospace Integration Engineers, Digital Twin Specialists, and Autonomous Systems Certification Engineers.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 15: Impact of AI - Part 2 -->
+        <section class="slide" id="slide-15" data-slide-number="15">
+            <h2>AI Impact - Skills & Strategy for the Future</h2>
+
+            <h3>Future-Proof Skills</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li>Systems Thinking & Integration - humans must integrate complex systems</li>
+                        <li>Advanced Specialization - niche expertise AI can't easily replicate</li>
+                        <li>Computational Methods & Experimental Validation - developing new methods, physical testing</li>
+                    </ul>
+
+                    <h4>Human Skills</h4>
+                    <ul>
+                        <li>Creative Problem Framing - identifying what's worth solving</li>
+                        <li>Safety & Ethical Judgment - human accountability in aviation</li>
+                        <li>Cross-Functional Communication - building consensus across teams</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>During College</h4>
+                    <ul>
+                        <li>Learn AI/ML basics and apply to aerospace projects</li>
+                        <li>Master computational tools (Python, MATLAB, CFD, FEA) deeply</li>
+                        <li>Build interdisciplinary projects; develop strong core fundamentals</li>
+                    </ul>
+
+                    <h4>Early Career (0-5 years)</h4>
+                    <ul>
+                        <li>Seek roles in new technologies (electric propulsion, autonomy, AI)</li>
+                        <li>Develop T-shaped skills: deep expertise plus broad understanding</li>
+                        <li>Build portfolio of complex problem-solving; pursue continuous development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Opportunities AI Creates:</strong> Productivity gains free engineers for harder problems • New applications viable (autonomous systems, digital twins) • High-paying interdisciplinary aerospace + AI careers • Lower entrepreneurship barriers for startups
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's talk strategy - how do you build a successful career in Aerospace Engineering in an age where AI is changing everything?</p>
+                <p>Future-proof technical skills include systems thinking and integration. As AI gets better at optimizing individual components, the human value shifts to system-level thinking - how components interact and balancing conflicting requirements. Advanced specialization in niche areas provides AI-resistant expertise since training data is sparse in highly specialized domains. Computational methods development rather than just using tools, and experimental design and validation, remain essential because physical reality grounds all models.</p>
+                <p>Human skills are AI-resistant by nature. Creative problem framing - asking the right question is often more valuable than optimizing the answer to a wrong question. Safety and ethical judgment in aviation cannot be algorithmic. Cross-functional communication becomes more important as teams become more specialized.</p>
+                <p>Concrete advice: during college, learn AI/ML through MOOCs and apply them to aerospace projects, master computational tools deeply, build interdisciplinary projects, and develop solid fundamentals that don't become obsolete. Early career, seek roles in new technologies rather than legacy systems, develop T-shaped skills, and build a portfolio of complex problem-solving. The mindset for success: embrace AI as a productivity multiplier not a threat, focus on problems not just solutions, and stay adaptable and comfortable with continuous change. Engineers who embrace AI and develop uniquely human skills will thrive.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 16: Educational Resources -->
+        <section class="slide" id="slide-16" data-slide-number="16">
+            <h2>Educational Videos & Resources</h2>
+
+            <h3>Recommended YouTube Channels</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>MIT OpenCourseWare</h4>
+                    <p>Complete university-level aerospace courses</p>
+                    <p><small>Must-watch: Introduction to Aerospace Engineering (16.00), Unified Engineering</small></p>
+                </div>
+                <div class="card">
+                    <h4>Real Engineering</h4>
+                    <p>Aerospace technology explained with excellent visuals</p>
+                    <p><small>Must-watch: The Engineering of series (Aircraft, Rockets, Helicopters)</small></p>
+                </div>
+                <div class="card">
+                    <h4>Everyday Astronaut</h4>
+                    <p>Rocket science and space exploration in-depth</p>
+                    <p><small>Must-watch: How Rocket Engines Work, SpaceX Deep Dives</small></p>
+                </div>
+                <div class="card">
+                    <h4>NASA</h4>
+                    <p>Space missions, technology, and aeronautics research</p>
+                    <p><small>Must-watch: Behind the Spacecraft, ScienceCasts</small></p>
+                </div>
+            </div>
+
+            <h3>Online Courses</h3>
+            <ul>
+                <li><strong>Introduction to Aerospace Engineering:</strong> MIT OCW, Beginner/Intermediate, fundamentals of flight, aircraft systems, propulsion, structures</li>
+                <li><strong>Introduction to Aeronautical Engineering:</strong> Coursera (TU Delft), Beginner, 7 weeks, aerodynamics, structures, propulsion, flight mechanics</li>
+                <li><strong>Flight Vehicle Aerodynamics:</strong> edX (MIT), Advanced, 12 weeks, potential flow, boundary layers, wing theory (requires calculus)</li>
+            </ul>
+
+            <h3>Books & Communities</h3>
+            <p><strong>Books:</strong> "Introduction to Flight" by John Anderson, "Fundamentals of Aerodynamics" by Anderson, "Aircraft Structures for Engineering Students" by Megson, "Skunk Works" by Ben Rich, "Rocket Propulsion Elements" by Sutton</p>
+            <p><strong>Communities:</strong> AIAA (aiaa.org), r/aerospace (Reddit), Physics Forums - Aerospace, NASA STEM Engagement</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>If you want to explore Aerospace Engineering deeper before making your decision, here are the best resources I recommend - all carefully selected for quality and relevance.</p>
+                <p>MIT OpenCourseWare is a phenomenal free resource providing complete aerospace courses. Introduction to Aerospace Engineering (16.00) is the perfect starting point. Real Engineering produces some of the best aerospace explanation videos with stunning visualizations - start with "The Engineering of the SR-71 Blackbird." Everyday Astronaut focuses on rockets and space with deep technical dives. NASA's official channel provides primary-source content on missions and technology development.</p>
+                <p>Online courses on Coursera and edX provide structured learning. TU Delft's Introduction to Aeronautical Engineering is an excellent 7-week beginner course. MIT's Flight Vehicle Aerodynamics on edX is more advanced requiring calculus. Book recommendations span levels - "Introduction to Flight" by John Anderson is the single best introduction, while "Skunk Works" by Ben Rich provides incredible industry perspective on designing the SR-71 and F-117.</p>
+                <p>Communities are invaluable. AIAA membership provides journals, conferences, and career resources. r/aerospace is an active community for career questions. My suggested exploration path: start with Real Engineering videos, then MIT OCW lectures, try the Coursera TU Delft course, read "Introduction to Flight," and join r/aerospace. This provides breadth across video, structured course, textbook, and community learning - perhaps 5-10 hours weekly for a month. Exploring these isn't just about content - it's about making informed college choices and building early skills that give you an advantage.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 17: Real-World Projects -->
+        <section class="slide" id="slide-17" data-slide-number="17">
+            <h2>Real-World Projects & Innovation</h2>
+
+            <h3>Student Projects (Award-Winning)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>IIT Bombay - Unmesh VTOL Aircraft</h4>
+                    <p><strong>What:</strong> Student-built VTOL aircraft with 4-hour endurance, 100 km range for surveillance</p>
+                    <p><strong>Tech:</strong> Hybrid propulsion, autonomous flight control, custom airframe</p>
+                    <p><strong>Impact:</strong> Won SAE Aero Design, attracted defense interest, members recruited</p>
+                </div>
+                <div class="card">
+                    <h4>Skyroot Aerospace - Student to Startup</h4>
+                    <p><strong>What:</strong> IIT Kharagpur alumni developed Vikram-S, India's first private rocket (launched 2022)</p>
+                    <p><strong>Tech:</strong> 3D-printed components, solid propulsion, launch vehicle design</p>
+                    <p><strong>Impact:</strong> Pioneered Indian private space, raised ₹500+ crores, hired dozens of engineers</p>
+                </div>
+            </div>
+
+            <h3>Industry Innovations</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>SpaceX - Reusable Rockets</h4>
+                    <p>Falcon 9 first stage lands vertically and reflights, reducing launch costs from $10,000/kg to under $2,000/kg through supersonic retropropulsion and precision landing control.</p>
+                </div>
+                <div class="card">
+                    <h4>Agnikul Cosmos - 3D Printed Rocket Engine</h4>
+                    <p>Agnilet, world's first single-piece 3D-printed rocket engine, eliminates 5,000+ parts and welds, reducing production time from months to weeks.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Competitions:</strong> SAE Aero Design • European Rover Challenge • NASA Human Exploration Rover Challenge • Boeing Startup Challenge | <strong>Open Source:</strong> OpenRocket, OpenFOAM, PX4 Autopilot
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let me show you what's actually possible in Aerospace Engineering through real projects and innovations - this is where theory meets exciting reality.</p>
+                <p>IIT Bombay's Unmesh project demonstrates what motivated students can achieve - a VTOL aircraft with 4-hour endurance combining quadcopter vertical capability with airplane efficiency. They solved hybrid propulsion, autonomous flight control, and lightweight airframe challenges. It won SAE Aero Design and several team members were recruited directly by aerospace firms. The IIT Madras Hyperloop team achieved over 400 km/h in a vacuum tube, reaching SpaceX competition finals.</p>
+                <p>Skyroot Aerospace illustrates the student-to-startup path. Founded by IIT Kharagpur alumni, they developed Vikram-S, India's first privately developed rocket, launched November 2022. The company raised over ₹500 crores and employs dozens of engineers. This shows motivated aerospace engineers can build companies addressing important problems while creating jobs.</p>
+                <p>Industry innovations show professional impact. SpaceX's reusable Falcon 9 fundamentally changed space economics. Agnikul's 3D-printed Agnilet engine eliminates 5,000+ parts by printing the entire engine as a single piece. Open source contributions to OpenRocket, OpenFOAM, and PX4 build skills while contributing to community. Competitions like SAE Aero Design provide structured project experiences. Social impact shows aerospace isn't purely commercial - Zipline uses drones to deliver blood supplies in Rwanda, reducing delivery time from 4 hours to 20 minutes, directly saving lives. Choose projects you're passionate about - genuine interest sustains you through challenges and produces better outcomes.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 18: Pros & Cons -->
+        <section class="slide" id="slide-18" data-slide-number="18">
+            <h2>Honest Assessment - Pros & Cons</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>✓ Advantages</h3>
+                    <div class="card">
+                        <h4>Work on Cutting-Edge Technology</h4>
+                        <p>Hypersonic flight, electric aircraft, Mars missions, autonomous systems - latest materials, propulsion, and control systems at the frontier of human capability.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Real-World Impact at Scale</h4>
+                        <p>Improving aircraft fuel efficiency saves billions and reduces emissions globally; satellite systems connect remote regions; space exploration expands human knowledge.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Intellectually Challenging & Strong Career</h4>
+                        <p>Combines physics, math, materials, CS, and systems engineering. Entry ₹6-10 LPA, senior ₹30-50+ LPA, plus prestige and pride in respected profession.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>✗ Challenges</h3>
+                    <div class="card">
+                        <h4>Intense Competition for Jobs</h4>
+                        <p>More graduates than positions, especially entry-level. Selective hiring with 5-10 applicants per position requiring strong academics, projects, and internships.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Geographic Constraints & Cyclicality</h4>
+                        <p>Jobs concentrated in Bangalore, Hyderabad, Pune. Industry fluctuates with economic cycles and defense budgets - less recession-proof than software or healthcare.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Rigorous Academics & Long Cycles</h4>
+                        <p>Mathematically intense curriculum with high failure rates in core courses. Aircraft programs take 5-10+ years; heavy documentation and regulation slow the pace.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>You'll thrive if:</strong> genuinely fascinated by flight/space, enjoy physics and math, like hands-on work, patient and persistent, team-oriented</p>
+                <p><strong>Might struggle if:</strong> prefer fast iteration, want maximum flexibility/remote work, struggle with advanced math, want maximum entry salary</p>
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's have a completely honest conversation about Aerospace Engineering - the good, the challenging, and who this branch is really right for.</p>
+                <p>The advantages are real. Working on cutting-edge technology is intellectually thrilling - hypersonic aircraft, electric regional aircraft, spacecraft exploring Mars. Aerospace pushes technological boundaries more than most fields. Real-world impact is tangible - improving aircraft fuel efficiency by 3% saves billions annually while reducing CO2 emissions equivalent to millions of cars. Intellectual challenge and diversity keep work engaging. Career trajectory is solid with entry ₹6-10 LPA growing to ₹30-50+ LPA senior, plus prestige and professional pride.</p>
+                <p>But let's be equally honest about challenges. Job competition is intense especially entry-level - application-to-position ratios of 5-10:1 are common, requiring above-average credentials. Geographic constraints are real, concentrating in Bangalore, Hyderabad, and Pune. Academic rigor is substantial with failure rates reaching 20-30% in core subjects. Industry cyclicality affects job security - COVID saw aerospace layoffs while tech hiring boomed. Long development cycles require patience.</p>
+                <p>Who thrives: students genuinely fascinated by flight from intrinsic curiosity, with strong math and physics foundation, hands-on inclination, patience, team orientation, and comfort with structure. Who might struggle: those preferring fast-paced iteration, wanting maximum flexibility, struggling with advanced math, or seeking maximum entry salary. Important perspective: there's no universally best branch - the best one for you aligns with your interests, strengths, and priorities. And choosing aerospace isn't a life sentence - the technical rigor develops universally valuable skills.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 19: Decision Checklist -->
+        <section class="slide" id="slide-19" data-slide-number="19">
+            <h2>Is AE Right for You?</h2>
+
+            <h3>✓ Choose AE If...</h3>
+            <ul>
+                <li><strong>Interest:</strong> fascinated by how aircraft/spacecraft work, enjoyed physics and mechanics, sought out aerospace content, built models</li>
+                <li><strong>Skills:</strong> strong math/physics foundation, spatial reasoning, analytical thinking, attention to detail</li>
+                <li><strong>Goals:</strong> want impactful projects affecting millions, value intellectual challenge, willing to relocate, patient with long-term building</li>
+            </ul>
+
+            <h3>⚠ Consider Alternatives If...</h3>
+            <ul>
+                <li>You want immediate high salaries and abundant geographic flexibility (consider CS/software/IT)</li>
+                <li>You prefer fast-paced iteration and low-capital entrepreneurship (consider software, startups)</li>
+                <li>You need guaranteed jobs in hometown, or want to help people directly via medicine (consider civil, biomedical)</li>
+            </ul>
+
+            <h3>Self-Assessment Questions</h3>
+            <ol>
+                <li>When you see an aircraft overhead, do you wonder how it works, or is it just background?</li>
+                <li>Do you find calculus and physics interesting and manageable, or overwhelming?</li>
+                <li>Would you rather spend months perfecting an aircraft design, or build an app in weeks?</li>
+                <li>Rank these: impact, compensation, job security, flexibility, prestige. Where do priorities align?</li>
+                <li>Are you willing to relocate to Bangalore/Hyderabad or abroad for best opportunities?</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>Next Steps:</strong> Watch MIT OCW intro lectures • Read "Introduction to Flight" • Build a model rocket/glider/quadcopter • Talk to aerospace students and professionals
+            </div>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>Let's help you make an informed decision about whether Aerospace Engineering is the right choice for you.</p>
+                <p>Interest alignment is the strongest predictor of success and satisfaction. Genuine fascination with flight and space - wondering how aircraft stay airborne, following space missions out of curiosity, building model rockets for fun - indicates strong fit. This intrinsic motivation sustains you through difficult coursework. Conversely, choosing aerospace because "it sounds cool" without genuine interest often leads to struggles. Enjoying physics and mathematics, particularly mechanics and calculus, signals aptitude - aerospace academics are rigorous and enthusiasm for foundational subjects is almost mandatory.</p>
+                <p>Skills and aptitude include strong mathematics and physics foundation, spatial reasoning for visualizing 3D objects, analytical thinking, and attention to detail since aerospace tolerances are tight and safety-critical. Career goals alignment matters - if you want impactful work affecting millions, value continuous learning, accept geographic flexibility, and have patience with long-term career building, aerospace delivers.</p>
+                <p>Consider alternatives if your preferences differ - immediate high salaries favor software, abundant jobs point toward CS/IT, fast iteration aligns with software startups, low-capital entrepreneurship favors software, and healthcare points toward biomedical or medicine. Self-assessment questions help clarify fit. Next steps if interested: watch MIT OCW lectures, read John Anderson's book, build a simple project, and talk to students and professionals asking candid questions. Still undecided is completely normal - first year is common foundation allowing exploration. Choosing aerospace over CS isn't right or wrong - it's about finding fit for your interests, aptitudes, and goals. Your career is 40+ years - alignment matters far more than any ranking or external pressure.</p>
+            </aside>
+        </section>
+
+        <!-- Slide 20: Closing -->
+        <section class="slide" id="slide-20" data-slide-number="20">
+            <h2>Thank You!</h2>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>About Aerospace Engineering:</strong> Designs the future of flight from aircraft to spacecraft, combining physics, mathematics, and creativity to push technological boundaries.</li>
+                <li><strong>Career Potential:</strong> Strong opportunities in commercial space, sustainable aviation, autonomous systems, and traditional aerospace, with salaries from ₹6-10 LPA entry to ₹30-50+ LPA senior.</li>
+                <li><strong>Right For You If:</strong> Genuinely fascinated by flight and space, strong in math/physics, willing to relocate, and value impactful work on cutting-edge technology.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Your Decision Matters</h4>
+                <p>Making an informed choice about aerospace engineering shapes your next four years and career trajectory. Take time to explore resources, talk to professionals and students, and honestly assess your interests and aptitudes. Choose based on genuine passion and fit, not just prestige or external pressure.</p>
+            </div>
+
+            <h3>Resources to Explore</h3>
+            <ul>
+                <li>YouTube Channels: MIT OCW, Real Engineering, Everyday Astronaut (Slide 16)</li>
+                <li>Online Courses: MIT Introduction to Aerospace, Coursera TU Delft (Slide 16)</li>
+                <li>Project Ideas: UAV design, rockets, drones, airfoil optimization (Slide 17)</li>
+            </ul>
+
+            <h3>Stay Curious, Keep Learning!</h3>
+            <p>Engineering is about solving problems that matter and creating technologies that improve lives - aerospace does this at the scale of millions of passengers flying safely daily and the grandeur of exploring the cosmos. If that vision excites you, aerospace engineering might be your calling.</p>
+
+            <aside class="speaker-notes">
+                <h4>Narration Script:</h4>
+                <p>We've covered a lot of ground about Aerospace Engineering, so let's recap the most important points.</p>
+                <p>Aerospace Engineering is the discipline dedicated to designing aircraft and spacecraft that push the boundaries of human capability. It combines rigorous physics and mathematics with creative problem-solving. Career opportunities span commercial aviation, defense, space, UAVs, and services. Entry salaries ₹6-10 LPA grow steadily to ₹12-20 LPA mid-level and ₹30-50+ LPA senior with strong international opportunities. The field is growing moderately at 8-10% annually.</p>
+                <p>The type of person who thrives genuinely loves flight and space from intrinsic curiosity, has strong mathematics and physics foundation, is willing to relocate, values impactful work, and is patient with long-term career building. Key decision factors include honest self-assessment of interest, aptitude, career priorities, and geographic flexibility. There's no universal right answer - the goal is informed choice aligned with your individual interests rather than following prestige or external pressure.</p>
+                <p>Your engineering branch is important but not a permanent life sentence. Many successful people transition to different areas through master's degrees, self-learning, or career pivots leveraging transferable skills. Next steps: revisit slide 16 resources, try building a simple project, and talk to current students and working professionals asking candid questions. Give yourself permission to explore before committing - uncertainty is normal and healthy. The aerospace field faces an exciting future with commercial space boom, sustainable aviation, autonomous systems, and urban air mobility. Trust your interests, be honest about your aptitudes, and commit fully once you choose. Thank you for taking the time to deeply explore Aerospace Engineering - best of luck with your engineering journey!</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const counter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            prevBtn.disabled = (currentSlide === 1);
+            nextBtn.disabled = (currentSlide === totalSlides);
+
+            counter.textContent = `Slide ${currentSlide} of ${totalSlides}`;
+            progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+                event.preventDefault();
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (event.key === 'n' || event.key === 'N') {
+                document.body.classList.toggle('show-notes');
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeSlide(1);
+            if (touchEndX > touchStartX + 50) changeSlide(-1);
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
