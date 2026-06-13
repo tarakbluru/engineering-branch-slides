@@ -7,7 +7,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 **Format:** Self-contained HTML files with embedded CSS/JS, speaker notes for AI video generation  
 **Structure:** 20 slides per branch covering curriculum, careers, salaries, trends, AI impact, pros/cons
 
-**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (24 total branches)
+**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (21 total branches; CSE specializations are sub-tracks within CSE, not separate)
 
 **Workflow:** See `generic_task.md` for step-by-step execution process
 
@@ -16,7 +16,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 ## Current Status Summary
 
 **Completed:** 6 branches (EC, EE, CSE, ME, CE, Aerospace)  
-**Remaining:** 18 branches across core, specialized, and emerging fields
+**Remaining:** 15 branches across core, specialized, and emerging fields
 
 ---
 
@@ -144,15 +144,14 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 1: Core Computer Science & IT (Original Priority)**
 
-**Status: 3/7 Complete**
+**Status: 2/4 Complete**
 
 1. ✅ **CSE** - Computer Science & Engineering (COMPLETED)
 2. ✅ **EC** - Electronics & Communication (COMPLETED)
 3. ❌ **IS** - Information Science (TO DO)
-4. ❌ **CSE-DS** - CSE (Data Science specialization) (TO DO)
-5. ❌ **CSE-AIML** - CSE (AI & Machine Learning specialization) (TO DO)
-6. ❌ **CSE-CS** - CSE (Cyber Security specialization) (TO DO)
-7. ❌ **IT** - Information Technology (TO DO)
+4. ❌ **IT** - Information Technology (TO DO)
+
+> **Note:** CSE specializations (Data Science, AI/ML, Cyber Security) are NOT treated as separate branches — they are sub-tracks within CSE.
 
 ---
 
@@ -220,19 +219,17 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ## **Total Branches:**
 - **Completed:** 6 (CSE, EC, EE, ME, CE, Aerospace)
-- **Remaining:** 18
-- **Grand Total:** 24 engineering branches (EC spans Categories 1 & 2, counted once)
+- **Remaining:** 15
+- **Grand Total:** 21 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
 
 ---
 
 ## Next Steps (Priority Order)
 
-### **Phase 1: Complete Original 7 (Priority: HIGH)**
-Finish the 4 remaining CSE/IT specializations from original plan:
+### **Phase 1: Core CS & IT (Priority: HIGH)**
+Remaining Computer Science & IT branches:
 1. IS - Information Science
-2. CSE-DS - Data Science
-3. CSE-AIML - AI & Machine Learning
-4. CSE-CS - Cyber Security
+2. IT - Information Technology
 
 ### **Phase 2: Core Traditional Branches (Priority: MEDIUM)**
 Popular traditional engineering branches:
@@ -253,10 +250,9 @@ Niche but important branches:
 1. Production/Industrial Engineering
 2. Mechatronics
 3. Agricultural Engineering
-4. IT (Information Technology)
-5. Petroleum Engineering
-6. Mining Engineering
-7. Textile Engineering
+4. Petroleum Engineering
+5. Mining Engineering
+6. Textile Engineering
 
 **Execution:** Follow the workflow in `generic_task.md` for creating each branch.
 
@@ -287,9 +283,6 @@ Niche but important branches:
 - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
 - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
 - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
-- CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
-- CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
-- CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
 - IT: Primary #0EA5E9, Secondary #38BDF8, Accent #0284C7
 
 **Core Electrical & Electronics:**
@@ -324,6 +317,6 @@ Niche but important branches:
 ---
 
 **Last Updated:** June 13, 2026  
-**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 18 remaining
+**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 15 remaining
 
 **For execution workflow, see:** `generic_task.md`
