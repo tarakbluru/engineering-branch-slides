@@ -9,6 +9,114 @@
 
 ## 1. Curriculum & Syllabus
 
+### IIT Bombay (MEMS) - B.Tech Course List
+
+**Year 1 (Semesters 1 & 2 — Common Foundation):**
+
+| Sem | Code | Course |
+|-----|------|--------|
+| 1 | PH 107 | Quantum Physics and Application |
+| 1 | CH 105 | Organic & Inorganic Chemistry |
+| 1 | CH 107 | Physical Chemistry |
+| 1 | MA 105 | Calculus |
+| 1 | BB 101 | Biology |
+| 1 | ME 113 | Workshop Practice |
+| 2 | PH 108 | Electricity and Magnetism |
+| 2 | CS 101 | Computer Programming & Utilization |
+| 2 | MA 106 | Linear Algebra |
+| 2 | MA 108 | Ordinary Differential Equations |
+| 2 | **MM 152** | **Introduction to Materials Science & Engineering** ← MEMS starts here |
+| 2 | ME 119 | Engineering Graphics & Drawing |
+
+**Year 2 (Semesters 3 & 4 — Core Foundation):**
+
+| Code | Course |
+|------|--------|
+| MM 201 | Structure of Materials |
+| MM 202 | Thermodynamics of Materials |
+| MM 203 | Mechanics of Materials |
+| MM 204 | Transport Phenomena |
+| MM 206 | Experimental Techniques in Materials Science |
+| MM 207 | Engineering Metallurgy |
+| MM 212 | Metallography and Structural Characterisation Lab |
+| MM 215 | Experimentation and Measurement Lab |
+| MM 217 | Data Analysis and Interpretation |
+| MM 220 | Computation Lab |
+
+**Year 3 (Semesters 5 & 6 — Advanced Core):**
+
+| Code | Course |
+|------|--------|
+| MM 301 | Phase Transformations |
+| MM 302 | Mechanical Working of Metals |
+| MM 305 | Kinetics of Processes |
+| MM 312 | Heat Treatment Laboratory |
+| MM 318 | Electronic Properties of Materials |
+| MM 319 | Mechanical Behaviour of Materials |
+| MM 320 | Principles of Process Metallurgy |
+| MM 322 | Casting and Joining Lab |
+| MM 323 | Manufacturing Processes Laboratory |
+| MM 357 | Ceramics and Powder Metallurgy |
+| MM 359 | Metal Casting and Joining |
+| MM 362 | Mechanical Testing Lab |
+| MM 396 | Seminar |
+
+**Dual Degree Specializations (B.Tech + M.Tech, 5 years):**
+- Ceramics and Composites
+- Metallurgical Process Engineering
+
+---
+
+### IIT Kharagpur (MME) — Department Overview
+
+**Established:** 1954 (one of India's oldest metallurgy departments)
+**Unique asset:** Steel Technology Center on campus — dedicated steel R&D facility
+
+**Research Areas (also reflected in elective courses):**
+- Functional & Low-Dimensional Materials
+- Additive Manufacturing (AM of metals)
+- Biomaterials
+- Ceramics and Composites
+- Computational Materials Engineering (DFT, CALPHAD, ML)
+- Degradation of Materials (Corrosion, Oxidation)
+- Mechanical Behavior of Materials
+- Energy Materials (batteries, fuel cells, solar)
+- Extractive Metallurgy & Sustainability (green processing)
+- Artificial Intelligence in Materials Engineering
+- Surface Engineering
+
+**Placement Data (2025):** Avg ₹18.37 LPA | Highest ₹46.99 LPA | Placement rate 70.12%
+
+---
+
+### IIT Kanpur — Materials Science & Engineering (MSE)
+
+**Note:** IIT Kanpur calls it "Materials Science and Engineering" (not Metallurgical) — broader scope
+**Seats:** 68 (+ 17 female supernumerary)
+**Ranking:** #4 by NIRF 2024
+
+**Core Curriculum Topics:**
+- Iron and Steel Making
+- Principles of Metal Extraction and Refining
+- Phase Transformations
+- Thermodynamics & Phase Equilibria
+- Mechanical Behaviour of Materials
+- Materials Failure: Analysis and Prevention
+- Structure and Characterization of Materials
+- Diffusion in Solids
+- Materials Recycling
+
+**Program features:** Internship in 2nd/3rd year; thesis-based final year; interdisciplinary approach (overlap with chemistry, physics, and engineering)
+
+---
+
+### IIT Roorkee (MME)
+
+**Seats:** 82 | **Average Placement:** ₹21 LPA
+**Placement highlights:** Strong connections with steel/metals industry in North India (SAIL Bhilai, NALCO, Hindalco)
+
+---
+
 ### IIT Madras - Semester-wise Course Structure
 
 **Semester 1 (Foundation):**
