@@ -31,6 +31,8 @@
 
 **Objective:** Plan the research, content structure, and execution strategy
 
+**Estimated Time:** 30-60 minutes
+
 **Actions:**
 1. Read existing templates:
    - `docs/template.md` for markdown structure
@@ -65,6 +67,8 @@ Date: [timestamp]
 ### **Step 2: Research & Resource Gathering**
 
 **Objective:** Gather comprehensive, authoritative information about the branch/stream
+
+**Estimated Time:** 1-2 hours (can be longer for specialized/emerging fields)
 
 **Research Sources (adapt based on domain):**
 
@@ -213,6 +217,8 @@ git push
 
 **Objective:** Create comprehensive 20-slide content in markdown format
 
+**Estimated Time:** 2-3 hours (includes writing speaker notes)
+
 **Actions:**
 1. Copy template: `cp docs/template.md docs/{BRANCH_ABBREVIATION}.md`
 2. Fill ALL 20 slides with content from research
@@ -300,7 +306,15 @@ Date: [timestamp]
 
 **Objective:** Create interactive HTML slide deck with images and full functionality
 
-**Critical Rule:** ⚠️ **ALWAYS use `docs/template.html` as starting point** (NEVER copy existing branch HTML files)
+**Estimated Time:** 1-2 hours (includes finding images and testing)
+
+**🚨 CRITICAL RULE:** ⚠️ **ALWAYS use `docs/template.html` as starting point** (NEVER copy existing branch HTML files)
+
+**WHY THIS MATTERS:** 
+- Existing branch HTML files contain branch-specific content, colors, and placeholders
+- Copying them leads to confusion, errors, incomplete replacements, wrong colors
+- Templates are designed with proper placeholders for systematic replacement
+- **CONSEQUENCE OF VIOLATION:** Broken HTML, missing content, navigation issues, wasted debugging time
 
 **Actions:**
 
@@ -386,6 +400,8 @@ Date: [timestamp]
 
 **Objective:** Save HTML slide deck to repository and deploy to GitHub Pages
 
+**Estimated Time:** 5-10 minutes (plus 1-2 minutes for GitHub Pages rebuild)
+
 **Actions:**
 ```bash
 git add slides/{BRANCH_ABBREVIATION}.html {BRANCH_ABBREVIATION}_status.txt
@@ -395,10 +411,31 @@ git push
 
 **Post-Deployment Verification:**
 1. Wait 1-2 minutes for GitHub Pages rebuild
-2. Verify URL: `https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html`
-3. Test navigation (arrow keys, buttons)
-4. Test speaker notes toggle ('N' key)
-5. Test on mobile (browser dev tools)
+2. Open URL in browser: `https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html`
+3. **Test Navigation:**
+   - Arrow keys (left/right, up/down)
+   - Spacebar (forward)
+   - Click next/previous buttons
+   - Touch/swipe (mobile)
+   - Progress bar updates correctly
+4. **Test Speaker Notes:**
+   - Press 'N' key to toggle notes panel
+   - Verify notes display for all 20 slides
+   - Check notes panel can be closed
+5. **Test Images:**
+   - All 3 images load correctly
+   - Alt text displays on hover
+   - Photographer credits visible
+6. **Test Mobile Responsiveness:**
+   - Open browser dev tools (F12)
+   - Switch to mobile view (Ctrl+Shift+M / Cmd+Shift+M)
+   - Test on different screen sizes (phone, tablet)
+   - Verify text readable and images scale properly
+7. **Final Checks:**
+   - No [PLACEHOLDER] text visible
+   - Colors match branch theme
+   - All content renders correctly
+   - No console errors (check browser console)
 
 **Status Update:**
 ```
