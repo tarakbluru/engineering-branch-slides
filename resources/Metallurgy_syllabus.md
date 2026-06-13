@@ -497,7 +497,83 @@ Functional & Low-Dimensional Materials, Additive Manufacturing, Biomaterials, Ce
 
 ---
 
-## 7. Skills & Tools
+## 7. Day in the Life — Metallurgical Engineer
+
+### Scenario A: Process Metallurgist at a Steel Plant (e.g., Tata Steel, JSW)
+
+**Morning (8:00 AM – 12:30 PM)**
+
+**8:00 – 8:30:** Shift handover + daily production log review
+- Review previous shift's heat data (steel chemistry, temperature logs)
+- Check blast furnace / EAF operational parameters from overnight run
+- Flag any deviations in iron quality or steel composition
+
+**8:30 – 10:30:** Floor rounds + process monitoring
+- Walk the shop floor — check converter (BOF) operations, ladle furnace, continuous caster
+- Collect slag samples, hot metal samples for lab analysis
+- Monitor heat treatment furnace temperatures (time-temperature cycles)
+- Coordinate with shift operators on any process adjustments
+
+**10:30 – 12:30:** Lab analysis + data interpretation
+- Run XRF analysis on raw materials (iron ore, coke, limestone, flux)
+- Check chemistry of sinter and hot metal against specifications
+- Review incoming steel slab quality — surface defects, internal cleanliness
+- Compile morning shift production report
+
+**Afternoon (1:30 PM – 5:30 PM)**
+
+**1:30 – 3:30:** Root cause analysis / quality issue resolution
+- Investigate a customer complaint (e.g., cold rolling steel showing edge cracks)
+- Pull samples, cut cross-sections, mount and polish for optical microscopy
+- Examine microstructure — identify whether issue is segregation, inclusions, or improper heat treatment
+- Write failure analysis report with corrective action recommendations
+
+**3:30 – 5:30:** Improvement project work
+- Work on a yield improvement initiative — optimizing flux additions to reduce slag loss
+- Run trials with modified process parameters
+- Update process control charts (SPC) — check Cpk values for key quality parameters
+- Attend cross-functional meeting with production, quality, and R&D teams
+
+**Evening wrap-up:**
+- Update daily production log and process database
+- Brief handover to next shift metallurgist
+- Review technical journal paper (30 min self-learning — often on advanced high-strength steels)
+
+---
+
+### Scenario B: R&D Metallurgist at a Materials Lab (e.g., DRDO/BARC/IIT/Tata Steel R&D)
+
+**Typical Day:**
+- Morning: Review literature on the research topic (e.g., high-entropy alloy for wear resistance)
+- Sample preparation: casting/forging small test samples, followed by heat treatment
+- Characterization: SEM imaging, XRD phase identification, hardness testing
+- Afternoon: Data analysis in Python/MATLAB, fitting diffraction peaks, calculating lattice parameters
+- Write-up: Updating lab notebook, drafting results section for journal paper or project report
+- Weekly: Present progress to supervisor; collaborate with computational team on CALPHAD predictions
+
+**Key Tools Used Daily:**
+- Optical microscope, SEM (Scanning Electron Microscope), XRD (X-ray Diffractometer)
+- XRF (X-ray Fluorescence) for chemical analysis
+- Hardness testers (Vickers, Rockwell, Brinell)
+- Tensile testing machine (UTM)
+- Thermo-Calc / FactSage for phase diagram calculations
+- Python / MATLAB for data analysis
+- MS Excel for process data, SPC charts
+
+**Real Challenges Faced:**
+- Unexpected microstructure results that don't match theory — requires re-checking sample prep
+- Process deviations in production — quick root-cause needed, 2-hour window before next heat
+- Customer complaint requiring failure analysis with tight deadline
+- Long experiment turnaround (heat treatment cycle = 12+ hours)
+
+**What Makes it Satisfying:**
+- Tangible results — you can hold the alloy you developed
+- Direct connection to products people use (cars, bridges, satellites, surgical implants)
+- Combination of scientific thinking + practical engineering
+
+---
+
+## 8. Skills & Tools
 
 ### Core Technical Skills
 - **Characterization:** SEM, TEM, XRD, EBSD, EDS, AFM, optical metallography
@@ -521,21 +597,28 @@ Functional & Low-Dimensional Materials, Additive Manufacturing, Biomaterials, Ce
 ## 8. Educational Resources
 
 ### NPTEL (Free, IIT Professors)
-- **Introduction to Materials Science** — IIT Madras (Prof. Anandh Subramaniam)
-- **Physical Metallurgy** — IIT Bombay
+- **Introduction to Materials Science and Engineering** — Dr. Ranjit Bauri, IIT Madras | https://nptel.ac.in/courses/113106032
+- **Principles of Physical Metallurgy** — Prof. R.N. Ghosh, IIT Kharagpur | https://nptel.ac.in/courses/113105023
 - **Phase Transformations in Metals and Alloys** — IIT Madras
 - **Mechanical Behaviour of Materials** — IIT Kharagpur
 - **Extractive Metallurgy** — IIT Madras
 - **Surface Engineering for Corrosion and Wear Resistance** — IIT Kharagpur
 - **Welding Metallurgy** — IIT Madras
-- NPTEL has 102 metallurgy and materials science courses total
+- NPTEL total: 102 metallurgy and materials science courses
 
-### YouTube Channels
-- **NPTEL-NOC IIT Madras** — official IIT lecture series; extremely comprehensive
-- **Real Engineering** — excellent materials science explainers (aerospace alloys, composites)
-- **Metallurgy and Material Science** (YouTube channel) — dedicated to the subject
-- **SciShow** — accessible materials science concepts
-- **Professor Dave Explains** — chemistry foundations useful for metallurgy students
+### YouTube Channels (Verified)
+- **NPTEL Metallurgy and Material Science** — https://www.youtube.com/channel/UC9sKRSg8Kn5axYdORJUnqFw
+  - IIT/IISc professors; 7 IITs contributing; comprehensive lecture series
+- **Principles of Physical Metallurgy (playlist)** — https://www.youtube.com/playlist?list=PLbMVogVj5nJSkVfiNz6f9HeghkYD5u3c0
+  - Prof. R.N. Ghosh, IIT Kharagpur; crystal structures, phase diagrams, heat treatment
+- **Materials Sciences 101 (playlist)** — https://www.youtube.com/playlist?list=PLL0SWcFqypCm4xCn64xO7RS62PPzy-oP8
+  - Introduction to Materials Science & Engineering; covers basics in accessible way
+- **Introduction to Materials Science** channel — https://www.youtube.com/channel/UCRFAeCBIRZrY8YcuLomFU1g
+  - Dedicated materials science education channel
+- **Real Engineering** — https://www.youtube.com/@RealEngineering
+  - High-quality explainers on aerospace alloys, composites, manufacturing; not Metallurgy-specific but highly relevant
+- **Professor Dave Explains** — https://www.youtube.com/@ProfessorDaveExplains
+  - Chemistry and physics foundations essential for metallurgy students
 
 ### Online Courses
 - **MIT OpenCourseWare 3.091** — Introduction to Solid State Chemistry (free)
@@ -574,11 +657,30 @@ Functional & Low-Dimensional Materials, Additive Manufacturing, Biomaterials, Ce
 - Electrodeposition of copper nanostructures for electronics applications
 
 ### Competitions & Events
-- **IIM National Metallography Contest** — best microstructure, organized annually
-- **TMS Student Design Competition** — international, prizes + recognition
-- **SAIL Steel Design Competition** — industry-sponsored, excellent for placements
-- **Smart India Hackathon (SHI)** — government; materials solutions for societal problems
-- **IIT Techfest Materials Challenge** — inter-IIT level
+- **IIM Annual Technical Meeting (ATM) — Metallography Contest**
+  - Flagship event of Indian Institute of Metals; held annually
+  - Metallography contest: students prepare and present best microstructure samples
+  - Also: poster presentations, oral presentations, PhD student sessions
+  - Excellent networking with Tata Steel, SAIL, DRDO professionals
+
+- **Smart India Hackathon (SIH) — SAIL Problem Statements**
+  - 2025 edition: SAIL specifically submitted problems on AI-based Rake Formation Optimiser, Vessel Scheduling, and Energy Efficiency for Iron Ore Mining
+  - Open to all engineering students; metallurgy students have domain advantage for steel/mining problems
+  - Organized by Ministry of Education + AICTE; held Dec 8-9, 2025
+
+- **TMS (The Minerals, Metals & Materials Society) Student Design Competition**
+  - International competition; IIT teams regularly participate
+  - Problem statements on real materials challenges; cash prizes
+  - Great CV addition + international exposure
+
+- **Metallurgica 2025 — Kaggle Competition**
+  - Data science competition applied to metallurgy/mining
+  - URL: https://www.kaggle.com/competitions/metallurgica2025
+  - Good for students wanting to combine ML + metallurgy
+
+- **ASM International Student Chapter Activities**
+  - Local chapter events, material bowl competition, scholarships
+  - IIT Bombay, IIT Kharagpur have active ASM student chapters
 
 ### Notable Industry Innovations (2024-2026)
 - **HYBRIT (SSAB + LKAB + Vattenfall)** — first hydrogen-reduced iron for steel (commercial scale 2026)
