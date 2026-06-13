@@ -67,23 +67,89 @@
 
 ---
 
-### IIT Kharagpur (MME) — Department Overview
+### IIT Kharagpur (MME) — Complete B.Tech Curriculum
 
-**Established:** 1954 (one of India's oldest metallurgy departments)
-**Unique asset:** Steel Technology Center on campus — dedicated steel R&D facility
+**Established:** 1954 | **Unique asset:** Steel Technology Center on campus
+**Source:** https://erp.iitkgp.ac.in/ERPWebServices/curricula/CurriculaSubjectsList.jsp?stuType=UG&splCode=MT
 
-**Research Areas (also reflected in elective courses):**
-- Functional & Low-Dimensional Materials
-- Additive Manufacturing (AM of metals)
-- Biomaterials
-- Ceramics and Composites
-- Computational Materials Engineering (DFT, CALPHAD, ML)
-- Degradation of Materials (Corrosion, Oxidation)
-- Mechanical Behavior of Materials
-- Energy Materials (batteries, fuel cells, solar)
-- Extractive Metallurgy & Sustainability (green processing)
-- Artificial Intelligence in Materials Engineering
-- Surface Engineering
+**Semesters 1 & 2 (Foundation):**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MA10001 | Mathematics-I | 4 |
+| MA10002 | Mathematics-II | 4 |
+| PH11001 | Physics | 4 |
+| CY11001 | Chemistry | 4 |
+| CS10001 | Programming and Data Structures | 3 |
+| ME10001 | Mechanics | 4 |
+| EE11001 | Electrical Technology | 4 |
+| HS13001 | English for Communication | 4 |
+| CE13001 | Engineering Drawing and Computer Graphics | 3 |
+| CS19101 | Programming & Data Structures Lab | 3 |
+| PH19001 | Physics Lab | 2 |
+| CY19001 | Chemistry Lab | 2 |
+| EE19001 | Electrical Technology Lab | 2 |
+| ME19001 | Introduction to Manufacturing Processes | 2 |
+
+**Semester 3:**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MT21107 | Introduction to Engineering Materials | 4 |
+| MT21105 | Metallurgical Thermodynamics and Kinetics | 4 |
+| MA20103 | Partial Differential Equations | 3 |
+| HS20001 | Economics | 4 |
+| BS20001 | Science of Living System | 2 |
+| MT29005 | Metallurgical Thermodynamics & Kinetics Lab | 2 |
+| MT29007 | Introduction to Engineering Materials Lab | 2 |
+
+**Semester 4:**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MT21010 | Transport Phenomena in Metallurgical Processes | 4 |
+| MT21008 | Deformation Behaviour of Materials | 4 |
+| MT20006 | Materials Processing | 3 |
+| EC21101 | Basic Electronics | 4 |
+| MA20106 | Probability and Stochastic Processes | 3 |
+| MT29006 | Materials Processing Lab | 2 |
+| EC29001 | Basic Electronics Lab | 2 |
+
+**Semester 5:**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MT31015 | Principles of Extractive Metallurgy | 4 |
+| MT31017 | Phase Transformation and Heat Treatment of Materials | 4 |
+| MT31009 | Mechanical Working of Materials | 3 |
+| MT31007 | Creep, Fatigue and Fracture | 3 |
+| MT39005 | Heat Treatment of Materials Lab | 2 |
+| MT39009 | Mechanical Testing and Working Lab | 2 |
+
+**Semester 6:**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MT32008 | Iron Making and Steelmaking | 4 |
+| MT31022 | X-Ray Diffraction and TEM | 4 |
+| MT31012 | Material Characterization | 3 |
+| MT41009 | Computer Applications in Metallurgical Processes | 3 |
+| MT39004 | Materials Characterisation Lab | 2 |
+| MT39022 | X-Ray Diffraction and TEM Laboratory | 2 |
+| MT49009 | Computer Applications in Metallurgical Processes Lab | 2 |
+
+**Semesters 7 & 8 (Electives + Project):**
+
+| Code | Course | Credits |
+|------|--------|---------|
+| MT41013 | Corrosion and Environmental Degradation of Materials | 3 |
+| MT48003 | Summer Training | 2 |
+| MT48002 | Comprehensive Viva-Voce | 2 |
+| — | Electives I–VIII (depth + breadth) | Variable |
+| — | Project-I & Project-II | Variable |
+
+**Research Areas (reflected in electives):**
+Functional & Low-Dimensional Materials, Additive Manufacturing, Biomaterials, Ceramics & Composites, Computational Materials Engineering, Energy Materials (batteries/fuel cells), Extractive Metallurgy & Sustainability, AI in Materials Engineering, Surface Engineering, Degradation of Materials
 
 **Placement Data (2025):** Avg ₹18.37 LPA | Highest ₹46.99 LPA | Placement rate 70.12%
 
@@ -582,6 +648,7 @@
 ## Sources
 
 ### Academic
+- IIT Kharagpur B.Tech MT Curriculum (ERP): https://erp.iitkgp.ac.in/ERPWebServices/curricula/CurriculaSubjectsList.jsp?stuType=UG&splCode=MT
 - IIT Madras B.Tech Metallurgical & Materials Engineering Curriculum (Scribd): https://www.scribd.com/document/973601556/Document
 - CollegeDunia B.Tech MME Syllabus: https://collegedunia.com/courses/bachelor-of-technology-btech-metallurgical-and-materials-engineering/syllabus
 - GATE 2026 MT Syllabus (AUBSP): https://www.aubsp.com/gate-syllabus-metallurgical-engineering/
