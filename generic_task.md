@@ -69,37 +69,109 @@ Date: [timestamp]
 **Research Sources (adapt based on domain):**
 
 #### For Engineering Branches:
-- IIT/NIT curricula and syllabi
-- GATE syllabus for the branch
-- AICTE curriculum guidelines
-- Industry standards (IEEE, ACM, etc.)
-- Top university programs (MIT OCW, Stanford, etc.)
+- **Academic Curricula:**
+  - IIT curricula (IIT Bombay, IIT Madras, IIT Kharagpur, IIT Delhi)
+  - NIT syllabi (NIT Delhi, NIT Trichy, NIT Rourkela)
+  - GATE syllabus for the specific branch
+  - AICTE curriculum guidelines
+  - Top international universities (MIT OCW, Stanford, Georgia Tech)
+- **Professional Bodies:**
+  - IEEE (electrical, computer, electronics)
+  - ACM (computer science)
+  - ASME (mechanical)
+  - ASCE (civil)
+  - AIChE (chemical)
+- **Industry Trends:**
+  - Recent tech news and publications
+  - GitHub trending projects (for software-related branches)
+  - Research papers (arXiv, IEEE Xplore, Google Scholar)
+  - Industry reports and white papers
 
 #### For Commerce Streams:
-- University syllabi (DU, Mumbai University, etc.)
-- Professional body curricula (ICAI, ICWA, CFA Institute, etc.)
-- Industry certifications
-- Career progression frameworks
+- **Academic Programs:**
+  - University syllabi (Delhi University, Mumbai University, top B-schools)
+  - NCERT commerce curriculum
+- **Professional Bodies:**
+  - ICAI (Chartered Accountancy)
+  - ICWA/CMA (Cost & Management Accounting)
+  - CFA Institute (Financial Analysis)
+  - ACCA (International accounting)
+  - Company Secretaries Institute
+- **Industry Standards:**
+  - Accounting standards (IndAS, IFRS, GAAP)
+  - Professional certification paths
+  - Career progression frameworks
 
 #### For Arts/Humanities:
-- University curricula (top institutions)
-- Professional associations
-- Industry standards and frameworks
-- Career pathways documentation
+- **Academic Institutions:**
+  - Top university curricula (JNU, DU, international unis)
+  - Department-specific syllabi
+- **Professional Associations:**
+  - Subject-specific professional bodies
+  - Research associations
+  - Industry guilds and councils
+- **Career Resources:**
+  - Career pathways documentation
+  - Industry standards and best practices
 
 #### For Science Streams:
-- University programs
-- Research institution guidelines
-- Professional certifications
-- Laboratory and research frameworks
+- **Academic Programs:**
+  - University BSc/MSc programs
+  - Research institution guidelines (TIFR, IISc, etc.)
+- **Certifications:**
+  - Professional certifications in the field
+  - Laboratory certifications
+  - Research methodologies
 
 #### Universal Research (ALL domains):
-- **Salary Data:** LinkedIn Salary, Glassdoor, AmbitionBox, Payscale
-- **Career Paths:** Job portals (Naukri, Indeed), LinkedIn job postings
-- **Industry Trends:** Recent news, research papers, industry reports
-- **AI Impact:** How AI/automation affects this field
-- **Educational Resources:** YouTube channels, online courses, books
-- **Student Projects:** Typical projects and practical work
+- **Salary & Compensation:**
+  - LinkedIn Salary Insights
+  - Glassdoor company reviews and salaries
+  - AmbitionBox (India-specific)
+  - Payscale salary data
+  - Naukri/Indeed salary reports
+  
+- **Career Paths & Opportunities:**
+  - Job portals (Naukri, Indeed, LinkedIn Jobs)
+  - LinkedIn job postings and career paths
+  - Company career pages (specific to field)
+  - Industry hiring trends reports
+  
+- **Industry Trends (2026):**
+  - Recent news articles (Google News, TechCrunch, etc.)
+  - Industry reports and market research
+  - Research papers and publications
+  - Conference proceedings
+  - Technology blogs and forums
+  
+- **AI & Technology Impact:**
+  - How AI/automation affects this specific field
+  - Future skills and adaptation strategies
+  - Emerging technologies in the domain
+  - Digital transformation trends
+  
+- **Educational Resources:**
+  - **YouTube Channels:** Subject-specific educational channels
+  - **Online Courses:** Coursera, edX, Udemy, NPTEL
+  - **Free Resources:** MIT OCW, Khan Academy
+  - **Books:** Standard textbooks and recommended reading
+  - **Communities:** Reddit, Discord, professional forums
+  
+- **Practical Work & Projects:**
+  - Typical student projects (undergraduate level)
+  - Industry project examples
+  - Hackathons, competitions, challenges
+  - Open-source contributions (if applicable)
+  - Portfolio examples
+
+**Search Query Examples:**
+- "[Branch] IIT syllabus curriculum 2026"
+- "[Branch] salary India ISRO/TCS/Infosys 2026" (adapt company names)
+- "[Branch] career path entry to senior level"
+- "[Branch] AI impact machine learning automation 2026"
+- "[Branch] YouTube channels courses online learning NPTEL"
+- "[Branch] student projects final year ideas"
+- "[Branch] pros cons advantages disadvantages career 2026"
 
 **Actions:**
 1. Use WebSearch and WebFetch tools to gather information
