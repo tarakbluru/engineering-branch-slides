@@ -1,4 +1,4 @@
-# Project Tasks - Engineering Branch Slide Decks
+# Engineering Branch Slide Decks - Project Tracker
 
 ## Project Overview
 Create interactive HTML slide decks for engineering branches to help a high school student (daughter) evaluate career options.
@@ -7,14 +7,16 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 **Format:** Self-contained HTML files with embedded CSS/JS, speaker notes for AI video generation  
 **Structure:** 20 slides per branch covering curriculum, careers, salaries, trends, AI impact, pros/cons
 
-**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (17+ total branches)
+**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (22 total branches)
+
+**Workflow:** See `generic_task.md` for step-by-step execution process
 
 ---
 
 ## Current Status Summary
 
-**Completed:** 5 branches (EC, EE, CSE, ME, CE)  
-**Remaining:** 12+ branches across core, specialized, and emerging fields
+**Completed:** 6 branches (EC, EE, CSE, ME, CE, Aerospace)  
+**Remaining:** 16 branches across core, specialized, and emerging fields
 
 ---
 
@@ -90,7 +92,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 **Status:** Complete and deployed to GitHub Pages
 
-### ✅ COMPLETED: CE (Civil Engineering) - BONUS BRANCH
+### ✅ COMPLETED: CE (Civil Engineering)
 
 **Files:**
 - `slides/CE.html` - 20/20 slides complete with 3 working images
@@ -100,13 +102,27 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 - All 20 slides with comprehensive CE content
 - Terra Cotta branding (#DC582A, #F08A65, #B24020)
 - Speaker notes (200-500+ words per slide)
-- 3 Unsplash images with proper attribution
-- Complete coverage: curriculum, careers (₹3-50+ LPA), salaries, trends (BIM, sustainable design), AI impact, pros/cons
-- Manually created from template.html and CE.md
+- Complete coverage: curriculum, careers (₹3-50+ LPA), salaries, trends, AI impact, pros/cons
 
 **Status:** Complete and deployed to GitHub Pages
 
-### ✅ COMPLETED: Templates for Remaining Branches
+### ✅ COMPLETED: Aerospace Engineering
+
+**Files:**
+- `slides/Aerospace.html` - 20/20 slides complete with 3 working images
+- `docs/Aerospace.md` - 160KB comprehensive guide (1,293 lines)
+- `resources/aerospace_engineering_syllabus.md` - 17KB research compilation
+
+**Features Complete:**
+- All 20 slides with comprehensive Aerospace content
+- Sky Blue branding (#0369A1, #0284C7, #075985)
+- Speaker notes (200-500+ words per slide)
+- Complete coverage: curriculum, careers (₹4.5-40+ LPA), ISRO/HAL/Boeing, AI impact, trends
+- Research from IIT/NIT syllabi, industry data
+
+**Status:** Complete and deployed to GitHub Pages
+
+### ✅ COMPLETED: Templates for All Branches
 
 **Template Files Created:**
 - `docs/template.md` - Markdown template with placeholders and instructions for creating branch `.md` files
@@ -272,43 +288,13 @@ Niche but important branches:
 6. Mining Engineering
 7. Textile Engineering
 
-**Process per Branch:**
+**Execution:** Follow the workflow in `generic_task.md` for creating each branch.
 
-**Step 1: Research (1-2 hours)**
-- Academic: MIT OCW, IIT curricula for this branch, IEEE/ACM publications
-- Industry: LinkedIn salaries, Glassdoor reviews, company career pages
-- Trends: Recent tech news, GitHub trending projects, research papers
-- Resources: YouTube channels, online courses, books specific to branch
+---
 
-**Step 2: Create Markdown Content (2-3 hours)**
-1. Copy `docs/template.md` to `docs/[BRANCH_ABBREVIATION].md`
-2. Fill all `[PLACEHOLDER]` content with researched information
-3. Write speaker notes (200-500 words per slide)
-4. Follow template instructions and completion checklist
-5. Save for notebook LLM video generation
+## Optional Enhancements (Future)
 
-**Step 3: Create HTML Slides (1-2 hours)**
-1. Copy `docs/template.html` to `slides/[BRANCH_ABBREVIATION].html`
-2. Transfer content from markdown to HTML placeholders
-3. Update CSS color variables with branch-specific colors
-4. Find 3 relevant Unsplash images (test URLs with `curl -I`)
-5. Add proper alt text and photographer attribution
-6. Fill all speaker notes sections
-
-**Step 4: Test & Deploy (30 mins)**
-1. Open HTML locally in browser
-2. Test all 20 slides navigation (arrow keys, buttons)
-3. Test speaker notes toggle ('N' key)
-4. Test on mobile view (browser dev tools)
-5. Commit: `git add slides/[BRANCH].html docs/[BRANCH].md`
-6. Commit: `git commit -m "Add [BRANCH_NAME] slide deck and content"`
-7. Push: `git push origin master`
-8. Wait 1-2 minutes for GitHub Pages rebuild
-9. Verify: `https://tarakbluru.github.io/engineering-branch-slides/slides/[BRANCH].html`
-
-### 3. OPTIONAL ENHANCEMENTS (After All 7 Complete)
-
-- Create index page linking all 7 branches
+- Create index page linking all engineering branches
 - Add comparison matrix across branches
 - Add quiz/self-assessment tool
 - Create videos for remaining branches
@@ -316,190 +302,61 @@ Niche but important branches:
 
 ---
 
-## Key Information
+## Repository Information
 
-### Repository
 - **GitHub:** https://github.com/tarakbluru/engineering-branch-slides
 - **GitHub Pages:** https://tarakbluru.github.io/engineering-branch-slides/
 - **Visibility:** PUBLIC
 - **Branch:** master
 
-### File Structure
-```
-engineering-branch-slides/
-├── README.md                   # Comprehensive documentation
-├── TASK.md                     # This file
-├── .claude/CLAUDE.md           # Project configuration
-├── docs/
-│   ├── 01_template_architecture.md     # Design specifications
-│   ├── 02_content_outline.md           # Content structure guide
-│   ├── 03_html_technical_spec.md       # HTML/CSS/JS specifications
-│   ├── 04_ec_pilot_implementation_plan.md
-│   ├── template.md             # ✅ Markdown template (use for new branches)
-│   ├── template.html           # ✅ HTML template (ALWAYS use for new branches)
-│   ├── EC.md                   # ✅ EC content in markdown
-│   ├── EE.md                   # ✅ EE content in markdown
-│   ├── CSE.md                  # ✅ CSE content in markdown
-│   └── ME.md                   # ✅ ME content in markdown
-└── slides/
-    ├── EC.html                 # ✅ Complete (Orange #FF6600)
-    ├── EE.html                 # ✅ Complete (Gold #FFB800)
-    ├── CSE.html                # ✅ Complete (Blue #0066CC)
-    ├── ME.html                 # ✅ Complete (bonus branch)
-    ├── EC_Engineering_Career_Guide.mp4        # 38 MB
-    ├── EE_Engineering_Career_Guide.mp4        # 46 MB (Electrical_Engineering.mp4)
-    ├── CSE__Complete_Guide.mp4                # 44 MB
-    └── Mechanical_Engineering_Guide.mp4       # 43 MB
-```
-
-### Template Structure (20 Slides)
-1. Title - Branch branding
-2. Overview - What is this branch
-3-5. Curriculum - Years 1-4, courses, labs
-6. Skills - Technical, tools, professional
-7-8. Careers - Entry to senior roles, salaries
-9. Industry Sectors - Where graduates work
-10. Higher Education - MS/PhD options
-11. Day-to-Day Work - Realistic scenario
-12. Compensation - India + international salaries
-13. Current Trends - What's hot in the field
-14-15. AI Impact - How AI transforms field, future strategy
-16. Educational Resources - Videos, courses, books
-17. Real-World Projects - Student and industry examples
-18. Pros & Cons - Honest assessment
-19. Decision Checklist - Self-assessment
-20. Closing - Summary and key takeaways
-
-### Content Sources
-- **Academic:** MIT OCW, IIT curricula, IEEE, ACM
-- **Industry:** LinkedIn, Glassdoor, company career pages
-- **Educational:** YouTube channels, Coursera, edX, NPTEL
-- **Images:** Unsplash.com (free with attribution)
-
-### Technical Details
-- Self-contained HTML (no external dependencies)
-- Embedded CSS and JavaScript
-- Branch-specific color schemes (EC = Orange #FF6600)
-- Navigation: Arrow keys, spacebar, mouse, touch/swipe
-- Press 'N' to toggle speaker notes
-- Works offline except images
-- Optimized for web (146 KB file size)
-
 ---
 
-## Important Notes
+## Engineering Branch Color Schemes
 
-### 🚨 CRITICAL COMMANDMENTS - MUST FOLLOW
-
-**COMMANDMENT #1: ALWAYS USE TEMPLATE FILES AS BASIS**
-
-⛔ **FORBIDDEN:** 
-- Copying existing branch HTML files (EC.html, EE.html, ME.html) as starting point
-- Using any completed branch file as a template
-- Modifying existing branch files to create new branches
-
-✅ **REQUIRED:**
-- **ALWAYS** copy `docs/template.html` to create new HTML files
-- **ALWAYS** copy `docs/template.md` to create new markdown files
-- Start fresh with clean template every time
-
-**WHY:** Existing branch files contain branch-specific content, colors, and placeholders that create confusion, errors, and incomplete replacements. Templates are designed with proper placeholders for systematic replacement.
-
-**CONSEQUENCE OF VIOLATION:** Broken HTML, missing content, wrong colors, navigation issues, wasted time debugging.
-
----
-
-### When Creating New Branches:
-
-**Option 1: Using Markdown Template (for notebook LLM videos)**
-1. Copy `docs/template.md` to `docs/[BRANCH_ABBREVIATION].md`
-2. Replace all `[PLACEHOLDER]` text with branch-specific content
-3. Use branch color scheme from template header
-4. Fill all 20 slides with researched content
-5. Write speaker notes (200-500 words per slide)
-6. Follow completion checklist at end of template
-7. Use `.md` file for notebook LLM video generation
-
-**Option 2: Using HTML Template (for web deployment)**
-
-⚠️ **IMPORTANT:** Always use `docs/template.html` as the starting point for creating new HTML slide files. Do NOT copy from existing branch HTML files (like EC.html or EE.html) as they contain branch-specific content that could lead to errors.
-
-1. Copy `docs/template.html` to `slides/[BRANCH_ABBREVIATION].html`
-2. Replace all `[PLACEHOLDER]` text with branch-specific content
-3. Update CSS color variables with branch colors (see template comments)
-4. Find 3 relevant images from Unsplash (verify URLs work!)
-5. Fill all 20 slides with content and speaker notes
-6. Test locally by opening HTML in browser
-7. Verify navigation, speaker notes toggle ('N' key), responsiveness
-8. Commit with descriptive message
-9. Push to GitHub
-10. Verify on GitHub Pages URL
-
-**Branch Color Reference (in both templates):**
+**Core Computer Science & IT:**
 - CSE: Primary #0066CC, Secondary #3399FF, Accent #004C99
 - EC: Primary #FF6600, Secondary #FF8833, Accent #CC5200
-- EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
 - IS: Primary #00A896, Secondary #33BBAD, Accent #008577
 - CSE-DS: Primary #8B5CF6, Secondary #A78BFA, Accent #7C3AED
 - CSE-AIML: Primary #4F46E5, Secondary #6366F1, Accent #4338CA
 - CSE-CS: Primary #1E3A8A, Secondary #3B82F6, Accent #1E40AF
+- IT: Primary #0EA5E9, Secondary #38BDF8, Accent #0284C7
 
-### Image Guidelines:
-- Use Unsplash URLs: `https://images.unsplash.com/photo-[ID]?w=800&q=80`
-- Test URL works: `curl -I "URL"` should return HTTP 200
-- Add proper alt text for accessibility
-- Include attribution in caption: "Photo by [Name] on Unsplash"
-- 3 images per branch (slides 2, 3, 4 typically)
+**Core Electrical & Electronics:**
+- EE: Primary #FFB800, Secondary #FFCA33, Accent #CC9400
+- Instrumentation: Primary #6B21A8, Secondary #9333EA, Accent #581C87
 
-### Git Workflow:
-```bash
-git add [files]
-git commit -m "Descriptive message"
-git push origin master
-# GitHub Pages auto-rebuilds (wait 1-2 minutes)
-```
+**Core Mechanical & Manufacturing:**
+- ME: Primary #64748B, Secondary #94A3B8, Accent #475569
+- Automobile: Primary #DC2626, Secondary #EF4444, Accent #B91C1C
+- Aerospace: Primary #0369A1, Secondary #0284C7, Accent #075985
+- Production: Primary #475569, Secondary #64748B, Accent #334155
 
-### Testing Checklist per Branch:
-- [ ] All 20 slides present
-- [ ] Navigation works (next/prev buttons, keyboard)
-- [ ] Progress bar updates correctly
-- [ ] Images load properly
-- [ ] Speaker notes toggle with 'N' key
-- [ ] Responsive on mobile (test in browser dev tools)
-- [ ] Works on GitHub Pages URL
+**Core Infrastructure:**
+- CE: Primary #DC582A, Secondary #F08A65, Accent #B24020
 
----
+**Chemical & Process:**
+- Chemical: Primary #16A34A, Secondary #22C55E, Accent #15803D
+- Petroleum: Primary #1E40AF, Secondary #3B82F6, Accent #1E3A8A
 
-## Current Blockers
+**Emerging Technologies:**
+- Robotics: Primary #2563EB, Secondary #3B82F6, Accent #1D4ED8
+- Renewable: Primary #65A30D, Secondary #84CC16, Accent #4D7C0F
+- Biotech: Primary #0D9488, Secondary #14B8A6, Accent #0F766E
+- Environmental: Primary #059669, Secondary #10B981, Accent #047857
+- Mechatronics: Primary #EA580C, Secondary #F97316, Accent #C2410C
 
-**NONE** - 4 branches complete (EC, EE, CSE, ME) with videos, ready to create remaining 4 branches.
-
----
-
-## Questions for User (If Any)
-
-1. Has daughter reviewed the completed branches (EC, EE, CSE, ME)? Any feedback?
-2. Which branch should be created next: IS, CSE-DS, CSE-AIML, or CSE-CS?
-3. Should we prioritize any specific branch over others?
-4. All completed branches have video versions - continue adding videos for remaining branches?
-5. Should ME (Mechanical Engineering) color scheme be documented in the template?
+**Specialized Fields:**
+- Agricultural: Primary #CA8A04, Secondary #EAB308, Accent #A16207
+- Mining: Primary #18181B, Secondary #27272A, Accent #09090B
+- Textile: Primary #C026D3, Secondary #D946EF, Accent #A21CAF
 
 ---
 
-**Last Updated:** June 6, 2026  
-**Status:** EC, EE, CSE, ME Complete (4/7 original branches + 1 bonus = 5 total) - Ready to Create Remaining 4 Branches
+**Last Updated:** June 13, 2026  
+**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 16 remaining
 
-**Completed Branches:**
-- ✅ EC (Electronics & Communication) - Orange branding
-- ✅ EE (Electrical Engineering) - Gold branding
-- ✅ CSE (Computer Science & Engineering) - Blue branding
-- ✅ ME (Mechanical Engineering) - Bonus branch
-
-**Remaining Branches:**
-- ❌ IS (Information Science)
-- ❌ CSE-DS (CSE Data Science)
-- ❌ CSE-AIML (CSE AI & Machine Learning)
-- ❌ CSE-CS (CSE Cyber Security)
+**For execution workflow, see:** `generic_task.md`
 
 **Templates Available:**
 - ✅ `docs/template.md` - Markdown template with full instructions
