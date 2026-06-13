@@ -27,6 +27,17 @@
 
 ## Workflow Steps
 
+### **Step 0: Setup (First Time Only)**
+
+**Ensure directory structure exists:**
+```bash
+mkdir -p plans status resources
+```
+
+**Note:** Status and plan files (`.txt`) are gitignored and stay local only. They're for tracking progress and resuming work after `/clear`.
+
+---
+
 ### **Step 1: Create Implementation Plan**
 
 **Objective:** Plan the research, content structure, and execution strategy
@@ -37,7 +48,7 @@
 1. Read existing templates:
    - `docs/template.md` for markdown structure
    - `docs/template.html` for HTML structure
-   - `task.md` for project context
+   - For engineering branches: `engg_task.md` for branch inventory and colors
 2. Create a branch-specific plan document: `plans/{BRANCH_ABBREVIATION}_plan.md`
 3. Plan should include:
    - Research sources (institutions, industry websites, salary data)
@@ -48,7 +59,7 @@
 
 **Status Update:**
 ```
-Create/Update: {BRANCH_ABBREVIATION}_status.txt
+Create/Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 1: Plan Creation - COMPLETED
 Plan file: plans/{BRANCH_ABBREVIATION}_plan.md
@@ -193,7 +204,7 @@ Date: [timestamp]
 
 **Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 2: Research & Resource Gathering - COMPLETED
 Resource file: resources/{BRANCH_ABBREVIATION}_syllabus.md
@@ -206,7 +217,7 @@ Date: [timestamp]
 
 **Commit & Push:**
 ```bash
-git add resources/{BRANCH_ABBREVIATION}_syllabus.md {BRANCH_ABBREVIATION}_status.txt
+git add resources/{BRANCH_ABBREVIATION}_syllabus.md status/{BRANCH_ABBREVIATION}_status.txt
 git commit -m "Add {BRANCH_NAME} research and syllabus compilation"
 git push
 ```
@@ -257,7 +268,7 @@ git push
 
 **Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 3: Markdown Documentation - COMPLETED
 MD file: docs/{BRANCH_ABBREVIATION}.md
@@ -283,14 +294,14 @@ Date: [timestamp]
 
 **Actions:**
 ```bash
-git add docs/{BRANCH_ABBREVIATION}.md {BRANCH_ABBREVIATION}_status.txt
+git add docs/{BRANCH_ABBREVIATION}.md status/{BRANCH_ABBREVIATION}_status.txt
 git commit -m "Add {BRANCH_NAME} complete documentation (20 slides with speaker notes)"
 git push
 ```
 
 **Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 4: Markdown Commit - COMPLETED
 Committed: docs/{BRANCH_ABBREVIATION}.md
@@ -381,7 +392,7 @@ Date: [timestamp]
 
 **Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 5: HTML Slide Deck Creation - COMPLETED
 HTML file: slides/{BRANCH_ABBREVIATION}.html
@@ -404,14 +415,16 @@ Date: [timestamp]
 
 **Actions:**
 ```bash
-git add slides/{BRANCH_ABBREVIATION}.html {BRANCH_ABBREVIATION}_status.txt
+git add slides/{BRANCH_ABBREVIATION}.html status/{BRANCH_ABBREVIATION}_status.txt
 git commit -m "Add {BRANCH_NAME} HTML slide deck (20 slides)"
 git push
 ```
 
 **Post-Deployment Verification:**
 1. Wait 1-2 minutes for GitHub Pages rebuild
-2. Open URL in browser: `https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html`
+2. Open URL in browser: `https://{GITHUB_USERNAME}.github.io/{REPOSITORY_NAME}/slides/{BRANCH_ABBREVIATION}.html`
+   - **Engineering branches:** `https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html`
+   - Adapt repository name based on your domain/project
 3. **Test Navigation:**
    - Arrow keys (left/right, up/down)
    - Spacebar (forward)
@@ -439,13 +452,13 @@ git push
 
 **Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 Step 6: HTML Commit & Deployment - COMPLETED
 Committed: slides/{BRANCH_ABBREVIATION}.html
 Repository: Updated
 GitHub Pages: Deployed
-URL: https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html
+URL: https://{GITHUB_USERNAME}.github.io/{REPOSITORY_NAME}/slides/{BRANCH_ABBREVIATION}.html
 Next step: Final validation
 Date: [timestamp]
 ---
@@ -469,7 +482,7 @@ Date: [timestamp]
 
 **Final Status Update:**
 ```
-Update: {BRANCH_ABBREVIATION}_status.txt
+Update: status/{BRANCH_ABBREVIATION}_status.txt
 ---
 ✅ PROJECT COMPLETE - {BRANCH_NAME}
 
@@ -477,7 +490,7 @@ Deliverables:
 - Research: resources/{BRANCH_ABBREVIATION}_syllabus.md
 - Documentation: docs/{BRANCH_ABBREVIATION}.md
 - Slide Deck: slides/{BRANCH_ABBREVIATION}.html
-- Live URL: https://tarakbluru.github.io/engineering-branch-slides/slides/{BRANCH_ABBREVIATION}.html
+- Live URL: https://{GITHUB_USERNAME}.github.io/{REPOSITORY_NAME}/slides/{BRANCH_ABBREVIATION}.html
 
 Statistics:
 - Total slides: 20
@@ -491,7 +504,8 @@ Status: COMPLETED ✅
 ```
 
 **Update Task Tracker:**
-- Add to completed branches in `task.md`
+- **Engineering branches:** Add to completed list in `engg_task.md`
+- **Other domains:** Update your domain-specific tracker
 - Update counts and statistics
 - Document any lessons learned
 
@@ -499,9 +513,11 @@ Status: COMPLETED ✅
 
 ## Status File Format
 
-**File:** `{BRANCH_ABBREVIATION}_status.txt`
+**File:** `status/{BRANCH_ABBREVIATION}_status.txt`
 
 **Purpose:** Track progress, enable resume after `/clear`, provide quick reference
+
+**Note:** Status files are `.txt` and gitignored (stay local, not committed to repository)
 
 **Template:**
 ```
@@ -574,7 +590,7 @@ FILES CREATED
 - [ ] resources/{BRANCH_ABBREVIATION}_syllabus.md
 - [ ] docs/{BRANCH_ABBREVIATION}.md
 - [ ] slides/{BRANCH_ABBREVIATION}.html
-- [✅] {BRANCH_ABBREVIATION}_status.txt
+- [✅] status/{BRANCH_ABBREVIATION}_status.txt
 
 ========================================
 Last Updated: [timestamp]
@@ -587,7 +603,7 @@ Last Updated: [timestamp]
 
 **When resuming work on a branch after `/clear`:**
 
-1. Read `{BRANCH_ABBREVIATION}_status.txt`
+1. Read `status/{BRANCH_ABBREVIATION}_status.txt`
 2. Identify current step and completion status
 3. Continue from the next incomplete step
 4. Do NOT repeat completed steps
@@ -596,7 +612,7 @@ Last Updated: [timestamp]
 **Example:**
 ```
 User: Continue working on Aerospace Engineering
-Assistant: [Reads AE_status.txt]
+Assistant: [Reads status/AE_status.txt]
           [Sees Step 5 is in progress]
           [Continues creating HTML slide deck from where it left off]
 ```
@@ -675,11 +691,11 @@ Every branch/stream deliverable must meet these standards:
 
 ```
 project-root/
-├── generic_task.md              # This file - workflow definition
-├── task.md                      # Project overview and progress
+├── generic_task.md              # This file - universal workflow
+├── engg_task.md                 # Engineering branches tracker (domain-specific)
 ├── README.md                    # Project documentation
 │
-├── plans/                       # Implementation plans
+├── plans/                       # Implementation plans (*.md, not committed)
 │   ├── AE_plan.md
 │   ├── CA_plan.md
 │   └── [BRANCH]_plan.md
@@ -701,11 +717,13 @@ project-root/
 │   ├── CA.html
 │   └── [BRANCH].html
 │
-└── status/                      # Status tracking files
+└── status/                      # Status tracking files (*.txt, gitignored)
     ├── AE_status.txt
     ├── CA_status.txt
     └── [BRANCH]_status.txt
 ```
+
+**Note:** `.txt` files (status and plans) are gitignored and stay local for progress tracking.
 
 ---
 
