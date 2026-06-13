@@ -4,11 +4,13 @@
 
 **Target Audience:** Students choosing their career path (high school, college, career switchers)
 
-**Output Format:** 
-- Interactive HTML slide deck (20 slides)
-- Markdown documentation
-- Research resources compilation
-- Status tracking for resume capability
+**Output Format (Dual-Purpose):** 
+- **Interactive HTML slide deck** (20 slides) → for web deployment via GitHub Pages
+- **Markdown documentation** (20 slides) → for notebook LLM video generation (e.g., NotebookLM)
+- **Research resources compilation** → source material with citations
+- **Status tracking** → `.txt` files for resume capability after `/clear`
+
+**Why two formats?** The HTML is the interactive web presentation; the markdown is fed to a notebook LLM to auto-generate narrated video versions of each branch. Both share the same content but serve different delivery channels.
 
 ---
 
@@ -228,6 +230,8 @@ git push
 
 **Objective:** Create comprehensive 20-slide content in markdown format
 
+**Purpose:** This `.md` file serves as the source for **notebook LLM video generation** (e.g., NotebookLM). The speaker notes become the narration script for the video version.
+
 **Estimated Time:** 2-3 hours (includes writing speaker notes)
 
 **Actions:**
@@ -326,6 +330,16 @@ Date: [timestamp]
 - Copying them leads to confusion, errors, incomplete replacements, wrong colors
 - Templates are designed with proper placeholders for systematic replacement
 - **CONSEQUENCE OF VIOLATION:** Broken HTML, missing content, navigation issues, wasted debugging time
+
+**HTML Output Characteristics (built into the template):**
+- Self-contained single file (no external dependencies except images)
+- Embedded CSS and JavaScript (works offline except for Unsplash images)
+- Navigation: Arrow keys, spacebar, mouse buttons, touch/swipe
+- Press 'N' to toggle speaker notes panel
+- Progress bar showing slide position
+- Responsive design (desktop, tablet, mobile)
+- Accessibility: ARIA labels, WCAG AA compliance
+- Optimized file size (typically 80-150 KB)
 
 **Actions:**
 
