@@ -7,7 +7,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 **Format:** Self-contained HTML files with embedded CSS/JS, speaker notes for AI video generation  
 **Structure:** 20 slides per branch covering curriculum, careers, salaries, trends, AI impact, pros/cons
 
-**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (22 total branches; CSE specializations are sub-tracks within CSE, not separate)
+**Scope:** Originally 7 branches, expanded to cover all major engineering disciplines (31 total branches; CSE specializations are sub-tracks within CSE, not separate)
 
 **Workflow:** See `generic_task.md` for step-by-step execution process
 
@@ -15,8 +15,8 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ## Current Status Summary
 
-**Completed:** 6 branches (EC, EE, CSE, ME, CE, Aerospace)  
-**Remaining:** 16 branches across core, specialized, and emerging fields
+**Completed:** 9 branches (EC, EE, CSE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy)  
+**Remaining:** 22 branches across core, specialized, and emerging fields
 
 ---
 
@@ -122,6 +122,25 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 **Status:** Complete and deployed to GitHub Pages
 
+### ✅ COMPLETED: Metallurgy (Metallurgical & Materials Engineering)
+
+**Files:**
+- `slides/Metallurgy.html` - 20/20 slides complete with 3 working images
+- `slides/Metallurgy_Guide.mp4` - video version
+- `docs/Metallurgy.md` - Markdown version with full speaker notes
+
+**Features Complete:**
+- All 20 slides with comprehensive Metallurgy content
+- Amber/Bronze branding (#B45309, #D97706, #92400E)
+- Speaker notes (200-500+ words per slide)
+- 3 Unsplash images with proper attribution
+- Complete coverage: curriculum, careers (₹4-45+ LPA), SAIL/Tata Steel/DRDO, AI impact, trends
+- Research from IIT Bombay, Kharagpur, Kanpur, Roorkee syllabi
+
+**Status:** Complete and deployed to GitHub Pages
+
+---
+
 ### ✅ COMPLETED: Templates for All Branches
 
 **Template Files Created:**
@@ -167,13 +186,15 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 3: Core Mechanical & Manufacturing**
 
-**Status: 2/5 Complete**
+**Status: 3/7 Complete**
 
 1. ✅ **ME** - Mechanical Engineering (COMPLETED)
 2. ✅ **Aerospace** - Aerospace Engineering (COMPLETED)
-3. ❌ **Automobile** - Automobile Engineering (TO DO)
-4. ❌ **Marine** - Marine Engineering (TO DO)
-5. ❌ **Production** - Production/Industrial Engineering (TO DO)
+3. ✅ **Metallurgy** - Metallurgical & Materials Engineering (COMPLETED)
+4. ❌ **Automobile** - Automobile Engineering (TO DO)
+5. ❌ **Marine** - Marine Engineering (TO DO)
+6. ❌ **Production** - Production/Industrial Engineering (TO DO)
+7. ❌ **NavalArch** - Naval Architecture & Ocean Engineering (TO DO) *(IIT Kharagpur)*
 
 ---
 
@@ -187,41 +208,56 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 5: Chemical & Process Engineering**
 
-**Status: 0/2 Complete**
+**Status: 1/4 Complete**
 
-1. ❌ **Chemical** - Chemical Engineering (TO DO)
-2. ❌ **Petroleum** - Petroleum Engineering (TO DO)
+1. ✅ **Chemical** - Chemical Engineering (COMPLETED)
+2. ❌ **Petroleum** - Petroleum Engineering (TO DO) *(IIT ISM Dhanbad)*
+3. ❌ **Polymer** - Polymer Science & Engineering (TO DO) *(IIT Roorkee)*
+4. ❌ **PulpPaper** - Pulp & Paper Engineering (TO DO) *(IIT Roorkee)*
 
 ---
 
 ### **Category 6: Emerging Technologies**
 
-**Status: 0/5 Complete**
+**Status: 1/7 Complete**
 
 1. ❌ **Robotics** - Robotics & Automation Engineering (TO DO)
 2. ❌ **Renewable** - Renewable Energy Engineering (TO DO)
-3. ❌ **Biotech** - Biotechnology Engineering (TO DO)
+3. ✅ **Biotech** - Biotechnology Engineering (COMPLETED)
 4. ❌ **Environmental** - Environmental Engineering (TO DO)
 5. ❌ **Mechatronics** - Mechatronics Engineering (TO DO)
+6. ❌ **Biomedical** - Biomedical Engineering (TO DO) *(IIT Hyderabad, IIT Madras)*
+7. ❌ **Space** - Space Sciences & Engineering (TO DO) *(IIT Indore)*
 
 ---
 
 ### **Category 7: Specialized Fields**
 
-**Status: 0/3 Complete**
+**Status: 0/5 Complete**
 
-1. ❌ **Agricultural** - Agricultural Engineering (TO DO)
-2. ❌ **Mining** - Mining Engineering (TO DO)
-3. ❌ **Textile** - Textile Engineering (TO DO)
+1. ❌ **Agricultural** - Agricultural Engineering (TO DO) *(IIT Kharagpur)*
+2. ❌ **Mining** - Mining Engineering (TO DO) *(IIT KGP, IIT BHU, IIT ISM)*
+3. ❌ **Textile** - Textile Engineering (TO DO) *(IIT Delhi)*
+4. ❌ **Ceramic** - Ceramic Engineering (TO DO) *(IIT BHU)*
+5. ❌ **Pharma** - Pharmaceutical Engineering & Technology (TO DO) *(IIT BHU)*
+
+---
+
+### **Category 8: Science & Interdisciplinary**
+
+**Status: 0/2 Complete**
+
+1. ❌ **EngPhysics** - Engineering Physics (TO DO) *(IIT Bombay, IIT Delhi, IIT Madras, IIT BHU)*
+2. ❌ **MathComp** - Mathematics & Computing (TO DO) *(IIT Delhi, IIT Roorkee, IIT BHU, multiple IITs)*
 
 *(Color schemes for all branches are consolidated in the section below)*
 
 ---
 
 ## **Total Branches:**
-- **Completed:** 6 (CSE, EC, EE, ME, CE, Aerospace)
-- **Remaining:** 16
-- **Grand Total:** 22 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
+- **Completed:** 9 (CSE, EC, EE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy)
+- **Remaining:** 22
+- **Grand Total:** 31 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
 
 ---
 
@@ -234,18 +270,17 @@ Remaining Computer Science & IT branches:
 
 ### **Phase 2: Core Traditional Branches (Priority: MEDIUM)**
 Popular traditional engineering branches:
-1. Chemical Engineering
-2. Automobile Engineering
-3. Marine Engineering
-4. Instrumentation Engineering
-(Aerospace ✅ already complete)
+1. Automobile Engineering
+2. Marine Engineering
+3. Instrumentation Engineering
+(Aerospace ✅, Chemical ✅, and Metallurgy ✅ already complete)
 
 ### **Phase 3: Emerging Fields (Priority: MEDIUM)**
 Modern, high-growth branches:
 1. Robotics & Automation
 2. Renewable Energy
-3. Biotechnology
-4. Environmental Engineering
+3. Environmental Engineering
+(Biotechnology ✅ already complete)
 
 ### **Phase 4: Specialized Fields (Priority: LOW)**
 Niche but important branches:
@@ -255,6 +290,18 @@ Niche but important branches:
 4. Petroleum Engineering
 5. Mining Engineering
 6. Textile Engineering
+7. Naval Architecture & Ocean Engineering
+8. Polymer Science & Engineering
+9. Biomedical Engineering
+10. Space Sciences & Engineering
+
+### **Phase 5: Highly Specialized / Single-IIT Branches (Priority: VERY LOW)**
+Available at only 1-2 IITs:
+1. Ceramic Engineering *(IIT BHU)*
+2. Pharmaceutical Engineering *(IIT BHU)*
+3. Engineering Physics
+4. Mathematics & Computing
+5. Pulp & Paper Engineering *(IIT Roorkee)*
 
 **Execution:** Follow the workflow in `generic_task.md` for creating each branch.
 
@@ -297,6 +344,7 @@ Niche but important branches:
 - Aerospace: Primary #0369A1, Secondary #0284C7, Accent #075985
 - Marine: Primary #0E7490, Secondary #06B6D4, Accent #155E75
 - Production: Primary #475569, Secondary #64748B, Accent #334155
+- Metallurgy: Primary #B45309, Secondary #D97706, Accent #92400E
 
 **Core Infrastructure:**
 - CE: Primary #DC582A, Secondary #F08A65, Accent #B24020
@@ -316,10 +364,27 @@ Niche but important branches:
 - Agricultural: Primary #CA8A04, Secondary #EAB308, Accent #A16207
 - Mining: Primary #18181B, Secondary #27272A, Accent #09090B
 - Textile: Primary #C026D3, Secondary #D946EF, Accent #A21CAF
+- Ceramic: Primary #D97706, Secondary #F59E0B, Accent #B45309
+- Pharma: Primary #DB2777, Secondary #EC4899, Accent #BE185D
+
+**Science & Interdisciplinary:**
+- EngPhysics: Primary #4F46E5, Secondary #6366F1, Accent #3730A3
+- MathComp: Primary #0891B2, Secondary #06B6D4, Accent #0E7490
+
+**Chemical & Process (additions):**
+- Polymer: Primary #7C3AED, Secondary #8B5CF6, Accent #6D28D9
+- PulpPaper: Primary #78716C, Secondary #A8A29E, Accent #57534E
+
+**Emerging (additions):**
+- Biomedical: Primary #BE123C, Secondary #E11D48, Accent #9F1239
+- Space: Primary #1E1B4B, Secondary #3730A3, Accent #312E81
+
+**Core Mechanical (additions):**
+- NavalArch: Primary #1D4ED8, Secondary #2563EB, Accent #1E40AF
 
 ---
 
-**Last Updated:** June 13, 2026  
-**Status:** 6 branches complete (EC, EE, CSE, ME, CE, Aerospace) - 16 remaining
+**Last Updated:** June 14, 2026  
+**Status:** 9 branches complete (EC, EE, CSE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy) - 22 remaining across 8 categories
 
 **For execution workflow, see:** `generic_task.md`
