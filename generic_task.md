@@ -359,11 +359,13 @@ Date: [timestamp]
    - All speaker notes
 
 3. **Find and Test Images (3 required):**
+   - **⚠️ COPYRIGHT REQUIREMENT:** Ensure all images are free from copyright restrictions as HTML files are published publicly on GitHub
+   - **Recommended Source:** Unsplash (unsplash.com) - provides free-to-use images under Unsplash License
    - Search Unsplash for relevant images
    - Format: `https://images.unsplash.com/photo-[ID]?w=800&q=80`
    - Test each URL: `curl -I "[URL]"` must return HTTP 200
    - Add to slides (typically slides 2, 3, 4)
-   - Include alt text and photographer credit
+   - Include alt text and photographer credit (e.g., "Photo by [Name] on Unsplash")
 
 4. **Color Scheme Selection:**
 
