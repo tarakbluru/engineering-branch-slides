@@ -15,8 +15,8 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ## Current Status Summary
 
-**Completed:** 9 branches (EC, EE, CSE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy)  
-**Remaining:** 22 branches across core, specialized, and emerging fields
+**Completed:** 11 branches (EC, EE, CSE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy, IS, IPE)  
+**Remaining:** 20 branches across core, specialized, and emerging fields
 
 ---
 
@@ -139,6 +139,37 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 **Status:** Complete and deployed to GitHub Pages
 
+### ✅ COMPLETED: IS (Information Science & Engineering)
+
+**Files:**
+- `slides/IS.html` - 20/20 slides complete with 3 working images
+- `slides/Info_Science_Career_Guide.mp4` - video version
+- `docs/IS.md` - Markdown version with full speaker notes
+
+**Features Complete:**
+- All 20 slides with comprehensive IS content
+- Teal branding (#00A896, #33BBAD, #008577)
+- Speaker notes (200-500+ words per slide)
+- 3 Unsplash images with proper attribution
+- Complete coverage: curriculum, careers, salaries, trends, AI impact, pros/cons
+
+**Status:** Complete and deployed to GitHub Pages
+
+### ✅ COMPLETED: IPE (Industrial & Production Engineering)
+
+**Files:**
+- `slides/IPE.html` - 20/20 slides complete with 3 working images
+- `docs/IPE.md` - Markdown version with full speaker notes
+
+**Features Complete:**
+- All 20 slides with comprehensive IPE content
+- Slate Gray branding (#475569, #64748B, #334155)
+- Speaker notes (200-500+ words per slide)
+- 3 Unsplash images with proper attribution
+- Complete coverage: curriculum, careers, salaries, trends, AI impact, pros/cons
+
+**Status:** Complete and deployed to GitHub Pages
+
 ---
 
 ### ✅ COMPLETED: Templates for All Branches
@@ -163,11 +194,11 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 1: Core Computer Science & IT (Original Priority)**
 
-**Status: 2/4 Complete**
+**Status: 3/4 Complete**
 
 1. ✅ **CSE** - Computer Science & Engineering (COMPLETED)
 2. ✅ **EC** - Electronics & Communication (COMPLETED)
-3. ❌ **IS** - Information Science (TO DO)
+3. ✅ **IS** - Information Science & Engineering (COMPLETED)
 4. ❌ **IT** - Information Technology (TO DO)
 
 > **Note:** CSE specializations (Data Science, AI/ML, Cyber Security) are NOT treated as separate branches — they are sub-tracks within CSE.
@@ -186,14 +217,14 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Category 3: Core Mechanical & Manufacturing**
 
-**Status: 3/7 Complete**
+**Status: 4/7 Complete**
 
 1. ✅ **ME** - Mechanical Engineering (COMPLETED)
 2. ✅ **Aerospace** - Aerospace Engineering (COMPLETED)
 3. ✅ **Metallurgy** - Metallurgical & Materials Engineering (COMPLETED)
-4. ❌ **Automobile** - Automobile Engineering (TO DO)
-5. ❌ **Marine** - Marine Engineering (TO DO)
-6. ❌ **Production** - Production/Industrial Engineering (TO DO)
+4. ✅ **IPE** - Industrial & Production Engineering (COMPLETED)
+5. ❌ **Automobile** - Automobile Engineering (TO DO)
+6. ❌ **Marine** - Marine Engineering (TO DO)
 7. ❌ **NavalArch** - Naval Architecture & Ocean Engineering (TO DO) *(IIT Kharagpur)*
 
 ---
@@ -255,8 +286,8 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 ---
 
 ## **Total Branches:**
-- **Completed:** 9 (CSE, EC, EE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy)
-- **Remaining:** 22
+- **Completed:** 11 (CSE, EC, EE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy, IS, IPE)
+- **Remaining:** 20
 - **Grand Total:** 31 engineering branches (EC spans Categories 1 & 2, counted once; CSE specializations excluded)
 
 ---
@@ -265,8 +296,7 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 
 ### **Phase 1: Core CS & IT (Priority: HIGH)**
 Remaining Computer Science & IT branches:
-1. IS - Information Science
-2. IT - Information Technology
+1. IT - Information Technology
 
 ### **Phase 2: Core Traditional Branches (Priority: MEDIUM)**
 Popular traditional engineering branches:
@@ -384,7 +414,7 @@ Available at only 1-2 IITs:
 
 ---
 
-**Last Updated:** June 14, 2026  
-**Status:** 9 branches complete (EC, EE, CSE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy) - 22 remaining across 8 categories
+**Last Updated:** June 16, 2026  
+**Status:** 11 branches complete (CSE, EC, EE, ME, CE, Aerospace, Chemical, Biotech, Metallurgy, IS, IPE) - 20 remaining across 8 categories
 
 **For execution workflow, see:** `generic_task.md`
