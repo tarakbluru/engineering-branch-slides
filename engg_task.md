@@ -158,17 +158,30 @@ Create interactive HTML slide decks for engineering branches to help a high scho
 ### ✅ COMPLETED: IPE (Industrial & Production Engineering)
 
 **Files:**
-- `slides/IPE.html` - 20/20 slides complete with 3 working images
-- `docs/IPE.md` - Markdown version with full speaker notes
+- `slides/IPE.html` - 20/20 slides complete with 3 working images (all copyright-free from Unsplash)
+- `docs/IPE.md` - Markdown version with full speaker notes (29,600 words)
+- `resources/IPE_syllabus.md` - Research compilation (25,000 words)
 
 **Features Complete:**
-- All 20 slides with comprehensive IPE content
+- All 20 slides with comprehensive IPE content (zero placeholders)
 - Slate Gray branding (#475569, #64748B, #334155)
 - Speaker notes (200-500+ words per slide)
-- 3 Unsplash images with proper attribution
-- Complete coverage: curriculum, careers, salaries, trends, AI impact, pros/cons
+- 3 Unsplash images with proper attribution:
+  * Factory floor by Lenny Kuhne
+  * Warehouse by Ruchindra Gunasekara
+  * Assembly line by Crystal Kwok
+- Complete coverage: curriculum, careers (₹4-35+ LPA), salaries, trends, AI impact, pros/cons
+- Industry innovations: Amazon robotics, Tesla Gigafactory, Zara supply chain
+- Real-world projects and competitions
+
+**Commits:**
+- Initial markdown documentation and research
+- HTML slide deck creation (f42f32a)
+- Slides 18-20 completion (f6e369e)
+- Slide 17 fixes - Industry Innovations (2525f6a)
 
 **Status:** Complete and deployed to GitHub Pages
+**URL:** https://tarakbluru.github.io/engineering-branch-slides/slides/IPE.html
 
 ---
 
