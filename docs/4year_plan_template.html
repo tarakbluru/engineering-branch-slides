@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A 4-Year T-Shaped Project Plan for [BRANCH_NAME] students - strategic guide to building depth while maintaining breadth">
+    <meta name="keywords" content="[BRANCH_NAME], career planning, T-shaped engineer, college strategy, specialization">
+    <meta name="author" content="Engineering Career Guides">
+    <title>4-Year Plan: [BRANCH_NAME] | T-Shaped Strategy</title>
+
+    <style>
+        /* ============================================
+           CSS Variables - Customize per branch
+           ============================================ */
+        :root {
+            --primary-color: [PRIMARY_COLOR];      /* e.g., #0066CC for CSE */
+            --secondary-color: [SECONDARY_COLOR];  /* e.g., #3399FF */
+            --accent-color: [ACCENT_COLOR];        /* e.g., #004C99 */
+            --text-color: #1a1a1a;
+            --bg-color: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --max-width: 800px;
+        }
+
+        /* ============================================
+           Base Styles
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 17px;
+        }
+
+        /* ============================================
+           Layout Container
+           ============================================ */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ============================================
+           Header
+           ============================================ */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           Table of Contents
+           ============================================ */
+        .toc {
+            background: var(--gray-100);
+            border-left: 4px solid var(--primary-color);
+            padding: 25px 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .toc h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--gray-900);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc ul li {
+            margin: 10px 0;
+        }
+
+        .toc ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .toc ul li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Nested TOC items */
+        .toc ul ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .toc ul ul li {
+            margin: 6px 0;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           Typography
+           ============================================ */
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-top: 60px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-300);
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: var(--gray-900);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        em {
+            color: var(--gray-700);
+        }
+
+        /* ============================================
+           Lists
+           ============================================ */
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        /* ============================================
+           Blockquote (for "The Real Test" section)
+           ============================================ */
+        blockquote {
+            background: var(--gray-100);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--gray-700);
+        }
+
+        blockquote strong {
+            color: var(--gray-900);
+            font-style: normal;
+        }
+
+        /* ============================================
+           Tables (for Verticals)
+           ============================================ */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        thead {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        tbody tr:hover {
+            background: var(--gray-100);
+        }
+
+        /* ============================================
+           Highlight Boxes
+           ============================================ */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           Warning/Reminder Boxes
+           ============================================ */
+        .reminder-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .reminder-box h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+
+        .reminder-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           Year Sections
+           ============================================ */
+        .year-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: var(--gray-100);
+            border-radius: 6px;
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .year-section h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .year-goal {
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 15px;
+        }
+
+        .year-takeaway {
+            background: white;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .year-takeaway strong {
+            color: var(--accent-color);
+        }
+
+        /* ============================================
+           Links
+           ============================================ */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* ============================================
+           Footer
+           ============================================ */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid var(--gray-300);
+            text-align: center;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        /* ============================================
+           Back to Top Button
+           ============================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+        }
+
+        /* ============================================
+           Print Styles
+           ============================================ */
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+
+            .back-to-top {
+                display: none;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            .year-section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ============================================
+           Responsive Design
+           ============================================ */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header .subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Becoming T-Shaped: A 4-Year Plan for [BRANCH_NAME]</h1>
+            <p class="subtitle">A roadmap for turning a broad, multidisciplinary degree into a real specialization — written for a [BRANCH_NAME] undergraduate, with guidance for post-graduation paths.</p>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#why-this-exists">Why This Document Exists</a></li>
+                <li><a href="#t-shaped-model">The T-Shaped Model, Explained Simply</a></li>
+                <li><a href="#test-of-depth">The Real Test of Depth</a></li>
+                <li><a href="#choosing-vertical">Choosing Your Vertical (Pick One Lane)</a></li>
+                <li><a href="#year-by-year">Year-by-Year Plan</a>
+                    <ul>
+                        <li><a href="#year-1">Year 1 — Explore Honestly</a></li>
+                        <li><a href="#year-2">Year 2 — Narrow Down</a></li>
+                        <li><a href="#year-3">Year 3 — Go Deep, On Purpose</a></li>
+                        <li><a href="#year-4">Year 4 — Prove It</a></li>
+                    </ul>
+                </li>
+                <li><a href="#what-comes-after">What Comes After: Job vs. M.Tech vs. Both</a></li>
+                <li><a href="#honest-reminders">A Few Honest Reminders</a></li>
+                <li><a href="#resources">Branch-Specific Resources</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Section 1: Why This Document Exists -->
+            <section id="why-this-exists">
+                <h2>Why This Document Exists</h2>
+
+                <p><strong>Think of your 4 years as a project</strong> — the most important project you'll work on during college. The deliverable isn't a grade sheet. It's <em>you</em> — specifically, a version of you who can do something difficult that most people cannot.</p>
+
+                <p>[BRANCH_NAME] is [DESCRIBE_BRANCH_APPEAL - 1-2 sentences on what makes this exciting]. It's also one of the easiest to get <em>wrong</em> — not because the subject is bad, but because [DESCRIBE_BRANCH_CHALLENGE - what structural challenge does this branch face?].</p>
+
+                <p>[EXPLAIN_SPECIFIC_RISK - Give a concrete example: "Spend four years doing X without Y, and you graduate knowing the names of Z but being good at none." Make it visceral and specific to this branch.]</p>
+
+                <p>That's a real structural risk. Spend four years sampling a little bit of everything, and you can graduate knowing the <em>names</em> of many things and being <em>good</em> at none of them. Recruiters and interviewers can tell the difference immediately — and so can the work itself, the moment it gets hard.</p>
+
+                <p>The good news: this outcome is avoidable, and it's avoidable by you, not by the college. The fix has a name — the <strong>T-Shaped Model</strong> — and it's simple enough to actually use.</p>
+            </section>
+
+            <!-- Section 2: T-Shaped Model -->
+            <section id="t-shaped-model">
+                <h2>The T-Shaped Model, Explained Simply</h2>
+
+                <p>Picture the letter T.</p>
+
+                <ul>
+                    <li><strong>The horizontal bar</strong> is breadth — a working, conversational understanding of many areas. [LIST_BREADTH_AREAS - List 4-6 key areas this branch covers]. Enough to talk to anyone on a team and understand how the pieces fit together.</li>
+                    <li><strong>The vertical bar</strong> is depth — one area where you are genuinely, defensibly good. Good enough to be the person your teammates come to. Good enough to survive 45 minutes of hard technical questioning on just that one topic without running out of real things to say.</li>
+                </ul>
+
+                <p>Most strong engineers are T-shaped, not rectangles (good at everything, deep at nothing) and not pure lines (deep at one thing, unable to talk to anyone outside it). The danger in a [BRANCH_NAME] degree is that the curriculum hands you the horizontal bar automatically — by design, every semester. <strong>It does not hand you the vertical bar. You have to build that yourself.</strong></p>
+
+                <p>This document is a year-by-year plan to make sure you build one.</p>
+            </section>
+
+            <!-- Section 3: The Real Test -->
+            <section id="test-of-depth">
+                <h2>The Real Test of Depth</h2>
+
+                <p>Before the year-by-year plan, here is the one question to keep coming back to:</p>
+
+                <blockquote>
+                    <strong>Could I survive 45 minutes of someone pushing hard on just this one topic — asking me to derive it, debug it, or extend it to a new situation — without running out of real things to say?</strong>
+                </blockquote>
+
+                <p>If yes, that's depth.<br>
+                If you can describe <em>what</em> the topic is but not work confidently <em>inside</em> it, that's still breadth, no matter how interesting it feels.</p>
+
+                <p>Use this test every year to check whether you're actually specializing or just collecting topics.</p>
+            </section>
+
+            <!-- Section 4: Choosing Your Vertical -->
+            <section id="choosing-vertical">
+                <h2>Choosing Your Vertical (Pick One Lane)</h2>
+
+                <p>"[BRANCH_NAME]" is not a specialization — it's a field. The real choices, the ones companies and labs actually hire and admit for, are narrower:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vertical</th>
+                            <th>What it actually means</th>
+                            <th>Where it shows up</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>[VERTICAL_1_NAME]</strong></td>
+                            <td>[VERTICAL_1_DESCRIPTION]</td>
+                            <td>[VERTICAL_1_APPLICATIONS]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[VERTICAL_2_NAME]</strong></td>
+                            <td>[VERTICAL_2_DESCRIPTION]</td>
+                            <td>[VERTICAL_2_APPLICATIONS]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[VERTICAL_3_NAME]</strong></td>
+                            <td>[VERTICAL_3_DESCRIPTION]</td>
+                            <td>[VERTICAL_3_APPLICATIONS]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[VERTICAL_4_NAME]</strong></td>
+                            <td>[VERTICAL_4_DESCRIPTION]</td>
+                            <td>[VERTICAL_4_APPLICATIONS]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[VERTICAL_5_NAME]</strong></td>
+                            <td>[VERTICAL_5_DESCRIPTION]</td>
+                            <td>[VERTICAL_5_APPLICATIONS]</td>
+                        </tr>
+                        <!-- Add VERTICAL_6 row if needed -->
+                    </tbody>
+                </table>
+
+                <p>You don't need to choose in year 1. You <strong>do</strong> need to have chosen by the start of year 3. Sampling is healthy early; sampling forever is the trap.</p>
+            </section>
+
+            <!-- Section 5: Year-by-Year Plan -->
+            <section id="year-by-year">
+                <h2>Year-by-Year Plan</h2>
+
+                <!-- Year 1 -->
+                <div class="year-section" id="year-1">
+                    <h3>Year 1 — Explore Honestly</h3>
+
+                    <p class="year-goal"><strong>Goal:</strong> Notice what you're naturally <em>better</em> at than your classmates — not what's easiest, what you're better at.</p>
+
+                    <ul>
+                        <li>Take the core courses seriously: [LIST_YEAR_1_FOUNDATIONS]. These are the foundation every vertical sits on. Weakness here will limit you later no matter what you specialize in.</li>
+                        <li>Try a small project in 2–3 different areas [SUGGEST_STARTER_PROJECTS]. The goal isn't mastery — it's data about yourself.</li>
+                        <li>Pay attention to where time disappears in a good way — where you keep going past what was assigned because you wanted to know more.</li>
+                        <li>It is completely fine to not know your lane yet. It is <em>not</em> fine to still not know by year 3.</li>
+                    </ul>
+
+                    <div class="year-takeaway">
+                        <strong>By the end of this year, answer for yourself:</strong> <em>"What's the one thing I'm better at than most people in my batch?"</em> Even a tentative answer is enough to act on.
+                    </div>
+                </div>
+
+                <!-- Year 2 -->
+                <div class="year-section" id="year-2">
+                    <h3>Year 2 — Narrow Down</h3>
+
+                    <p class="year-goal"><strong>Goal:</strong> Stop sampling broadly. Start stacking in one direction.</p>
+
+                    <ul>
+                        <li>Choose your professional electives from <strong>one</strong> vertical, not one of each. [ELECTIVE_EXAMPLE].</li>
+                        <li>Go deeper into the math specific to your chosen vertical [MATH_EXAMPLES].</li>
+                        <li>Start a personal project — small, but entirely yours — <em>in</em> your chosen vertical. Not a tutorial clone. Something with a real, specific problem you had to think through.</li>
+                        <li>If your college has competitions, clubs, or research groups in this area, join one now. Depth grows faster around other people doing the same hard thing.</li>
+                    </ul>
+
+                    <div class="year-takeaway">
+                        <strong>By the end of this year, you should be able to say:</strong> <em>"I'm the person in my friend group who's actually good at ___."</em> Not "I do [BRANCH_NAME]" — something specific.
+                    </div>
+                </div>
+
+                <!-- Year 3 -->
+                <div class="year-section" id="year-3">
+                    <h3>Year 3 — Go Deep, On Purpose</h3>
+
+                    <p class="year-goal"><strong>Goal:</strong> Build real fluency through sustained, narrow work — not another survey.</p>
+
+                    <ul>
+                        <li>Seek an internship or a research position where you work under <strong>one mentor</strong>, on <strong>one hard, unglamorous problem</strong>, for several months. This is the single highest-leverage thing you can do this year. Tutorials and coursework cannot replicate what sustained one-on-one problem-solving builds.</li>
+                        <li>Resist the pull toward "well-rounded" internships that rotate you through three different teams. That's a year-1 move, not a year-3 move.</li>
+                        <li>Keep just enough breadth alive to integrate with the rest of the system [BREADTH_INTEGRATION] — but don't let breadth compete with depth for your best hours.</li>
+                        <li>Start reading [READING_MATERIALS] in your vertical, even if some of it goes over your head at first. This is how you start sounding like someone who knows the field, not someone who took a course in it.</li>
+                    </ul>
+
+                    <div class="year-takeaway">
+                        <strong>By the end of this year, you should be able to:</strong> explain your chosen sub-area to a skeptical senior engineer and hold your ground when they push back.
+                    </div>
+                </div>
+
+                <!-- Year 4 -->
+                <div class="year-section" id="year-4">
+                    <h3>Year 4 — Prove It</h3>
+
+                    <p class="year-goal"><strong>Goal:</strong> Let your capstone be evidence of depth, not a tour of everything you've touched.</p>
+
+                    <ul>
+                        <li>Choose a capstone project that is unambiguously <em>inside</em> your vertical, and <strong>go deep on the hardest sub-problem in it</strong>. [CAPSTONE_GUIDANCE]. If your project naturally touches multiple areas [CROSS_CUTTING_EXPLANATION], be explicit and honest: "I built X myself; I used existing [TOOLS_LIBS_COMPONENTS] for Y and Z." That honesty is a strength, not a weakness — it shows you know exactly where your depth is.</li>
+                        <li>Avoid the project that tries to demonstrate "I can do [AREA_1] AND [AREA_2] AND [AREA_3]." That project signals exactly the "jack of three, master of none" outcome this whole plan is designed to avoid.</li>
+                        <li>Prepare to talk about this project in real depth in interviews and applications — including its failures, what you tried that didn't work, and what you'd do differently. That's what separates a real project from a checkbox.</li>
+                        <li>Decide your next step (see below) with your vertical, not your degree title, as the deciding factor.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 6: What Comes After -->
+            <section id="what-comes-after">
+                <h2>What Comes After: Job vs. M.Tech vs. Both</h2>
+
+                <p>There's no single right answer here — it depends on how clear your vertical feels by year 4, and what kind of work you want to be doing by [FUTURE_YEAR].</p>
+
+                <h3>Option A: Go straight to industry</h3>
+                <p><strong>Best if:</strong> your vertical is something companies are actively hiring for <em>right now</em> [LIST_HOT_VERTICALS], and your year-3/4 projects already demonstrate real fluency.</p>
+                <ul>
+                    <li>Strongest path if you want to be building real [OUTPUT_TYPE] quickly and you learn best on the job.</li>
+                    <li>[INDIAN_INDUSTRY_CONTEXT]</li>
+                    <li>[KEY_RECRUITERS - if applicable]</li>
+                </ul>
+
+                <h3>Option B: M.Tech in your specific vertical</h3>
+                <p><strong>Best if:</strong> your vertical leans research-heavy [RESEARCH_VERTICALS] or you want to work on harder, less-templated problems than most fresher industry roles offer.</p>
+                <ul>
+                    <li>Choose the M.Tech specialization that matches your <em>vertical</em>, not a generic "[BRANCH_NAME]" M.Tech. [MTECH_EXAMPLE].</li>
+                    <li>An M.Tech is also a strong move if you're considering a PhD afterward, or if your undergraduate projects didn't get to go as deep as you wanted — it's a second, more focused shot at building the vertical bar.</li>
+                    <li>Worth deliberately avoiding: doing an M.Tech as a way to "decide later" or to broaden further. If you haven't picked a lane by the time you'd start an M.Tech, the M.Tech should help you go deep in one, not let you keep sampling.</li>
+                </ul>
+
+                <h3>Option C: M.Tech + industry (sequential)</h3>
+                <p><strong>Best if:</strong> you want the credibility and depth of postgraduate work but also want real-world deployment experience before settling into a long-term role.</p>
+                <ul>
+                    <li>Common, low-risk path: 1–2 years of industry first (to test your vertical against real problems and confirm the fit), then M.Tech once you know exactly what you want to go deeper into — rather than the reverse.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>The decision rule that matters most:</strong> choose based on your vertical and how deep you want to go in it — not based on which option sounds more prestigious or safer. A T-shaped engineer with a clear vertical will do well with any of these three paths. A directionless generalist will struggle with all three.</p>
+                </div>
+            </section>
+
+            <!-- Section 7: Honest Reminders -->
+            <section id="honest-reminders">
+                <h2>A Few Honest Reminders</h2>
+
+                <div class="reminder-box">
+                    <ul>
+                        <li><strong>It's okay to be undecided in year 1.</strong> It's a flag worth a real conversation if you're still undecided by year 3.</li>
+                        <li><strong>Math and fundamentals aren't "breadth" — they're the base the T stands on.</strong> Specific tools and frameworks will change by [FUTURE_YEAR] and beyond. [TIMELESS_FUNDAMENTALS] will not. Don't shortchange these even while specializing.</li>
+                        <li><strong>One deep project beats five shallow ones — every time, in every interview, in every application.</strong></li>
+                        <li><strong>The degree gives you breadth by default. Nobody gives you depth. You build it, on purpose, starting now.</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 8: Resources -->
+            <section id="resources">
+                <h2>Branch-Specific Resources</h2>
+
+                <h3>Communities & Forums</h3>
+                <ul>
+                    <li>[COMMUNITIES - List relevant subreddits, Discord servers, Slack communities]</li>
+                    <li>[PROFESSIONAL_BODIES - IEEE, ACM, ASME, etc.]</li>
+                    <li>[STUDENT_CHAPTERS - Student organizations]</li>
+                </ul>
+
+                <h3>Competitions & Challenges</h3>
+                <ul>
+                    <li>[COMPETITIONS - Hackathons, coding contests, design competitions]</li>
+                    <li>[INDUSTRY_CHALLENGES - Company-sponsored challenges]</li>
+                </ul>
+
+                <h3>Online Learning</h3>
+                <ul>
+                    <li>[MOOCS - Recommended online courses]</li>
+                    <li>[YOUTUBE_CHANNELS - Educational YouTube channels]</li>
+                    <li>[TEXTBOOKS - Classic textbooks]</li>
+                </ul>
+
+                <h3>Industry Connections</h3>
+                <ul>
+                    <li>[INTERNSHIP_PROGRAMS - Programs worth targeting]</li>
+                    <li>[TARGET_COMPANIES - Companies known for good training]</li>
+                    <li>[STARTUPS_LABS - Innovation labs, research centers]</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p><em>This document is meant to be revisited — at the end of each year, not just once. Treat the milestones above as honest checkpoints, not a contract.</em></p>
+            <p style="margin-top: 20px;">Part of the Engineering Career Guides series | <a href="../slides/[BRANCH].html">View [BRANCH_NAME] Slide Deck</a></p>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

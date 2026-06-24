@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Becoming T-Shaped — A 4-Year Plan</title>
+<style>
+  :root{
+    --navy:#0f1f33;
+    --navy-deep:#0a1623;
+    --graphite:#1c2b3f;
+    --paper:#f4f1ea;
+    --paper-dim:#e9e4d8;
+    --amber:#d97a2b;
+    --amber-light:#f0a85c;
+    --line:#3a4d68;
+    --ink:#1a1a1a;
+    --slide-w: 1280px;
+    --slide-h: 720px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html,body{
+    background:var(--navy-deep);
+    font-family:"Georgia","DejaVu Serif",serif;
+    color:var(--ink);
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+
+  .deck{
+    height:100vh;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+  }
+
+  .slide{
+    width:100%;
+    min-height:100vh;
+    scroll-snap-align:start;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:48px;
+  }
+
+  .frame{
+    width:100%;
+    max-width:1180px;
+    aspect-ratio:16/9;
+    background:var(--paper);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+    display:flex;
+    flex-direction:column;
+    padding:64px 72px;
+  }
+
+  .frame.dark{
+    background:var(--navy);
+    color:var(--paper);
+  }
+
+  /* blueprint grid texture, subtle */
+  .frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:32px 32px;
+    opacity:0;
+    pointer-events:none;
+  }
+  .frame.dark::before{ opacity:1; }
+
+  .eyebrow{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    font-weight:700;
+    margin-bottom:14px;
+    position:relative;
+    z-index:2;
+  }
+
+  .frame:not(.dark) .eyebrow{ color:#b85a16; }
+
+  h1.slide-title{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:52px;
+    font-weight:700;
+    line-height:1.08;
+    color:var(--navy);
+    max-width:880px;
+    position:relative;
+    z-index:2;
+  }
+  .frame.dark h1.slide-title{ color:var(--paper); }
+
+  h2.slide-title{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:38px;
+    font-weight:700;
+    line-height:1.15;
+    color:var(--navy);
+    position:relative;
+    z-index:2;
+  }
+  .frame.dark h2.slide-title{ color:var(--paper); }
+
+  .subhead{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    color:#4a4a4a;
+    max-width:760px;
+    margin-top:18px;
+    position:relative;
+    z-index:2;
+  }
+  .frame.dark .subhead{ color:#c7d2e0; }
+
+  .body-area{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+  }
+
+  .slide-number{
+    position:absolute;
+    bottom:28px;
+    right:36px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12px;
+    color:#9a9382;
+    letter-spacing:0.05em;
+    z-index:2;
+  }
+  .frame.dark .slide-number{ color:#5d7390; }
+
+  .kicker-line{
+    position:absolute;
+    bottom:28px;
+    left:72px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12px;
+    color:#9a9382;
+    letter-spacing:0.05em;
+    z-index:2;
+  }
+  .frame.dark .kicker-line{ color:#5d7390; }
+
+  /* ============ T-shape signature graphic ============ */
+  .t-shape{
+    position:relative;
+    width:100%;
+    height:100%;
+  }
+  .t-bar-h{
+    position:absolute;
+    background:var(--line);
+    height:14px;
+    border-radius:2px;
+  }
+  .t-bar-v{
+    background:var(--amber);
+    border-radius:2px;
+  }
+
+  /* ============ Title slide ============ */
+  .title-slide{
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:0;
+  }
+  .title-t-graphic{
+    position:absolute;
+    right:-40px;
+    top:-60px;
+    width:480px;
+    height:480px;
+    opacity:0.9;
+  }
+  .title-main{
+    position:relative;
+    z-index:3;
+    max-width:760px;
+  }
+  .title-main .eyebrow{ font-size:14px; }
+  .title-main h1{
+    font-size:58px;
+    line-height:1.1;
+    color:var(--paper);
+    margin-top:10px;
+  }
+  .title-main .tagline{
+    font-size:19px;
+    color:#cdd7e6;
+    margin-top:24px;
+    max-width:620px;
+    line-height:1.55;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+  }
+  .title-meta{
+    margin-top:56px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:13px;
+    color:#7d93b0;
+    letter-spacing:0.04em;
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding-top:18px;
+    max-width:460px;
+  }
+
+  /* ============ Two-column layout ============ */
+  .two-col{
+    display:flex;
+    flex-direction:row;
+    gap:48px;
+    align-items:center;
+    flex:1;
+  }
+  .two-col > *{
+    flex:1;
+    min-width:0;
+  }
+  .two-col.top-align{
+    align-items:flex-start;
+    flex:0;
+    margin-top:28px;
+  }
+  .col-text p, .col-text li{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    color:#333;
+  }
+  .frame.dark .col-text p, .frame.dark .col-text li{ color:#dbe3ee; }
+
+  /* ============ Bar / breadth-depth diagram ============ */
+  .bd-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin:14px 0;
+  }
+  .bd-label{
+    width:120px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--navy);
+    text-align:right;
+    flex-shrink:0;
+  }
+  .bd-track{
+    flex:1;
+    height:46px;
+    background:var(--paper-dim);
+    border-radius:6px;
+    position:relative;
+    overflow:hidden;
+  }
+  .bd-fill{
+    position:absolute;
+    top:0; left:0; bottom:0;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    padding-left:16px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:white;
+  }
+
+  /* ============ Cards ============ */
+  .card-row{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    flex:1;
+    justify-content:center;
+  }
+  .card{
+    background:white;
+    border:1px solid #ddd6c4;
+    border-radius:4px;
+    padding:22px 26px;
+    position:relative;
+  }
+  .frame.dark .card{
+    background:rgba(255,255,255,0.045);
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .card-title{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-weight:700;
+    font-size:19px;
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  .frame.dark .card-title{ color:var(--amber-light); }
+  .card-body{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:14px;
+    line-height:1.55;
+    color:#444;
+  }
+  .frame.dark .card-body{ color:#c7d2e0; }
+  .card-tag{
+    display:inline-block;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:8px;
+  }
+
+  /* ============ Vertical chooser (5 lanes) ============ */
+  .lanes{
+    display:flex;
+    flex-direction:row;
+    gap:14px;
+    flex:1;
+    align-items:stretch;
+  }
+  .lane{ flex:1; min-width:0; }
+  .lane{
+    background:white;
+    border:1px solid #ddd6c4;
+    border-radius:4px;
+    padding:18px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-height:340px;
+  }
+  .lane-num{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:11px;
+    font-weight:700;
+    color:var(--amber);
+    letter-spacing:0.04em;
+  }
+  .lane-title{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-weight:700;
+    font-size:16px;
+    color:var(--navy);
+    line-height:1.25;
+  }
+  .lane-desc{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12.5px;
+    line-height:1.5;
+    color:#4a4a4a;
+    flex:1;
+  }
+  .lane-where{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:11.5px;
+    color:#8a8470;
+    border-top:1px solid #e3ddcc;
+    padding-top:8px;
+    line-height:1.45;
+  }
+
+  /* ============ Year timeline marker ============ */
+  .year-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:8px;
+  }
+  .year-num{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:64px;
+    font-weight:700;
+    color:var(--amber);
+    line-height:1;
+  }
+  .year-meta{
+    display:flex;
+    flex-direction:column;
+  }
+  .year-of{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:#8a8470;
+  }
+  .year-goal{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy);
+    max-width:520px;
+  }
+
+  .progress-track{
+    display:flex;
+    gap:6px;
+    margin-top:6px;
+  }
+  .progress-seg{
+    flex:1;
+    height:6px;
+    border-radius:3px;
+    background:#e3ddcc;
+  }
+  .progress-seg.filled{ background:var(--amber); }
+
+  ul.plain{
+    list-style:none;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+  }
+  ul.plain li{
+    position:relative;
+    padding-left:22px;
+    margin:9px 0;
+    font-size:15.5px;
+    line-height:1.55;
+  }
+  ul.plain li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:9px;
+    width:7px;
+    height:7px;
+    background:var(--amber);
+    border-radius:50%;
+  }
+
+  .callout-box{
+    background:var(--navy);
+    color:var(--paper);
+    border-radius:4px;
+    padding:18px 22px;
+    margin-top:18px;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:14.5px;
+    line-height:1.5;
+  }
+  .callout-box strong{ color:var(--amber-light); }
+  .frame.dark .callout-box{
+    background:rgba(217,122,43,0.14);
+    border:1px solid rgba(217,122,43,0.35);
+  }
+
+  /* ============ Path option cards (job/mtech/both) ============ */
+  .path-grid{
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+    flex:1;
+    align-items:stretch;
+  }
+  .path-card{ flex:1; min-width:0; }
+  .path-card{
+    background:white;
+    border-radius:4px;
+    padding:24px 22px;
+    border:1px solid #ddd6c4;
+    display:flex;
+    flex-direction:column;
+  }
+  .path-letter{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:13px;
+    font-weight:700;
+    color:var(--amber);
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+  }
+  .path-title{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:19px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  .path-best{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12px;
+    font-weight:700;
+    color:#8a8470;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:4px;
+  }
+  .path-best-text{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:13.5px;
+    line-height:1.5;
+    color:#444;
+    margin-bottom:14px;
+  }
+  .path-notes{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:12.5px;
+    line-height:1.55;
+    color:#555;
+    flex:1;
+    list-style:none;
+  }
+  .path-notes li{ margin-bottom:8px; padding-left:16px; position:relative; }
+  .path-notes li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--amber);
+  }
+
+  /* ============ Closing slide ============ */
+  .closing-frame{
+    background:var(--navy);
+    color:var(--paper);
+    justify-content:flex-start;
+    padding-top:96px;
+  }
+  .reminder-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:30px;
+  }
+  .reminder-item{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .reminder-mark{
+    font-family:"Georgia","DejaVu Serif",serif;
+    font-size:24px;
+    color:var(--amber-light);
+    font-weight:700;
+    line-height:1;
+    flex-shrink:0;
+    width:40px;
+  }
+  .reminder-text{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    color:#dbe3ee;
+    max-width:760px;
+  }
+  .reminder-text strong{ color:var(--paper); }
+
+  /* nav hint */
+  .nav-hint{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-size:11px;
+    color:rgba(244,241,234,0.45);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    z-index:50;
+    pointer-events:none;
+  }
+
+  @media print{
+    .nav-hint{ display:none; }
+    .deck{ height:auto; overflow:visible; }
+    .slide{ min-height:auto; height:100vh; page-break-after:always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 — TITLE -->
+  <section class="slide">
+    <div class="frame dark title-slide">
+      <svg class="title-t-graphic" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="90" width="400" height="16" rx="3" fill="#3a4d68"/>
+        <rect x="218" y="90" width="44" height="320" rx="3" fill="#d97a2b"/>
+      </svg>
+      <div class="title-main">
+        <div class="eyebrow">A Career Plan for Robotics &amp; AI</div>
+        <h1>Becoming<br>T-Shaped</h1>
+        <div class="tagline">A 4-year roadmap for turning a broad, multidisciplinary degree into one real, defensible specialization — built for the way the field actually hires.</div>
+        <div class="title-meta">PREPARED FOR A ROBOTICS &amp; AI UNDERGRADUATE &nbsp;·&nbsp; INCLUDES JOB &amp; M.TECH PATHS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2 — WHY THIS MATTERS -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Why This Plan Exists</div>
+      <h2 class="slide-title">A degree built from three<br>other degrees</h2>
+      <div class="two-col" style="margin-top:34px;">
+        <div class="col-text">
+          <p style="margin-bottom:14px;">Robotics &amp; AI stitches together Mechanical Engineering, Electrical Engineering, and Computer Science into one four-year program.</p>
+          <p style="margin-bottom:14px;">That's a real structural risk. Spend four years sampling a little of everything, and it's possible to graduate knowing the <em>names</em> of many things — and being genuinely good at none of them.</p>
+          <p>Recruiters and interviewers notice instantly. So does the work, the moment it gets hard.</p>
+        </div>
+        <div>
+          <div class="bd-row">
+            <div class="bd-label">Mechanical</div>
+            <div class="bd-track"><div class="bd-fill" style="width:55%; background:#5d7390;">Survey-level</div></div>
+          </div>
+          <div class="bd-row">
+            <div class="bd-label">Electrical</div>
+            <div class="bd-track"><div class="bd-fill" style="width:50%; background:#5d7390;">Survey-level</div></div>
+          </div>
+          <div class="bd-row">
+            <div class="bd-label">Comp. Science</div>
+            <div class="bd-track"><div class="bd-fill" style="width:58%; background:#5d7390;">Survey-level</div></div>
+          </div>
+          <div class="bd-row">
+            <div class="bd-label">AI / ML</div>
+            <div class="bd-track"><div class="bd-fill" style="width:52%; background:#5d7390;">Survey-level</div></div>
+          </div>
+          <div class="callout-box" style="margin-top:24px;">The good news: this outcome is <strong>avoidable</strong> — and it's avoidable by her, not by the college.</div>
+        </div>
+      </div>
+      <div class="slide-number">02</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 — THE T-SHAPED MODEL -->
+  <section class="slide">
+    <div class="frame dark">
+      <div class="eyebrow">The Model</div>
+      <h2 class="slide-title">Picture the letter T</h2>
+      <div class="two-col" style="margin-top:20px;">
+        <div class="col-text">
+          <p style="margin-bottom:16px;"><strong style="color:#f0a85c;">The horizontal bar</strong> is breadth — a working, conversational grasp of many areas. Enough to talk to anyone on a team and see how the pieces connect.</p>
+          <p style="margin-bottom:16px;"><strong style="color:#f0a85c;">The vertical bar</strong> is depth — one area where she is genuinely, defensibly good. Good enough that teammates come to her.</p>
+          <p>The curriculum hands her the horizontal bar automatically, every semester. <strong>It does not hand her the vertical bar. She has to build that herself.</strong></p>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 360 320" width="100%" style="max-width:340px;">
+            <rect x="20" y="40" width="320" height="22" rx="4" fill="#3a4d68"/>
+            <text x="180" y="30" text-anchor="middle" fill="#9fb3cc" font-family="Helvetica Neue, Arial" font-size="12" letter-spacing="1">BREADTH — MANY AREAS, WORKING KNOWLEDGE</text>
+            <rect x="159" y="62" width="42" height="220" rx="4" fill="#d97a2b"/>
+            <text x="180" y="306" text-anchor="middle" fill="#f0a85c" font-family="Helvetica Neue, Arial" font-size="12" font-weight="700" letter-spacing="1">DEPTH — ONE AREA, REAL FLUENCY</text>
+          </svg>
+        </div>
+      </div>
+      <div class="slide-number">03</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 — THE 45 MINUTE TEST -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">The Honest Check</div>
+      <h2 class="slide-title">The 45-minute test</h2>
+      <div class="body-area" style="align-items:center;">
+        <div style="max-width:760px; text-align:center; margin:0 auto;">
+          <p style="font-family:Georgia,serif; font-size:27px; line-height:1.45; color:var(--navy); font-style:italic; margin-bottom:28px;">
+            "Could I survive 45 minutes of someone pushing hard on just this one topic — asking me to derive it, debug it, or extend it to a new situation — without running out of real things to say?"
+          </p>
+          <div class="two-col" style="grid-template-columns:1fr 1fr; gap:28px; margin-top:10px;">
+            <div class="card">
+              <div class="card-tag" style="color:#1a7a4a;">YES → DEPTH</div>
+              <div class="card-body">She can work <em>inside</em> the topic — extend it, debug it, push back on it.</div>
+            </div>
+            <div class="card">
+              <div class="card-tag" style="color:#b8590a;">NO → STILL BREADTH</div>
+              <div class="card-body">She can describe <em>what</em> it is, but not operate confidently within it — however interesting it feels.</div>
+            </div>
+          </div>
+          <p style="margin-top:26px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:14.5px; color:#666;">Run this test every year to check whether she's specializing — or just collecting topics.</p>
+        </div>
+      </div>
+      <div class="slide-number">04</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 — CHOOSING THE VERTICAL -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Step One</div>
+      <h2 class="slide-title" style="font-size:32px;">"Robotics" is a field, not a specialization — pick one lane</h2>
+      <div class="lanes" style="margin-top:26px;">
+        <div class="lane">
+          <div class="lane-num">01</div>
+          <div class="lane-title">Perception</div>
+          <div class="lane-desc">Computer vision, sensor fusion, SLAM.</div>
+          <div class="lane-where">Self-driving systems, drones, AR/VR</div>
+        </div>
+        <div class="lane">
+          <div class="lane-num">02</div>
+          <div class="lane-title">Control &amp; Dynamics</div>
+          <div class="lane-desc">Kinematics, PID/MPC, the math of motion.</div>
+          <div class="lane-where">Industrial arms, legged robots, vehicles</div>
+        </div>
+        <div class="lane">
+          <div class="lane-num">03</div>
+          <div class="lane-title">Planning &amp; Decisions</div>
+          <div class="lane-desc">Path planning, reinforcement learning, multi-agent systems.</div>
+          <div class="lane-where">Warehouse robots, game AI, autonomy</div>
+        </div>
+        <div class="lane">
+          <div class="lane-num">04</div>
+          <div class="lane-title">Manipulation</div>
+          <div class="lane-desc">Grippers, force control, grasping.</div>
+          <div class="lane-where">Factory automation, assistive robotics</div>
+        </div>
+        <div class="lane">
+          <div class="lane-num">05</div>
+          <div class="lane-title">Embedded &amp; Systems</div>
+          <div class="lane-desc">Real-time control, ROS, hardware-software integration.</div>
+          <div class="lane-where">Anything that runs on a physical robot</div>
+        </div>
+      </div>
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:#666; margin-top:18px;">No need to choose in year 1. She <strong>does</strong> need to have chosen by the start of year 3.</p>
+      <div class="slide-number">05</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6 — YEAR 1 -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Year-by-Year Plan</div>
+      <div class="year-badge" style="margin-top:8px;">
+        <div class="year-num">01</div>
+        <div class="year-meta">
+          <div class="year-of">YEAR OF FOUR</div>
+          <div class="year-goal">Explore honestly</div>
+        </div>
+      </div>
+      <div class="progress-track" style="max-width:300px;">
+        <div class="progress-seg filled"></div><div class="progress-seg"></div><div class="progress-seg"></div><div class="progress-seg"></div>
+      </div>
+      <div class="two-col top-align">
+        <ul class="plain">
+          <li>Take core courses seriously — math, programming, intro mechanics, electronics. The foundation every vertical sits on.</li>
+          <li>Try a small project in 2–3 different areas. Goal isn't mastery — it's data about herself.</li>
+          <li>Notice where time disappears in a good way — where she keeps going past what was assigned.</li>
+          <li>Fine to not know her lane yet. Not fine to still not know by year 3.</li>
+        </ul>
+        <div class="callout-box">
+          <strong>By year-end, answer:</strong><br>"What's the one thing I'm better at than most people in my batch?" Even a tentative answer is enough to act on.
+        </div>
+      </div>
+      <div class="slide-number">06</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7 — YEAR 2 -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Year-by-Year Plan</div>
+      <div class="year-badge" style="margin-top:8px;">
+        <div class="year-num">02</div>
+        <div class="year-meta">
+          <div class="year-of">YEAR OF FOUR</div>
+          <div class="year-goal">Narrow down</div>
+        </div>
+      </div>
+      <div class="progress-track" style="max-width:300px;">
+        <div class="progress-seg filled"></div><div class="progress-seg filled"></div><div class="progress-seg"></div><div class="progress-seg"></div>
+      </div>
+      <div class="two-col top-align">
+        <ul class="plain">
+          <li>Choose electives from <strong>one</strong> vertical, not one of each — stack toward perception, or controls, not a sampler.</li>
+          <li>Go deeper into the math specific to that vertical (optimization for ML, control theory for dynamics).</li>
+          <li>Start a personal project entirely her own, inside the chosen vertical — not a tutorial clone.</li>
+          <li>Join a club, competition, or research group working in that area. Depth grows faster around others doing the same hard thing.</li>
+        </ul>
+        <div class="callout-box">
+          <strong>By year-end, she should say:</strong><br>"I'm the person in my friend group who's actually good at ___." Not "I do robotics and AI."
+        </div>
+      </div>
+      <div class="slide-number">07</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8 — YEAR 3 -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Year-by-Year Plan</div>
+      <div class="year-badge" style="margin-top:8px;">
+        <div class="year-num">03</div>
+        <div class="year-meta">
+          <div class="year-of">YEAR OF FOUR</div>
+          <div class="year-goal">Go deep, on purpose</div>
+        </div>
+      </div>
+      <div class="progress-track" style="max-width:300px;">
+        <div class="progress-seg filled"></div><div class="progress-seg filled"></div><div class="progress-seg filled"></div><div class="progress-seg"></div>
+      </div>
+      <div class="two-col top-align">
+        <ul class="plain">
+          <li>Seek an internship or research role under <strong>one mentor</strong>, on <strong>one hard problem</strong>, for months. The single highest-leverage move this year.</li>
+          <li>Resist "well-rounded" internships that rotate across three teams — that's a year-1 move, not year-3.</li>
+          <li>Keep just enough breadth to integrate with the rest of the system — don't let it compete with depth for her best hours.</li>
+          <li>Start reading papers in her vertical, even when some of it goes over her head at first.</li>
+        </ul>
+        <div class="callout-box">
+          <strong>By year-end, she should:</strong><br>Explain her sub-area to a skeptical senior engineer — and hold her ground when they push back.
+        </div>
+      </div>
+      <div class="slide-number">08</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9 — YEAR 4 -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">Year-by-Year Plan</div>
+      <div class="year-badge" style="margin-top:8px;">
+        <div class="year-num">04</div>
+        <div class="year-meta">
+          <div class="year-of">YEAR OF FOUR</div>
+          <div class="year-goal">Prove it</div>
+        </div>
+      </div>
+      <div class="progress-track" style="max-width:300px;">
+        <div class="progress-seg filled"></div><div class="progress-seg filled"></div><div class="progress-seg filled"></div><div class="progress-seg filled"></div>
+      </div>
+      <div class="two-col top-align">
+        <ul class="plain">
+          <li>Capstone must sit unambiguously inside her vertical — and go deep on the <strong>hardest sub-problem</strong> in it.</li>
+          <li>If the project naturally touches other areas, say so honestly: "I built X myself; I used existing tools for Y and Z." That's a strength, not a weakness.</li>
+          <li>Avoid the project that tries to prove "I can do mechanical AND electrical AND AI" — that's the jack-of-three outcome this whole plan avoids.</li>
+          <li>Be ready to discuss failures and what she'd do differently — that's what separates a real project from a checkbox.</li>
+        </ul>
+        <div class="callout-box">
+          <strong>Decide what's next</strong> using her vertical — not her degree title — as the deciding factor.
+        </div>
+      </div>
+      <div class="slide-number">09</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10 — WHAT COMES AFTER -->
+  <section class="slide">
+    <div class="frame">
+      <div class="eyebrow">What Comes After</div>
+      <h2 class="slide-title" style="font-size:32px;">Job, M.Tech, or both</h2>
+      <p class="subhead" style="margin-top:6px; margin-bottom:6px;">No single right answer — it depends on how clear the vertical feels by year 4, and the kind of work she wants to be doing by 2030–2032.</p>
+      <div class="path-grid" style="margin-top:14px;">
+        <div class="path-card">
+          <div class="path-letter">OPTION A</div>
+          <div class="path-title">Straight to industry</div>
+          <div class="path-best">Best if</div>
+          <div class="path-best-text">Her vertical is something companies are hiring for <em>right now</em>, and year-3/4 projects already show real fluency.</div>
+          <ul class="path-notes">
+            <li>Strongest path to build real products quickly while learning on the job.</li>
+            <li>Indian robotics firms increasingly hire for narrow, demonstrable skills over generic "robotics" knowledge.</li>
+          </ul>
+        </div>
+        <div class="path-card">
+          <div class="path-letter">OPTION B</div>
+          <div class="path-title">M.Tech in her vertical</div>
+          <div class="path-best">Best if</div>
+          <div class="path-best-text">Her vertical leans research-heavy (planning, RL, advanced perception) or she wants harder, less-templated problems.</div>
+          <ul class="path-notes">
+            <li>Pick the specialization matching her vertical — not a generic "Robotics" M.Tech that repeats the breadth problem.</li>
+            <li>Avoid using an M.Tech to "decide later." It should deepen one lane, not extend sampling.</li>
+          </ul>
+        </div>
+        <div class="path-card">
+          <div class="path-letter">OPTION C</div>
+          <div class="path-title">M.Tech + industry</div>
+          <div class="path-best">Best if</div>
+          <div class="path-best-text">She wants postgraduate depth and credibility, but also real deployment experience first.</div>
+          <ul class="path-notes">
+            <li>Common low-risk path: 1–2 years industry first to confirm the fit, then M.Tech once the direction is clear.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-number">10</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11 — CLOSING / REMINDERS -->
+  <section class="slide">
+    <div class="frame dark closing-frame">
+      <div class="eyebrow">Before You Go</div>
+      <h2 class="slide-title">A few honest reminders</h2>
+      <div class="reminder-list">
+        <div class="reminder-item">
+          <div class="reminder-mark">01</div>
+          <div class="reminder-text"><strong>It's okay to be undecided in year 1.</strong> It's a flag worth a real conversation if still undecided by year 3.</div>
+        </div>
+        <div class="reminder-item">
+          <div class="reminder-mark">02</div>
+          <div class="reminder-text"><strong>Math and fundamentals aren't "breadth"</strong> — they're the base the T stands on. Tools change by 2030; linear algebra and control theory don't.</div>
+        </div>
+        <div class="reminder-item">
+          <div class="reminder-mark">03</div>
+          <div class="reminder-text"><strong>One deep project beats five shallow ones</strong> — every time, in every interview, in every application.</div>
+        </div>
+        <div class="reminder-item">
+          <div class="reminder-mark">04</div>
+          <div class="reminder-text"><strong>The degree gives breadth by default.</strong> Nobody gives depth. She builds it, on purpose, starting now.</div>
+        </div>
+      </div>
+      <div class="slide-number">11</div>
+      <div class="kicker-line">BECOMING T-SHAPED</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav-hint">Scroll or use ↓ / ↑ to navigate</div>
+
+<script>
+  const deck = document.getElementById('deck');
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function scrollToSlide(i){
+    if(i < 0 || i >= slides.length) return;
+    current = i;
+    slides[i].scrollIntoView({behavior:'smooth'});
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if(['ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); scrollToSlide(current+1); }
+    if(['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); scrollToSlide(current-1); }
+  });
+
+  // update current slide index on manual scroll
+  let scrollTimeout;
+  deck.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      let closest = 0, minDist = Infinity;
+      slides.forEach((s, i) => {
+        const dist = Math.abs(s.getBoundingClientRect().top);
+        if(dist < minDist){ minDist = dist; closest = i; }
+      });
+      current = closest;
+    }, 100);
+  });
+</script>
+
+</body>
+</html>
